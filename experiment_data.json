@@ -1,0 +1,2768 @@
+{
+    "metadata": {
+        "concepts": [
+            "time",
+            "place",
+            "tools"
+        ],
+        "generated_at": "2026-01-30T14:13:10.493681",
+        "conceptnet_used": false,
+        "description": {
+            "concept_nodes": "Concept words per category (overlap-free)",
+            "cav_training": "Positive/Negative sentences for CAV extraction",
+            "r1_benchmark": "Multiple-choice hypernym classification (1st test: Dacc)",
+            "r2_benchmark": "Paraphrase pairs for semantic similarity (2nd test: Dsim)"
+        }
+    },
+    "concept_nodes": {
+        "time": {
+            "nodes": [
+                "afternoon",
+                "alarm",
+                "calendar",
+                "century",
+                "clock",
+                "countdown",
+                "dawn",
+                "day",
+                "deadline",
+                "decade",
+                "duration",
+                "dusk",
+                "epoch",
+                "era",
+                "evening",
+                "hour",
+                "instant",
+                "interval",
+                "midnight",
+                "millennium",
+                "minute",
+                "moment",
+                "month",
+                "morning",
+                "night",
+                "noon",
+                "period",
+                "quarter",
+                "schedule",
+                "season",
+                "second",
+                "semester",
+                "stopwatch",
+                "timeline",
+                "week",
+                "weekday",
+                "weekend",
+                "year"
+            ],
+            "hypernym_label": "time",
+            "synonym_pairs": [
+                [
+                    "moment",
+                    "instant"
+                ],
+                [
+                    "duration",
+                    "period"
+                ],
+                [
+                    "clock",
+                    "timepiece"
+                ],
+                [
+                    "era",
+                    "epoch"
+                ],
+                [
+                    "schedule",
+                    "timetable"
+                ],
+                [
+                    "dawn",
+                    "sunrise"
+                ],
+                [
+                    "dusk",
+                    "sunset"
+                ],
+                [
+                    "noon",
+                    "midday"
+                ],
+                [
+                    "midnight",
+                    "twelve o'clock"
+                ],
+                [
+                    "deadline",
+                    "due date"
+                ],
+                [
+                    "decade",
+                    "ten years"
+                ],
+                [
+                    "century",
+                    "hundred years"
+                ],
+                [
+                    "morning",
+                    "forenoon"
+                ],
+                [
+                    "afternoon",
+                    "post meridiem"
+                ],
+                [
+                    "interval",
+                    "gap"
+                ],
+                [
+                    "countdown",
+                    "timer"
+                ]
+            ]
+        },
+        "place": {
+            "nodes": [
+                "airport",
+                "attic",
+                "basement",
+                "bathroom",
+                "bedroom",
+                "bridge",
+                "building",
+                "church",
+                "city",
+                "continent",
+                "country",
+                "desert",
+                "district",
+                "forest",
+                "garden",
+                "hospital",
+                "house",
+                "island",
+                "kitchen",
+                "lake",
+                "library",
+                "mountain",
+                "museum",
+                "neighborhood",
+                "ocean",
+                "office",
+                "park",
+                "province",
+                "river",
+                "road",
+                "room",
+                "school",
+                "station",
+                "street",
+                "territory",
+                "town",
+                "valley",
+                "village"
+            ],
+            "hypernym_label": "place",
+            "synonym_pairs": [
+                [
+                    "city",
+                    "metropolis"
+                ],
+                [
+                    "ocean",
+                    "sea"
+                ],
+                [
+                    "house",
+                    "home"
+                ],
+                [
+                    "road",
+                    "street"
+                ],
+                [
+                    "forest",
+                    "woods"
+                ],
+                [
+                    "country",
+                    "nation"
+                ],
+                [
+                    "building",
+                    "structure"
+                ],
+                [
+                    "lake",
+                    "pond"
+                ],
+                [
+                    "mountain",
+                    "peak"
+                ],
+                [
+                    "garden",
+                    "yard"
+                ],
+                [
+                    "village",
+                    "hamlet"
+                ],
+                [
+                    "island",
+                    "isle"
+                ],
+                [
+                    "desert",
+                    "wasteland"
+                ],
+                [
+                    "room",
+                    "chamber"
+                ],
+                [
+                    "neighborhood",
+                    "district"
+                ],
+                [
+                    "airport",
+                    "airfield"
+                ]
+            ]
+        },
+        "tools": {
+            "nodes": [
+                "axe",
+                "bolt cutter",
+                "brush",
+                "caliper",
+                "chisel",
+                "clamp",
+                "crowbar",
+                "drill",
+                "file",
+                "hacksaw",
+                "hammer",
+                "hoe",
+                "knife",
+                "ladder",
+                "level",
+                "mallet",
+                "pickaxe",
+                "plane",
+                "pliers",
+                "rake",
+                "ruler",
+                "sandpaper",
+                "saw",
+                "scissors",
+                "screwdriver",
+                "shovel",
+                "soldering iron",
+                "spanner",
+                "tape measure",
+                "trowel",
+                "vise",
+                "wheelbarrow",
+                "wire cutter",
+                "wrench"
+            ],
+            "hypernym_label": "tool",
+            "synonym_pairs": [
+                [
+                    "hammer",
+                    "mallet"
+                ],
+                [
+                    "knife",
+                    "blade"
+                ],
+                [
+                    "wrench",
+                    "spanner"
+                ],
+                [
+                    "shovel",
+                    "spade"
+                ],
+                [
+                    "pliers",
+                    "tongs"
+                ],
+                [
+                    "axe",
+                    "hatchet"
+                ],
+                [
+                    "scissors",
+                    "shears"
+                ],
+                [
+                    "saw",
+                    "hacksaw"
+                ],
+                [
+                    "drill",
+                    "bore"
+                ],
+                [
+                    "brush",
+                    "broom"
+                ],
+                [
+                    "chisel",
+                    "gouge"
+                ],
+                [
+                    "ladder",
+                    "stepladder"
+                ],
+                [
+                    "crowbar",
+                    "pry bar"
+                ],
+                [
+                    "clamp",
+                    "grip"
+                ],
+                [
+                    "ruler",
+                    "straightedge"
+                ],
+                [
+                    "file",
+                    "rasp"
+                ]
+            ]
+        }
+    },
+    "cav_training": {
+        "time": {
+            "positive": [
+                "The article focused on the hour extensively.",
+                "The quarter was clearly described in the textbook.",
+                "The article focused on the millennium extensively.",
+                "People often think about the century.",
+                "minute plays an important role in many contexts.",
+                "She described the weekend in great detail.",
+                "The night is fundamental to understanding this topic.",
+                "The discussion was about the dusk.",
+                "The morning is something most people encounter regularly.",
+                "Her essay is focused on the second.",
+                "There is much to learn about dawn.",
+                "hour plays an important role in many contexts.",
+                "A second was the main topic of the discussion.",
+                "The duration is something most people encounter regularly.",
+                "millennium is a basic concept that everyone learns.",
+                "The afternoon is fundamental to understanding this topic.",
+                "The quarter is fundamental to understanding this topic.",
+                "second is a basic concept that everyone learns.",
+                "The week is fundamental to understanding this topic.",
+                "There is much to learn about noon.",
+                "She mentioned the night in her presentation.",
+                "People often think about the alarm.",
+                "There is much to learn about era.",
+                "The dawn is something most people encounter regularly.",
+                "The chapter dedicated to epoch was informative.",
+                "She described the duration in great detail.",
+                "People often think about the stopwatch.",
+                "The century is fundamental to understanding this topic.",
+                "They discussed the period during the lecture.",
+                "The research involves the timeline directly.",
+                "The discussion was about the clock.",
+                "People often think about the second.",
+                "The professor explained the concept of dawn clearly.",
+                "He learned about the instant from his teacher.",
+                "He learned about the evening from his teacher.",
+                "The professor explained the concept of instant clearly.",
+                "The professor explained the concept of year clearly.",
+                "The professor explained the concept of morning clearly.",
+                "She described the clock in great detail.",
+                "The professor explained the concept of week clearly.",
+                "He learned about the semester from his teacher.",
+                "Every period has its own characteristics.",
+                "People often think about the midnight.",
+                "season plays an important role in many contexts.",
+                "A decade was the main topic of the discussion.",
+                "A minute was the main topic of the discussion.",
+                "The dusk was clearly described in the textbook.",
+                "Every epoch has its own characteristics.",
+                "We carefully studied the timeline for the exam.",
+                "The chapter dedicated to day was informative.",
+                "The research involves the quarter directly.",
+                "The chapter dedicated to weekday was informative.",
+                "Every decade has its own characteristics.",
+                "A deadline was the main topic of the discussion.",
+                "A instant was the main topic of the discussion.",
+                "The weekday is fundamental to understanding this topic.",
+                "A season was the main topic of the discussion.",
+                "A calendar was the main topic of the discussion.",
+                "The article focused on the evening extensively.",
+                "She mentioned the moment in her presentation.",
+                "Every century has its own characteristics.",
+                "He learned about the interval from his teacher.",
+                "There is much to learn about millennium.",
+                "The schedule is something most people encounter regularly.",
+                "A duration was the main topic of the discussion.",
+                "The night was clearly described in the textbook.",
+                "There is much to learn about weekend.",
+                "The article focused on the stopwatch extensively.",
+                "The research involves the century directly.",
+                "interval is a basic concept that everyone learns.",
+                "The research involves the minute directly.",
+                "The timeline is something most people encounter regularly.",
+                "The research involves the second directly.",
+                "We carefully studied the decade for the exam.",
+                "She mentioned the countdown in her presentation.",
+                "A year was the main topic of the discussion.",
+                "The era was clearly described in the textbook.",
+                "She described the weekday in great detail.",
+                "The discussion was about the interval.",
+                "alarm is a basic concept that everyone learns.",
+                "People often think about the semester.",
+                "The month is fundamental to understanding this topic.",
+                "She described the evening in great detail.",
+                "decade plays an important role in many contexts.",
+                "A weekend was the main topic of the discussion.",
+                "The research involves the noon directly.",
+                "The chapter dedicated to hour was informative.",
+                "The chapter dedicated to season was informative.",
+                "period is a basic concept that everyone learns.",
+                "The moment was clearly described in the textbook.",
+                "The article focused on the dusk extensively.",
+                "She described the hour in great detail.",
+                "The chapter dedicated to weekend was informative.",
+                "The research involves the afternoon directly.",
+                "The research involves the period directly.",
+                "The professor explained the concept of evening clearly.",
+                "He learned about the clock from his teacher.",
+                "He learned about the year from his teacher.",
+                "She described the calendar in great detail.",
+                "People often think about the morning.",
+                "The research involves the month directly.",
+                "We carefully studied the period for the exam.",
+                "The article focused on the interval extensively.",
+                "The chapter dedicated to week was informative.",
+                "The chapter dedicated to era was informative.",
+                "Every instant has its own characteristics.",
+                "The discussion was about the night.",
+                "The chapter dedicated to morning was informative.",
+                "She described the millennium in great detail.",
+                "A alarm was the main topic of the discussion.",
+                "The semester was clearly described in the textbook.",
+                "We carefully studied the day for the exam.",
+                "The article focused on the deadline extensively.",
+                "The noon was clearly described in the textbook.",
+                "The clock was clearly described in the textbook.",
+                "People often think about the instant.",
+                "She described the afternoon in great detail.",
+                "The discussion was about the timeline.",
+                "Every countdown has its own characteristics.",
+                "The discussion was about the month.",
+                "Her essay is focused on the minute.",
+                "People often think about the quarter.",
+                "They discussed the schedule during the lecture.",
+                "They discussed the deadline during the lecture.",
+                "We carefully studied the dusk for the exam.",
+                "He learned about the morning from his teacher.",
+                "She described the season in great detail.",
+                "They discussed the duration during the lecture.",
+                "He learned about the dusk from his teacher.",
+                "They discussed the night during the lecture.",
+                "weekend plays an important role in many contexts.",
+                "We carefully studied the millennium for the exam.",
+                "He learned about the countdown from his teacher.",
+                "People often think about the deadline.",
+                "She described the era in great detail.",
+                "Every stopwatch has its own characteristics.",
+                "Her essay is focused on the schedule.",
+                "People often think about the weekday.",
+                "She mentioned the semester in her presentation.",
+                "The alarm is something most people encounter regularly.",
+                "moment is a basic concept that everyone learns.",
+                "The chapter dedicated to decade was informative.",
+                "A week was the main topic of the discussion.",
+                "We carefully studied the epoch for the exam.",
+                "The discussion was about the day.",
+                "The minute is something most people encounter regularly.",
+                "There is much to learn about timeline.",
+                "midnight is a basic concept that everyone learns.",
+                "The professor explained the concept of countdown clearly.",
+                "He learned about the epoch from his teacher.",
+                "The chapter dedicated to duration was informative.",
+                "She described the midnight in great detail.",
+                "Her essay is focused on the semester.",
+                "He learned about the midnight from his teacher.",
+                "The professor explained the concept of hour clearly.",
+                "calendar plays an important role in many contexts.",
+                "A dawn was the main topic of the discussion.",
+                "The article focused on the month extensively.",
+                "He learned about the day from his teacher.",
+                "She described the week in great detail.",
+                "The research involves the season directly.",
+                "She mentioned the midnight in her presentation.",
+                "She mentioned the alarm in her presentation.",
+                "The professor explained the concept of quarter clearly.",
+                "day plays an important role in many contexts.",
+                "She mentioned the century in her presentation.",
+                "countdown is a basic concept that everyone learns.",
+                "He learned about the afternoon from his teacher.",
+                "We carefully studied the schedule for the exam.",
+                "The article focused on the moment extensively.",
+                "The schedule is fundamental to understanding this topic.",
+                "He learned about the month from his teacher.",
+                "The deadline is something most people encounter regularly.",
+                "The research involves the year directly.",
+                "They discussed the stopwatch during the lecture.",
+                "The article focused on the dawn extensively.",
+                "Her essay is focused on the interval.",
+                "The afternoon is something most people encounter regularly.",
+                "The calendar is fundamental to understanding this topic.",
+                "The discussion was about the evening.",
+                "A moment was the main topic of the discussion.",
+                "She described the year in great detail.",
+                "The clock is fundamental to understanding this topic.",
+                "Every calendar has its own characteristics.",
+                "A epoch was the main topic of the discussion.",
+                "He learned about the noon from his teacher.",
+                "The noon is something most people encounter regularly.",
+                "People often think about the era.",
+                "The chapter dedicated to stopwatch was informative.",
+                "There is much to learn about weekday."
+            ],
+            "negative": [
+                "The article focused on the molecule extensively.",
+                "The fear was clearly described in the textbook.",
+                "The article focused on the pink extensively.",
+                "People often think about the diamond.",
+                "wisdom plays an important role in many contexts.",
+                "She described the happiness in great detail.",
+                "The concept is fundamental to understanding this topic.",
+                "The discussion was about the angle.",
+                "The butter is something most people encounter regularly.",
+                "Her essay is focused on the empathy.",
+                "There is much to learn about anger.",
+                "coffee plays an important role in many contexts.",
+                "A beauty was the main topic of the discussion.",
+                "The pressure is something most people encounter regularly.",
+                "beauty is a basic concept that everyone learns.",
+                "The justice is fundamental to understanding this topic.",
+                "The pasta is fundamental to understanding this topic.",
+                "fear is a basic concept that everyone learns.",
+                "The diamond is fundamental to understanding this topic.",
+                "There is much to learn about courage.",
+                "She mentioned the dolphin in her presentation.",
+                "People often think about the idea.",
+                "There is much to learn about red.",
+                "The number is something most people encounter regularly.",
+                "The chapter dedicated to tiger was informative.",
+                "She described the scarlet in great detail.",
+                "People often think about the voltage.",
+                "The scarlet is fundamental to understanding this topic.",
+                "They discussed the ceramic during the lecture.",
+                "The research involves the silver directly.",
+                "The discussion was about the tiger.",
+                "People often think about the salt.",
+                "The professor explained the concept of elephant clearly.",
+                "He learned about the symbol from his teacher.",
+                "He learned about the molecule from his teacher.",
+                "The professor explained the concept of justice clearly.",
+                "The professor explained the concept of glass clearly.",
+                "The professor explained the concept of orange clearly.",
+                "She described the eagle in great detail.",
+                "The professor explained the concept of pasta clearly.",
+                "He learned about the coffee from his teacher.",
+                "Every cheese has its own characteristics.",
+                "People often think about the violet.",
+                "concept plays an important role in many contexts.",
+                "A gravity was the main topic of the discussion.",
+                "A violet was the main topic of the discussion.",
+                "The cheese was clearly described in the textbook.",
+                "Every justice has its own characteristics.",
+                "We carefully studied the silk for the exam.",
+                "The chapter dedicated to envy was informative.",
+                "The research involves the gold directly.",
+                "The chapter dedicated to joy was informative.",
+                "Every wolf has its own characteristics.",
+                "A chocolate was the main topic of the discussion.",
+                "A diamond was the main topic of the discussion.",
+                "The anger is fundamental to understanding this topic.",
+                "A turquoise was the main topic of the discussion.",
+                "A gravity was the main topic of the discussion.",
+                "The article focused on the salt extensively.",
+                "She mentioned the indigo in her presentation.",
+                "Every fox has its own characteristics.",
+                "He learned about the value from his teacher.",
+                "There is much to learn about violet.",
+                "The turquoise is something most people encounter regularly.",
+                "A silver was the main topic of the discussion.",
+                "The diamond was clearly described in the textbook.",
+                "There is much to learn about coffee.",
+                "The article focused on the pasta extensively.",
+                "The research involves the scarlet directly.",
+                "violet is a basic concept that everyone learns.",
+                "The research involves the logic directly.",
+                "The blue is something most people encounter regularly.",
+                "The research involves the mustard directly.",
+                "We carefully studied the turquoise for the exam.",
+                "She mentioned the marble in her presentation.",
+                "A courage was the main topic of the discussion.",
+                "The violet was clearly described in the textbook.",
+                "She described the salt in great detail.",
+                "The discussion was about the empathy.",
+                "bronze is a basic concept that everyone learns.",
+                "People often think about the butter.",
+                "The concept is fundamental to understanding this topic.",
+                "She described the molecule in great detail.",
+                "pattern plays an important role in many contexts.",
+                "A fraction was the main topic of the discussion.",
+                "The research involves the cake directly.",
+                "The chapter dedicated to rubber was informative.",
+                "The chapter dedicated to scarlet was informative.",
+                "salt is a basic concept that everyone learns.",
+                "The grief was clearly described in the textbook.",
+                "The article focused on the blue extensively.",
+                "She described the eagle in great detail.",
+                "The chapter dedicated to pepper was informative.",
+                "The research involves the fear directly.",
+                "The research involves the cake directly.",
+                "The professor explained the concept of deer clearly.",
+                "He learned about the lion from his teacher.",
+                "He learned about the courage from his teacher.",
+                "She described the envy in great detail.",
+                "People often think about the value.",
+                "The research involves the elephant directly.",
+                "We carefully studied the rabbit for the exam.",
+                "The article focused on the rice extensively.",
+                "The chapter dedicated to energy was informative.",
+                "The chapter dedicated to elephant was informative.",
+                "Every ceramic has its own characteristics.",
+                "The discussion was about the value.",
+                "The chapter dedicated to cotton was informative.",
+                "She described the freedom in great detail.",
+                "A snake was the main topic of the discussion.",
+                "The horse was clearly described in the textbook.",
+                "We carefully studied the butter for the exam.",
+                "The article focused on the grief extensively.",
+                "The salt was clearly described in the textbook.",
+                "The pink was clearly described in the textbook.",
+                "People often think about the happiness.",
+                "She described the method in great detail.",
+                "The discussion was about the gravity.",
+                "Every violet has its own characteristics.",
+                "The discussion was about the cheese.",
+                "Her essay is focused on the anxiety.",
+                "People often think about the crystal.",
+                "They discussed the deer during the lecture.",
+                "They discussed the lion during the lecture.",
+                "We carefully studied the density for the exam.",
+                "He learned about the balance from his teacher.",
+                "She described the cotton in great detail.",
+                "They discussed the pink during the lecture.",
+                "He learned about the crimson from his teacher.",
+                "They discussed the magenta during the lecture.",
+                "pattern plays an important role in many contexts.",
+                "We carefully studied the value for the exam.",
+                "He learned about the gold from his teacher.",
+                "People often think about the surprise.",
+                "She described the bird in great detail.",
+                "Every wolf has its own characteristics.",
+                "Her essay is focused on the cake.",
+                "People often think about the surprise.",
+                "She mentioned the anxiety in her presentation.",
+                "The idea is something most people encounter regularly.",
+                "density is a basic concept that everyone learns.",
+                "The chapter dedicated to butter was informative.",
+                "A pattern was the main topic of the discussion.",
+                "We carefully studied the pride for the exam.",
+                "The discussion was about the bear.",
+                "The magenta is something most people encounter regularly.",
+                "There is much to learn about logic.",
+                "equation is a basic concept that everyone learns.",
+                "The professor explained the concept of silver clearly.",
+                "He learned about the freedom from his teacher.",
+                "The chapter dedicated to method was informative.",
+                "She described the method in great detail.",
+                "Her essay is focused on the indigo.",
+                "He learned about the fraction from his teacher.",
+                "The professor explained the concept of number clearly.",
+                "molecule plays an important role in many contexts.",
+                "A vinegar was the main topic of the discussion.",
+                "The article focused on the marble extensively.",
+                "He learned about the envy from his teacher.",
+                "She described the crystal in great detail.",
+                "The research involves the theory directly.",
+                "She mentioned the cake in her presentation.",
+                "She mentioned the butter in her presentation.",
+                "The professor explained the concept of deer clearly.",
+                "theory plays an important role in many contexts.",
+                "She mentioned the cat in her presentation.",
+                "scarlet is a basic concept that everyone learns.",
+                "He learned about the empathy from his teacher.",
+                "We carefully studied the blue for the exam.",
+                "The article focused on the indigo extensively.",
+                "The angle is fundamental to understanding this topic.",
+                "He learned about the sadness from his teacher.",
+                "The eagle is something most people encounter regularly.",
+                "The research involves the ceramic directly.",
+                "They discussed the plastic during the lecture.",
+                "The article focused on the proton extensively.",
+                "Her essay is focused on the envy.",
+                "The crystal is something most people encounter regularly.",
+                "The snake is fundamental to understanding this topic.",
+                "The discussion was about the fish.",
+                "A balance was the main topic of the discussion.",
+                "She described the vinegar in great detail.",
+                "The number is fundamental to understanding this topic.",
+                "Every tiger has its own characteristics.",
+                "A empathy was the main topic of the discussion.",
+                "He learned about the honor from his teacher.",
+                "The crystal is something most people encounter regularly.",
+                "People often think about the pride.",
+                "The chapter dedicated to method was informative.",
+                "There is much to learn about anger."
+            ]
+        },
+        "place": {
+            "positive": [
+                "She described the bridge in great detail.",
+                "She described the city in great detail.",
+                "The research involves the bridge directly.",
+                "He learned about the town from his teacher.",
+                "She mentioned the house in her presentation.",
+                "Every country has its own characteristics.",
+                "The article focused on the street extensively.",
+                "The discussion was about the school.",
+                "Every mountain has its own characteristics.",
+                "She mentioned the continent in her presentation.",
+                "He learned about the forest from his teacher.",
+                "She described the attic in great detail.",
+                "He learned about the neighborhood from his teacher.",
+                "The lake is fundamental to understanding this topic.",
+                "He learned about the valley from his teacher.",
+                "The article focused on the hospital extensively.",
+                "He learned about the lake from his teacher.",
+                "She mentioned the room in her presentation.",
+                "The chapter dedicated to garden was informative.",
+                "The country is fundamental to understanding this topic.",
+                "There is much to learn about mountain.",
+                "The discussion was about the street.",
+                "The mountain is fundamental to understanding this topic.",
+                "People often think about the library.",
+                "She mentioned the forest in her presentation.",
+                "He learned about the building from his teacher.",
+                "There is much to learn about station.",
+                "The article focused on the park extensively.",
+                "The discussion was about the airport.",
+                "People often think about the school.",
+                "She described the village in great detail.",
+                "A river was the main topic of the discussion.",
+                "The discussion was about the house.",
+                "Her essay is focused on the lake.",
+                "There is much to learn about ocean.",
+                "A village was the main topic of the discussion.",
+                "She described the building in great detail.",
+                "hospital is a basic concept that everyone learns.",
+                "The professor explained the concept of continent clearly.",
+                "The chapter dedicated to road was informative.",
+                "The research involves the river directly.",
+                "She mentioned the school in her presentation.",
+                "city is a basic concept that everyone learns.",
+                "She mentioned the road in her presentation.",
+                "country plays an important role in many contexts.",
+                "She described the mountain in great detail.",
+                "There is much to learn about desert.",
+                "She described the airport in great detail.",
+                "The ocean is something most people encounter regularly.",
+                "They discussed the ocean during the lecture.",
+                "He learned about the station from his teacher.",
+                "There is much to learn about street.",
+                "She mentioned the lake in her presentation.",
+                "He learned about the street from his teacher.",
+                "The research involves the basement directly.",
+                "The park is something most people encounter regularly.",
+                "The province is something most people encounter regularly.",
+                "There is much to learn about hospital.",
+                "He learned about the kitchen from his teacher.",
+                "The article focused on the office extensively.",
+                "The discussion was about the garden.",
+                "The discussion was about the bedroom.",
+                "The professor explained the concept of river clearly.",
+                "He learned about the island from his teacher.",
+                "Her essay is focused on the desert.",
+                "The article focused on the kitchen extensively.",
+                "The professor explained the concept of station clearly.",
+                "church is a basic concept that everyone learns.",
+                "Every neighborhood has its own characteristics.",
+                "She described the park in great detail.",
+                "The professor explained the concept of island clearly.",
+                "Every valley has its own characteristics.",
+                "Every city has its own characteristics.",
+                "The article focused on the island extensively.",
+                "The professor explained the concept of church clearly.",
+                "The attic is something most people encounter regularly.",
+                "She mentioned the bathroom in her presentation.",
+                "Her essay is focused on the museum.",
+                "People often think about the hospital.",
+                "People often think about the bedroom.",
+                "There is much to learn about continent.",
+                "The discussion was about the bathroom.",
+                "library plays an important role in many contexts.",
+                "Her essay is focused on the territory.",
+                "They discussed the building during the lecture.",
+                "They discussed the district during the lecture.",
+                "The article focused on the district extensively.",
+                "The article focused on the country extensively.",
+                "The ocean was clearly described in the textbook.",
+                "She described the forest in great detail.",
+                "A church was the main topic of the discussion.",
+                "The professor explained the concept of kitchen clearly.",
+                "She described the district in great detail.",
+                "The bathroom was clearly described in the textbook.",
+                "province plays an important role in many contexts.",
+                "The neighborhood is something most people encounter regularly.",
+                "We carefully studied the desert for the exam.",
+                "There is much to learn about basement.",
+                "He learned about the bridge from his teacher.",
+                "The discussion was about the basement.",
+                "She mentioned the country in her presentation.",
+                "They discussed the province during the lecture.",
+                "She mentioned the airport in her presentation.",
+                "The chapter dedicated to school was informative.",
+                "The research involves the church directly.",
+                "The chapter dedicated to valley was informative.",
+                "The discussion was about the kitchen.",
+                "A building was the main topic of the discussion.",
+                "The river is fundamental to understanding this topic.",
+                "There is much to learn about village.",
+                "Her essay is focused on the road.",
+                "The airport was clearly described in the textbook.",
+                "The chapter dedicated to bathroom was informative.",
+                "She mentioned the district in her presentation.",
+                "Every town has its own characteristics.",
+                "People often think about the valley.",
+                "Her essay is focused on the school.",
+                "People often think about the church.",
+                "She described the station in great detail.",
+                "The research involves the bathroom directly.",
+                "The article focused on the garden extensively.",
+                "The professor explained the concept of building clearly.",
+                "The professor explained the concept of territory clearly.",
+                "The territory was clearly described in the textbook.",
+                "A lake was the main topic of the discussion.",
+                "The article focused on the desert extensively.",
+                "She mentioned the province in her presentation.",
+                "The office is fundamental to understanding this topic.",
+                "There is much to learn about kitchen.",
+                "The discussion was about the continent.",
+                "The professor explained the concept of basement clearly.",
+                "She described the street in great detail.",
+                "The discussion was about the neighborhood.",
+                "The airport is something most people encounter regularly.",
+                "Every park has its own characteristics.",
+                "She mentioned the village in her presentation.",
+                "The discussion was about the bridge.",
+                "room is a basic concept that everyone learns.",
+                "Her essay is focused on the town.",
+                "A house was the main topic of the discussion.",
+                "He learned about the bedroom from his teacher.",
+                "There is much to learn about neighborhood.",
+                "The discussion was about the attic.",
+                "We carefully studied the river for the exam.",
+                "We carefully studied the library for the exam.",
+                "The garden was clearly described in the textbook.",
+                "The valley is fundamental to understanding this topic.",
+                "mountain plays an important role in many contexts.",
+                "The house was clearly described in the textbook.",
+                "The article focused on the city extensively.",
+                "Her essay is focused on the bridge.",
+                "We carefully studied the town for the exam.",
+                "island plays an important role in many contexts.",
+                "A library was the main topic of the discussion.",
+                "Every island has its own characteristics.",
+                "A station was the main topic of the discussion.",
+                "The chapter dedicated to territory was informative.",
+                "The office is something most people encounter regularly.",
+                "museum is a basic concept that everyone learns.",
+                "We carefully studied the road for the exam.",
+                "The chapter dedicated to continent was informative.",
+                "The professor explained the concept of garden clearly.",
+                "There is much to learn about museum.",
+                "A park was the main topic of the discussion.",
+                "We carefully studied the ocean for the exam.",
+                "A city was the main topic of the discussion.",
+                "Her essay is focused on the village.",
+                "The territory is fundamental to understanding this topic.",
+                "Her essay is focused on the forest.",
+                "attic plays an important role in many contexts.",
+                "The discussion was about the room.",
+                "The road is something most people encounter regularly.",
+                "The desert is fundamental to understanding this topic.",
+                "She described the bedroom in great detail.",
+                "People often think about the attic.",
+                "Her essay is focused on the district.",
+                "He learned about the room from his teacher.",
+                "house is a basic concept that everyone learns.",
+                "The chapter dedicated to museum was informative.",
+                "basement is a basic concept that everyone learns.",
+                "The room was clearly described in the textbook.",
+                "Her essay is focused on the bedroom.",
+                "She described the museum in great detail.",
+                "There is much to learn about office.",
+                "We carefully studied the province for the exam.",
+                "They discussed the office during the lecture.",
+                "The forest is fundamental to understanding this topic.",
+                "She described the library in great detail.",
+                "The professor explained the concept of town clearly.",
+                "The hospital is fundamental to understanding this topic."
+            ],
+            "negative": [
+                "She described the rubber in great detail.",
+                "She described the circle in great detail.",
+                "The research involves the honey directly.",
+                "He learned about the pride from his teacher.",
+                "She mentioned the freedom in her presentation.",
+                "Every logic has its own characteristics.",
+                "The article focused on the method extensively.",
+                "The discussion was about the bread.",
+                "Every dolphin has its own characteristics.",
+                "She mentioned the equation in her presentation.",
+                "He learned about the chocolate from his teacher.",
+                "She described the green in great detail.",
+                "He learned about the pasta from his teacher.",
+                "The happiness is fundamental to understanding this topic.",
+                "He learned about the soup from his teacher.",
+                "The article focused on the idea extensively.",
+                "He learned about the leather from his teacher.",
+                "She mentioned the plastic in her presentation.",
+                "The chapter dedicated to fear was informative.",
+                "The scarlet is fundamental to understanding this topic.",
+                "There is much to learn about glass.",
+                "The discussion was about the gratitude.",
+                "The symbol is fundamental to understanding this topic.",
+                "People often think about the gravity.",
+                "She mentioned the orange in her presentation.",
+                "He learned about the sadness from his teacher.",
+                "There is much to learn about molecule.",
+                "The article focused on the courage extensively.",
+                "The discussion was about the justice.",
+                "People often think about the turquoise.",
+                "She described the wolf in great detail.",
+                "A anxiety was the main topic of the discussion.",
+                "The discussion was about the vinegar.",
+                "Her essay is focused on the happiness.",
+                "There is much to learn about concept.",
+                "A coffee was the main topic of the discussion.",
+                "She described the bread in great detail.",
+                "justice is a basic concept that everyone learns.",
+                "The professor explained the concept of chocolate clearly.",
+                "The chapter dedicated to rice was informative.",
+                "The research involves the red directly.",
+                "She mentioned the salt in her presentation.",
+                "grief is a basic concept that everyone learns.",
+                "She mentioned the wool in her presentation.",
+                "circle plays an important role in many contexts.",
+                "She described the circle in great detail.",
+                "There is much to learn about voltage.",
+                "She described the gold in great detail.",
+                "The soup is something most people encounter regularly.",
+                "They discussed the cotton during the lecture.",
+                "He learned about the electron from his teacher.",
+                "There is much to learn about joy.",
+                "She mentioned the iron in her presentation.",
+                "He learned about the proton from his teacher.",
+                "The research involves the wool directly.",
+                "The diamond is something most people encounter regularly.",
+                "The anxiety is something most people encounter regularly.",
+                "There is much to learn about coffee.",
+                "He learned about the idea from his teacher.",
+                "The article focused on the circle extensively.",
+                "The discussion was about the angle.",
+                "The discussion was about the mustard.",
+                "The professor explained the concept of tiger clearly.",
+                "He learned about the sugar from his teacher.",
+                "Her essay is focused on the rice.",
+                "The article focused on the turquoise extensively.",
+                "The professor explained the concept of iron clearly.",
+                "fraction is a basic concept that everyone learns.",
+                "Every bear has its own characteristics.",
+                "She described the salt in great detail.",
+                "The professor explained the concept of joy clearly.",
+                "Every concept has its own characteristics.",
+                "Every envy has its own characteristics.",
+                "The article focused on the freedom extensively.",
+                "The professor explained the concept of envy clearly.",
+                "The crimson is something most people encounter regularly.",
+                "She mentioned the horse in her presentation.",
+                "Her essay is focused on the atom.",
+                "People often think about the anger.",
+                "People often think about the pattern.",
+                "There is much to learn about quality.",
+                "The discussion was about the snake.",
+                "concept plays an important role in many contexts.",
+                "Her essay is focused on the happiness.",
+                "They discussed the sugar during the lecture.",
+                "They discussed the shame during the lecture.",
+                "The article focused on the pasta extensively.",
+                "The article focused on the coffee extensively.",
+                "The eagle was clearly described in the textbook.",
+                "She described the fear in great detail.",
+                "A sadness was the main topic of the discussion.",
+                "The professor explained the concept of elephant clearly.",
+                "She described the plastic in great detail.",
+                "The pattern was clearly described in the textbook.",
+                "cheese plays an important role in many contexts.",
+                "The honor is something most people encounter regularly.",
+                "We carefully studied the dog for the exam.",
+                "There is much to learn about soup.",
+                "He learned about the deer from his teacher.",
+                "The discussion was about the elephant.",
+                "She mentioned the balance in her presentation.",
+                "They discussed the magenta during the lecture.",
+                "She mentioned the snake in her presentation.",
+                "The chapter dedicated to deer was informative.",
+                "The research involves the theory directly.",
+                "The chapter dedicated to balance was informative.",
+                "The discussion was about the indigo.",
+                "A soup was the main topic of the discussion.",
+                "The bear is fundamental to understanding this topic.",
+                "There is much to learn about wool.",
+                "Her essay is focused on the balance.",
+                "The ceramic was clearly described in the textbook.",
+                "The chapter dedicated to diamond was informative.",
+                "She mentioned the blue in her presentation.",
+                "Every turquoise has its own characteristics.",
+                "People often think about the fraction.",
+                "Her essay is focused on the leather.",
+                "People often think about the cake.",
+                "She described the quality in great detail.",
+                "The research involves the value directly.",
+                "The article focused on the rice extensively.",
+                "The professor explained the concept of bronze clearly.",
+                "The professor explained the concept of curiosity clearly.",
+                "The frequency was clearly described in the textbook.",
+                "A pink was the main topic of the discussion.",
+                "The article focused on the envy extensively.",
+                "She mentioned the pattern in her presentation.",
+                "The equation is fundamental to understanding this topic.",
+                "There is much to learn about justice.",
+                "The discussion was about the bronze.",
+                "The professor explained the concept of butter clearly.",
+                "She described the eagle in great detail.",
+                "The discussion was about the wolf.",
+                "The wool is something most people encounter regularly.",
+                "Every iron has its own characteristics.",
+                "She mentioned the sadness in her presentation.",
+                "The discussion was about the pepper.",
+                "coffee is a basic concept that everyone learns.",
+                "Her essay is focused on the disgust.",
+                "A snake was the main topic of the discussion.",
+                "He learned about the eagle from his teacher.",
+                "There is much to learn about bird.",
+                "The discussion was about the rice.",
+                "We carefully studied the turquoise for the exam.",
+                "We carefully studied the pasta for the exam.",
+                "The copper was clearly described in the textbook.",
+                "The frequency is fundamental to understanding this topic.",
+                "sadness plays an important role in many contexts.",
+                "The grief was clearly described in the textbook.",
+                "The article focused on the wool extensively.",
+                "Her essay is focused on the cat.",
+                "We carefully studied the violet for the exam.",
+                "pink plays an important role in many contexts.",
+                "A butter was the main topic of the discussion.",
+                "Every frequency has its own characteristics.",
+                "A diamond was the main topic of the discussion.",
+                "The chapter dedicated to pepper was informative.",
+                "The violet is something most people encounter regularly.",
+                "electron is a basic concept that everyone learns.",
+                "We carefully studied the purple for the exam.",
+                "The chapter dedicated to freedom was informative.",
+                "The professor explained the concept of rubber clearly.",
+                "There is much to learn about curiosity.",
+                "A empathy was the main topic of the discussion.",
+                "We carefully studied the quality for the exam.",
+                "A empathy was the main topic of the discussion.",
+                "Her essay is focused on the lion.",
+                "The gold is fundamental to understanding this topic.",
+                "Her essay is focused on the pink.",
+                "bear plays an important role in many contexts.",
+                "The discussion was about the bread.",
+                "The snake is something most people encounter regularly.",
+                "The bread is fundamental to understanding this topic.",
+                "She described the fraction in great detail.",
+                "People often think about the electron.",
+                "Her essay is focused on the theory.",
+                "He learned about the rubber from his teacher.",
+                "wolf is a basic concept that everyone learns.",
+                "The chapter dedicated to balance was informative.",
+                "curiosity is a basic concept that everyone learns.",
+                "The coffee was clearly described in the textbook.",
+                "Her essay is focused on the logic.",
+                "She described the cotton in great detail.",
+                "There is much to learn about silk.",
+                "We carefully studied the shame for the exam.",
+                "They discussed the scarlet during the lecture.",
+                "The pattern is fundamental to understanding this topic.",
+                "She described the magenta in great detail.",
+                "The professor explained the concept of electron clearly.",
+                "The blue is fundamental to understanding this topic."
+            ]
+        },
+        "tools": {
+            "positive": [
+                "There is much to learn about trowel.",
+                "The discussion was about the axe.",
+                "He learned about the crowbar from his teacher.",
+                "The shovel is something most people encounter regularly.",
+                "Every pickaxe has its own characteristics.",
+                "The professor explained the concept of bolt cutter clearly.",
+                "The chapter dedicated to rake was informative.",
+                "pliers is a basic concept that everyone learns.",
+                "Every ladder has its own characteristics.",
+                "The article focused on the shovel extensively.",
+                "We carefully studied the brush for the exam.",
+                "The spanner is something most people encounter regularly.",
+                "A wheelbarrow was the main topic of the discussion.",
+                "She mentioned the file in her presentation.",
+                "The ruler is something most people encounter regularly.",
+                "He learned about the file from his teacher.",
+                "A pliers was the main topic of the discussion.",
+                "The article focused on the hoe extensively.",
+                "A scissors was the main topic of the discussion.",
+                "The caliper was clearly described in the textbook.",
+                "They discussed the plane during the lecture.",
+                "People often think about the drill.",
+                "We carefully studied the hammer for the exam.",
+                "The discussion was about the crowbar.",
+                "The saw is fundamental to understanding this topic.",
+                "People often think about the soldering iron.",
+                "He learned about the hoe from his teacher.",
+                "Her essay is focused on the chisel.",
+                "The chapter dedicated to spanner was informative.",
+                "Every wrench has its own characteristics.",
+                "He learned about the pickaxe from his teacher.",
+                "She described the saw in great detail.",
+                "She described the wrench in great detail.",
+                "They discussed the scissors during the lecture.",
+                "hoe plays an important role in many contexts.",
+                "Her essay is focused on the saw.",
+                "He learned about the sandpaper from his teacher.",
+                "He learned about the vise from his teacher.",
+                "The pliers is something most people encounter regularly.",
+                "She mentioned the soldering iron in her presentation.",
+                "screwdriver is a basic concept that everyone learns.",
+                "The chapter dedicated to knife was informative.",
+                "We carefully studied the sandpaper for the exam.",
+                "The chapter dedicated to saw was informative.",
+                "The ruler is fundamental to understanding this topic.",
+                "The axe was clearly described in the textbook.",
+                "They discussed the brush during the lecture.",
+                "The hacksaw is something most people encounter regularly.",
+                "We carefully studied the soldering iron for the exam.",
+                "There is much to learn about screwdriver.",
+                "The article focused on the hacksaw extensively.",
+                "There is much to learn about caliper.",
+                "He learned about the spanner from his teacher.",
+                "She described the shovel in great detail.",
+                "The chapter dedicated to crowbar was informative.",
+                "There is much to learn about clamp.",
+                "level plays an important role in many contexts.",
+                "Her essay is focused on the knife.",
+                "tape measure plays an important role in many contexts.",
+                "People often think about the wrench.",
+                "We carefully studied the level for the exam.",
+                "He learned about the ruler from his teacher.",
+                "The pickaxe was clearly described in the textbook.",
+                "There is much to learn about wrench.",
+                "They discussed the mallet during the lecture.",
+                "Her essay is focused on the spanner.",
+                "The article focused on the rake extensively.",
+                "The professor explained the concept of mallet clearly.",
+                "The discussion was about the level.",
+                "She mentioned the scissors in her presentation.",
+                "They discussed the screwdriver during the lecture.",
+                "The chapter dedicated to shovel was informative.",
+                "The article focused on the hammer extensively.",
+                "The research involves the hammer directly.",
+                "The chapter dedicated to level was informative.",
+                "soldering iron is a basic concept that everyone learns.",
+                "pickaxe is a basic concept that everyone learns.",
+                "The chapter dedicated to hoe was informative.",
+                "There is much to learn about axe.",
+                "The discussion was about the pliers.",
+                "The sandpaper is something most people encounter regularly.",
+                "Every vise has its own characteristics.",
+                "People often think about the bolt cutter.",
+                "They discussed the hacksaw during the lecture.",
+                "They discussed the level during the lecture.",
+                "We carefully studied the knife for the exam.",
+                "He learned about the clamp from his teacher.",
+                "Every wire cutter has its own characteristics.",
+                "Her essay is focused on the hacksaw.",
+                "The research involves the caliper directly.",
+                "The article focused on the chisel extensively.",
+                "The scissors is something most people encounter regularly.",
+                "She described the knife in great detail.",
+                "The discussion was about the ruler.",
+                "She described the caliper in great detail.",
+                "They discussed the file during the lecture.",
+                "A drill was the main topic of the discussion.",
+                "The crowbar is fundamental to understanding this topic.",
+                "We carefully studied the rake for the exam.",
+                "The article focused on the vise extensively.",
+                "A rake was the main topic of the discussion.",
+                "shovel is a basic concept that everyone learns.",
+                "The discussion was about the drill.",
+                "clamp is a basic concept that everyone learns.",
+                "She mentioned the axe in her presentation.",
+                "The research involves the trowel directly.",
+                "A mallet was the main topic of the discussion.",
+                "She described the hammer in great detail.",
+                "The discussion was about the clamp.",
+                "They discussed the bolt cutter during the lecture.",
+                "The trowel is something most people encounter regularly.",
+                "The plane was clearly described in the textbook.",
+                "He learned about the ladder from his teacher.",
+                "They discussed the knife during the lecture.",
+                "mallet is a basic concept that everyone learns.",
+                "The discussion was about the tape measure.",
+                "The wheelbarrow is fundamental to understanding this topic.",
+                "vise plays an important role in many contexts.",
+                "screwdriver plays an important role in many contexts.",
+                "We carefully studied the trowel for the exam.",
+                "The discussion was about the file.",
+                "brush is a basic concept that everyone learns.",
+                "She described the ladder in great detail.",
+                "She described the trowel in great detail.",
+                "She described the clamp in great detail.",
+                "They discussed the crowbar during the lecture.",
+                "They discussed the hammer during the lecture.",
+                "The discussion was about the soldering iron.",
+                "Her essay is focused on the screwdriver.",
+                "The chapter dedicated to sandpaper was informative.",
+                "The professor explained the concept of saw clearly.",
+                "The professor explained the concept of wire cutter clearly.",
+                "The chisel was clearly described in the textbook.",
+                "There is much to learn about brush.",
+                "We carefully studied the tape measure for the exam.",
+                "We carefully studied the drill for the exam.",
+                "She mentioned the brush in her presentation.",
+                "A chisel was the main topic of the discussion.",
+                "We carefully studied the pickaxe for the exam.",
+                "The professor explained the concept of wrench clearly.",
+                "She described the pliers in great detail.",
+                "There is much to learn about file.",
+                "Her essay is focused on the plane.",
+                "The discussion was about the scissors.",
+                "The article focused on the sandpaper extensively.",
+                "People often think about the rake.",
+                "The hoe is fundamental to understanding this topic.",
+                "She mentioned the spanner in her presentation.",
+                "She described the chisel in great detail.",
+                "wire cutter is a basic concept that everyone learns.",
+                "The vise is something most people encounter regularly.",
+                "She mentioned the caliper in her presentation.",
+                "People often think about the ruler.",
+                "The research involves the tape measure directly.",
+                "The drill was clearly described in the textbook.",
+                "She described the wire cutter in great detail.",
+                "The axe is something most people encounter regularly.",
+                "The professor explained the concept of plane clearly.",
+                "He learned about the plane from his teacher.",
+                "She mentioned the mallet in her presentation.",
+                "The ladder is something most people encounter regularly.",
+                "Every hacksaw has its own characteristics.",
+                "bolt cutter plays an important role in many contexts.",
+                "ladder is a basic concept that everyone learns.",
+                "The discussion was about the wheelbarrow.",
+                "The bolt cutter is fundamental to understanding this topic.",
+                "Every tape measure has its own characteristics.",
+                "A wire cutter was the main topic of the discussion.",
+                "Every wheelbarrow has its own characteristics.",
+                "wheelbarrow plays an important role in many contexts."
+            ],
+            "negative": [
+                "There is much to learn about idea.",
+                "The discussion was about the balance.",
+                "He learned about the joy from his teacher.",
+                "The horse is something most people encounter regularly.",
+                "Every rice has its own characteristics.",
+                "The professor explained the concept of method clearly.",
+                "The chapter dedicated to tiger was informative.",
+                "pattern is a basic concept that everyone learns.",
+                "Every cream has its own characteristics.",
+                "The article focused on the violet extensively.",
+                "We carefully studied the shame for the exam.",
+                "The tiger is something most people encounter regularly.",
+                "A anger was the main topic of the discussion.",
+                "She mentioned the beauty in her presentation.",
+                "The elephant is something most people encounter regularly.",
+                "He learned about the curiosity from his teacher.",
+                "A triangle was the main topic of the discussion.",
+                "The article focused on the density extensively.",
+                "A snake was the main topic of the discussion.",
+                "The electron was clearly described in the textbook.",
+                "They discussed the rubber during the lecture.",
+                "People often think about the bear.",
+                "We carefully studied the gold for the exam.",
+                "The discussion was about the logic.",
+                "The horse is fundamental to understanding this topic.",
+                "People often think about the symbol.",
+                "He learned about the elephant from his teacher.",
+                "Her essay is focused on the shame.",
+                "The chapter dedicated to crystal was informative.",
+                "Every gravity has its own characteristics.",
+                "He learned about the glass from his teacher.",
+                "She described the crystal in great detail.",
+                "She described the density in great detail.",
+                "They discussed the crimson during the lecture.",
+                "leather plays an important role in many contexts.",
+                "Her essay is focused on the sugar.",
+                "He learned about the scarlet from his teacher.",
+                "He learned about the diamond from his teacher.",
+                "The silver is something most people encounter regularly.",
+                "She mentioned the honey in her presentation.",
+                "crimson is a basic concept that everyone learns.",
+                "The chapter dedicated to anger was informative.",
+                "We carefully studied the number for the exam.",
+                "The chapter dedicated to leather was informative.",
+                "The vinegar is fundamental to understanding this topic.",
+                "The red was clearly described in the textbook.",
+                "They discussed the proton during the lecture.",
+                "The honor is something most people encounter regularly.",
+                "We carefully studied the symbol for the exam.",
+                "There is much to learn about scarlet.",
+                "The article focused on the molecule extensively.",
+                "There is much to learn about molecule.",
+                "He learned about the angle from his teacher.",
+                "She described the fear in great detail.",
+                "The chapter dedicated to indigo was informative.",
+                "There is much to learn about salt.",
+                "fear plays an important role in many contexts.",
+                "Her essay is focused on the justice.",
+                "eagle plays an important role in many contexts.",
+                "People often think about the curiosity.",
+                "We carefully studied the value for the exam.",
+                "He learned about the frequency from his teacher.",
+                "The logic was clearly described in the textbook.",
+                "There is much to learn about eagle.",
+                "They discussed the cream during the lecture.",
+                "Her essay is focused on the cat.",
+                "The article focused on the empathy extensively.",
+                "The professor explained the concept of bird clearly.",
+                "The discussion was about the cotton.",
+                "She mentioned the voltage in her presentation.",
+                "They discussed the fraction during the lecture.",
+                "The chapter dedicated to gravity was informative.",
+                "The article focused on the deer extensively.",
+                "The research involves the violet directly.",
+                "The chapter dedicated to copper was informative.",
+                "crystal is a basic concept that everyone learns.",
+                "deer is a basic concept that everyone learns.",
+                "The chapter dedicated to eagle was informative.",
+                "There is much to learn about molecule.",
+                "The discussion was about the silver.",
+                "The cake is something most people encounter regularly.",
+                "Every freedom has its own characteristics.",
+                "People often think about the sugar.",
+                "They discussed the orange during the lecture.",
+                "They discussed the chocolate during the lecture.",
+                "We carefully studied the turquoise for the exam.",
+                "He learned about the dolphin from his teacher.",
+                "Every chocolate has its own characteristics.",
+                "Her essay is focused on the diamond.",
+                "The research involves the blue directly.",
+                "The article focused on the cream extensively.",
+                "The magenta is something most people encounter regularly.",
+                "She described the wolf in great detail.",
+                "The discussion was about the dolphin.",
+                "She described the fear in great detail.",
+                "They discussed the bear during the lecture.",
+                "A dog was the main topic of the discussion.",
+                "The fraction is fundamental to understanding this topic.",
+                "We carefully studied the bear for the exam.",
+                "The article focused on the happiness extensively.",
+                "A bread was the main topic of the discussion.",
+                "symbol is a basic concept that everyone learns.",
+                "The discussion was about the wisdom.",
+                "pink is a basic concept that everyone learns.",
+                "She mentioned the atom in her presentation.",
+                "The research involves the beauty directly.",
+                "A ceramic was the main topic of the discussion.",
+                "She described the pasta in great detail.",
+                "The discussion was about the equation.",
+                "They discussed the chocolate during the lecture.",
+                "The anger is something most people encounter regularly.",
+                "The fox was clearly described in the textbook.",
+                "He learned about the glass from his teacher.",
+                "They discussed the ceramic during the lecture.",
+                "pattern is a basic concept that everyone learns.",
+                "The discussion was about the coffee.",
+                "The density is fundamental to understanding this topic.",
+                "empathy plays an important role in many contexts.",
+                "fox plays an important role in many contexts.",
+                "We carefully studied the cat for the exam.",
+                "The discussion was about the silk.",
+                "yellow is a basic concept that everyone learns.",
+                "She described the magenta in great detail.",
+                "She described the soup in great detail.",
+                "She described the fear in great detail.",
+                "They discussed the snake during the lecture.",
+                "They discussed the yellow during the lecture.",
+                "The discussion was about the quality.",
+                "Her essay is focused on the equation.",
+                "The chapter dedicated to eagle was informative.",
+                "The professor explained the concept of happiness clearly.",
+                "The professor explained the concept of horse clearly.",
+                "The cheese was clearly described in the textbook.",
+                "There is much to learn about joy.",
+                "We carefully studied the bronze for the exam.",
+                "We carefully studied the quality for the exam.",
+                "She mentioned the diamond in her presentation.",
+                "A quality was the main topic of the discussion.",
+                "We carefully studied the beauty for the exam.",
+                "The professor explained the concept of symbol clearly.",
+                "She described the bronze in great detail.",
+                "There is much to learn about anger.",
+                "Her essay is focused on the electron.",
+                "The discussion was about the indigo.",
+                "The article focused on the cake extensively.",
+                "People often think about the fox.",
+                "The freedom is fundamental to understanding this topic.",
+                "She mentioned the sadness in her presentation.",
+                "She described the green in great detail.",
+                "circle is a basic concept that everyone learns.",
+                "The curiosity is something most people encounter regularly.",
+                "She mentioned the cat in her presentation.",
+                "People often think about the deer.",
+                "The research involves the balance directly.",
+                "The atom was clearly described in the textbook.",
+                "She described the joy in great detail.",
+                "The disgust is something most people encounter regularly.",
+                "The professor explained the concept of joy clearly.",
+                "He learned about the scarlet from his teacher.",
+                "She mentioned the balance in her presentation.",
+                "The indigo is something most people encounter regularly.",
+                "Every number has its own characteristics.",
+                "fear plays an important role in many contexts.",
+                "disgust is a basic concept that everyone learns.",
+                "The discussion was about the density.",
+                "The disgust is fundamental to understanding this topic.",
+                "Every pink has its own characteristics.",
+                "A idea was the main topic of the discussion.",
+                "Every mustard has its own characteristics.",
+                "symbol plays an important role in many contexts."
+            ]
+        }
+    },
+    "r1_benchmark": {
+        "time": [
+            {
+                "question": "Afternoon is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "animal",
+                        "drink",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Alarm is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "instrument",
+                        "fruit",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Calendar is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "language",
+                        "drink",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Century is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "fabric",
+                        "element",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Clock is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "number",
+                        "animal",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "Countdown is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "language",
+                        "food",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Dawn is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "sport",
+                        "language",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "Day is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "number",
+                        "color",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Deadline is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "element",
+                        "fruit",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Decade is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "drink",
+                        "fruit",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Duration is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "food",
+                        "color",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Dusk is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "emotion",
+                        "element",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Epoch is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "number",
+                        "drink",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Era is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "color",
+                        "sport",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Evening is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "instrument",
+                        "fabric",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Hour is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "sport",
+                        "food",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Instant is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "animal",
+                        "food",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Interval is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "fruit",
+                        "sport",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Midnight is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "number",
+                        "food",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Millennium is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "instrument",
+                        "drink",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Minute is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "color",
+                        "sport",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Moment is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "language",
+                        "food",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Month is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "sport",
+                        "instrument",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Morning is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "color",
+                        "language",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Night is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "instrument",
+                        "number",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Noon is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "food",
+                        "sport",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Period is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "food",
+                        "drink",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Quarter is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "fruit",
+                        "food",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Schedule is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "number",
+                        "sport",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Season is a type of",
+                "options": {
+                    "correct": "time",
+                    "distractors": [
+                        "sport",
+                        "instrument",
+                        "color"
+                    ]
+                }
+            }
+        ],
+        "place": [
+            {
+                "question": "Airport is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "emotion",
+                        "sport",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "Attic is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "emotion",
+                        "drink",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Basement is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "color",
+                        "fruit",
+                        "instrument"
+                    ]
+                }
+            },
+            {
+                "question": "Bathroom is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "fruit",
+                        "number",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Bedroom is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "drink",
+                        "number",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Bridge is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "food",
+                        "sport",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Building is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "color",
+                        "language",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Church is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "color",
+                        "drink",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "City is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "drink",
+                        "language",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Continent is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "drink",
+                        "element",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Country is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "fabric",
+                        "sport",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Desert is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "element",
+                        "language",
+                        "instrument"
+                    ]
+                }
+            },
+            {
+                "question": "District is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "drink",
+                        "element",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Forest is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "number",
+                        "emotion",
+                        "instrument"
+                    ]
+                }
+            },
+            {
+                "question": "Garden is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "element",
+                        "emotion",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Hospital is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "food",
+                        "language",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "House is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "element",
+                        "instrument",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Island is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "number",
+                        "drink",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Kitchen is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "color",
+                        "emotion",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Lake is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "color",
+                        "instrument",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Library is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "food",
+                        "element",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Mountain is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "number",
+                        "fruit",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Museum is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "fruit",
+                        "instrument",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Neighborhood is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "color",
+                        "instrument",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "Ocean is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "number",
+                        "color",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Office is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "fruit",
+                        "emotion",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "Park is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "sport",
+                        "animal",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Province is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "animal",
+                        "fabric",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "River is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "sport",
+                        "emotion",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Road is a type of",
+                "options": {
+                    "correct": "place",
+                    "distractors": [
+                        "fruit",
+                        "sport",
+                        "emotion"
+                    ]
+                }
+            }
+        ],
+        "tools": [
+            {
+                "question": "Axe is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "animal",
+                        "sport",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Bolt Cutter is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "drink",
+                        "food",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Brush is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "color",
+                        "drink",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Caliper is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "instrument",
+                        "element",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Chisel is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "drink",
+                        "element",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Clamp is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "language",
+                        "animal",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Crowbar is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "animal",
+                        "instrument",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Drill is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "color",
+                        "number",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "File is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "number",
+                        "fabric",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Hacksaw is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "instrument",
+                        "emotion",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Hammer is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "fruit",
+                        "animal",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Hoe is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "fabric",
+                        "food",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Knife is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "element",
+                        "fruit",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Ladder is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "element",
+                        "language",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Level is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "animal",
+                        "food",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Mallet is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "language",
+                        "emotion",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Pickaxe is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "instrument",
+                        "fabric",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Plane is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "language",
+                        "sport",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Pliers is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "language",
+                        "fabric",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Rake is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "food",
+                        "drink",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Ruler is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "number",
+                        "sport",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Sandpaper is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "number",
+                        "drink",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Saw is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "number",
+                        "drink",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Scissors is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "fabric",
+                        "element",
+                        "animal"
+                    ]
+                }
+            },
+            {
+                "question": "Screwdriver is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "food",
+                        "fabric",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Shovel is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "instrument",
+                        "animal",
+                        "sport"
+                    ]
+                }
+            },
+            {
+                "question": "Soldering Iron is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "fruit",
+                        "sport",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Spanner is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "drink",
+                        "food",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Tape Measure is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "language",
+                        "sport",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Trowel is a type of",
+                "options": {
+                    "correct": "tool",
+                    "distractors": [
+                        "animal",
+                        "sport",
+                        "number"
+                    ]
+                }
+            }
+        ]
+    },
+    "r2_benchmark": {
+        "time": [
+            [
+                "The meeting starts at 5 PM.",
+                "The gathering begins at seventeen hundred hours."
+            ],
+            [
+                "It takes sixty seconds.",
+                "The duration is one minute."
+            ],
+            [
+                "The train arrived on time.",
+                "The train was punctual."
+            ],
+            [
+                "It is a decade long.",
+                "It lasts for ten years."
+            ],
+            [
+                "Wait a moment.",
+                "Hold on a second."
+            ],
+            [
+                "The alarm went off at seven in the morning.",
+                "The alarm rang at 7 AM."
+            ],
+            [
+                "The deadline is next week.",
+                "The due date is in seven days."
+            ],
+            [
+                "He checked his watch frequently.",
+                "He kept looking at the clock."
+            ],
+            [
+                "Noon is the middle of the day.",
+                "Midday divides the day in half."
+            ],
+            [
+                "The century is coming to an end.",
+                "The hundred year period is nearly over."
+            ],
+            [
+                "The moment was discussed in class.",
+                "The instant was a topic in the lecture."
+            ],
+            [
+                "She carefully examined the duration.",
+                "She inspected the period closely."
+            ],
+            [
+                "Everyone knows about the clock.",
+                "The timepiece is familiar to all."
+            ],
+            [
+                "Everyone knows about the era.",
+                "The epoch is familiar to all."
+            ],
+            [
+                "She carefully examined the schedule.",
+                "She inspected the timetable closely."
+            ],
+            [
+                "She carefully examined the dawn.",
+                "She inspected the sunrise closely."
+            ],
+            [
+                "The dusk is very important.",
+                "The sunset is highly significant."
+            ],
+            [
+                "Everyone knows about the noon.",
+                "The midday is familiar to all."
+            ],
+            [
+                "The midnight is very important.",
+                "The twelve o'clock is highly significant."
+            ],
+            [
+                "The deadline was discussed in class.",
+                "The due date was a topic in the lecture."
+            ],
+            [
+                "She carefully examined the decade.",
+                "She inspected the ten years closely."
+            ],
+            [
+                "The century is very important.",
+                "The hundred years is highly significant."
+            ],
+            [
+                "She carefully examined the morning.",
+                "She inspected the forenoon closely."
+            ],
+            [
+                "The afternoon is very important.",
+                "The post meridiem is highly significant."
+            ],
+            [
+                "The interval was discussed in class.",
+                "The gap was a topic in the lecture."
+            ]
+        ],
+        "place": [
+            [
+                "Paris is the capital of France.",
+                "The French capital is Paris."
+            ],
+            [
+                "He is at home.",
+                "He is in his house."
+            ],
+            [
+                "The store is nearby.",
+                "The shop is close."
+            ],
+            [
+                "Go north for two miles.",
+                "Travel towards the north for two miles."
+            ],
+            [
+                "The room is empty.",
+                "There is nobody in the chamber."
+            ],
+            [
+                "The city center is crowded.",
+                "Downtown is packed with people."
+            ],
+            [
+                "She lives in a small village.",
+                "Her home is in a tiny hamlet."
+            ],
+            [
+                "The mountain peak is covered in snow.",
+                "The summit is blanketed with snow."
+            ],
+            [
+                "The library is next to the park.",
+                "The park is adjacent to the library."
+            ],
+            [
+                "The desert stretches for miles.",
+                "The wasteland extends a great distance."
+            ],
+            [
+                "He wrote about the city in his report.",
+                "His report covered the metropolis."
+            ],
+            [
+                "Everyone knows about the ocean.",
+                "The sea is familiar to all."
+            ],
+            [
+                "He wrote about the house in his report.",
+                "His report covered the home."
+            ],
+            [
+                "Everyone knows about the road.",
+                "The street is familiar to all."
+            ],
+            [
+                "The forest was discussed in class.",
+                "The woods was a topic in the lecture."
+            ],
+            [
+                "The country is very important.",
+                "The nation is highly significant."
+            ],
+            [
+                "She carefully examined the building.",
+                "She inspected the structure closely."
+            ],
+            [
+                "The lake was discussed in class.",
+                "The pond was a topic in the lecture."
+            ],
+            [
+                "The mountain was discussed in class.",
+                "The peak was a topic in the lecture."
+            ],
+            [
+                "The garden is very important.",
+                "The yard is highly significant."
+            ],
+            [
+                "The village was discussed in class.",
+                "The hamlet was a topic in the lecture."
+            ],
+            [
+                "The island was discussed in class.",
+                "The isle was a topic in the lecture."
+            ],
+            [
+                "The desert is very important.",
+                "The wasteland is highly significant."
+            ],
+            [
+                "The room was discussed in class.",
+                "The chamber was a topic in the lecture."
+            ],
+            [
+                "Everyone knows about the neighborhood.",
+                "The district is familiar to all."
+            ]
+        ],
+        "tools": [
+            [
+                "He used a hammer to drive the nail.",
+                "He pounded the nail with a mallet."
+            ],
+            [
+                "The screwdriver tightened the screw.",
+                "The screw was fastened with a screwdriver."
+            ],
+            [
+                "She cut the paper with scissors.",
+                "She used shears to cut the paper."
+            ],
+            [
+                "The wrench loosened the bolt.",
+                "The spanner unfastened the bolt."
+            ],
+            [
+                "He sawed the wood in half.",
+                "He cut the timber using a saw."
+            ],
+            [
+                "The shovel dug a hole in the ground.",
+                "A spade was used to dig into the earth."
+            ],
+            [
+                "The drill made a hole in the wall.",
+                "The bore created an opening in the wall."
+            ],
+            [
+                "He sharpened the blade with a file.",
+                "The knife was honed using a rasp."
+            ],
+            [
+                "The level ensures a flat surface.",
+                "The surface is checked for flatness with a level."
+            ],
+            [
+                "She used an axe to chop the firewood.",
+                "The firewood was chopped with a hatchet."
+            ],
+            [
+                "Everyone knows about the hammer.",
+                "The mallet is familiar to all."
+            ],
+            [
+                "Everyone knows about the knife.",
+                "The blade is familiar to all."
+            ],
+            [
+                "The wrench was discussed in class.",
+                "The spanner was a topic in the lecture."
+            ],
+            [
+                "She carefully examined the shovel.",
+                "She inspected the spade closely."
+            ],
+            [
+                "Everyone knows about the pliers.",
+                "The tongs is familiar to all."
+            ],
+            [
+                "Everyone knows about the axe.",
+                "The hatchet is familiar to all."
+            ],
+            [
+                "The scissors was discussed in class.",
+                "The shears was a topic in the lecture."
+            ],
+            [
+                "He wrote about the saw in his report.",
+                "His report covered the hacksaw."
+            ],
+            [
+                "The drill was discussed in class.",
+                "The bore was a topic in the lecture."
+            ],
+            [
+                "The brush is very important.",
+                "The broom is highly significant."
+            ],
+            [
+                "Everyone knows about the chisel.",
+                "The gouge is familiar to all."
+            ],
+            [
+                "The ladder is very important.",
+                "The stepladder is highly significant."
+            ],
+            [
+                "Everyone knows about the crowbar.",
+                "The pry bar is familiar to all."
+            ],
+            [
+                "He wrote about the clamp in his report.",
+                "His report covered the grip."
+            ],
+            [
+                "She carefully examined the ruler.",
+                "She inspected the straightedge closely."
+            ]
+        ]
+    }
+}

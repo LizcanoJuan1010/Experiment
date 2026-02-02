@@ -1,0 +1,210 @@
+{
+  "T01_concept_node_counts": {
+    "status": "PASS",
+    "details": {
+      "time_count": 38,
+      "time_status": "OK: 38 nodes",
+      "place_count": 38,
+      "place_status": "OK: 38 nodes",
+      "tools_count": 34,
+      "tools_status": "OK: 34 nodes"
+    }
+  },
+  "T02_negative_contamination": {
+    "status": "PASS",
+    "details": {
+      "time_contaminated": 0,
+      "time_total": 190,
+      "time_ratio": 0.0,
+      "place_contaminated": 3,
+      "place_total": 190,
+      "place_ratio": 0.0158,
+      "tools_contaminated": 0,
+      "tools_total": 170,
+      "tools_ratio": 0.0
+    }
+  },
+  "T03_polysemy_detection": {
+    "status": "PASS",
+    "details": {
+      "overlapping_words": "none",
+      "overlap_count": 0,
+      "total_unique_words": 110,
+      "overlap_ratio": 0.0
+    }
+  },
+  "T04_sample_size": {
+    "status": "PASS",
+    "details": {
+      "time_pos": 190,
+      "time_neg": 190,
+      "time_balance": 1.0,
+      "time_mean_diff": "OK",
+      "time_svm": "OK",
+      "place_pos": 190,
+      "place_neg": 190,
+      "place_balance": 1.0,
+      "place_mean_diff": "OK",
+      "place_svm": "OK",
+      "tools_pos": 170,
+      "tools_neg": 170,
+      "tools_balance": 1.0,
+      "tools_mean_diff": "OK",
+      "tools_svm": "OK"
+    }
+  },
+  "T06_template_artifacts": {
+    "status": "PASS",
+    "details": {
+      "time_pos_avg_len": 7.3,
+      "time_neg_avg_len": 7.3,
+      "time_len_difference": 0.0,
+      "time_pos_first_word_diversity": 0.132,
+      "time_neg_first_word_diversity": 0.126,
+      "place_pos_avg_len": 7.3,
+      "place_neg_avg_len": 7.3,
+      "place_len_difference": 0.0,
+      "place_pos_first_word_diversity": 0.121,
+      "place_neg_first_word_diversity": 0.121,
+      "tools_pos_avg_len": 7.4,
+      "tools_neg_avg_len": 7.3,
+      "tools_len_difference": 0.1,
+      "tools_pos_first_word_diversity": 0.153,
+      "tools_neg_first_word_diversity": 0.141
+    }
+  },
+  "T11_statistical_power": {
+    "status": "PASS",
+    "details": {
+      "time_r1_items": 30,
+      "time_r2_pairs": 25,
+      "place_r1_items": 30,
+      "place_r2_pairs": 25,
+      "tools_r1_items": 30,
+      "tools_r2_pairs": 25,
+      "min_r1_items": 30,
+      "min_r2_pairs": 25,
+      "r1_threshold": 20,
+      "r2_threshold": 15,
+      "r1_status": "OK",
+      "r2_status": "OK"
+    }
+  },
+  "T05_tokenization": {
+    "status": "FAIL",
+    "details": {
+      "total_words": 110,
+      "single_token": 47,
+      "single_ratio": 0.427,
+      "multi_token_count": 63,
+      "excessive_splits": [
+        [
+          "neighborhood",
+          4
+        ]
+      ]
+    }
+  },
+  "T07_layer_validity": {
+    "status": "FAIL",
+    "details": {
+      "time_layer6_accuracy": 0.92,
+      "time_layer6_rank": 6,
+      "time_best_layer": 10,
+      "time_best_accuracy": 0.97,
+      "place_layer6_accuracy": 0.97,
+      "place_layer6_rank": 3,
+      "place_best_layer": 8,
+      "place_best_accuracy": 0.98,
+      "tools_layer6_accuracy": 0.92,
+      "tools_layer6_rank": 4,
+      "tools_best_layer": 10,
+      "tools_best_accuracy": 0.93
+    }
+  },
+  "T08_svm_stability": {
+    "status": "PASS",
+    "details": {
+      "time_L6_acc": 0.989,
+      "time_L6_std": 0.013,
+      "time_L6_status": "OK",
+      "time_L9_acc": 0.992,
+      "time_L9_std": 0.011,
+      "time_L9_status": "OK",
+      "time_L10_acc": 0.987,
+      "time_L10_std": 0.014,
+      "time_L10_status": "OK",
+      "place_L6_acc": 0.989,
+      "place_L6_std": 0.01,
+      "place_L6_status": "OK",
+      "place_L9_acc": 0.984,
+      "place_L9_std": 0.015,
+      "place_L9_status": "OK",
+      "place_L10_acc": 0.987,
+      "place_L10_std": 0.014,
+      "place_L10_status": "OK",
+      "tools_L6_acc": 0.947,
+      "tools_L6_std": 0.018,
+      "tools_L6_status": "OK",
+      "tools_L9_acc": 0.959,
+      "tools_L9_std": 0.022,
+      "tools_L9_status": "OK",
+      "tools_L10_acc": 0.941,
+      "tools_L10_std": 0.025,
+      "tools_L10_status": "OK"
+    }
+  },
+  "T09_cav_overlap": {
+    "status": "FAIL",
+    "details": {
+      "layer_6_mean_diff_time_place": 0.4713,
+      "layer_6_mean_diff_time_tools": 0.0923,
+      "layer_6_mean_diff_place_tools": 0.2472,
+      "layer_6_svm_time_place": 0.3036,
+      "layer_6_svm_time_tools": 0.1908,
+      "layer_6_svm_place_tools": 0.3543,
+      "layer_9_mean_diff_time_place": 0.4255,
+      "layer_9_mean_diff_time_tools": 0.0477,
+      "layer_9_mean_diff_place_tools": 0.1958,
+      "layer_9_svm_time_place": 0.3076,
+      "layer_9_svm_time_tools": 0.2998,
+      "layer_9_svm_place_tools": 0.3305,
+      "layer_10_mean_diff_time_place": 0.4198,
+      "layer_10_mean_diff_time_tools": 0.1205,
+      "layer_10_mean_diff_place_tools": 0.2425,
+      "layer_10_svm_time_place": 0.3039,
+      "layer_10_svm_time_tools": 0.2937,
+      "layer_10_svm_place_tools": 0.2972
+    }
+  },
+  "T10_benchmark_validity": {
+    "status": "PASS",
+    "details": {
+      "time_r1": 0.967,
+      "time_r2": 0.9854,
+      "time_r1_status": "OK",
+      "time_r2_status": "OK",
+      "place_r1": 0.767,
+      "place_r2": 0.9864,
+      "place_r1_status": "OK",
+      "place_r2_status": "OK",
+      "tools_r1": 0.633,
+      "tools_r2": 0.9847,
+      "tools_r1_status": "OK",
+      "tools_r2_status": "OK"
+    }
+  },
+  "T12_ablation_specificity": {
+    "status": "PASS",
+    "details": {
+      "mean_on_target_r1": 0.0556,
+      "mean_off_target_r1": 0.0111,
+      "mean_on_target_r2": 0.0001,
+      "mean_off_target_r2": -0.0001,
+      "ratio_r1": 5.0,
+      "ratio_r2": Infinity,
+      "max_off_target_r1": 0.0333,
+      "max_off_target_r2": 0.0002
+    }
+  }
+}
