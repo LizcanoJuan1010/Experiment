@@ -11,13 +11,27 @@ import torch
 import torch.nn.functional as F
 from tqdm import tqdm
 
+import experiment_config as cfg
+
 
 def get_embedding(model, text, layer=11):
-    """Extract last-token embedding from a specified layer's residual stream."""
+    """
+    Extract sentence embedding from a specified layer's residual stream.
+
+    Token position strategy controlled by cfg.TOKEN_POSITION:
+      - "mean": Mean pooling over all tokens (recommended for sentence-level
+                similarity; Reimers & Gurevych, 2019).
+      - "last": Last token only (original, kept for backward compatibility).
+    """
     hook_name = f"blocks.{layer}.hook_resid_post"
+    token_method = getattr(cfg, "TOKEN_POSITION", "mean")
     with torch.no_grad():
         _, cache = model.run_with_cache(text, names_filter=[hook_name])
-        embedding = cache[hook_name][0, -1, :]
+        act = cache[hook_name]  # [1, seq_len, d_model]
+        if token_method == "mean":
+            embedding = act[0].mean(dim=0)  # Mean pooling
+        else:
+            embedding = act[0, -1, :]       # Last token
     return embedding
 
 
@@ -71,8 +85,9 @@ def evaluate_r2(model, r2_dataset, layer=11):
     """
     R2: Semantic Similarity.
 
-    Computes cosine similarity between last-token embeddings of
+    Computes cosine similarity between sentence embeddings of
     sentence pairs. High similarity = model recognizes paraphrases.
+    Embedding method controlled by cfg.TOKEN_POSITION (mean/last).
 
     Returns:
         mean_similarity: float (aggregate)

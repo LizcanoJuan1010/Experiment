@@ -1,0 +1,5211 @@
+{
+  "metadata": {
+    "benchmark": "R1_MCQ_Cloze",
+    "source": "ConceptNet 5.7 (Speer et al., 2017)",
+    "relation": "IsA (hyponymy)",
+    "ground_truth": "Each word verified as hyponym via IsA edge with weight >= 1.0",
+    "total_items": 199,
+    "per_concept": {
+      "time": 5,
+      "place": 150,
+      "tools": 44
+    },
+    "templates_used": 5,
+    "distractor_categories": [
+      "animal",
+      "fruit",
+      "color",
+      "emotion",
+      "instrument",
+      "sport",
+      "fabric",
+      "element",
+      "number",
+      "language",
+      "food",
+      "drink"
+    ]
+  },
+  "items": {
+    "time": [
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Day' is classified as a type of",
+        "options": {
+          "correct": "time",
+          "distractors": [
+            "language",
+            "instrument",
+            "color"
+          ],
+          "ordered_options": [
+            "time",
+            "language",
+            "instrument",
+            "color"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "day",
+          "relation": "IsA",
+          "target_concept": "time",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Lifetime' belongs to the category of",
+        "options": {
+          "correct": "time",
+          "distractors": [
+            "instrument",
+            "number",
+            "drink"
+          ],
+          "ordered_options": [
+            "instrument",
+            "time",
+            "number",
+            "drink"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "lifetime",
+          "relation": "IsA",
+          "target_concept": "time",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Term' is",
+        "options": {
+          "correct": "time",
+          "distractors": [
+            "food",
+            "element",
+            "color"
+          ],
+          "ordered_options": [
+            "food",
+            "element",
+            "time",
+            "color"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "term",
+          "relation": "IsA",
+          "target_concept": "time",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Week\nCategory:",
+        "options": {
+          "correct": "time",
+          "distractors": [
+            "number",
+            "animal",
+            "sport"
+          ],
+          "ordered_options": [
+            "number",
+            "animal",
+            "sport",
+            "time"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "week",
+          "relation": "IsA",
+          "target_concept": "time",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Year' is considered an instance of",
+        "options": {
+          "correct": "time",
+          "distractors": [
+            "color",
+            "sport",
+            "fabric"
+          ],
+          "ordered_options": [
+            "time",
+            "color",
+            "sport",
+            "fabric"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "year",
+          "relation": "IsA",
+          "target_concept": "time",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      }
+    ],
+    "place": [
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Airports' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "drink",
+            "fabric"
+          ],
+          "ordered_options": [
+            "place",
+            "animal",
+            "drink",
+            "fabric"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "airports",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Albania' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "food",
+            "number"
+          ],
+          "ordered_options": [
+            "color",
+            "place",
+            "food",
+            "number"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "albania",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'America' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "instrument",
+            "sport"
+          ],
+          "ordered_options": [
+            "element",
+            "instrument",
+            "place",
+            "sport"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "america",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Apartment\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "animal",
+            "sport"
+          ],
+          "ordered_options": [
+            "element",
+            "animal",
+            "sport",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "apartment",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Area' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "color",
+            "fruit"
+          ],
+          "ordered_options": [
+            "place",
+            "emotion",
+            "color",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "area",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Arena' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "instrument",
+            "emotion"
+          ],
+          "ordered_options": [
+            "number",
+            "place",
+            "instrument",
+            "emotion"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "arena",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Argentina' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "food",
+            "color"
+          ],
+          "ordered_options": [
+            "fruit",
+            "food",
+            "place",
+            "color"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "argentina",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Atlanta' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "food",
+            "language"
+          ],
+          "ordered_options": [
+            "fabric",
+            "food",
+            "language",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "atlanta",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Australia\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "element",
+            "food"
+          ],
+          "ordered_options": [
+            "place",
+            "fruit",
+            "element",
+            "food"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "australia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Austria' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "number",
+            "fabric"
+          ],
+          "ordered_options": [
+            "instrument",
+            "place",
+            "number",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "austria",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Backroom' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "element",
+            "fabric"
+          ],
+          "ordered_options": [
+            "animal",
+            "element",
+            "place",
+            "fabric"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "backroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Ballroom' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "animal",
+            "language"
+          ],
+          "ordered_options": [
+            "sport",
+            "animal",
+            "language",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "ballroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Baltimore' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "animal",
+            "emotion"
+          ],
+          "ordered_options": [
+            "place",
+            "language",
+            "animal",
+            "emotion"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "baltimore",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Bar\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "language",
+            "sport"
+          ],
+          "ordered_options": [
+            "emotion",
+            "place",
+            "language",
+            "sport"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "bar",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Basement' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "fabric",
+            "emotion"
+          ],
+          "ordered_options": [
+            "color",
+            "fabric",
+            "place",
+            "emotion"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "basement",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Bathroom' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "fabric",
+            "animal"
+          ],
+          "ordered_options": [
+            "sport",
+            "fabric",
+            "animal",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "bathroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Bay' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "food",
+            "emotion"
+          ],
+          "ordered_options": [
+            "place",
+            "language",
+            "food",
+            "emotion"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "bay",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Beach' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "food",
+            "fabric"
+          ],
+          "ordered_options": [
+            "language",
+            "place",
+            "food",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "beach",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Bedroom\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "sport",
+            "emotion"
+          ],
+          "ordered_options": [
+            "number",
+            "sport",
+            "place",
+            "emotion"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "bedroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Belgium' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "element",
+            "sport"
+          ],
+          "ordered_options": [
+            "language",
+            "element",
+            "sport",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "belgium",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Bethlehem' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "instrument",
+            "number"
+          ],
+          "ordered_options": [
+            "place",
+            "element",
+            "instrument",
+            "number"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "bethlehem",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Birmingham' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "element",
+            "instrument"
+          ],
+          "ordered_options": [
+            "drink",
+            "place",
+            "element",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "birmingham",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Brazil' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "language",
+            "drink"
+          ],
+          "ordered_options": [
+            "number",
+            "language",
+            "place",
+            "drink"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "brazil",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Camp\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "color",
+            "language"
+          ],
+          "ordered_options": [
+            "fabric",
+            "color",
+            "language",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "camp",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Canada' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "emotion",
+            "number"
+          ],
+          "ordered_options": [
+            "place",
+            "animal",
+            "emotion",
+            "number"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "canada",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Capital' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "animal",
+            "fabric"
+          ],
+          "ordered_options": [
+            "fruit",
+            "place",
+            "animal",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "capital",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Cell' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "number",
+            "food"
+          ],
+          "ordered_options": [
+            "animal",
+            "number",
+            "place",
+            "food"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "cell",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Chicago' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "instrument",
+            "emotion"
+          ],
+          "ordered_options": [
+            "food",
+            "instrument",
+            "emotion",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "chicago",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: China\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "food",
+            "fruit"
+          ],
+          "ordered_options": [
+            "place",
+            "language",
+            "food",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "china",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Church' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "animal",
+            "color"
+          ],
+          "ordered_options": [
+            "fruit",
+            "place",
+            "animal",
+            "color"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "church",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'City' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "fruit",
+            "animal"
+          ],
+          "ordered_options": [
+            "element",
+            "fruit",
+            "place",
+            "animal"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "city",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Classroom' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "language",
+            "element"
+          ],
+          "ordered_options": [
+            "number",
+            "language",
+            "element",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "classroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'College' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "food",
+            "fabric"
+          ],
+          "ordered_options": [
+            "place",
+            "emotion",
+            "food",
+            "fabric"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "college",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Colorado\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "number",
+            "fruit"
+          ],
+          "ordered_options": [
+            "animal",
+            "place",
+            "number",
+            "fruit"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "colorado",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Country' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "drink",
+            "color"
+          ],
+          "ordered_options": [
+            "fabric",
+            "drink",
+            "place",
+            "color"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "country",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Countryside' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "drink",
+            "color"
+          ],
+          "ordered_options": [
+            "sport",
+            "drink",
+            "color",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "countryside",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Courtroom' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "animal",
+            "drink"
+          ],
+          "ordered_options": [
+            "place",
+            "sport",
+            "animal",
+            "drink"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "courtroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Croatia' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "food",
+            "number"
+          ],
+          "ordered_options": [
+            "fabric",
+            "place",
+            "food",
+            "number"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "croatia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Cuba\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "element",
+            "sport"
+          ],
+          "ordered_options": [
+            "fruit",
+            "element",
+            "place",
+            "sport"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "cuba",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Cyprus' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "animal",
+            "number"
+          ],
+          "ordered_options": [
+            "fruit",
+            "animal",
+            "number",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "cyprus",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Dallas' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "sport",
+            "emotion"
+          ],
+          "ordered_options": [
+            "place",
+            "number",
+            "sport",
+            "emotion"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "dallas",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Darkroom' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "color",
+            "instrument"
+          ],
+          "ordered_options": [
+            "animal",
+            "place",
+            "color",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "darkroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Department Store' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "element",
+            "sport"
+          ],
+          "ordered_options": [
+            "color",
+            "element",
+            "place",
+            "sport"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "department store",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Desert\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "instrument",
+            "fruit"
+          ],
+          "ordered_options": [
+            "element",
+            "instrument",
+            "fruit",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "desert",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Dining Room' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "language",
+            "sport"
+          ],
+          "ordered_options": [
+            "place",
+            "emotion",
+            "language",
+            "sport"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "dining room",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Dominion' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "fabric",
+            "instrument"
+          ],
+          "ordered_options": [
+            "fruit",
+            "place",
+            "fabric",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "dominion",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Dublin' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "animal",
+            "element"
+          ],
+          "ordered_options": [
+            "fabric",
+            "animal",
+            "place",
+            "element"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "dublin",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Duplex' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "emotion",
+            "color"
+          ],
+          "ordered_options": [
+            "fruit",
+            "emotion",
+            "color",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "duplex",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Edinburgh\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "drink",
+            "fruit"
+          ],
+          "ordered_options": [
+            "place",
+            "food",
+            "drink",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "edinburgh",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Egypt' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "instrument",
+            "fruit"
+          ],
+          "ordered_options": [
+            "sport",
+            "place",
+            "instrument",
+            "fruit"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "egypt",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'England' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "emotion",
+            "color"
+          ],
+          "ordered_options": [
+            "sport",
+            "emotion",
+            "place",
+            "color"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "england",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Entranceway' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "color",
+            "element"
+          ],
+          "ordered_options": [
+            "fabric",
+            "color",
+            "element",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "entranceway",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Ethiopia' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "color",
+            "fruit"
+          ],
+          "ordered_options": [
+            "place",
+            "language",
+            "color",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "ethiopia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Family Room\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "element",
+            "instrument"
+          ],
+          "ordered_options": [
+            "sport",
+            "place",
+            "element",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "family room",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Finland' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "animal",
+            "fabric"
+          ],
+          "ordered_options": [
+            "number",
+            "animal",
+            "place",
+            "fabric"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "finland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Foyer' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "drink",
+            "emotion"
+          ],
+          "ordered_options": [
+            "animal",
+            "drink",
+            "emotion",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "foyer",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'France' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "instrument",
+            "drink"
+          ],
+          "ordered_options": [
+            "place",
+            "food",
+            "instrument",
+            "drink"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "france",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Fulton' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "instrument",
+            "color"
+          ],
+          "ordered_options": [
+            "fruit",
+            "place",
+            "instrument",
+            "color"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "fulton",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Gallery\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "element",
+            "emotion"
+          ],
+          "ordered_options": [
+            "animal",
+            "element",
+            "place",
+            "emotion"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "gallery",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Genoa' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "language",
+            "number"
+          ],
+          "ordered_options": [
+            "color",
+            "language",
+            "number",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "genoa",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Germany' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "element",
+            "color"
+          ],
+          "ordered_options": [
+            "place",
+            "fabric",
+            "element",
+            "color"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "germany",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Greece' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "animal",
+            "instrument"
+          ],
+          "ordered_options": [
+            "sport",
+            "place",
+            "animal",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "greece",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Greenhouse' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "language",
+            "number"
+          ],
+          "ordered_options": [
+            "fruit",
+            "language",
+            "place",
+            "number"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "greenhouse",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Gym\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "emotion",
+            "sport"
+          ],
+          "ordered_options": [
+            "fruit",
+            "emotion",
+            "sport",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "gym",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Gymnasium' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "fruit",
+            "instrument"
+          ],
+          "ordered_options": [
+            "place",
+            "number",
+            "fruit",
+            "instrument"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "gymnasium",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Harare' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "instrument",
+            "fabric"
+          ],
+          "ordered_options": [
+            "language",
+            "place",
+            "instrument",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "harare",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Hawaii' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "instrument",
+            "food"
+          ],
+          "ordered_options": [
+            "sport",
+            "instrument",
+            "place",
+            "food"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "hawaii",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Holland' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "instrument",
+            "element"
+          ],
+          "ordered_options": [
+            "color",
+            "instrument",
+            "element",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "holland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: House\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "emotion",
+            "instrument"
+          ],
+          "ordered_options": [
+            "place",
+            "sport",
+            "emotion",
+            "instrument"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "house",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Hull' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "drink",
+            "sport"
+          ],
+          "ordered_options": [
+            "food",
+            "place",
+            "drink",
+            "sport"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "hull",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Hungary' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "food",
+            "sport"
+          ],
+          "ordered_options": [
+            "drink",
+            "food",
+            "place",
+            "sport"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "hungary",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Iceland' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "animal",
+            "food"
+          ],
+          "ordered_options": [
+            "fabric",
+            "animal",
+            "food",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "iceland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'India' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "fruit",
+            "sport"
+          ],
+          "ordered_options": [
+            "place",
+            "color",
+            "fruit",
+            "sport"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "india",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Iran\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "number",
+            "fabric"
+          ],
+          "ordered_options": [
+            "element",
+            "place",
+            "number",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "iran",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Iraq' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "emotion",
+            "fabric"
+          ],
+          "ordered_options": [
+            "food",
+            "emotion",
+            "place",
+            "fabric"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "iraq",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Israel' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "instrument",
+            "animal"
+          ],
+          "ordered_options": [
+            "fruit",
+            "instrument",
+            "animal",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "israel",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Italy' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "sport",
+            "color"
+          ],
+          "ordered_options": [
+            "place",
+            "fruit",
+            "sport",
+            "color"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "italy",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Japan' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "food",
+            "element"
+          ],
+          "ordered_options": [
+            "language",
+            "place",
+            "food",
+            "element"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "japan",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Kitchen\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "instrument",
+            "food"
+          ],
+          "ordered_options": [
+            "number",
+            "instrument",
+            "place",
+            "food"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "kitchen",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Korea' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "drink",
+            "emotion"
+          ],
+          "ordered_options": [
+            "language",
+            "drink",
+            "emotion",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "korea",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Kosovo' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "animal",
+            "color"
+          ],
+          "ordered_options": [
+            "place",
+            "fabric",
+            "animal",
+            "color"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "kosovo",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Kraków' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "fabric",
+            "sport"
+          ],
+          "ordered_options": [
+            "instrument",
+            "place",
+            "fabric",
+            "sport"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "kraków",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Lake' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "color",
+            "drink"
+          ],
+          "ordered_options": [
+            "fruit",
+            "color",
+            "place",
+            "drink"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "lake",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Lebanon\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "drink",
+            "color"
+          ],
+          "ordered_options": [
+            "fabric",
+            "drink",
+            "color",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "lebanon",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Lesotho' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "number",
+            "fabric"
+          ],
+          "ordered_options": [
+            "place",
+            "emotion",
+            "number",
+            "fabric"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "lesotho",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Library' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "language",
+            "number"
+          ],
+          "ordered_options": [
+            "instrument",
+            "place",
+            "language",
+            "number"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "library",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Living Room' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "emotion",
+            "language"
+          ],
+          "ordered_options": [
+            "drink",
+            "emotion",
+            "place",
+            "language"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "living room",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Locker Room' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "instrument",
+            "number"
+          ],
+          "ordered_options": [
+            "fabric",
+            "instrument",
+            "number",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "locker room",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: London\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "emotion",
+            "food"
+          ],
+          "ordered_options": [
+            "place",
+            "language",
+            "emotion",
+            "food"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "london",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Los Angeles' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "color",
+            "element"
+          ],
+          "ordered_options": [
+            "food",
+            "place",
+            "color",
+            "element"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "los angeles",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Luxembourg' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "food",
+            "instrument"
+          ],
+          "ordered_options": [
+            "number",
+            "food",
+            "place",
+            "instrument"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "luxembourg",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Maine' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "language",
+            "food"
+          ],
+          "ordered_options": [
+            "instrument",
+            "language",
+            "food",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "maine",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Mali' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "number",
+            "food"
+          ],
+          "ordered_options": [
+            "place",
+            "element",
+            "number",
+            "food"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "mali",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Mall\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "number",
+            "drink"
+          ],
+          "ordered_options": [
+            "language",
+            "place",
+            "number",
+            "drink"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "mall",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Market' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "element",
+            "fruit"
+          ],
+          "ordered_options": [
+            "instrument",
+            "element",
+            "place",
+            "fruit"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "market",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Mexico' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "animal",
+            "number"
+          ],
+          "ordered_options": [
+            "element",
+            "animal",
+            "number",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "mexico",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Moldavia' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "fruit",
+            "number"
+          ],
+          "ordered_options": [
+            "place",
+            "instrument",
+            "fruit",
+            "number"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "moldavia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Mongolia' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "number",
+            "animal"
+          ],
+          "ordered_options": [
+            "drink",
+            "place",
+            "number",
+            "animal"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "mongolia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Montreal\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "food",
+            "fruit"
+          ],
+          "ordered_options": [
+            "drink",
+            "food",
+            "place",
+            "fruit"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "montreal",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Moon' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "instrument",
+            "food"
+          ],
+          "ordered_options": [
+            "sport",
+            "instrument",
+            "food",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "moon",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Motel' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "fabric",
+            "instrument"
+          ],
+          "ordered_options": [
+            "place",
+            "fruit",
+            "fabric",
+            "instrument"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "motel",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Mountain' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "sport",
+            "language"
+          ],
+          "ordered_options": [
+            "food",
+            "place",
+            "sport",
+            "language"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "mountain",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Nashua' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "sport",
+            "instrument"
+          ],
+          "ordered_options": [
+            "element",
+            "sport",
+            "place",
+            "instrument"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "nashua",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: New York\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "fruit",
+            "animal"
+          ],
+          "ordered_options": [
+            "emotion",
+            "fruit",
+            "animal",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "new york",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'New Zealand' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "fruit",
+            "color"
+          ],
+          "ordered_options": [
+            "place",
+            "animal",
+            "fruit",
+            "color"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "new zealand",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Norway' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "fabric",
+            "emotion"
+          ],
+          "ordered_options": [
+            "sport",
+            "place",
+            "fabric",
+            "emotion"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "norway",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Ocean' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "color",
+            "language"
+          ],
+          "ordered_options": [
+            "sport",
+            "color",
+            "place",
+            "language"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "ocean",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Office' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "drink",
+            "fabric"
+          ],
+          "ordered_options": [
+            "sport",
+            "drink",
+            "fabric",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "office",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Office Building\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "language",
+            "fruit"
+          ],
+          "ordered_options": [
+            "place",
+            "fabric",
+            "language",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "office building",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Oslo' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "number",
+            "language"
+          ],
+          "ordered_options": [
+            "fruit",
+            "place",
+            "number",
+            "language"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "oslo",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Parking Area' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "animal",
+            "element"
+          ],
+          "ordered_options": [
+            "drink",
+            "animal",
+            "place",
+            "element"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "parking area",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Parking Structure' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "sport",
+            "food"
+          ],
+          "ordered_options": [
+            "number",
+            "sport",
+            "food",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "parking structure",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Parking Zone' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "language",
+            "fabric"
+          ],
+          "ordered_options": [
+            "place",
+            "drink",
+            "language",
+            "fabric"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "parking zone",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Parks\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "sport",
+            "fabric"
+          ],
+          "ordered_options": [
+            "fruit",
+            "place",
+            "sport",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "parks",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Plaza' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "color",
+            "drink"
+          ],
+          "ordered_options": [
+            "language",
+            "color",
+            "place",
+            "drink"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "plaza",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Poland' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "fruit",
+            "instrument"
+          ],
+          "ordered_options": [
+            "fabric",
+            "fruit",
+            "instrument",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "poland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Pond' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "drink",
+            "number"
+          ],
+          "ordered_options": [
+            "place",
+            "animal",
+            "drink",
+            "number"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "pond",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Pool' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "sport",
+            "emotion"
+          ],
+          "ordered_options": [
+            "drink",
+            "place",
+            "sport",
+            "emotion"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "pool",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Portugal\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "sport",
+            "fabric"
+          ],
+          "ordered_options": [
+            "drink",
+            "sport",
+            "place",
+            "fabric"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "portugal",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Prison' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "animal",
+            "emotion"
+          ],
+          "ordered_options": [
+            "number",
+            "animal",
+            "emotion",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "prison",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Pub' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "drink",
+            "sport"
+          ],
+          "ordered_options": [
+            "place",
+            "emotion",
+            "drink",
+            "sport"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "pub",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Queanbeyan' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "food",
+            "element"
+          ],
+          "ordered_options": [
+            "drink",
+            "place",
+            "food",
+            "element"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "queanbeyan",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Repair Shop' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "fabric",
+            "color"
+          ],
+          "ordered_options": [
+            "element",
+            "fabric",
+            "place",
+            "color"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "repair shop",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Romania\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "emotion",
+            "instrument"
+          ],
+          "ordered_options": [
+            "food",
+            "emotion",
+            "instrument",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "romania",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Room' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "language",
+            "fruit"
+          ],
+          "ordered_options": [
+            "place",
+            "color",
+            "language",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "room",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Russia' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "drink",
+            "language"
+          ],
+          "ordered_options": [
+            "element",
+            "place",
+            "drink",
+            "language"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "russia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'San Francisco' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "sport",
+            "element"
+          ],
+          "ordered_options": [
+            "color",
+            "sport",
+            "place",
+            "element"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "san francisco",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Saudi Arabia' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "emotion",
+            "language"
+          ],
+          "ordered_options": [
+            "fruit",
+            "emotion",
+            "language",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "saudi arabia",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: School\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "animal",
+            "number",
+            "emotion"
+          ],
+          "ordered_options": [
+            "place",
+            "animal",
+            "number",
+            "emotion"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "school",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Scotland' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "language",
+            "instrument"
+          ],
+          "ordered_options": [
+            "color",
+            "place",
+            "language",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "scotland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Scottland' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "element",
+            "fruit"
+          ],
+          "ordered_options": [
+            "emotion",
+            "element",
+            "place",
+            "fruit"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "scottland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Sea' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "element",
+            "color",
+            "animal"
+          ],
+          "ordered_options": [
+            "element",
+            "color",
+            "animal",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "sea",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Shelter' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "instrument",
+            "sport",
+            "number"
+          ],
+          "ordered_options": [
+            "place",
+            "instrument",
+            "sport",
+            "number"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "shelter",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Shenzhen\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "emotion",
+            "element"
+          ],
+          "ordered_options": [
+            "color",
+            "place",
+            "emotion",
+            "element"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "shenzhen",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Showroom' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "sport",
+            "emotion",
+            "instrument"
+          ],
+          "ordered_options": [
+            "sport",
+            "emotion",
+            "place",
+            "instrument"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "showroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Silo' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "animal",
+            "food"
+          ],
+          "ordered_options": [
+            "fabric",
+            "animal",
+            "food",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "silo",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Sitting Room' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "instrument",
+            "number"
+          ],
+          "ordered_options": [
+            "place",
+            "fabric",
+            "instrument",
+            "number"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "sitting room",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Soho' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "food",
+            "fabric"
+          ],
+          "ordered_options": [
+            "language",
+            "place",
+            "food",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "soho",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: South Africa\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "emotion",
+            "number",
+            "fruit"
+          ],
+          "ordered_options": [
+            "emotion",
+            "number",
+            "place",
+            "fruit"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "south africa",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'South Korea' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "food",
+            "sport",
+            "number"
+          ],
+          "ordered_options": [
+            "food",
+            "sport",
+            "number",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "south korea",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Space' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fruit",
+            "animal",
+            "language"
+          ],
+          "ordered_options": [
+            "place",
+            "fruit",
+            "animal",
+            "language"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "space",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Spain' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "emotion",
+            "sport"
+          ],
+          "ordered_options": [
+            "color",
+            "place",
+            "emotion",
+            "sport"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "spain",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Staffroom' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "fabric",
+            "food",
+            "language"
+          ],
+          "ordered_options": [
+            "fabric",
+            "food",
+            "place",
+            "language"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "staffroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Stationery Store\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "language",
+            "animal",
+            "color"
+          ],
+          "ordered_options": [
+            "language",
+            "animal",
+            "color",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "stationery store",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Storeroom' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "color",
+            "sport"
+          ],
+          "ordered_options": [
+            "place",
+            "drink",
+            "color",
+            "sport"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "storeroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Sunroom' is classified as a type of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "color",
+            "emotion",
+            "drink"
+          ],
+          "ordered_options": [
+            "color",
+            "place",
+            "emotion",
+            "drink"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "sunroom",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Sweden' belongs to the category of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "fruit",
+            "instrument"
+          ],
+          "ordered_options": [
+            "drink",
+            "fruit",
+            "place",
+            "instrument"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "sweden",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Switzerland' is",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "number",
+            "element",
+            "instrument"
+          ],
+          "ordered_options": [
+            "number",
+            "element",
+            "instrument",
+            "place"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "switzerland",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Temple\nCategory:",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "instrument",
+            "food"
+          ],
+          "ordered_options": [
+            "place",
+            "drink",
+            "instrument",
+            "food"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "temple",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Theater' is considered an instance of",
+        "options": {
+          "correct": "place",
+          "distractors": [
+            "drink",
+            "animal",
+            "food"
+          ],
+          "ordered_options": [
+            "drink",
+            "place",
+            "animal",
+            "food"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "theater",
+          "relation": "IsA",
+          "target_concept": "place",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      }
+    ],
+    "tools": [
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Angle Grinder' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "number",
+            "fruit"
+          ],
+          "ordered_options": [
+            "tool",
+            "drink",
+            "number",
+            "fruit"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "angle grinder",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Awl' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "food",
+            "emotion",
+            "language"
+          ],
+          "ordered_options": [
+            "food",
+            "tool",
+            "emotion",
+            "language"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "awl",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Band Saw' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "animal",
+            "color",
+            "drink"
+          ],
+          "ordered_options": [
+            "animal",
+            "color",
+            "tool",
+            "drink"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "band saw",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Catheter\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "sport",
+            "element",
+            "animal"
+          ],
+          "ordered_options": [
+            "sport",
+            "element",
+            "animal",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "catheter",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Chisel' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "element",
+            "color",
+            "drink"
+          ],
+          "ordered_options": [
+            "tool",
+            "element",
+            "color",
+            "drink"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "chisel",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Clamp Binder' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "color",
+            "instrument",
+            "drink"
+          ],
+          "ordered_options": [
+            "color",
+            "tool",
+            "instrument",
+            "drink"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "clamp binder",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Comb' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "sport",
+            "animal"
+          ],
+          "ordered_options": [
+            "drink",
+            "sport",
+            "tool",
+            "animal"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "comb",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Combination Square' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "drink",
+            "element"
+          ],
+          "ordered_options": [
+            "instrument",
+            "drink",
+            "element",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "combination square",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Computer\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "emotion",
+            "color",
+            "element"
+          ],
+          "ordered_options": [
+            "tool",
+            "emotion",
+            "color",
+            "element"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "computer",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Drill Bit' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "animal",
+            "fruit",
+            "food"
+          ],
+          "ordered_options": [
+            "animal",
+            "tool",
+            "fruit",
+            "food"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "drill bit",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Drill Press' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "food",
+            "color",
+            "number"
+          ],
+          "ordered_options": [
+            "food",
+            "color",
+            "tool",
+            "number"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "drill press",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Hacksaw' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "language",
+            "fabric",
+            "food"
+          ],
+          "ordered_options": [
+            "language",
+            "fabric",
+            "food",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "hacksaw",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Hammer Drill' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "number",
+            "element"
+          ],
+          "ordered_options": [
+            "tool",
+            "instrument",
+            "number",
+            "element"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "hammer drill",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Hand Plane\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "language",
+            "animal",
+            "color"
+          ],
+          "ordered_options": [
+            "language",
+            "tool",
+            "animal",
+            "color"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "hand plane",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Iron' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "element",
+            "drink",
+            "food"
+          ],
+          "ordered_options": [
+            "element",
+            "drink",
+            "tool",
+            "food"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "iron",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Jack' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "element",
+            "number",
+            "animal"
+          ],
+          "ordered_options": [
+            "element",
+            "number",
+            "animal",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "jack",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Jointer' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "language",
+            "emotion",
+            "instrument"
+          ],
+          "ordered_options": [
+            "tool",
+            "language",
+            "emotion",
+            "instrument"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "jointer",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Kitchen Utensil' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "fruit",
+            "sport",
+            "instrument"
+          ],
+          "ordered_options": [
+            "fruit",
+            "tool",
+            "sport",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "kitchen utensil",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Knife\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "fruit",
+            "sport"
+          ],
+          "ordered_options": [
+            "drink",
+            "fruit",
+            "tool",
+            "sport"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "knife",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Ladder' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "element",
+            "color"
+          ],
+          "ordered_options": [
+            "instrument",
+            "element",
+            "color",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "ladder",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Level' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "language",
+            "color",
+            "food"
+          ],
+          "ordered_options": [
+            "tool",
+            "language",
+            "color",
+            "food"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "level",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Lever' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "number",
+            "animal",
+            "drink"
+          ],
+          "ordered_options": [
+            "number",
+            "tool",
+            "animal",
+            "drink"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "lever",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Lures' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "element",
+            "color"
+          ],
+          "ordered_options": [
+            "instrument",
+            "element",
+            "tool",
+            "color"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "lures",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Miter Box\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "emotion",
+            "color"
+          ],
+          "ordered_options": [
+            "drink",
+            "emotion",
+            "color",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "miter box",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Miter Saw' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "language",
+            "animal",
+            "sport"
+          ],
+          "ordered_options": [
+            "tool",
+            "language",
+            "animal",
+            "sport"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "miter saw",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Nail Gun' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "number",
+            "emotion",
+            "instrument"
+          ],
+          "ordered_options": [
+            "number",
+            "tool",
+            "emotion",
+            "instrument"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "nail gun",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Nail Punch' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "element",
+            "fruit"
+          ],
+          "ordered_options": [
+            "drink",
+            "element",
+            "tool",
+            "fruit"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "nail punch",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Nail Set' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "sport",
+            "number"
+          ],
+          "ordered_options": [
+            "instrument",
+            "sport",
+            "number",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "nail set",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Nutdriver\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "emotion",
+            "sport",
+            "food"
+          ],
+          "ordered_options": [
+            "tool",
+            "emotion",
+            "sport",
+            "food"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "nutdriver",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Opener' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "fruit",
+            "fabric",
+            "color"
+          ],
+          "ordered_options": [
+            "fruit",
+            "tool",
+            "fabric",
+            "color"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "opener",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Pens' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "instrument",
+            "fruit"
+          ],
+          "ordered_options": [
+            "drink",
+            "instrument",
+            "tool",
+            "fruit"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "pens",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Phillips Screwdriver' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "drink",
+            "fruit",
+            "sport"
+          ],
+          "ordered_options": [
+            "drink",
+            "fruit",
+            "sport",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "phillips screwdriver",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Phone' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "number",
+            "element",
+            "emotion"
+          ],
+          "ordered_options": [
+            "tool",
+            "number",
+            "element",
+            "emotion"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "phone",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Planer\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "food",
+            "drink",
+            "fabric"
+          ],
+          "ordered_options": [
+            "food",
+            "tool",
+            "drink",
+            "fabric"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "planer",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Power Drill' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "fabric",
+            "emotion",
+            "element"
+          ],
+          "ordered_options": [
+            "fabric",
+            "emotion",
+            "tool",
+            "element"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "power drill",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Pulley' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "color",
+            "number",
+            "fruit"
+          ],
+          "ordered_options": [
+            "color",
+            "number",
+            "fruit",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "pulley",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Putty Knife' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "number",
+            "language",
+            "drink"
+          ],
+          "ordered_options": [
+            "tool",
+            "number",
+            "language",
+            "drink"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "putty knife",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Ramset Gun' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "number",
+            "drink",
+            "element"
+          ],
+          "ordered_options": [
+            "number",
+            "tool",
+            "drink",
+            "element"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "ramset gun",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Saber Saw\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "animal",
+            "sport",
+            "instrument"
+          ],
+          "ordered_options": [
+            "animal",
+            "sport",
+            "tool",
+            "instrument"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "saber saw",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Logically, 'Speed Square' is considered an instance of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "emotion",
+            "element"
+          ],
+          "ordered_options": [
+            "instrument",
+            "emotion",
+            "element",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "speed square",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "In a taxonomic hierarchy, the entity 'Stethoscope' is classified as a type of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "number",
+            "sport",
+            "drink"
+          ],
+          "ordered_options": [
+            "tool",
+            "number",
+            "sport",
+            "drink"
+          ],
+          "correct_position": 0
+        },
+        "provenance": {
+          "word": "stethoscope",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "From a semantic perspective, the concept of 'Table Saw' belongs to the category of",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "color",
+            "language",
+            "animal"
+          ],
+          "ordered_options": [
+            "color",
+            "tool",
+            "language",
+            "animal"
+          ],
+          "correct_position": 1
+        },
+        "provenance": {
+          "word": "table saw",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "The fundamental category that defines 'Vise' is",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "fruit",
+            "language",
+            "instrument"
+          ],
+          "ordered_options": [
+            "fruit",
+            "language",
+            "tool",
+            "instrument"
+          ],
+          "correct_position": 2
+        },
+        "provenance": {
+          "word": "vise",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      },
+      {
+        "question": "Task: Classify the following term into a broad category.\nTerm: Wedge\nCategory:",
+        "options": {
+          "correct": "tool",
+          "distractors": [
+            "instrument",
+            "animal",
+            "fabric"
+          ],
+          "ordered_options": [
+            "instrument",
+            "animal",
+            "fabric",
+            "tool"
+          ],
+          "correct_position": 3
+        },
+        "provenance": {
+          "word": "wedge",
+          "relation": "IsA",
+          "target_concept": "tools",
+          "conceptnet_weight": 1.0,
+          "source": "ConceptNet 5.7",
+          "typicality": "atypical"
+        }
+      }
+    ]
+  }
+}

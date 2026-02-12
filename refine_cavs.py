@@ -19,10 +19,13 @@ import os
 import torch
 from itertools import combinations
 
-CAV_DIR = "cavs"
-OUTPUT_DIR = "cavs_refined"
-CONCEPTS = ["time", "place", "tools"]
-LAYERS = [6, 9, 10]
+import experiment_config as cfg
+
+# FIX-M3: Import from centralized config
+CAV_DIR = cfg.CAV_DIR
+OUTPUT_DIR = cfg.CAV_REFINED_DIR
+CONCEPTS = cfg.CONCEPTS
+LAYERS = cfg.EXTRACTION_LAYERS
 
 
 def load_cav(concept, layer, method="svm"):
@@ -44,11 +47,25 @@ def subspace_projection(v, others):
 
 
 def main():
+    # FIX-A2: Conditional execution — orthogonalization is NOT standard
+    # in Kim et al. (2018). Only proceed with explicit opt-in.
+    if not getattr(cfg, "USE_REFINED_CAVS", False):
+        print("=" * 60)
+        print("CAV Refinement — SKIPPED")
+        print("=" * 60)
+        print("  USE_REFINED_CAVS is False (default).")
+        print("  Kim et al. (2018) do not orthogonalize CAVs.")
+        print("  Set USE_REFINED_CAVS=True in experiment_config.py")
+        print("  only with explicit theoretical justification.")
+        return
+
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     print("=" * 60)
     print("CAV Refinement — Orthogonal Subspace Projection")
     print("=" * 60)
+    print("  WARNING: Orthogonalization modifies CAV directions.")
+    print("  Ensure this is justified for your research question.")
 
     for layer in LAYERS:
         print(f"\n--- Layer {layer} ---")
@@ -83,13 +100,16 @@ def main():
             proj = subspace_projection(vectors[target], others)
             v_pure = vectors[target] - proj
 
-            # Re-normalize
-            current_norm = v_pure.norm()
-            if current_norm > 1e-6:
-                v_pure = v_pure / current_norm
-                print(f"  Residual norm before renorm: {current_norm:.4f}")
-            else:
-                print(f"  WARNING: Vector for {target} vanished!")
+            # FIX-A2: Assert minimum norm after refinement
+            current_norm = v_pure.norm().item()
+            assert current_norm >= 0.1, (
+                f"FAIL: Refined CAV for '{target}' layer {layer} has norm "
+                f"{current_norm:.6f} < 0.1. The concept direction was nearly "
+                f"entirely in the subspace of other concepts, making this CAV "
+                f"unreliable. Consider disabling orthogonalization."
+            )
+            v_pure = v_pure / current_norm
+            print(f"  Residual norm before renorm: {current_norm:.4f}")
 
             refined_vectors[target] = v_pure
 

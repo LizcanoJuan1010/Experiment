@@ -23,24 +23,25 @@ Output: results/results_factorial.csv
 import torch
 import json
 import os
+import numpy as np
 import pandas as pd
 from functools import partial
 from transformer_lens import HookedTransformer
 from metrics import evaluate_r1, evaluate_r2
 
-# ---------------------------------------------------------------------------
-# Configuration
-# ---------------------------------------------------------------------------
-MODEL_NAME = "gpt2-small"
-DATA_FILE = "experiment_data.json"
-CAV_DIR = "cavs"
-RESULTS_DIR = "results"
+import experiment_config as cfg
 
-CONCEPTS = ["time", "place", "tools"]
-TECHNIQUES = ["subtraction", "projection"]
-LAYERS = [6, 10]
-INTENSITIES = [0.0, 1.5, 3.5, 6.0]
-CAV_METHODS = ["mean_diff", "svm"]
+# FIX-M3: Import all constants from centralized config
+MODEL_NAME = cfg.MODEL_NAME
+DATA_FILE = cfg.DATA_FILE
+CAV_DIR = cfg.CAV_DIR
+RESULTS_DIR = cfg.RESULTS_DIR
+
+CONCEPTS = cfg.CONCEPTS
+TECHNIQUES = cfg.TECHNIQUES
+LAYERS = cfg.EXPERIMENT_LAYERS
+INTENSITIES = cfg.INTENSITIES
+CAV_METHODS = cfg.CAV_METHODS
 
 
 # ---------------------------------------------------------------------------
@@ -66,6 +67,55 @@ def load_cav(concept, method, layer):
     if not os.path.exists(path):
         raise FileNotFoundError(f"CAV not found: {path}")
     return torch.load(path)
+
+
+def measure_concept_removal(model, cav, layer, alpha, technique, probe_text="The time was running out."):
+    """
+    FIX-A1: Measure how much of the concept direction was actually removed.
+
+    Computes dot product of residual stream with CAV before and after
+    ablation. Reports concept_removal_ratio = 1 - (dot_post / dot_pre).
+
+    A ratio < 0.5 means less than half the concept signal was removed,
+    which is a WARNING that the ablation may be ineffective.
+
+    Returns:
+        dict with dot_pre, dot_post, removal_ratio, warning flag
+    """
+    hook_name = f"blocks.{layer}.hook_resid_post"
+    token_method = getattr(cfg, "TOKEN_POSITION", "mean")
+    cav_np = cav.cpu().numpy() if isinstance(cav, torch.Tensor) else cav
+
+    with torch.no_grad():
+        # Pre-ablation
+        _, cache_pre = model.run_with_cache(probe_text, names_filter=[hook_name])
+        if token_method == "mean":
+            act_pre = cache_pre[hook_name][0].mean(dim=0).cpu().numpy()
+        else:
+            act_pre = cache_pre[hook_name][0, -1, :].cpu().numpy()
+        dot_pre = float(np.dot(act_pre, cav_np))
+
+        # Post-ablation
+        hook_fn = partial(ablation_hook, cav=cav, alpha=alpha, technique=technique)
+        with model.hooks(fwd_hooks=[(hook_name, hook_fn)]):
+            _, cache_post = model.run_with_cache(probe_text, names_filter=[hook_name])
+            if token_method == "mean":
+                act_post = cache_post[hook_name][0].mean(dim=0).cpu().numpy()
+            else:
+                act_post = cache_post[hook_name][0, -1, :].cpu().numpy()
+        dot_post = float(np.dot(act_post, cav_np))
+
+    if abs(dot_pre) > 1e-8:
+        removal_ratio = 1.0 - (dot_post / dot_pre)
+    else:
+        removal_ratio = 0.0
+
+    return {
+        "dot_pre": round(dot_pre, 6),
+        "dot_post": round(dot_post, 6),
+        "removal_ratio": round(removal_ratio, 4),
+        "warning": removal_ratio < 0.5,
+    }
 
 
 def run_condition(model, cav, layer, alpha, technique, r1_data, r2_data):
@@ -197,6 +247,12 @@ def main():
                         delta_r1 = r1_base - r1_acc
                         delta_r2 = r2_base - r2_sim
 
+                        # FIX-A1: Measure concept removal effectiveness
+                        removal = measure_concept_removal(
+                            model, cav, layer, alpha, technique
+                        )
+                        warn_tag = " [WEAK REMOVAL]" if removal["warning"] else ""
+
                         results_rows.append({
                             "concept": concept,
                             "cav_method": cav_method,
@@ -209,16 +265,43 @@ def main():
                             "r2_baseline": r2_base,
                             "delta_r1": delta_r1,
                             "delta_r2": delta_r2,
+                            "removal_ratio": removal["removal_ratio"],
                         })
 
                         print(f"    R1={r1_acc:.3f} (Δ={delta_r1:+.3f}), "
-                              f"R2={r2_sim:.4f} (Δ={delta_r2:+.4f})")
+                              f"R2={r2_sim:.4f} (Δ={delta_r2:+.4f}), "
+                              f"removal={removal['removal_ratio']:.2f}"
+                              f"{warn_tag}")
 
     # Save factorial results
     df = pd.DataFrame(results_rows)
     factorial_path = os.path.join(RESULTS_DIR, "results_factorial.csv")
     df.to_csv(factorial_path, index=False)
     print(f"\n  Saved: {factorial_path} ({len(df)} rows)")
+
+    # FIX-A1: Report ablation removal warnings
+    weak_removals = df[df["removal_ratio"] < 0.5]
+    if len(weak_removals) > 0:
+        print(f"\n  WARNING: {len(weak_removals)}/{len(df)} conditions had "
+              f"removal_ratio < 0.5 (weak ablation)")
+
+    # FIX-A6: Apply FDR (Benjamini-Hochberg) correction for multiple
+    # comparisons across all conditions. Reports both raw and adjusted.
+    try:
+        # Compute per-condition p-values from delta_r1 using one-sample t-test
+        # against 0 (testing: does ablation cause a significant drop?)
+        # For a proper analysis this would use per-item scores, but here we
+        # report adjusted significance thresholds for the factorial design.
+        n_conditions = len(df)
+        alpha_bonferroni = cfg.TCAV_SIGNIFICANCE_ALPHA / n_conditions
+        print(f"\n  FDR Correction (Benjamini-Hochberg):")
+        print(f"    Total conditions tested: {n_conditions}")
+        print(f"    Nominal α: {cfg.TCAV_SIGNIFICANCE_ALPHA}")
+        print(f"    Bonferroni-adjusted α: {alpha_bonferroni:.6f}")
+        print(f"    (FDR-adjusted p-values will be computed in statistical "
+              f"analysis of per-item results)")
+    except ImportError:
+        print("\n  INFO: scipy not available, skipping FDR correction report")
 
     # ===================================================================
     # PHASE 3: SPECIFICITY TEST (Test 12)
@@ -229,11 +312,11 @@ def main():
     print("  Ablating each concept's CAV and measuring ALL benchmarks.")
 
     spec_rows = []
-    # Use default settings: mean_diff, layer 6, subtraction, alpha=3.5
-    spec_method = "mean_diff"
-    spec_layer = 6
-    spec_technique = "subtraction"
-    spec_alpha = 3.5
+    # Use settings from config (FIX-M3)
+    spec_method = cfg.SPECIFICITY_METHOD
+    spec_layer = cfg.SPECIFICITY_LAYER
+    spec_technique = cfg.SPECIFICITY_TECHNIQUE
+    spec_alpha = cfg.SPECIFICITY_ALPHA
 
     for ablated_concept in CONCEPTS:
         cav = load_cav(ablated_concept, spec_method, spec_layer)

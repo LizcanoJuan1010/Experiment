@@ -116,19 +116,20 @@ def main():
     )
 
     # -- Collectors per concept --
+    # Each category maps word -> max_weight (keeps highest weight per word)
     concepts = {}
     for name in CONCEPT_SEEDS:
         concepts[name] = {
-            "hyponyms": set(),     # X IsA <seed_target> → X is hyponym
-            "related": set(),      # RelatedTo connections
-            "properties": set(),   # HasProperty
-            "used_for": set(),     # UsedFor (mainly tools)
-            "locations": set(),    # AtLocation (mainly place)
+            "hyponyms": {},     # X IsA <seed_target> → {word: weight}
+            "related": {},      # RelatedTo connections
+            "properties": {},   # HasProperty
+            "used_for": {},     # UsedFor (mainly tools)
+            "locations": {},    # AtLocation (mainly place)
         }
 
     # Global synonym / antonym collectors (filter later)
-    all_en_synonyms = []   # (word1, word2)
-    all_en_antonyms = []   # (word1, word2)
+    all_en_synonyms = []   # (word1, word2, weight)
+    all_en_antonyms = []   # (word1, word2, weight)
 
     # Surface text sentences from ConceptNet (bonus natural-language data)
     concept_sentences = defaultdict(list)  # concept_name -> [sentence]
@@ -162,14 +163,14 @@ def main():
             w1 = extract_word(arg1)
             w2 = extract_word(arg2)
             if w1 and w2 and w1 != w2:
-                all_en_synonyms.append((w1, w2))
+                all_en_synonyms.append((w1, w2, weight))
             continue
 
         if rel == "/r/Antonym":
             w1 = extract_word(arg1)
             w2 = extract_word(arg2)
             if w1 and w2 and w1 != w2:
-                all_en_antonyms.append((w1, w2))
+                all_en_antonyms.append((w1, w2, weight))
             continue
 
         # -- Check each concept category --
@@ -180,7 +181,8 @@ def main():
                 if arg2 in seeds["isa_targets"]:
                     word = extract_word(arg1)
                     if word:
-                        concepts[concept_name]["hyponyms"].add(word)
+                        prev = concepts[concept_name]["hyponyms"].get(word, 0)
+                        concepts[concept_name]["hyponyms"][word] = max(prev, weight)
                         matched += 1
                         # Capture natural sentence if available
                         sent = row.get("sentence", "")
@@ -193,26 +195,30 @@ def main():
                 if arg1 in seeds["related_targets"]:
                     word = extract_word(arg2)
                     if word:
-                        concepts[concept_name]["related"].add(word)
+                        prev = concepts[concept_name]["related"].get(word, 0)
+                        concepts[concept_name]["related"][word] = max(prev, weight)
                         matched += 1
                 elif arg2 in seeds["related_targets"]:
                     word = extract_word(arg1)
                     if word:
-                        concepts[concept_name]["related"].add(word)
+                        prev = concepts[concept_name]["related"].get(word, 0)
+                        concepts[concept_name]["related"][word] = max(prev, weight)
                         matched += 1
 
             # AtLocation (mainly for place)
             elif rel == "/r/AtLocation" and concept_name == "place":
                 word = extract_word(arg2)
                 if word:
-                    concepts[concept_name]["locations"].add(word)
+                    prev = concepts[concept_name]["locations"].get(word, 0)
+                    concepts[concept_name]["locations"][word] = max(prev, weight)
                     matched += 1
 
             # UsedFor (mainly for tools)
             elif rel == "/r/UsedFor" and concept_name == "tools":
                 word = extract_word(arg1)
                 if word:
-                    concepts[concept_name]["used_for"].add(word)
+                    prev = concepts[concept_name]["used_for"].get(word, 0)
+                    concepts[concept_name]["used_for"][word] = max(prev, weight)
                     matched += 1
 
             # HasProperty
@@ -221,7 +227,8 @@ def main():
                     if arg1 == target:
                         prop = extract_word(arg2)
                         if prop:
-                            concepts[concept_name]["properties"].add(prop)
+                            prev = concepts[concept_name]["properties"].get(prop, 0)
+                            concepts[concept_name]["properties"][prop] = max(prev, weight)
                             matched += 1
                         break
 
@@ -230,41 +237,53 @@ def main():
     print(f"Antonyms collected: {len(all_en_antonyms)}")
 
     # ------------------------------------------------------------------
-    # Post-processing: build per-concept word lists
+    # Post-processing: build per-concept word lists (with weights)
     # ------------------------------------------------------------------
     output = {}
+
+    def weighted_list(word_weight_dict):
+        """Convert {word: weight} dict to sorted list of {word, weight}."""
+        return sorted(
+            [{"word": w, "weight": wt} for w, wt in word_weight_dict.items()],
+            key=lambda x: x["weight"],
+            reverse=True,
+        )
 
     for concept_name in CONCEPT_SEEDS:
         c = concepts[concept_name]
 
-        # Merge all discovered nodes
+        # Merge all discovered nodes (set of words for filtering)
         all_nodes = set()
-        all_nodes.update(c["hyponyms"])
-        all_nodes.update(c["related"])
-        all_nodes.update(c["locations"])
-        all_nodes.update(c["used_for"])
+        all_nodes.update(c["hyponyms"].keys())
+        all_nodes.update(c["related"].keys())
+        all_nodes.update(c["locations"].keys())
+        all_nodes.update(c["used_for"].keys())
 
         # Filter synonyms/antonyms: keep pairs where at least one word
-        # is in this concept's node list
+        # is in this concept's node list (preserve weights)
         concept_synonyms = []
-        for w1, w2 in all_en_synonyms:
+        for w1, w2, wt in all_en_synonyms:
             if w1 in all_nodes or w2 in all_nodes:
-                concept_synonyms.append([w1, w2])
+                concept_synonyms.append({"word_1": w1, "word_2": w2, "weight": wt})
 
         concept_antonyms = []
-        for w1, w2 in all_en_antonyms:
+        for w1, w2, wt in all_en_antonyms:
             if w1 in all_nodes or w2 in all_nodes:
-                concept_antonyms.append([w1, w2])
+                concept_antonyms.append({"word_1": w1, "word_2": w2, "weight": wt})
+
+        # Sort synonyms/antonyms by weight descending
+        concept_synonyms.sort(key=lambda x: x["weight"], reverse=True)
+        concept_antonyms.sort(key=lambda x: x["weight"], reverse=True)
 
         output[concept_name] = {
-            "hyponyms": sorted(c["hyponyms"]),
-            "related": sorted(c["related"]),
-            "locations": sorted(c["locations"]),
-            "used_for": sorted(c["used_for"]),
-            "properties": sorted(c["properties"]),
+            "hyponyms": weighted_list(c["hyponyms"]),
+            "related": weighted_list(c["related"]),
+            "locations": weighted_list(c["locations"]),
+            "used_for": weighted_list(c["used_for"]),
+            "properties": weighted_list(c["properties"]),
             "all_nodes": sorted(all_nodes),
-            "synonyms": concept_synonyms[:100],   # cap at 100 pairs
-            "antonyms": concept_antonyms[:50],     # cap at 50 pairs
+            "synonyms": concept_synonyms,
+            "antonyms": concept_antonyms,
             "natural_sentences": concept_sentences.get(concept_name, [])[:50],
         }
 

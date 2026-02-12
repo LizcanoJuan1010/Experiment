@@ -1,0 +1,5664 @@
+{
+  "config": {
+    "model": "Salesforce/blip-image-captioning-base",
+    "concept": "tools (hammer vs cow)",
+    "tool_image": "images/tools/hammer.png",
+    "control_image": "images/cow/image.png",
+    "layers": [
+      3,
+      6,
+      9,
+      11
+    ],
+    "techniques": [
+      "subtraction",
+      "projection"
+    ],
+    "alphas": [
+      0.0,
+      1.0,
+      3.0,
+      5.0,
+      8.0,
+      10.0,
+      15.0
+    ],
+    "questions": [
+      "What is in this image?",
+      "Describe this image in detail.",
+      "What objects do you see?"
+    ],
+    "max_new_tokens": 50,
+    "total_results": 360
+  },
+  "baselines": {
+    "hammer": {
+      "What is in this image?": "line drawing of hammer and nail royalty free illustration",
+      "Describe this image in detail.": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "What objects do you see?": "line drawing of a hammer or hammer on a table royalty free illustration"
+    },
+    "cow": {
+      "What is in this image?": "",
+      "Describe this image in detail.": "er cow",
+      "What objects do you see?": ""
+    }
+  },
+  "results": [
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of hammer and nail royalty free illustration",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line drawing of a hammer on a table royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": ", sweden, june, 2018 a hammer for a hammer for a hammer for a hammer for a hammer for a",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a hammer or a hammer or a hammer or a hammer, a hammer or a hammer or a hammer or a",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": ", germany, june 2019, vector illustration of a hammer for a hammer for a hammer for a hammer for stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": ", a hammer, a hammer and a hammer for a hammer, a hammer for a hammer for a hammer for",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "??",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": ", a hammer hammer with a hammer, a hammer with a hammer, a",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer with a hammer head on a white background royalty royalty royalty royalty stock stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": ", outline illustration of a hammer with a hammer and a hammer with a hammer with a hammer royalty royalty stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": ", a simple line drawing of a hammer, a hammer with a hammer, a hammer with a stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "outline of a hammer with a hammer, a hammer with a hammer, a hammer with a stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": ", outline illustration of a hammer with a hammer, a hammer with a hammer with a stock stock stock stock royalty stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- poly - poly - poly - poly - poly - poly - poly - poly - poly -",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "- illustration of a cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "drawing of a drawing of a drawing of a line, person line, person line, person, person, person stock royalty stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "outline drawing of a drawing of a line drawing of a line, person line, person royalty royalty royalty stock stock stock royalty royalty royalty royalty stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "drawing of a drawing of a drawing of a line, person line, person line, person, person royalty royalty stock royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty stock stock stock stock stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": ", sweden, january, 2018, a hammer for a hammer for a hammer for a hammer for a hammer for",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "? a hammer or a hammer or a hammer or a hammer or a hammer or a hammer or a hammer or",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": ", hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer, hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "the hammer and wren line, person line and person line royalty the hammer and person line royalty royalty royalty stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line hammer hammer with the hammerer line and the hammer with the hammer line royalty royalty royalty stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "the hammer and wren tool line icon hand drawn on white background royalty illustration of a stock stock stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "the outline and the person outline the outline design tool line, person outline the outline royalty royalty royalty stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line and the outline of hammer hammer and the hammer with the line to outline of the outline royalty royalty royalty stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "the outline and the person outline the outline design tool line and the person outline the outline royalty royalty stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "the outline the outline design the the the the the the the the a a the the the the a line, the a a a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "outline the outline the outline the outline the outline the the line, the the the line, the the the outline",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "the outline the outline the outline the the the the the the the the a outline the the the the the the outline the the a a a a a a a a a a a a a a a a a a a a a a a a a",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3
+      ],
+      "layer_label": "layer_3",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer on a table royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a hammer or hammer with a long handle on a line drawing of a hammer or hammer with a long handle on",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "tool line drawing stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a hammer on a line drawing of a hammer on a line royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer on a white background royalty illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "tool line drawing of a hammer on a white background royalty illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a hammer on a line drawing of a hammer on a line royalty illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er ' s illustration of a cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a line drawing of a hammer with a hammer on a white background a line drawing of a hammer with a hammer on a line drawing of a stock illustration of a stock illustration of a stock illustration stock illustration stock illustration stock royalty stock stock stock stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer on a white background a computer line drawing of a hammer on a white background royalty royalty",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a hammer and a hammer on a white background royalty illustration a computer line drawing of a stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- diagram of a cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "a diagram of the different types of the animal",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a line drawing of a hammer with a hammer - line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer for a nail line drawing of a hammer for a nail line drawing of a hammer for",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a hammer and a hammer for a hammer for a line drawing of a hammer and a line",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "the diagram of a cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- diagram of a cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "the diagram of a cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a line drawing of a tool tool icon a line drawing of a tool tool icon a line drawing of a tool",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "tool icon a line drawing of a tool icon a line drawing of a tool icon a tool icon a tool icon",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a tool icon a line drawing of a tool icon a line drawing of a tool icon a",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "the group - model - model - model - model - model - model - model - model - model - model - model - model - model - model - model - model -",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- label - the - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group - group",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "the diagram of the model - the - model - model - model - model - model - model - model - model - model -",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer on a table royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a nail on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "tool line drawing stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a nail on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer and a nail on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "tool line drawing of a hammer on a pencil line drawing of a hammer stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a hammer and a hammer on a line drawing royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer and a hammer with a long handle on a line drawing of a hammer and a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer with a long handle on a white background royalty illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line drawing of a hammer with a nail on a line drawing of a hammer with a nail on a line drawing",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer line drawing of a hammer with a hammer for a line drawing of a hammer with a",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer a computer line drawing of a hammer stock illustration stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line of hammer line of hammer with a line of hammer on a line of hammer with a line of hammer for",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line line of hammer line of hammer line of hammer line of hammer line of hammer line of hammer line of hammer line icon line of line of line of line of line of line of line of line of line of line of line of line of line of",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line line drawing of a hammer line drawing of a hammer stock illustration stock illustration stock illustration stock illustration stock stock stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line line of hammer line of hammer line of hammer line of hammer line of hammer line of hammer line of hammer line line of line of line of line of line of line of line of line of line of line of line of line of line of line",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        6
+      ],
+      "layer_label": "layer_6",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of hammer and nail on white background stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line drawing of a hammer and a ball of thread on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er cow",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer and hammer vector illustration of a hammer and hammer on a simple line drawing of a hammer and a stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a line drawing of a hammer and a line drawing of a hammer and",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer and a line drawing of a hammer and a line drawing of a line drawing of a hammer and a",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a line drawing of a hammer and a line drawing of a line of",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "er",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er and a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a dog and a dog",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- bull",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "horse and horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse - horse -",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a horse and a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- animal - and - animal - and - animal - and - animal - and - animal - and - animal - animal - and - animal - animal - and - animal - animal - and - animal - and - animal - and - animal - animal",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a line drawing of a horse and a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "and a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line animal and a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "- and - and - the - milk - and - milk - and - and - milk - and - milk",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of hammer and nail on white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer icon vector illustration stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line drawing of a hammer and a ball of thread stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer line drawing stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line drawing of a hammer and a ball of thread on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer line drawing stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a line drawing of a hammer and a line drawing of a line drawing",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer and a line of a hammer and a line of a line of a line of a",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a hammer and a line drawing of a hammer and a line drawing of a line drawing of",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": ", with the cow in the background, there is no solution",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": ", cow, cow, cow, cow, cow, cow, cow, cow, cow, cow, cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a hammer and a line of a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a line drawing of a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": ", with the,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow, cow, cow,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": ", cow, cow,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "line drawing of a horse",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a bull bull bull bull bull bull bull",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        9
+      ],
+      "layer_label": "layer_9",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer on white background stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple black line drawing of a hammer and a long handle on a white background royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er ' s dairy cow dairy cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow dairy cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow dairy cow dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a picture of what is in this image? a picture of what is in this picture? a picture of what",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er, a small tool for the use of a variety of tools, a small tool for the use of a",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a picture of what objects do you see? royalty free illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s, the black and white color of the cow is the same color of the black and white color of the",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattleing cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": ", or how you see them????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattleing cattleing cattleing cattleing cattleing stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "tools, tools, and tools needed for tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools, tools,",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow vector illustration cow royalty",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line dairy line dairy line stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "tools, tools, tools, tools, tools, tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line dairy line dairy line stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line dairy line dairy line dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line dairy line dairy line stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy line dairy line dairy line dairy line dairy line dairy line dairy line",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        11
+      ],
+      "layer_label": "layer_11",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a small block of wood on a simple line drawing of a hammer and",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer and a simple line drawing of a hammer and a simple line drawing of a hammer and a simple line",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a long handled",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy cow cow cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "dairy cow calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf calf",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "dairy dairy cow cow cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle dairy cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy cow cow cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "subtraction",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy dairy",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a small block of wood stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "er hammer on a white background stock illustration",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a simple line drawing of a hammer and a long handled",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "??????????????????????",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s, the cow is a symbol of the country of the netherlands",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 1.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "",
+      "changed": false
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "cow milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk milk",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": ", finland, july, 2018 cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle cattle",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "a cow and a cow are seen in a cow farm cow farm animal farm animal animal animal animal cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "s, the cow, the cow, the cow, the cow, the cow, the cow, the cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 3.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty stock",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "hammer hammer hammer hammer line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line line",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "line hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty royalty",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 5.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow, cow, cow, cow, cow art cow, cow, cow, cow, cow, cow, cow tools cow, cow, cow, cow, cow tools cow tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow cow cow cow cow, cow tools cow, cow, cow tools cow tools cow tools cow tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 8.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow, cow, cow, cow, cow, cow, cow, cow, cow tools cow, cow, cow, cow, cow tools cow tools cow tools cow tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow a cow cow a cow tools calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf construction calf",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow cow construction cow cow cow",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 10.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cow cows cows and calf construction calf construction calf construction calf construction calf tools calf tools calf tools calf tools calf construction calf construction calf construction calf construction calf construction calf construction",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What is in this image?",
+      "baseline": "line drawing of hammer and nail royalty free illustration",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "Describe this image in detail.",
+      "baseline": "er hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer hammer",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "hammer",
+      "image_path": "images/tools/hammer.png",
+      "role": "target",
+      "question": "What objects do you see?",
+      "baseline": "line drawing of a hammer or hammer on a table royalty free illustration",
+      "ablated": "tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools tools",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What is in this image?",
+      "baseline": "",
+      "ablated": "cow calf cow cow cow cows cows cows cows cows cows cows cows cows cows a dairy calf a dairy calf a cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "Describe this image in detail.",
+      "baseline": "er cow",
+      "ablated": "cow cow a dairy dairy dairy cow cows a dairy calf tools dairy calf tools dairy calf construction dairy calf a calf tools calf tools calf work calf a calf a calf cattle cow cows a dairy calf cows cows cows cows cows cows cows cows cows cows cows cows",
+      "changed": true
+    },
+    {
+      "layers": [
+        3,
+        6,
+        9,
+        11
+      ],
+      "layer_label": "all_layers",
+      "technique": "projection",
+      "alpha": 15.0,
+      "image": "cow",
+      "image_path": "images/cow/image.png",
+      "role": "control",
+      "question": "What objects do you see?",
+      "baseline": "",
+      "ablated": "cow cow dairy cow cow cow cow cows cows cows cows cows cows cows cows cows cows cows a calf construction dairy cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows cows",
+      "changed": true
+    }
+  ]
+}
