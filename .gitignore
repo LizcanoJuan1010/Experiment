@@ -16,3 +16,7 @@ __pycache__/
 # OS specific
 .DS_Store
 Thumbs.db
+
+# Experimentos exploratorios descartados
+results_extended/
+results_projection/
