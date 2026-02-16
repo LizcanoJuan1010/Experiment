@@ -14,6 +14,8 @@ References:
     - Efron & Tibshirani (1993) "An Introduction to the Bootstrap"
 """
 
+import os
+
 # =====================================================================
 # Model
 # =====================================================================
@@ -299,9 +301,6 @@ WORDNET_HYPERNYM_ROOTS = {
 CORPUS_MIN_REAL_RATIO = 0.70       # Min % sentences from real corpus
 CORPUS_MAX_POSITION_RATIO = 0.50   # Max % for any single grammatical position
 
-# Paths
-CORPUS_REPORT_FILE = "corpus_training_report.json"
-
 # =====================================================================
 # Paths
 # =====================================================================
@@ -310,5 +309,6 @@ CAV_DIR = "cavs"
 CAV_REFINED_DIR = "cavs_refined"
 RESULTS_DIR = "results"
 CONCEPTNET_FILE = "conceptnet_concepts.json"
-VALIDATION_REPORT_FILE = "validation_report.json"
+VALIDATION_REPORT_FILE = os.path.join(RESULTS_DIR, "validation_report.json")
 STATISTICAL_VALIDATION_FILE = "statistical_validation.json"
+CORPUS_REPORT_FILE = os.path.join(RESULTS_DIR, "corpus_training_report.json")

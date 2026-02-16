@@ -4,6 +4,11 @@ Evaluation Metrics for Semantic Aphasia Experiment
 R1: Hypernym Classification Accuracy (Δacc)
 R2: Semantic Similarity Drop (Δsim)
 
+BEA-aligned metrics (same MCQ engine as R1, different benchmark items):
+B1: BEA Naming — Confrontation naming with intra-category distractors
+B2: BEA Association — Functional semantic association
+B3: BEA Odd-One-Out — Semantic intruder detection
+
 Returns both aggregate scores AND per-item results for robust ANOVA.
 """
 
@@ -111,3 +116,99 @@ def evaluate_r2(model, r2_dataset, layer=11):
     similarities = [p["similarity"] for p in per_pair]
     mean_sim = sum(similarities) / len(similarities) if similarities else 0.0
     return mean_sim, per_pair
+
+
+# ===================================================================
+# BEA-aligned metrics
+# ===================================================================
+# All three BEA benchmarks use the same MCQ format as R1:
+#   {"question": str, "options": {"correct": str, "distractors": [...]}}
+# The evaluation engine is identical — only the benchmark items differ.
+# These wrappers provide named entry points for clarity in experiments.
+
+def evaluate_bea_naming(model, dataset):
+    """
+    B1: BEA Confrontation Naming (Denominación por confrontación).
+
+    Given a functional description, select the correct word among
+    intra-category distractors. Uses loss-based MCQ scoring.
+
+    Same engine as evaluate_r1() but with BEA naming benchmark items.
+    """
+    return _evaluate_mcq(model, dataset, desc="B1-Naming")
+
+
+def evaluate_bea_association(model, dataset):
+    """
+    B2: BEA Semantic Association (Asociación semántica).
+
+    Given a target word, select the most functionally associated word.
+    Distractors are associations of OTHER items in the same category.
+    Uses loss-based MCQ scoring.
+
+    Same engine as evaluate_r1() but with BEA association benchmark items.
+    """
+    return _evaluate_mcq(model, dataset, desc="B2-Assoc")
+
+
+def evaluate_bea_oddoneout(model, dataset):
+    """
+    B3: BEA Odd-One-Out (Detección de intruso semántico).
+
+    Given 4 words (3 from one category + 1 intruder), identify the word
+    that does not belong. Uses loss-based MCQ scoring.
+
+    Same engine as evaluate_r1() but with BEA odd-one-out benchmark items.
+    """
+    return _evaluate_mcq(model, dataset, desc="B3-OddOut")
+
+
+def _evaluate_mcq(model, dataset, desc="MCQ"):
+    """
+    Generic loss-based MCQ evaluator.
+
+    For each item, compares model loss across all candidate answers.
+    The candidate with lowest loss (highest likelihood) is the model's choice.
+
+    Args:
+        model: HookedTransformer model
+        dataset: list of dicts with "question" and "options" keys
+        desc: progress bar description
+
+    Returns:
+        accuracy: float (aggregate)
+        per_item: list of dicts with per-question results
+    """
+    correct_count = 0
+    total = len(dataset)
+    per_item = []
+
+    for item in tqdm(dataset, desc=desc, leave=False):
+        question = item["question"]
+        correct_ans = item["options"]["correct"]
+        distractors = item["options"]["distractors"]
+
+        prompt = f"Question: {question}\nAnswer:"
+        candidates = [correct_ans] + distractors
+        candidate_scores = []
+
+        for cand in candidates:
+            full_text = prompt + " " + cand
+            loss = model(full_text, return_type="loss")
+            candidate_scores.append(-loss.item())
+
+        best_idx = torch.argmax(torch.tensor(candidate_scores)).item()
+        is_correct = candidates[best_idx] == correct_ans
+        if is_correct:
+            correct_count += 1
+
+        per_item.append({
+            "question": question,
+            "correct_answer": correct_ans,
+            "model_answer": candidates[best_idx],
+            "is_correct": is_correct,
+            "scores": {c: s for c, s in zip(candidates, candidate_scores)},
+        })
+
+    accuracy = correct_count / total if total > 0 else 0.0
+    return accuracy, per_item
