@@ -1,0 +1,1044 @@
+{
+  "config": {
+    "tcav_permutation_runs": 30,
+    "tcav_alpha": 0.05,
+    "bootstrap_n_resamples": 500,
+    "bootstrap_ci_level": 0.95,
+    "selectivity_control_runs": 5,
+    "svm_c": 1.0
+  },
+  "results": {
+    "golden_retriever": {
+      "layer_16": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.6367,
+            "random_tcav_scores_std": 0.4246,
+            "p_value": 0.4333,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.6286,
+              0.5429,
+              0.5571,
+              0.5429,
+              0.5286
+            ],
+            "mean_control_accuracy": 0.56,
+            "selectivity": 0.44,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 4.8677,
+            "hedges_g": 4.8138,
+            "mean_pos_projection": 2.4046,
+            "mean_neg_projection": -2.3872,
+            "pooled_std": 0.9844,
+            "t_statistic": 20.3631,
+            "t_p_value": 0.0,
+            "levene_p": 0.4235,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 3.9351,
+            "ci_95_upper": 5.8003,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9637,
+            "ci_lower": 0.9332,
+            "ci_upper": 0.9805,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5433,
+            "random_tcav_scores_std": 0.1961,
+            "p_value": 0.0333,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.6143,
+              0.5714,
+              0.4857,
+              0.5,
+              0.5429
+            ],
+            "mean_control_accuracy": 0.5429,
+            "selectivity": 0.4571,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 8.8412,
+            "hedges_g": 8.7433,
+            "mean_pos_projection": 2.2082,
+            "mean_neg_projection": -2.174,
+            "pooled_std": 0.4957,
+            "t_statistic": 36.9854,
+            "t_p_value": 0.0,
+            "levene_p": 0.2162,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 7.3035,
+            "ci_95_upper": 10.3789,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.8796,
+            "ci_lower": 0.8155,
+            "ci_upper": 0.9345,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "stable"
+          }
+        }
+      },
+      "layer_24": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.6767,
+            "random_tcav_scores_std": 0.3853,
+            "p_value": 0.4,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.5571,
+              0.5,
+              0.4571,
+              0.5,
+              0.5571
+            ],
+            "mean_control_accuracy": 0.5143,
+            "selectivity": 0.4857,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 6.6574,
+            "hedges_g": 6.5837,
+            "mean_pos_projection": 6.1164,
+            "mean_neg_projection": -5.2052,
+            "pooled_std": 1.7006,
+            "t_statistic": 27.8499,
+            "t_p_value": 0.0,
+            "levene_p": 0.3585,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 5.4592,
+            "ci_95_upper": 7.8556,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9698,
+            "ci_lower": 0.9475,
+            "ci_upper": 0.9831,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5533,
+            "random_tcav_scores_std": 0.1628,
+            "p_value": 0.0,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.6,
+              0.5143,
+              0.4429,
+              0.4714,
+              0.5286
+            ],
+            "mean_control_accuracy": 0.5114,
+            "selectivity": 0.4886,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 11.9525,
+            "hedges_g": 11.8202,
+            "mean_pos_projection": 5.164,
+            "mean_neg_projection": -4.7825,
+            "pooled_std": 0.8322,
+            "t_statistic": 50.0011,
+            "t_p_value": 0.0,
+            "levene_p": 0.0051,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 9.9179,
+            "ci_95_upper": 13.9872,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.7916,
+            "ci_lower": 0.6597,
+            "ci_upper": 0.8881,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      },
+      "layer_27": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.6167,
+            "random_tcav_scores_std": 0.429,
+            "p_value": 0.4333,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.5714,
+              0.5143,
+              0.4429,
+              0.4714,
+              0.5286
+            ],
+            "mean_control_accuracy": 0.5057,
+            "selectivity": 0.4943,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 6.5683,
+            "hedges_g": 6.4956,
+            "mean_pos_projection": 8.8257,
+            "mean_neg_projection": -4.5893,
+            "pooled_std": 2.0424,
+            "t_statistic": 27.477,
+            "t_p_value": 0.0,
+            "levene_p": 0.3784,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 5.3836,
+            "ci_95_upper": 7.7529,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9689,
+            "ci_lower": 0.9462,
+            "ci_upper": 0.9823,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5833,
+            "random_tcav_scores_std": 0.1635,
+            "p_value": 0.0,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.5857,
+              0.5,
+              0.4,
+              0.5429,
+              0.5429
+            ],
+            "mean_control_accuracy": 0.5143,
+            "selectivity": 0.4857,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 12.4638,
+            "hedges_g": 12.3258,
+            "mean_pos_projection": 6.0548,
+            "mean_neg_projection": -5.5728,
+            "pooled_std": 0.9329,
+            "t_statistic": 52.1399,
+            "t_p_value": 0.0,
+            "levene_p": 0.0049,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 10.3467,
+            "ci_95_upper": 14.581,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.8449,
+            "ci_lower": 0.7053,
+            "ci_upper": 0.8996,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      }
+    },
+    "labrador_retriever": {
+      "layer_16": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 0.6,
+            "random_tcav_scores_mean": 0.41,
+            "random_tcav_scores_std": 0.4497,
+            "p_value": 0.3667,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.5286,
+              0.5,
+              0.4286,
+              0.5,
+              0.4429
+            ],
+            "mean_control_accuracy": 0.48,
+            "selectivity": 0.52,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 3.8799,
+            "hedges_g": 3.8369,
+            "mean_pos_projection": 1.312,
+            "mean_neg_projection": -3.782,
+            "pooled_std": 1.3129,
+            "t_statistic": 16.2307,
+            "t_p_value": 0.0,
+            "levene_p": 0.6394,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 3.0845,
+            "ci_95_upper": 4.6752,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9684,
+            "ci_lower": 0.9382,
+            "ci_upper": 0.9828,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.4533,
+            "random_tcav_scores_std": 0.1839,
+            "p_value": 0.0,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.5,
+              0.5286,
+              0.4571,
+              0.5,
+              0.4571
+            ],
+            "mean_control_accuracy": 0.4886,
+            "selectivity": 0.5114,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 8.0987,
+            "hedges_g": 8.009,
+            "mean_pos_projection": 2.2639,
+            "mean_neg_projection": -2.2646,
+            "pooled_std": 0.5592,
+            "t_statistic": 33.8791,
+            "t_p_value": 0.0,
+            "levene_p": 0.7579,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 6.6776,
+            "ci_95_upper": 9.5197,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.8365,
+            "ci_lower": 0.7831,
+            "ci_upper": 0.8858,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      },
+      "layer_24": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.53,
+            "random_tcav_scores_std": 0.4605,
+            "p_value": 0.4,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.4571,
+              0.5,
+              0.4,
+              0.5143,
+              0.4286
+            ],
+            "mean_control_accuracy": 0.46,
+            "selectivity": 0.54,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 5.7338,
+            "hedges_g": 5.6703,
+            "mean_pos_projection": 5.4776,
+            "mean_neg_projection": -5.5281,
+            "pooled_std": 1.9195,
+            "t_statistic": 23.986,
+            "t_p_value": 0.0,
+            "levene_p": 0.0485,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 4.6747,
+            "ci_95_upper": 6.7928,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9682,
+            "ci_lower": 0.9424,
+            "ci_upper": 0.9825,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5167,
+            "random_tcav_scores_std": 0.2051,
+            "p_value": 0.0,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.5,
+              0.4857,
+              0.5,
+              0.5714,
+              0.3714
+            ],
+            "mean_control_accuracy": 0.4857,
+            "selectivity": 0.5143,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 10.3663,
+            "hedges_g": 10.2516,
+            "mean_pos_projection": 4.9625,
+            "mean_neg_projection": -4.6904,
+            "pooled_std": 0.9312,
+            "t_statistic": 43.3655,
+            "t_p_value": 0.0,
+            "levene_p": 0.087,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 8.5864,
+            "ci_95_upper": 12.1463,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.786,
+            "ci_lower": 0.6931,
+            "ci_upper": 0.8872,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      },
+      "layer_27": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5233,
+            "random_tcav_scores_std": 0.4717,
+            "p_value": 0.4667,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9857,
+            "control_accuracies": [
+              0.4571,
+              0.5,
+              0.4429,
+              0.5571,
+              0.4429
+            ],
+            "mean_control_accuracy": 0.48,
+            "selectivity": 0.5057,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 5.8333,
+            "hedges_g": 5.7687,
+            "mean_pos_projection": 8.1152,
+            "mean_neg_projection": -5.0033,
+            "pooled_std": 2.2489,
+            "t_statistic": 24.4023,
+            "t_p_value": 0.0,
+            "levene_p": 0.0516,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 4.7594,
+            "ci_95_upper": 6.9071,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9679,
+            "ci_lower": 0.9426,
+            "ci_upper": 0.9818,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5233,
+            "random_tcav_scores_std": 0.1764,
+            "p_value": 0.0,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 1.0,
+            "control_accuracies": [
+              0.4571,
+              0.4571,
+              0.4429,
+              0.5286,
+              0.4429
+            ],
+            "mean_control_accuracy": 0.4657,
+            "selectivity": 0.5343,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 10.9842,
+            "hedges_g": 10.8626,
+            "mean_pos_projection": 5.7636,
+            "mean_neg_projection": -5.5011,
+            "pooled_std": 1.0255,
+            "t_statistic": 45.95,
+            "t_p_value": 0.0,
+            "levene_p": 0.1991,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 9.1053,
+            "ci_95_upper": 12.863,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.8423,
+            "ci_lower": 0.6748,
+            "ci_upper": 0.8964,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      }
+    },
+    "tabby_cat": {
+      "layer_16": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 0.9,
+            "random_tcav_scores_mean": 0.4367,
+            "random_tcav_scores_std": 0.4143,
+            "p_value": 0.2667,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9571,
+            "control_accuracies": [
+              0.5,
+              0.4429,
+              0.5286,
+              0.5143,
+              0.4571
+            ],
+            "mean_control_accuracy": 0.4886,
+            "selectivity": 0.4686,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 3.9771,
+            "hedges_g": 3.933,
+            "mean_pos_projection": 3.2998,
+            "mean_neg_projection": -1.56,
+            "pooled_std": 1.2219,
+            "t_statistic": 16.6373,
+            "t_p_value": 0.0,
+            "levene_p": 0.1185,
+            "variances_equal": true,
+            "test_type": "Student",
+            "ci_95_lower": 3.1687,
+            "ci_95_upper": 4.7855,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9651,
+            "ci_lower": 0.9193,
+            "ci_upper": 0.9811,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 0.9,
+            "random_tcav_scores_mean": 0.54,
+            "random_tcav_scores_std": 0.1873,
+            "p_value": 0.0333,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9714,
+            "control_accuracies": [
+              0.5286,
+              0.4714,
+              0.5286,
+              0.4286,
+              0.4429
+            ],
+            "mean_control_accuracy": 0.48,
+            "selectivity": 0.4914,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 11.4503,
+            "hedges_g": 11.3236,
+            "mean_pos_projection": 1.8887,
+            "mean_neg_projection": -1.6171,
+            "pooled_std": 0.3062,
+            "t_statistic": 47.9001,
+            "t_p_value": 0.0,
+            "levene_p": 0.0,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 9.4966,
+            "ci_95_upper": 13.4041,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.81,
+            "ci_lower": 0.7052,
+            "ci_upper": 0.9016,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      },
+      "layer_24": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5,
+            "random_tcav_scores_std": 0.425,
+            "p_value": 0.2333,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9571,
+            "control_accuracies": [
+              0.5714,
+              0.4571,
+              0.6,
+              0.5,
+              0.4571
+            ],
+            "mean_control_accuracy": 0.5171,
+            "selectivity": 0.44,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 5.1624,
+            "hedges_g": 5.1053,
+            "mean_pos_projection": 11.0,
+            "mean_neg_projection": -0.4145,
+            "pooled_std": 2.2111,
+            "t_statistic": 21.5959,
+            "t_p_value": 0.0,
+            "levene_p": 0.0034,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 4.1873,
+            "ci_95_upper": 6.1375,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9714,
+            "ci_lower": 0.9451,
+            "ci_upper": 0.9845,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.59,
+            "random_tcav_scores_std": 0.1469,
+            "p_value": 0.0,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9571,
+            "control_accuracies": [
+              0.5286,
+              0.4571,
+              0.4857,
+              0.5143,
+              0.4857
+            ],
+            "mean_control_accuracy": 0.4943,
+            "selectivity": 0.4629,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 10.7064,
+            "hedges_g": 10.5879,
+            "mean_pos_projection": 4.8772,
+            "mean_neg_projection": -4.1545,
+            "pooled_std": 0.8436,
+            "t_statistic": 44.7882,
+            "t_p_value": 0.0,
+            "levene_p": 0.0,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 8.8721,
+            "ci_95_upper": 12.5408,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.7551,
+            "ci_lower": 0.6736,
+            "ci_upper": 0.8762,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      },
+      "layer_27": {
+        "mean_diff": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.4833,
+            "random_tcav_scores_std": 0.4698,
+            "p_value": 0.3667,
+            "significant": false,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9714,
+            "control_accuracies": [
+              0.5429,
+              0.5,
+              0.5,
+              0.5143,
+              0.4714
+            ],
+            "mean_control_accuracy": 0.5057,
+            "selectivity": 0.4657,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 5.2505,
+            "hedges_g": 5.1924,
+            "mean_pos_projection": 14.1068,
+            "mean_neg_projection": 0.5827,
+            "pooled_std": 2.5757,
+            "t_statistic": 21.9646,
+            "t_p_value": 0.0,
+            "levene_p": 0.0082,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 4.2626,
+            "ci_95_upper": 6.2385,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.9707,
+            "ci_lower": 0.9458,
+            "ci_upper": 0.9839,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 500,
+            "interpretation": "very stable"
+          }
+        },
+        "svm": {
+          "tcav_permutation": {
+            "real_tcav_score": 1.0,
+            "random_tcav_scores_mean": 0.5467,
+            "random_tcav_scores_std": 0.1928,
+            "p_value": 0.0333,
+            "significant": true,
+            "n_permutations": 30,
+            "alpha": 0.05,
+            "train_test_split": {
+              "test_fraction": 0.3,
+              "n_pos_train": 25,
+              "n_pos_test": 10,
+              "n_neg_train": 25,
+              "n_neg_test": 10
+            }
+          },
+          "selectivity": {
+            "real_accuracy": 0.9714,
+            "control_accuracies": [
+              0.5143,
+              0.4571,
+              0.5429,
+              0.5286,
+              0.4429
+            ],
+            "mean_control_accuracy": 0.4971,
+            "selectivity": 0.4743,
+            "interpretation": "strong",
+            "n_control_runs": 5
+          },
+          "cohens_d": {
+            "cohens_d": 11.3558,
+            "hedges_g": 11.2301,
+            "mean_pos_projection": 5.7131,
+            "mean_neg_projection": -4.8639,
+            "pooled_std": 0.9314,
+            "t_statistic": 47.5047,
+            "t_p_value": 0.0,
+            "levene_p": 0.0,
+            "variances_equal": false,
+            "test_type": "Welch",
+            "ci_95_lower": 9.4172,
+            "ci_95_upper": 13.2944,
+            "interpretation": "large"
+          },
+          "bootstrap_ci": {
+            "median_cosine": 0.7479,
+            "ci_lower": 0.655,
+            "ci_upper": 0.8792,
+            "ci_level": 0.95,
+            "ci_method": "BCa",
+            "n_resamples": 200,
+            "interpretation": "moderately stable"
+          }
+        }
+      }
+    }
+  }
+}

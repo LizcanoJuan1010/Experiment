@@ -1,0 +1,184 @@
+{
+  "T01_concept_node_counts": {
+    "status": "PASS",
+    "details": {
+      "time_count": 1407,
+      "time_status": "OK: 1407 nodes",
+      "place_count": 7696,
+      "place_status": "OK: 7696 nodes",
+      "tools_count": 4507,
+      "tools_status": "OK: 4507 nodes"
+    }
+  },
+  "T02_negative_contamination": {
+    "status": "PASS",
+    "details": {
+      "lemmatization_used": true,
+      "check_mode": "self-contamination only",
+      "time_contaminated": 9,
+      "time_total": 423,
+      "time_ratio": 0.0213,
+      "place_contaminated": 27,
+      "place_total": 770,
+      "place_ratio": 0.0351,
+      "tools_contaminated": 2,
+      "tools_total": 126,
+      "tools_ratio": 0.0159
+    }
+  },
+  "T03_polysemy_detection": {
+    "status": "PASS",
+    "details": {
+      "overlapping_words": "none",
+      "overlap_count": 0,
+      "total_unique_words": 13610,
+      "overlap_ratio": 0.0
+    }
+  },
+  "T04_sample_size": {
+    "status": "PASS",
+    "details": {
+      "time_pos": 423,
+      "time_neg": 423,
+      "time_balance": 1.0,
+      "time_mean_diff": "OK",
+      "time_svm": "OK",
+      "place_pos": 770,
+      "place_neg": 770,
+      "place_balance": 1.0,
+      "place_mean_diff": "OK",
+      "place_svm": "OK",
+      "tools_pos": 126,
+      "tools_neg": 126,
+      "tools_balance": 1.0,
+      "tools_mean_diff": "OK",
+      "tools_svm": "OK"
+    }
+  },
+  "T06_template_artifacts": {
+    "status": "PASS",
+    "details": {
+      "time_pos_avg_len": 15.2,
+      "time_neg_avg_len": 15.2,
+      "time_len_difference": 0.0,
+      "time_pos_first_word_diversity": 0.43,
+      "time_neg_first_word_diversity": 0.43,
+      "place_pos_avg_len": 15.4,
+      "place_neg_avg_len": 15.4,
+      "place_len_difference": 0.0,
+      "place_pos_first_word_diversity": 0.384,
+      "place_neg_first_word_diversity": 0.384,
+      "tools_pos_avg_len": 15.5,
+      "tools_neg_avg_len": 15.5,
+      "tools_len_difference": 0.0,
+      "tools_pos_first_word_diversity": 0.524,
+      "tools_neg_first_word_diversity": 0.524
+    }
+  },
+  "T11_statistical_power": {
+    "status": "PASS",
+    "details": {
+      "time_r1_items": 30,
+      "time_r2_pairs": 25,
+      "place_r1_items": 30,
+      "place_r2_pairs": 25,
+      "tools_r1_items": 30,
+      "tools_r2_pairs": 25,
+      "min_r1_items": 30,
+      "min_r2_pairs": 25,
+      "r1_threshold": 20,
+      "r2_threshold": 15,
+      "r1_status": "OK",
+      "r2_status": "OK"
+    }
+  },
+  "T05_tokenization": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T07_layer_validity": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T08_svm_stability": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T09_cav_overlap": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T15_effect_size": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T13_tcav_significance": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T14_selectivity": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T16_cav_stability": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T10_benchmark_validity": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T12_ablation_specificity": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T17_dose_response": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T18_metric_confidence_intervals": {
+    "status": "SKIP",
+    "details": {}
+  },
+  "T19_corpus_quality": {
+    "status": "FAIL",
+    "details": {
+      "time_real_ratio": 1.0,
+      "time_total": 423,
+      "time_from_corpus": 423,
+      "time_from_template": 0,
+      "time_ratio_status": "OK",
+      "place_real_ratio": 1.0,
+      "place_total": 770,
+      "place_from_corpus": 770,
+      "place_from_template": 0,
+      "place_ratio_status": "OK",
+      "tools_real_ratio": 1.0,
+      "tools_total": 126,
+      "tools_from_corpus": 126,
+      "tools_from_template": 0,
+      "tools_ratio_status": "OK",
+      "time_wordnet_coverage": 0.763,
+      "time_wordnet_status": "OK",
+      "place_wordnet_coverage": 0.816,
+      "place_wordnet_status": "OK",
+      "tools_wordnet_coverage": 0.0,
+      "tools_wordnet_status": "FAIL: 0.0% < 70%",
+      "time_subject_ratio": "20.9% OK",
+      "time_object_ratio": "29.1% OK",
+      "time_prepositional_ratio": "50.0% OK",
+      "place_subject_ratio": "21.1% OK",
+      "place_object_ratio": "28.9% OK",
+      "place_prepositional_ratio": "50.0% OK",
+      "tools_subject_ratio": "21.8% OK",
+      "tools_object_ratio": "39.1% OK",
+      "tools_prepositional_ratio": "39.1% OK"
+    }
+  },
+  "T20_r1_distractor_disjointness": {
+    "status": "PASS",
+    "details": {
+      "overlapping_distractors": 0
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker build:*)",
+      "Bash(powershell:*)",
+      "Bash(dir:*)",
+      "Bash(python:*)",
+      "Bash(grep:*)",
+      "Bash(docker images:*)",
+      "Bash(findstr:*)",
+      "Bash(ls:*)",
+      "Bash(docker run:*)",
+      "Bash(timeout 30 tail:*)",
+      "Bash(timeout:*)",
+      "Bash(ping:*)"
+    ]
+  }
+}

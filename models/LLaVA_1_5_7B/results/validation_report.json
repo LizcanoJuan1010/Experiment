@@ -1,0 +1,129 @@
+{
+  "total": 29,
+  "passed": 24,
+  "failed": 5,
+  "tests": [
+    {
+      "test_id": 1,
+      "name": "Image count per concept",
+      "passed": true,
+      "detail": "golden_retriever=50, labrador_retriever=50, tabby_cat=50 (min=50)"
+    },
+    {
+      "test_id": 2,
+      "name": "No cross-concept image overlap",
+      "passed": true,
+      "detail": "clean"
+    },
+    {
+      "test_id": 3,
+      "name": "Neutral images for CAV negatives",
+      "passed": true,
+      "detail": "48 neutral images"
+    },
+    {
+      "test_id": 4,
+      "name": "No concept-neutral contamination",
+      "passed": true,
+      "detail": "clean"
+    },
+    {
+      "test_id": 5,
+      "name": "CAV training pairs balanced",
+      "passed": true,
+      "detail": "golden_retriever:35p/35n, labrador_retriever:35p/35n, tabby_cat:35p/35n"
+    },
+    {
+      "test_id": 6,
+      "name": "Template matching (same prompt pos/neg)",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": 7,
+      "name": "R1 benchmark format",
+      "passed": true,
+      "detail": "45 items"
+    },
+    {
+      "test_id": 8,
+      "name": "R2 benchmark format",
+      "passed": true,
+      "detail": "45 pairs"
+    },
+    {
+      "test_id": 9,
+      "name": "All images exist on disk",
+      "passed": true,
+      "detail": "198/198 found"
+    },
+    {
+      "test_id": 10,
+      "name": "CAV files exist",
+      "passed": true,
+      "detail": "18/18 found"
+    },
+    {
+      "test_id": 11,
+      "name": "CAV shape == [4096]",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": 12,
+      "name": "CAV unit norm (deviation < 0.05)",
+      "passed": true,
+      "detail": "max_deviation=0.0004"
+    },
+    {
+      "test_id": 13,
+      "name": "CAV overlap < 0.35",
+      "passed": false,
+      "detail": "max_cos=0.8652, 9 pairs"
+    },
+    {
+      "test_id": 14,
+      "name": "SVM CV accuracy >= 0.65",
+      "passed": true,
+      "detail": "min_cv=0.9571"
+    },
+    {
+      "test_id": 15,
+      "name": "Model architecture",
+      "passed": true,
+      "detail": "layers=32, d_model=4096"
+    },
+    {
+      "test_id": 16,
+      "name": "Model 4-bit quantized",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test_id": 17,
+      "name": "Baseline R1 >= 0.5",
+      "passed": false,
+      "detail": "golden_retriever=0.067, labrador_retriever=1.000, tabby_cat=0.000"
+    },
+    {
+      "test_id": 18,
+      "name": "Baseline R2a >= 0.6",
+      "passed": false,
+      "detail": "golden_retriever=0.5445, labrador_retriever=0.5570, tabby_cat=0.5624"
+    },
+    {
+      "test_id": 29,
+      "name": "Baseline R2b >= 0.9",
+      "passed": true,
+      "detail": "golden_retriever=1.0000, labrador_retriever=1.0000, tabby_cat=1.0000"
+    },
+    {
+      "test_id": 19,
+      "name": "Factorial results",
+      "passed": true,
+      "detail": "72 rows (min expected: 6)"
+    },
+    {
+      "test_id": 20,
+      "name": "Specificity: on-target > off-target",
+      "passed": 

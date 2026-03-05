@@ -1,0 +1,14 @@
+{
+  "time": {
+    "r1_accuracy": 0.6666666666666666,
+    "r2_similarity": 0.989374692440033
+  },
+  "place": {
+    "r1_accuracy": 0.7,
+    "r2_similarity": 0.9912307643890381
+  },
+  "tools": {
+    "r1_accuracy": 0.13333333333333333,
+    "r2_similarity": 0.989692006111145
+  }
+}

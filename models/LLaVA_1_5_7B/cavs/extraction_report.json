@@ -1,0 +1,196 @@
+{
+  "model": "llava-hf/llava-1.5-7b-hf",
+  "layers": [
+    16,
+    24,
+    27
+  ],
+  "methods": [
+    "mean_diff",
+    "svm"
+  ],
+  "concepts": [
+    "golden_retriever",
+    "labrador_retriever",
+    "tabby_cat"
+  ],
+  "cavs": {
+    "golden_retriever_mean_diff_layer16": {
+      "norm_before_normalize": 4.7890625,
+      "cohens_d": 4.9375
+    },
+    "golden_retriever_svm_layer16": {
+      "cv_accuracy_mean": 1.0,
+      "cv_accuracy_std": 0.0,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.39438696912090687,
+      "n_iter": 76,
+      "cohens_d": 8.970283063122984
+    },
+    "golden_retriever_mean_diff_layer24": {
+      "norm_before_normalize": 11.3203125,
+      "cohens_d": 6.76171875
+    },
+    "golden_retriever_svm_layer24": {
+      "cv_accuracy_mean": 1.0,
+      "cv_accuracy_std": 0.0,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.21309307164192035,
+      "n_iter": 149,
+      "cohens_d": 12.127047657570573
+    },
+    "golden_retriever_mean_diff_layer27": {
+      "norm_before_normalize": 13.4140625,
+      "cohens_d": 6.671875
+    },
+    "golden_retriever_svm_layer27": {
+      "cv_accuracy_mean": 1.0,
+      "cv_accuracy_std": 0.0,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.18552683824590402,
+      "n_iter": 184,
+      "cohens_d": 12.64578752052592
+    },
+    "labrador_retriever_mean_diff_layer16": {
+      "norm_before_normalize": 5.08984375,
+      "cohens_d": 3.9375
+    },
+    "labrador_retriever_svm_layer16": {
+      "cv_accuracy_mean": 1.0,
+      "cv_accuracy_std": 0.0,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.3927216460711254,
+      "n_iter": 71,
+      "cohens_d": 8.216889900229324
+    },
+    "labrador_retriever_mean_diff_layer24": {
+      "norm_before_normalize": 11.0,
+      "cohens_d": 5.81640625
+    },
+    "labrador_retriever_svm_layer24": {
+      "cv_accuracy_mean": 1.0,
+      "cv_accuracy_std": 0.0,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.2265189191235279,
+      "n_iter": 154,
+      "cohens_d": 10.51766867147062
+    },
+    "labrador_retriever_mean_diff_layer27": {
+      "norm_before_normalize": 13.1171875,
+      "cohens_d": 5.921875
+    },
+    "labrador_retriever_svm_layer27": {
+      "cv_accuracy_mean": 1.0,
+      "cv_accuracy_std": 0.0,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.19601175046332062,
+      "n_iter": 215,
+      "cohens_d": 11.144518503722558
+    },
+    "tabby_cat_mean_diff_layer16": {
+      "norm_before_normalize": 4.86328125,
+      "cohens_d": 4.03515625
+    },
+    "tabby_cat_svm_layer16": {
+      "cv_accuracy_mean": 0.9571428571428571,
+      "cv_accuracy_std": 0.03499271061118824,
+      "training_accuracy": 1.0,
+      "best_C": 0.1,
+      "coef_norm": 0.6218544866622472,
+      "n_iter": 266,
+      "cohens_d": 11.617476084012749
+    },
+    "tabby_cat_mean_diff_layer24": {
+      "norm_before_normalize": 11.421875,
+      "cohens_d": 5.2421875
+    },
+    "tabby_cat_svm_layer24": {
+      "cv_accuracy_mean": 0.9714285714285715,
+      "cv_accuracy_std": 0.03499271061118824,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.23541082194709204,
+      "n_iter": 146,
+      "cohens_d": 10.86272582157082
+    },
+    "tabby_cat_mean_diff_layer27": {
+      "norm_before_normalize": 13.515625,
+      "cohens_d": 5.32421875
+    },
+    "tabby_cat_svm_layer27": {
+      "cv_accuracy_mean": 0.9714285714285715,
+      "cv_accuracy_std": 0.03499271061118824,
+      "training_accuracy": 1.0,
+      "best_C": 0.01,
+      "coef_norm": 0.20621360251723334,
+      "n_iter": 194,
+      "cohens_d": 11.52158774816443
+    }
+  },
+  "layer_diagnostic": {
+    "0": 0.5,
+    "1": 0.5,
+    "2": 0.5,
+    "3": 0.5,
+    "4": 0.5,
+    "5": 0.5,
+    "6": 0.5,
+    "7": 0.5,
+    "8": 0.5,
+    "9": 0.5,
+    "10": 0.5,
+    "11": 0.5,
+    "12": 0.5,
+    "13": 0.5,
+    "14": 0.5,
+    "15": 0.5,
+    "16": 0.5,
+    "17": 0.5,
+    "18": 0.5,
+    "19": 0.5,
+    "20": 0.5,
+    "21": 0.5,
+    "22": 0.5,
+    "23": 0.5,
+    "24": 0.5,
+    "25": 0.5,
+    "26": 0.5,
+    "27": 0.5,
+    "28": 0.5,
+    "29": 0.5,
+    "30": 0.5,
+    "31": 0.5
+  },
+  "cross_concept_cosine": {
+    "layer_16": {
+      "mean_diff_golden_retriever_labrador_retriever": 0.907640814781189,
+      "mean_diff_golden_retriever_tabby_cat": 0.7379381656646729,
+      "mean_diff_labrador_retriever_tabby_cat": 0.7809302806854248,
+      "svm_golden_retriever_labrador_retriever": 0.8651800751686096,
+      "svm_golden_retriever_tabby_cat": 0.5747669339179993,
+      "svm_labrador_retriever_tabby_cat": 0.5841410160064697
+    },
+    "layer_24": {
+      "mean_diff_golden_retriever_labrador_retriever": 0.918388307094574,
+      "mean_diff_golden_retriever_tabby_cat": 0.5891587138175964,
+      "mean_diff_labrador_retriever_tabby_cat": 0.6428453326225281,
+      "svm_golden_retriever_labrador_retriever": 0.8375324606895447,
+      "svm_golden_retriever_tabby_cat": 0.4346988797187805,
+      "svm_labrador_retriever_tabby_cat": 0.4732779860496521
+    },
+    "layer_27": {
+      "mean_diff_golden_retriever_labrador_retriever": 0.9190437197685242,
+      "mean_diff_golden_retriever_tabby_cat": 0.6097099781036377,
+      "mean_diff_labrador_retriever_tabby_cat": 0.6593877077102661,
+      "svm_golden_retriever_labrador_retriever": 0.8237475752830505,
+      "svm_golden_retriever_tabby_cat": 0.4392288625240326,
+      "svm_labrador_retriever_tabby_cat": 0.48191726207733154
+    }
+  }
+}

@@ -1,0 +1,1528 @@
+{
+  "metadata": {
+    "benchmark": "BEA_Semantic_Association",
+    "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)",
+    "description": "Semantic association test: given a target word, select the most functionally associated object from options. Distractors are objects associated with OTHER members of the same category, forcing fine-grained functional discrimination. This tests whether the model preserves functional semantic knowledge after concept ablation.",
+    "format": "Compatible with evaluate_r1() in metrics.py",
+    "total_items": 75,
+    "per_concept": {
+      "time": 25,
+      "place": 25,
+      "tools": 25
+    },
+    "distractor_type": "cross-association within category",
+    "references": [
+      "Cuetos & González-Nosti (2009)",
+      "Howard & Patterson (1992) Pyramids and Palm Trees",
+      "Jefferies & Lambon Ralph (2006) Semantic aphasia"
+    ]
+  },
+  "items": {
+    "time": [
+      {
+        "question": "Which of the following is most commonly associated with a clock? The answer is",
+        "options": {
+          "correct": "wall",
+          "distractors": [
+            "civilization",
+            "meeting",
+            "date"
+          ]
+        },
+        "provenance": {
+          "target_word": "clock",
+          "associated_word": "wall",
+          "relationship": "typically mounted on",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a calendar is",
+        "options": {
+          "correct": "date",
+          "distractors": [
+            "cycle",
+            "darkness",
+            "lunch"
+          ]
+        },
+        "provenance": {
+          "target_word": "calendar",
+          "associated_word": "date",
+          "relationship": "used to track",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A alarm is most closely related in everyday use to",
+        "options": {
+          "correct": "morning",
+          "distractors": [
+            "lunch",
+            "project",
+            "cycle"
+          ]
+        },
+        "provenance": {
+          "target_word": "alarm",
+          "associated_word": "morning",
+          "relationship": "used to wake up in the",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a stopwatch, the first thing that comes to mind is",
+        "options": {
+          "correct": "race",
+          "distractors": [
+            "meeting",
+            "pause",
+            "cycle"
+          ]
+        },
+        "provenance": {
+          "target_word": "stopwatch",
+          "associated_word": "race",
+          "relationship": "used to time a",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a schedule is paired with",
+        "options": {
+          "correct": "meeting",
+          "distractors": [
+            "exam",
+            "morning",
+            "anniversary"
+          ]
+        },
+        "provenance": {
+          "target_word": "schedule",
+          "associated_word": "meeting",
+          "relationship": "used to plan a",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a deadline? The answer is",
+        "options": {
+          "correct": "project",
+          "distractors": [
+            "launch",
+            "date",
+            "wall"
+          ]
+        },
+        "provenance": {
+          "target_word": "deadline",
+          "associated_word": "project",
+          "relationship": "marks the end date of a",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a dawn is",
+        "options": {
+          "correct": "sunrise",
+          "distractors": [
+            "morning",
+            "sunset",
+            "lunch"
+          ]
+        },
+        "provenance": {
+          "target_word": "dawn",
+          "associated_word": "sunrise",
+          "relationship": "occurs at the time of",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A dusk is most closely related in everyday use to",
+        "options": {
+          "correct": "sunset",
+          "distractors": [
+            "history",
+            "memory",
+            "wall"
+          ]
+        },
+        "provenance": {
+          "target_word": "dusk",
+          "associated_word": "sunset",
+          "relationship": "occurs at the time of",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a noon, the first thing that comes to mind is",
+        "options": {
+          "correct": "lunch",
+          "distractors": [
+            "exam",
+            "sunrise",
+            "length"
+          ]
+        },
+        "provenance": {
+          "target_word": "noon",
+          "associated_word": "lunch",
+          "relationship": "the typical meal at",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a midnight is paired with",
+        "options": {
+          "correct": "darkness",
+          "distractors": [
+            "civilization",
+            "length",
+            "exam"
+          ]
+        },
+        "provenance": {
+          "target_word": "midnight",
+          "associated_word": "darkness",
+          "relationship": "associated with complete",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a morning? The answer is",
+        "options": {
+          "correct": "breakfast",
+          "distractors": [
+            "launch",
+            "sunset",
+            "weather"
+          ]
+        },
+        "provenance": {
+          "target_word": "morning",
+          "associated_word": "breakfast",
+          "relationship": "the typical meal of the",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a evening is",
+        "options": {
+          "correct": "dinner",
+          "distractors": [
+            "anniversary",
+            "lunch",
+            "wall"
+          ]
+        },
+        "provenance": {
+          "target_word": "evening",
+          "associated_word": "dinner",
+          "relationship": "the typical meal of the",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A night is most closely related in everyday use to",
+        "options": {
+          "correct": "sleep",
+          "distractors": [
+            "project",
+            "length",
+            "launch"
+          ]
+        },
+        "provenance": {
+          "target_word": "night",
+          "associated_word": "sleep",
+          "relationship": "the time when people",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a weekend, the first thing that comes to mind is",
+        "options": {
+          "correct": "rest",
+          "distractors": [
+            "breakfast",
+            "lunch",
+            "meeting"
+          ]
+        },
+        "provenance": {
+          "target_word": "weekend",
+          "associated_word": "rest",
+          "relationship": "typically associated with",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a countdown is paired with",
+        "options": {
+          "correct": "launch",
+          "distractors": [
+            "sunrise",
+            "breakfast",
+            "race"
+          ]
+        },
+        "provenance": {
+          "target_word": "countdown",
+          "associated_word": "launch",
+          "relationship": "performed before a rocket",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a season? The answer is",
+        "options": {
+          "correct": "weather",
+          "distractors": [
+            "morning",
+            "sleep",
+            "race"
+          ]
+        },
+        "provenance": {
+          "target_word": "season",
+          "associated_word": "weather",
+          "relationship": "determines the patterns of",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a hour is",
+        "options": {
+          "correct": "minute",
+          "distractors": [
+            "dinner",
+            "memory",
+            "lunch"
+          ]
+        },
+        "provenance": {
+          "target_word": "hour",
+          "associated_word": "minute",
+          "relationship": "divided into sixty",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A century is most closely related in everyday use to",
+        "options": {
+          "correct": "history",
+          "distractors": [
+            "date",
+            "cycle",
+            "launch"
+          ]
+        },
+        "provenance": {
+          "target_word": "century",
+          "associated_word": "history",
+          "relationship": "a major unit used in",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a semester, the first thing that comes to mind is",
+        "options": {
+          "correct": "exam",
+          "distractors": [
+            "history",
+            "race",
+            "sleep"
+          ]
+        },
+        "provenance": {
+          "target_word": "semester",
+          "associated_word": "exam",
+          "relationship": "typically ends with an",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a decade is paired with",
+        "options": {
+          "correct": "anniversary",
+          "distractors": [
+            "morning",
+            "history",
+            "darkness"
+          ]
+        },
+        "provenance": {
+          "target_word": "decade",
+          "associated_word": "anniversary",
+          "relationship": "often marked by a special",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a moment? The answer is",
+        "options": {
+          "correct": "memory",
+          "distractors": [
+            "civilization",
+            "anniversary",
+            "dinner"
+          ]
+        },
+        "provenance": {
+          "target_word": "moment",
+          "associated_word": "memory",
+          "relationship": "often captured as a",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a era is",
+        "options": {
+          "correct": "civilization",
+          "distractors": [
+            "exam",
+            "sunrise",
+            "length"
+          ]
+        },
+        "provenance": {
+          "target_word": "era",
+          "associated_word": "civilization",
+          "relationship": "describes the age of a",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A interval is most closely related in everyday use to",
+        "options": {
+          "correct": "pause",
+          "distractors": [
+            "morning",
+            "date",
+            "civilization"
+          ]
+        },
+        "provenance": {
+          "target_word": "interval",
+          "associated_word": "pause",
+          "relationship": "represents a temporary",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a duration, the first thing that comes to mind is",
+        "options": {
+          "correct": "length",
+          "distractors": [
+            "sunset",
+            "darkness",
+            "morning"
+          ]
+        },
+        "provenance": {
+          "target_word": "duration",
+          "associated_word": "length",
+          "relationship": "measures the total",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a period is paired with",
+        "options": {
+          "correct": "cycle",
+          "distractors": [
+            "sunset",
+            "race",
+            "sleep"
+          ]
+        },
+        "provenance": {
+          "target_word": "period",
+          "associated_word": "cycle",
+          "relationship": "often repeats in a",
+          "concept": "time",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      }
+    ],
+    "place": [
+      {
+        "question": "Which of the following is most commonly associated with a airport? The answer is",
+        "options": {
+          "correct": "airplane",
+          "distractors": [
+            "elevator",
+            "cooking",
+            "doctor"
+          ]
+        },
+        "provenance": {
+          "target_word": "airport",
+          "associated_word": "airplane",
+          "relationship": "where you board an",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a hospital is",
+        "options": {
+          "correct": "doctor",
+          "distractors": [
+            "highway",
+            "sand",
+            "river"
+          ]
+        },
+        "provenance": {
+          "target_word": "hospital",
+          "associated_word": "doctor",
+          "relationship": "where you find a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A school is most closely related in everyday use to",
+        "options": {
+          "correct": "teacher",
+          "distractors": [
+            "river",
+            "worship",
+            "highway"
+          ]
+        },
+        "provenance": {
+          "target_word": "school",
+          "associated_word": "teacher",
+          "relationship": "where you find a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a library, the first thing that comes to mind is",
+        "options": {
+          "correct": "book",
+          "distractors": [
+            "cooking",
+            "beach",
+            "highway"
+          ]
+        },
+        "provenance": {
+          "target_word": "library",
+          "associated_word": "book",
+          "relationship": "where you borrow a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a kitchen is paired with",
+        "options": {
+          "correct": "cooking",
+          "distractors": [
+            "pillow",
+            "teacher",
+            "computer"
+          ]
+        },
+        "provenance": {
+          "target_word": "kitchen",
+          "associated_word": "cooking",
+          "relationship": "the room used for",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a church? The answer is",
+        "options": {
+          "correct": "worship",
+          "distractors": [
+            "traffic",
+            "doctor",
+            "airplane"
+          ]
+        },
+        "provenance": {
+          "target_word": "church",
+          "associated_word": "worship",
+          "relationship": "the building used for",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a museum is",
+        "options": {
+          "correct": "painting",
+          "distractors": [
+            "teacher",
+            "flowers",
+            "river"
+          ]
+        },
+        "provenance": {
+          "target_word": "museum",
+          "associated_word": "painting",
+          "relationship": "where you view a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A garden is most closely related in everyday use to",
+        "options": {
+          "correct": "flowers",
+          "distractors": [
+            "bench",
+            "train",
+            "airplane"
+          ]
+        },
+        "provenance": {
+          "target_word": "garden",
+          "associated_word": "flowers",
+          "relationship": "where you grow",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a bridge, the first thing that comes to mind is",
+        "options": {
+          "correct": "river",
+          "distractors": [
+            "pillow",
+            "painting",
+            "creek"
+          ]
+        },
+        "provenance": {
+          "target_word": "bridge",
+          "associated_word": "river",
+          "relationship": "built to cross a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a desert is paired with",
+        "options": {
+          "correct": "sand",
+          "distractors": [
+            "elevator",
+            "creek",
+            "pillow"
+          ]
+        },
+        "provenance": {
+          "target_word": "desert",
+          "associated_word": "sand",
+          "relationship": "mostly covered with",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a forest? The answer is",
+        "options": {
+          "correct": "trees",
+          "distractors": [
+            "traffic",
+            "flowers",
+            "farm"
+          ]
+        },
+        "provenance": {
+          "target_word": "forest",
+          "associated_word": "trees",
+          "relationship": "densely covered with",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a mountain is",
+        "options": {
+          "correct": "snow",
+          "distractors": [
+            "computer",
+            "river",
+            "airplane"
+          ]
+        },
+        "provenance": {
+          "target_word": "mountain",
+          "associated_word": "snow",
+          "relationship": "the peak is covered with",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A ocean is most closely related in everyday use to",
+        "options": {
+          "correct": "waves",
+          "distractors": [
+            "worship",
+            "creek",
+            "traffic"
+          ]
+        },
+        "provenance": {
+          "target_word": "ocean",
+          "associated_word": "waves",
+          "relationship": "characterized by large",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a lake, the first thing that comes to mind is",
+        "options": {
+          "correct": "fishing",
+          "distractors": [
+            "trees",
+            "river",
+            "cooking"
+          ]
+        },
+        "provenance": {
+          "target_word": "lake",
+          "associated_word": "fishing",
+          "relationship": "commonly used for",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a city is paired with",
+        "options": {
+          "correct": "traffic",
+          "distractors": [
+            "painting",
+            "trees",
+            "book"
+          ]
+        },
+        "provenance": {
+          "target_word": "city",
+          "associated_word": "traffic",
+          "relationship": "characterized by heavy",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a village? The answer is",
+        "options": {
+          "correct": "farm",
+          "distractors": [
+            "teacher",
+            "waves",
+            "book"
+          ]
+        },
+        "provenance": {
+          "target_word": "village",
+          "associated_word": "farm",
+          "relationship": "typically surrounded by",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a street is",
+        "options": {
+          "correct": "cars",
+          "distractors": [
+            "snow",
+            "train",
+            "river"
+          ]
+        },
+        "provenance": {
+          "target_word": "street",
+          "associated_word": "cars",
+          "relationship": "regularly traveled by",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A park is most closely related in everyday use to",
+        "options": {
+          "correct": "bench",
+          "distractors": [
+            "doctor",
+            "highway",
+            "traffic"
+          ]
+        },
+        "provenance": {
+          "target_word": "park",
+          "associated_word": "bench",
+          "relationship": "where you sit on a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a bedroom, the first thing that comes to mind is",
+        "options": {
+          "correct": "pillow",
+          "distractors": [
+            "bench",
+            "book",
+            "waves"
+          ]
+        },
+        "provenance": {
+          "target_word": "bedroom",
+          "associated_word": "pillow",
+          "relationship": "where you rest your head on a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a office is paired with",
+        "options": {
+          "correct": "computer",
+          "distractors": [
+            "teacher",
+            "bench",
+            "sand"
+          ]
+        },
+        "provenance": {
+          "target_word": "office",
+          "associated_word": "computer",
+          "relationship": "where you work at a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a station? The answer is",
+        "options": {
+          "correct": "train",
+          "distractors": [
+            "elevator",
+            "computer",
+            "snow"
+          ]
+        },
+        "provenance": {
+          "target_word": "station",
+          "associated_word": "train",
+          "relationship": "where you board a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a building is",
+        "options": {
+          "correct": "elevator",
+          "distractors": [
+            "pillow",
+            "painting",
+            "creek"
+          ]
+        },
+        "provenance": {
+          "target_word": "building",
+          "associated_word": "elevator",
+          "relationship": "tall ones contain an",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A island is most closely related in everyday use to",
+        "options": {
+          "correct": "beach",
+          "distractors": [
+            "teacher",
+            "doctor",
+            "elevator"
+          ]
+        },
+        "provenance": {
+          "target_word": "island",
+          "associated_word": "beach",
+          "relationship": "typically surrounded by",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a valley, the first thing that comes to mind is",
+        "options": {
+          "correct": "creek",
+          "distractors": [
+            "flowers",
+            "sand",
+            "teacher"
+          ]
+        },
+        "provenance": {
+          "target_word": "valley",
+          "associated_word": "creek",
+          "relationship": "often has a flowing",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a road is paired with",
+        "options": {
+          "correct": "highway",
+          "distractors": [
+            "flowers",
+            "book",
+            "waves"
+          ]
+        },
+        "provenance": {
+          "target_word": "road",
+          "associated_word": "highway",
+          "relationship": "a long one is called a",
+          "concept": "place",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      }
+    ],
+    "tools": [
+      {
+        "question": "Which of the following is most commonly associated with a hammer? The answer is",
+        "options": {
+          "correct": "nail",
+          "distractors": [
+            "soil",
+            "lumber",
+            "screw"
+          ]
+        },
+        "provenance": {
+          "target_word": "hammer",
+          "associated_word": "nail",
+          "relationship": "used to drive a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a screwdriver is",
+        "options": {
+          "correct": "screw",
+          "distractors": [
+            "pipe",
+            "firewood",
+            "bread"
+          ]
+        },
+        "provenance": {
+          "target_word": "screwdriver",
+          "associated_word": "screw",
+          "relationship": "used to turn a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A wrench is most closely related in everyday use to",
+        "options": {
+          "correct": "bolt",
+          "distractors": [
+            "bread",
+            "hole",
+            "pipe"
+          ]
+        },
+        "provenance": {
+          "target_word": "wrench",
+          "associated_word": "bolt",
+          "relationship": "used to tighten a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a pliers, the first thing that comes to mind is",
+        "options": {
+          "correct": "wire",
+          "distractors": [
+            "lumber",
+            "edge",
+            "pipe"
+          ]
+        },
+        "provenance": {
+          "target_word": "pliers",
+          "associated_word": "wire",
+          "relationship": "used to grip and bend",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a saw is paired with",
+        "options": {
+          "correct": "lumber",
+          "distractors": [
+            "paper",
+            "bolt",
+            "glue"
+          ]
+        },
+        "provenance": {
+          "target_word": "saw",
+          "associated_word": "lumber",
+          "relationship": "used to cut",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a drill? The answer is",
+        "options": {
+          "correct": "hole",
+          "distractors": [
+            "roof",
+            "screw",
+            "nail"
+          ]
+        },
+        "provenance": {
+          "target_word": "drill",
+          "associated_word": "hole",
+          "relationship": "used to bore a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a chisel is",
+        "options": {
+          "correct": "marble",
+          "distractors": [
+            "bolt",
+            "fabric",
+            "bread"
+          ]
+        },
+        "provenance": {
+          "target_word": "chisel",
+          "associated_word": "marble",
+          "relationship": "used to carve",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A scissors is most closely related in everyday use to",
+        "options": {
+          "correct": "fabric",
+          "distractors": [
+            "shelf",
+            "cement",
+            "nail"
+          ]
+        },
+        "provenance": {
+          "target_word": "scissors",
+          "associated_word": "fabric",
+          "relationship": "used to cut",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a knife, the first thing that comes to mind is",
+        "options": {
+          "correct": "bread",
+          "distractors": [
+            "paper",
+            "marble",
+            "gravel"
+          ]
+        },
+        "provenance": {
+          "target_word": "knife",
+          "associated_word": "bread",
+          "relationship": "used to slice",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a axe is paired with",
+        "options": {
+          "correct": "firewood",
+          "distractors": [
+            "soil",
+            "gravel",
+            "paper"
+          ]
+        },
+        "provenance": {
+          "target_word": "axe",
+          "associated_word": "firewood",
+          "relationship": "used to chop",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a shovel? The answer is",
+        "options": {
+          "correct": "dirt",
+          "distractors": [
+            "roof",
+            "fabric",
+            "crate"
+          ]
+        },
+        "provenance": {
+          "target_word": "shovel",
+          "associated_word": "dirt",
+          "relationship": "used to dig and move",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a rake is",
+        "options": {
+          "correct": "leaves",
+          "distractors": [
+            "glue",
+            "bread",
+            "nail"
+          ]
+        },
+        "provenance": {
+          "target_word": "rake",
+          "associated_word": "leaves",
+          "relationship": "used to gather",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A brush is most closely related in everyday use to",
+        "options": {
+          "correct": "paint",
+          "distractors": [
+            "hole",
+            "gravel",
+            "roof"
+          ]
+        },
+        "provenance": {
+          "target_word": "brush",
+          "associated_word": "paint",
+          "relationship": "used to apply",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a sandpaper, the first thing that comes to mind is",
+        "options": {
+          "correct": "surface",
+          "distractors": [
+            "dirt",
+            "bread",
+            "lumber"
+          ]
+        },
+        "provenance": {
+          "target_word": "sandpaper",
+          "associated_word": "surface",
+          "relationship": "used to smooth a rough",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a ladder is paired with",
+        "options": {
+          "correct": "roof",
+          "distractors": [
+            "marble",
+            "dirt",
+            "wire"
+          ]
+        },
+        "provenance": {
+          "target_word": "ladder",
+          "associated_word": "roof",
+          "relationship": "used to climb up to a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a crowbar? The answer is",
+        "options": {
+          "correct": "crate",
+          "distractors": [
+            "bolt",
+            "paint",
+            "wire"
+          ]
+        },
+        "provenance": {
+          "target_word": "crowbar",
+          "associated_word": "crate",
+          "relationship": "used to pry open a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a mallet is",
+        "options": {
+          "correct": "stake",
+          "distractors": [
+            "leaves",
+            "cement",
+            "bread"
+          ]
+        },
+        "provenance": {
+          "target_word": "mallet",
+          "associated_word": "stake",
+          "relationship": "used to pound a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A level is most closely related in everyday use to",
+        "options": {
+          "correct": "shelf",
+          "distractors": [
+            "screw",
+            "pipe",
+            "roof"
+          ]
+        },
+        "provenance": {
+          "target_word": "level",
+          "associated_word": "shelf",
+          "relationship": "used to make sure a surface is flat for a",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a ruler, the first thing that comes to mind is",
+        "options": {
+          "correct": "paper",
+          "distractors": [
+            "shelf",
+            "wire",
+            "paint"
+          ]
+        },
+        "provenance": {
+          "target_word": "ruler",
+          "associated_word": "paper",
+          "relationship": "used to draw straight lines on",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a clamp is paired with",
+        "options": {
+          "correct": "glue",
+          "distractors": [
+            "bolt",
+            "shelf",
+            "firewood"
+          ]
+        },
+        "provenance": {
+          "target_word": "clamp",
+          "associated_word": "glue",
+          "relationship": "used to hold pieces together while the dries",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "Which of the following is most commonly associated with a trowel? The answer is",
+        "options": {
+          "correct": "cement",
+          "distractors": [
+            "soil",
+            "glue",
+            "leaves"
+          ]
+        },
+        "provenance": {
+          "target_word": "trowel",
+          "associated_word": "cement",
+          "relationship": "used to spread",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "The object most frequently used together with a hoe is",
+        "options": {
+          "correct": "soil",
+          "distractors": [
+            "paper",
+            "marble",
+            "gravel"
+          ]
+        },
+        "provenance": {
+          "target_word": "hoe",
+          "associated_word": "soil",
+          "relationship": "used to break up",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "A file is most closely related in everyday use to",
+        "options": {
+          "correct": "edge",
+          "distractors": [
+            "bolt",
+            "screw",
+            "soil"
+          ]
+        },
+        "provenance": {
+          "target_word": "file",
+          "associated_word": "edge",
+          "relationship": "used to smooth a rough",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "When you think of a wheelbarrow, the first thing that comes to mind is",
+        "options": {
+          "correct": "gravel",
+          "distractors": [
+            "fabric",
+            "firewood",
+            "bolt"
+          ]
+        },
+        "provenance": {
+          "target_word": "wheelbarrow",
+          "associated_word": "gravel",
+          "relationship": "used to carry heavy",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      },
+      {
+        "question": "In typical use, a hacksaw is paired with",
+        "options": {
+          "correct": "pipe",
+          "distractors": [
+            "fabric",
+            "wire",
+            "paint"
+          ]
+        },
+        "provenance": {
+          "target_word": "hacksaw",
+          "associated_word": "pipe",
+          "relationship": "used to cut a metal",
+          "concept": "tools",
+          "test_type": "bea_association",
+          "distractor_type": "cross-association within category",
+          "clinical_analog": "Asociación semántica (BEA) / Pyramids and Palm Trees (Howard & Patterson, 1992)"
+        }
+      }
+    ]
+  }
+}

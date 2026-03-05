@@ -1,0 +1,1738 @@
+{
+  "metadata": {
+    "benchmark": "BEA_Naming",
+    "clinical_analog": "Denominación por confrontación visual (BEA)",
+    "description": "Confrontation naming test: given a functional description, select the correct word among intra-category distractors. Unlike R1 (inter-category distractors like 'color' vs 'tool'), distractors here are ALL from the same semantic category, making the task harder and more clinically relevant.",
+    "format": "Compatible with evaluate_r1() in metrics.py",
+    "total_items": 90,
+    "per_concept": {
+      "time": 30,
+      "place": 30,
+      "tools": 30
+    },
+    "distractor_type": "intra-category (same semantic field)",
+    "references": [
+      "Cuetos & González-Nosti (2009)",
+      "Howard & Patterson (1992) Pyramids and Palm Trees",
+      "Warrington & McCarthy (1987) Categories of knowledge"
+    ]
+  },
+  "items": {
+    "time": [
+      {
+        "question": "The unit of time equal to sixty minutes or three thousand six hundred seconds. This is called a",
+        "options": {
+          "correct": "hour",
+          "distractors": [
+            "noon",
+            "week",
+            "minute"
+          ]
+        },
+        "provenance": {
+          "word": "hour",
+          "concept": "time",
+          "description": "The unit of time equal to sixty minutes or three thousand six hundred seconds",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The unit of time equal to sixty seconds, one sixtieth of an hour. The name for this is a",
+        "options": {
+          "correct": "minute",
+          "distractors": [
+            "dusk",
+            "millennium",
+            "century"
+          ]
+        },
+        "provenance": {
+          "word": "minute",
+          "concept": "time",
+          "description": "The unit of time equal to sixty seconds, one sixtieth of an hour",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The base unit of time, one sixtieth of a minute. The word that describes this is",
+        "options": {
+          "correct": "second",
+          "distractors": [
+            "century",
+            "month",
+            "dusk"
+          ]
+        },
+        "provenance": {
+          "word": "second",
+          "concept": "time",
+          "description": "The base unit of time, one sixtieth of a minute",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The period of twenty-four hours, measured from midnight to midnight. It is a",
+        "options": {
+          "correct": "day",
+          "distractors": [
+            "week",
+            "midnight",
+            "dusk"
+          ]
+        },
+        "provenance": {
+          "word": "day",
+          "concept": "time",
+          "description": "The period of twenty-four hours, measured from midnight to midnight",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A period consisting of seven consecutive days. This object is known as a",
+        "options": {
+          "correct": "week",
+          "distractors": [
+            "season",
+            "calendar",
+            "second"
+          ]
+        },
+        "provenance": {
+          "word": "week",
+          "concept": "time",
+          "description": "A period consisting of seven consecutive days",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "One of the twelve divisions of the calendar year. This is called a",
+        "options": {
+          "correct": "month",
+          "distractors": [
+            "schedule",
+            "duration",
+            "minute"
+          ]
+        },
+        "provenance": {
+          "word": "month",
+          "concept": "time",
+          "description": "One of the twelve divisions of the calendar year",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The period of approximately three hundred sixty-five days, one orbit around the Sun. The name for this is a",
+        "options": {
+          "correct": "year",
+          "distractors": [
+            "hour",
+            "second",
+            "decade"
+          ]
+        },
+        "provenance": {
+          "word": "year",
+          "concept": "time",
+          "description": "The period of approximately three hundred sixty-five days, one orbit around the Sun",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A period spanning exactly ten consecutive years. The word that describes this is",
+        "options": {
+          "correct": "decade",
+          "distractors": [
+            "century",
+            "clock",
+            "deadline"
+          ]
+        },
+        "provenance": {
+          "word": "decade",
+          "concept": "time",
+          "description": "A period spanning exactly ten consecutive years",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? A period spanning exactly one hundred years. It is a",
+        "options": {
+          "correct": "century",
+          "distractors": [
+            "hour",
+            "calendar",
+            "year"
+          ]
+        },
+        "provenance": {
+          "word": "century",
+          "concept": "time",
+          "description": "A period spanning exactly one hundred years",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A period spanning exactly one thousand years. This object is known as a",
+        "options": {
+          "correct": "millennium",
+          "distractors": [
+            "dawn",
+            "noon",
+            "calendar"
+          ]
+        },
+        "provenance": {
+          "word": "millennium",
+          "concept": "time",
+          "description": "A period spanning exactly one thousand years",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A long and distinct period of history marked by notable characteristics. This is called a",
+        "options": {
+          "correct": "epoch",
+          "distractors": [
+            "duration",
+            "decade",
+            "period"
+          ]
+        },
+        "provenance": {
+          "word": "epoch",
+          "concept": "time",
+          "description": "A long and distinct period of history marked by notable characteristics",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A major division of historical time, distinguished by significant developments. The name for this is a",
+        "options": {
+          "correct": "era",
+          "distractors": [
+            "schedule",
+            "century",
+            "afternoon"
+          ]
+        },
+        "provenance": {
+          "word": "era",
+          "concept": "time",
+          "description": "A major division of historical time, distinguished by significant developments",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A very brief and fleeting period of time. The word that describes this is",
+        "options": {
+          "correct": "moment",
+          "distractors": [
+            "night",
+            "hour",
+            "morning"
+          ]
+        },
+        "provenance": {
+          "word": "moment",
+          "concept": "time",
+          "description": "A very brief and fleeting period of time",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? An extremely short span of time, happening immediately. It is a",
+        "options": {
+          "correct": "instant",
+          "distractors": [
+            "afternoon",
+            "month",
+            "dawn"
+          ]
+        },
+        "provenance": {
+          "word": "instant",
+          "concept": "time",
+          "description": "An extremely short span of time, happening immediately",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The total length of time that something continues or lasts. This object is known as a",
+        "options": {
+          "correct": "duration",
+          "distractors": [
+            "instant",
+            "epoch",
+            "century"
+          ]
+        },
+        "provenance": {
+          "word": "duration",
+          "concept": "time",
+          "description": "The total length of time that something continues or lasts",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A defined length or portion of time with particular characteristics. This is called a",
+        "options": {
+          "correct": "period",
+          "distractors": [
+            "week",
+            "year",
+            "morning"
+          ]
+        },
+        "provenance": {
+          "word": "period",
+          "concept": "time",
+          "description": "A defined length or portion of time with particular characteristics",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The time that elapses between two events. The name for this is a",
+        "options": {
+          "correct": "interval",
+          "distractors": [
+            "epoch",
+            "day",
+            "second"
+          ]
+        },
+        "provenance": {
+          "word": "interval",
+          "concept": "time",
+          "description": "The time that elapses between two events",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The device with hands or digits used to measure and display the current time. The word that describes this is",
+        "options": {
+          "correct": "clock",
+          "distractors": [
+            "moment",
+            "day",
+            "era"
+          ]
+        },
+        "provenance": {
+          "word": "clock",
+          "concept": "time",
+          "description": "The device with hands or digits used to measure and display the current time",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The printed chart organizing days, weeks, and months within a year. It is a",
+        "options": {
+          "correct": "calendar",
+          "distractors": [
+            "night",
+            "era",
+            "deadline"
+          ]
+        },
+        "provenance": {
+          "word": "calendar",
+          "concept": "time",
+          "description": "The printed chart organizing days, weeks, and months within a year",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A timetable listing planned activities and the times they should occur. This object is known as a",
+        "options": {
+          "correct": "schedule",
+          "distractors": [
+            "century",
+            "afternoon",
+            "minute"
+          ]
+        },
+        "provenance": {
+          "word": "schedule",
+          "concept": "time",
+          "description": "A timetable listing planned activities and the times they should occur",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The latest date or time by which a task must be completed. This is called a",
+        "options": {
+          "correct": "deadline",
+          "distractors": [
+            "dusk",
+            "duration",
+            "clock"
+          ]
+        },
+        "provenance": {
+          "word": "deadline",
+          "concept": "time",
+          "description": "The latest date or time by which a task must be completed",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "Twelve o'clock in the middle of the day. The name for this is a",
+        "options": {
+          "correct": "noon",
+          "distractors": [
+            "day",
+            "moment",
+            "second"
+          ]
+        },
+        "provenance": {
+          "word": "noon",
+          "concept": "time",
+          "description": "Twelve o'clock in the middle of the day",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "Twelve o'clock in the middle of the night. The word that describes this is",
+        "options": {
+          "correct": "midnight",
+          "distractors": [
+            "clock",
+            "millennium",
+            "evening"
+          ]
+        },
+        "provenance": {
+          "word": "midnight",
+          "concept": "time",
+          "description": "Twelve o'clock in the middle of the night",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The time when light first appears in the sky before the sun rises. It is a",
+        "options": {
+          "correct": "dawn",
+          "distractors": [
+            "deadline",
+            "schedule",
+            "season"
+          ]
+        },
+        "provenance": {
+          "word": "dawn",
+          "concept": "time",
+          "description": "The time when light first appears in the sky before the sun rises",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The time after sunset when the sky gradually becomes darker. This object is known as a",
+        "options": {
+          "correct": "dusk",
+          "distractors": [
+            "night",
+            "era",
+            "calendar"
+          ]
+        },
+        "provenance": {
+          "word": "dusk",
+          "concept": "time",
+          "description": "The time after sunset when the sky gradually becomes darker",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The part of the day from sunrise until noon. This is called a",
+        "options": {
+          "correct": "morning",
+          "distractors": [
+            "year",
+            "midnight",
+            "second"
+          ]
+        },
+        "provenance": {
+          "word": "morning",
+          "concept": "time",
+          "description": "The part of the day from sunrise until noon",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The part of the day from noon until evening. The name for this is a",
+        "options": {
+          "correct": "afternoon",
+          "distractors": [
+            "minute",
+            "noon",
+            "decade"
+          ]
+        },
+        "provenance": {
+          "word": "afternoon",
+          "concept": "time",
+          "description": "The part of the day from noon until evening",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The later part of the day from late afternoon until night begins. The word that describes this is",
+        "options": {
+          "correct": "evening",
+          "distractors": [
+            "dusk",
+            "millennium",
+            "second"
+          ]
+        },
+        "provenance": {
+          "word": "evening",
+          "concept": "time",
+          "description": "The later part of the day from late afternoon until night begins",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The period of darkness between sunset and sunrise. It is a",
+        "options": {
+          "correct": "night",
+          "distractors": [
+            "evening",
+            "decade",
+            "day"
+          ]
+        },
+        "provenance": {
+          "word": "night",
+          "concept": "time",
+          "description": "The period of darkness between sunset and sunrise",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "One of the four divisions of the year: spring, summer, autumn, winter. This object is known as a",
+        "options": {
+          "correct": "season",
+          "distractors": [
+            "moment",
+            "century",
+            "duration"
+          ]
+        },
+        "provenance": {
+          "word": "season",
+          "concept": "time",
+          "description": "One of the four divisions of the year: spring, summer, autumn, winter",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      }
+    ],
+    "place": [
+      {
+        "question": "A large densely populated urban area with its own government. This is called a",
+        "options": {
+          "correct": "city",
+          "distractors": [
+            "airport",
+            "continent",
+            "town"
+          ]
+        },
+        "provenance": {
+          "word": "city",
+          "concept": "place",
+          "description": "A large densely populated urban area with its own government",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A populated settlement larger than a village but smaller than a city. The name for this is a",
+        "options": {
+          "correct": "town",
+          "distractors": [
+            "school",
+            "lake",
+            "river"
+          ]
+        },
+        "provenance": {
+          "word": "town",
+          "concept": "place",
+          "description": "A populated settlement larger than a village but smaller than a city",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A small rural settlement with only a few hundred inhabitants. The word that describes this is",
+        "options": {
+          "correct": "village",
+          "distractors": [
+            "river",
+            "island",
+            "school"
+          ]
+        },
+        "provenance": {
+          "word": "village",
+          "concept": "place",
+          "description": "A small rural settlement with only a few hundred inhabitants",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? A nation with its own government, defined borders, and sovereignty. It is a",
+        "options": {
+          "correct": "country",
+          "distractors": [
+            "continent",
+            "station",
+            "school"
+          ]
+        },
+        "provenance": {
+          "word": "country",
+          "concept": "place",
+          "description": "A nation with its own government, defined borders, and sovereignty",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "One of the seven large continuous land masses on Earth. This object is known as a",
+        "options": {
+          "correct": "continent",
+          "distractors": [
+            "bedroom",
+            "street",
+            "village"
+          ]
+        },
+        "provenance": {
+          "word": "continent",
+          "concept": "place",
+          "description": "One of the seven large continuous land masses on Earth",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A piece of land completely surrounded by water on all sides. This is called a",
+        "options": {
+          "correct": "island",
+          "distractors": [
+            "road",
+            "garden",
+            "town"
+          ]
+        },
+        "provenance": {
+          "word": "island",
+          "concept": "place",
+          "description": "A piece of land completely surrounded by water on all sides",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A large natural elevation of the earth rising steeply above its surroundings. The name for this is a",
+        "options": {
+          "correct": "mountain",
+          "distractors": [
+            "city",
+            "village",
+            "valley"
+          ]
+        },
+        "provenance": {
+          "word": "mountain",
+          "concept": "place",
+          "description": "A large natural elevation of the earth rising steeply above its surroundings",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A low-lying area of land between hills or mountains. The word that describes this is",
+        "options": {
+          "correct": "valley",
+          "distractors": [
+            "river",
+            "building",
+            "bridge"
+          ]
+        },
+        "provenance": {
+          "word": "valley",
+          "concept": "place",
+          "description": "A low-lying area of land between hills or mountains",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? A large natural stream of fresh water flowing toward the sea or a lake. It is a",
+        "options": {
+          "correct": "river",
+          "distractors": [
+            "city",
+            "street",
+            "mountain"
+          ]
+        },
+        "provenance": {
+          "word": "river",
+          "concept": "place",
+          "description": "A large natural stream of fresh water flowing toward the sea or a lake",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A large body of fresh water surrounded by land on all sides. This object is known as a",
+        "options": {
+          "correct": "lake",
+          "distractors": [
+            "hospital",
+            "airport",
+            "street"
+          ]
+        },
+        "provenance": {
+          "word": "lake",
+          "concept": "place",
+          "description": "A large body of fresh water surrounded by land on all sides",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The vast body of salt water covering most of the earth's surface. This is called a",
+        "options": {
+          "correct": "ocean",
+          "distractors": [
+            "garden",
+            "valley",
+            "room"
+          ]
+        },
+        "provenance": {
+          "word": "ocean",
+          "concept": "place",
+          "description": "The vast body of salt water covering most of the earth's surface",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A large area of land densely covered with trees and undergrowth. The name for this is a",
+        "options": {
+          "correct": "forest",
+          "distractors": [
+            "road",
+            "river",
+            "library"
+          ]
+        },
+        "provenance": {
+          "word": "forest",
+          "concept": "place",
+          "description": "A large area of land densely covered with trees and undergrowth",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "An arid barren region with very little rainfall and sparse vegetation. The word that describes this is",
+        "options": {
+          "correct": "desert",
+          "distractors": [
+            "kitchen",
+            "city",
+            "museum"
+          ]
+        },
+        "provenance": {
+          "word": "desert",
+          "concept": "place",
+          "description": "An arid barren region with very little rainfall and sparse vegetation",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? A public area of green land set aside for recreation and enjoyment. It is a",
+        "options": {
+          "correct": "park",
+          "distractors": [
+            "library",
+            "island",
+            "hospital"
+          ]
+        },
+        "provenance": {
+          "word": "park",
+          "concept": "place",
+          "description": "A public area of green land set aside for recreation and enjoyment",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A cultivated piece of ground used for growing flowers and plants. This object is known as a",
+        "options": {
+          "correct": "garden",
+          "distractors": [
+            "park",
+            "ocean",
+            "river"
+          ]
+        },
+        "provenance": {
+          "word": "garden",
+          "concept": "place",
+          "description": "A cultivated piece of ground used for growing flowers and plants",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "An enclosed area within a building, separated by walls. This is called a",
+        "options": {
+          "correct": "room",
+          "distractors": [
+            "continent",
+            "mountain",
+            "museum"
+          ]
+        },
+        "provenance": {
+          "word": "room",
+          "concept": "place",
+          "description": "An enclosed area within a building, separated by walls",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A building designed for people to live in, typically for one family. The name for this is a",
+        "options": {
+          "correct": "house",
+          "distractors": [
+            "ocean",
+            "country",
+            "village"
+          ]
+        },
+        "provenance": {
+          "word": "house",
+          "concept": "place",
+          "description": "A building designed for people to live in, typically for one family",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A permanent structure with walls and a roof, constructed for a purpose. The word that describes this is",
+        "options": {
+          "correct": "building",
+          "distractors": [
+            "desert",
+            "country",
+            "forest"
+          ]
+        },
+        "provenance": {
+          "word": "building",
+          "concept": "place",
+          "description": "A permanent structure with walls and a roof, constructed for a purpose",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? A public paved road in a city or town, usually lined with buildings. It is a",
+        "options": {
+          "correct": "street",
+          "distractors": [
+            "kitchen",
+            "forest",
+            "bridge"
+          ]
+        },
+        "provenance": {
+          "word": "street",
+          "concept": "place",
+          "description": "A public paved road in a city or town, usually lined with buildings",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A wide path with a hard surface built for vehicles to travel along. This object is known as a",
+        "options": {
+          "correct": "road",
+          "distractors": [
+            "river",
+            "library",
+            "town"
+          ]
+        },
+        "provenance": {
+          "word": "road",
+          "concept": "place",
+          "description": "A wide path with a hard surface built for vehicles to travel along",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A structure built to span a river or obstacle to allow passage across. This is called a",
+        "options": {
+          "correct": "bridge",
+          "distractors": [
+            "school",
+            "garden",
+            "building"
+          ]
+        },
+        "provenance": {
+          "word": "bridge",
+          "concept": "place",
+          "description": "A structure built to span a river or obstacle to allow passage across",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The complex of runways and terminals where aircraft take off and land. The name for this is a",
+        "options": {
+          "correct": "airport",
+          "distractors": [
+            "country",
+            "desert",
+            "village"
+          ]
+        },
+        "provenance": {
+          "word": "airport",
+          "concept": "place",
+          "description": "The complex of runways and terminals where aircraft take off and land",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The place where trains or buses regularly stop for passengers. The word that describes this is",
+        "options": {
+          "correct": "station",
+          "distractors": [
+            "building",
+            "lake",
+            "office"
+          ]
+        },
+        "provenance": {
+          "word": "station",
+          "concept": "place",
+          "description": "The place where trains or buses regularly stop for passengers",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The large building where sick and injured people receive medical treatment. It is a",
+        "options": {
+          "correct": "hospital",
+          "distractors": [
+            "bridge",
+            "road",
+            "bedroom"
+          ]
+        },
+        "provenance": {
+          "word": "hospital",
+          "concept": "place",
+          "description": "The large building where sick and injured people receive medical treatment",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The institution where children and young people receive education. This object is known as a",
+        "options": {
+          "correct": "school",
+          "distractors": [
+            "kitchen",
+            "forest",
+            "street"
+          ]
+        },
+        "provenance": {
+          "word": "school",
+          "concept": "place",
+          "description": "The institution where children and young people receive education",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The building where objects of historical or artistic interest are displayed. This is called a",
+        "options": {
+          "correct": "museum",
+          "distractors": [
+            "mountain",
+            "station",
+            "village"
+          ]
+        },
+        "provenance": {
+          "word": "museum",
+          "concept": "place",
+          "description": "The building where objects of historical or artistic interest are displayed",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The building containing organized collections of books for public use. The name for this is a",
+        "options": {
+          "correct": "library",
+          "distractors": [
+            "town",
+            "airport",
+            "valley"
+          ]
+        },
+        "provenance": {
+          "word": "library",
+          "concept": "place",
+          "description": "The building containing organized collections of books for public use",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "A room or building where people work at desks for business purposes. The word that describes this is",
+        "options": {
+          "correct": "office",
+          "distractors": [
+            "school",
+            "lake",
+            "village"
+          ]
+        },
+        "provenance": {
+          "word": "office",
+          "concept": "place",
+          "description": "A room or building where people work at desks for business purposes",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The room in a dwelling where food is prepared and cooked. It is a",
+        "options": {
+          "correct": "kitchen",
+          "distractors": [
+            "office",
+            "valley",
+            "country"
+          ]
+        },
+        "provenance": {
+          "word": "kitchen",
+          "concept": "place",
+          "description": "The room in a dwelling where food is prepared and cooked",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The room furnished with a bed, used primarily for sleeping. This object is known as a",
+        "options": {
+          "correct": "bedroom",
+          "distractors": [
+            "desert",
+            "river",
+            "garden"
+          ]
+        },
+        "provenance": {
+          "word": "bedroom",
+          "concept": "place",
+          "description": "The room furnished with a bed, used primarily for sleeping",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      }
+    ],
+    "tools": [
+      {
+        "question": "The hand tool with a heavy metal head on a handle, used to drive nails. This is called a",
+        "options": {
+          "correct": "hammer",
+          "distractors": [
+            "wheelbarrow",
+            "saw",
+            "screwdriver"
+          ]
+        },
+        "provenance": {
+          "word": "hammer",
+          "concept": "tools",
+          "description": "The hand tool with a heavy metal head on a handle, used to drive nails",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The tool with a flat or cross-shaped tip, designed to turn screws. The name for this is a",
+        "options": {
+          "correct": "screwdriver",
+          "distractors": [
+            "caliper",
+            "level",
+            "vise"
+          ]
+        },
+        "provenance": {
+          "word": "screwdriver",
+          "concept": "tools",
+          "description": "The tool with a flat or cross-shaped tip, designed to turn screws",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The adjustable metal tool used to grip and tighten nuts and bolts. The word that describes this is",
+        "options": {
+          "correct": "wrench",
+          "distractors": [
+            "vise",
+            "drill",
+            "caliper"
+          ]
+        },
+        "provenance": {
+          "word": "wrench",
+          "concept": "tools",
+          "description": "The adjustable metal tool used to grip and tighten nuts and bolts",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The pivoted gripping tool with two handles and jaws, used to hold or bend wire. It is a",
+        "options": {
+          "correct": "pliers",
+          "distractors": [
+            "saw",
+            "crowbar",
+            "caliper"
+          ]
+        },
+        "provenance": {
+          "word": "pliers",
+          "concept": "tools",
+          "description": "The pivoted gripping tool with two handles and jaws, used to hold or bend wire",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The cutting tool with a toothed metal blade, used to cut through wood. This object is known as a",
+        "options": {
+          "correct": "saw",
+          "distractors": [
+            "lathe",
+            "brush",
+            "wrench"
+          ]
+        },
+        "provenance": {
+          "word": "saw",
+          "concept": "tools",
+          "description": "The cutting tool with a toothed metal blade, used to cut through wood",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The rotating tool used to bore circular holes into wood or metal. This is called a",
+        "options": {
+          "correct": "drill",
+          "distractors": [
+            "sandpaper",
+            "shovel",
+            "screwdriver"
+          ]
+        },
+        "provenance": {
+          "word": "drill",
+          "concept": "tools",
+          "description": "The rotating tool used to bore circular holes into wood or metal",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The tool with a sharp flat blade at one end, used to carve wood or stone. The name for this is a",
+        "options": {
+          "correct": "chisel",
+          "distractors": [
+            "hammer",
+            "wrench",
+            "clamp"
+          ]
+        },
+        "provenance": {
+          "word": "chisel",
+          "concept": "tools",
+          "description": "The tool with a sharp flat blade at one end, used to carve wood or stone",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The fastening device with adjustable jaws, used to hold objects tightly together. The word that describes this is",
+        "options": {
+          "correct": "clamp",
+          "distractors": [
+            "vise",
+            "trowel",
+            "ladder"
+          ]
+        },
+        "provenance": {
+          "word": "clamp",
+          "concept": "tools",
+          "description": "The fastening device with adjustable jaws, used to hold objects tightly together",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The heavy clamping device mounted on a workbench with two parallel jaws. It is a",
+        "options": {
+          "correct": "vise",
+          "distractors": [
+            "hammer",
+            "brush",
+            "chisel"
+          ]
+        },
+        "provenance": {
+          "word": "vise",
+          "concept": "tools",
+          "description": "The heavy clamping device mounted on a workbench with two parallel jaws",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The instrument with a bubble in liquid, used to check if a surface is horizontal. This object is known as a",
+        "options": {
+          "correct": "level",
+          "distractors": [
+            "mallet",
+            "wheelbarrow",
+            "brush"
+          ]
+        },
+        "provenance": {
+          "word": "level",
+          "concept": "tools",
+          "description": "The instrument with a bubble in liquid, used to check if a surface is horizontal",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The straight flat tool marked with units of length along its edge. This is called a",
+        "options": {
+          "correct": "ruler",
+          "distractors": [
+            "shovel",
+            "clamp",
+            "rake"
+          ]
+        },
+        "provenance": {
+          "word": "ruler",
+          "concept": "tools",
+          "description": "The straight flat tool marked with units of length along its edge",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The cutting instrument with two sharp blades joined at a central pivot. The name for this is a",
+        "options": {
+          "correct": "scissors",
+          "distractors": [
+            "sandpaper",
+            "vise",
+            "hacksaw"
+          ]
+        },
+        "provenance": {
+          "word": "scissors",
+          "concept": "tools",
+          "description": "The cutting instrument with two sharp blades joined at a central pivot",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The sharp-edged cutting blade with a handle, used for slicing. The word that describes this is",
+        "options": {
+          "correct": "knife",
+          "distractors": [
+            "awl",
+            "hammer",
+            "file"
+          ]
+        },
+        "provenance": {
+          "word": "knife",
+          "concept": "tools",
+          "description": "The sharp-edged cutting blade with a handle, used for slicing",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The heavy chopping tool with a broad metal blade fixed to a long handle. It is a",
+        "options": {
+          "correct": "axe",
+          "distractors": [
+            "hacksaw",
+            "drill",
+            "mallet"
+          ]
+        },
+        "provenance": {
+          "word": "axe",
+          "concept": "tools",
+          "description": "The heavy chopping tool with a broad metal blade fixed to a long handle",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The broad-bladed tool with a long handle, used for digging earth. This object is known as a",
+        "options": {
+          "correct": "shovel",
+          "distractors": [
+            "axe",
+            "ruler",
+            "vise"
+          ]
+        },
+        "provenance": {
+          "word": "shovel",
+          "concept": "tools",
+          "description": "The broad-bladed tool with a long handle, used for digging earth",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The long-handled garden tool with a row of prongs, used to gather leaves. This is called a",
+        "options": {
+          "correct": "rake",
+          "distractors": [
+            "saw",
+            "chisel",
+            "file"
+          ]
+        },
+        "provenance": {
+          "word": "rake",
+          "concept": "tools",
+          "description": "The long-handled garden tool with a row of prongs, used to gather leaves",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The flat-bladed garden tool on a long handle, used to break up soil. The name for this is a",
+        "options": {
+          "correct": "hoe",
+          "distractors": [
+            "ruler",
+            "pliers",
+            "wrench"
+          ]
+        },
+        "provenance": {
+          "word": "hoe",
+          "concept": "tools",
+          "description": "The flat-bladed garden tool on a long handle, used to break up soil",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The small hand tool with a flat pointed blade, used to spread mortar. The word that describes this is",
+        "options": {
+          "correct": "trowel",
+          "distractors": [
+            "knife",
+            "pliers",
+            "scissors"
+          ]
+        },
+        "provenance": {
+          "word": "trowel",
+          "concept": "tools",
+          "description": "The small hand tool with a flat pointed blade, used to spread mortar",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The tool with bristles on a handle, used for painting or cleaning surfaces. It is a",
+        "options": {
+          "correct": "brush",
+          "distractors": [
+            "awl",
+            "scissors",
+            "ladder"
+          ]
+        },
+        "provenance": {
+          "word": "brush",
+          "concept": "tools",
+          "description": "The tool with bristles on a handle, used for painting or cleaning surfaces",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The abrasive coated paper used to smooth and polish rough surfaces. This object is known as a",
+        "options": {
+          "correct": "sandpaper",
+          "distractors": [
+            "vise",
+            "hacksaw",
+            "screwdriver"
+          ]
+        },
+        "provenance": {
+          "word": "sandpaper",
+          "concept": "tools",
+          "description": "The abrasive coated paper used to smooth and polish rough surfaces",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The portable climbing structure with rungs between two side rails. This is called a",
+        "options": {
+          "correct": "ladder",
+          "distractors": [
+            "caliper",
+            "shovel",
+            "trowel"
+          ]
+        },
+        "provenance": {
+          "word": "ladder",
+          "concept": "tools",
+          "description": "The portable climbing structure with rungs between two side rails",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The single-wheeled cart with two handles, used to carry heavy loads. The name for this is a",
+        "options": {
+          "correct": "wheelbarrow",
+          "distractors": [
+            "pliers",
+            "knife",
+            "wrench"
+          ]
+        },
+        "provenance": {
+          "word": "wheelbarrow",
+          "concept": "tools",
+          "description": "The single-wheeled cart with two handles, used to carry heavy loads",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The heavy flat iron lever with a curved end, used to pry things open. The word that describes this is",
+        "options": {
+          "correct": "crowbar",
+          "distractors": [
+            "trowel",
+            "level",
+            "anvil"
+          ]
+        },
+        "provenance": {
+          "word": "crowbar",
+          "concept": "tools",
+          "description": "The heavy flat iron lever with a curved end, used to pry things open",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The hammer-like striking tool with a large head made of wood or rubber. It is a",
+        "options": {
+          "correct": "mallet",
+          "distractors": [
+            "ladder",
+            "sandpaper",
+            "lathe"
+          ]
+        },
+        "provenance": {
+          "word": "mallet",
+          "concept": "tools",
+          "description": "The hammer-like striking tool with a large head made of wood or rubber",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The precision measuring instrument with two adjustable legs for measuring thickness. This object is known as a",
+        "options": {
+          "correct": "caliper",
+          "distractors": [
+            "awl",
+            "scissors",
+            "brush"
+          ]
+        },
+        "provenance": {
+          "word": "caliper",
+          "concept": "tools",
+          "description": "The precision measuring instrument with two adjustable legs for measuring thickness",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The metal tool with a rough abrasive surface, used to smooth hard materials. This is called a",
+        "options": {
+          "correct": "file",
+          "distractors": [
+            "chisel",
+            "crowbar",
+            "wrench"
+          ]
+        },
+        "provenance": {
+          "word": "file",
+          "concept": "tools",
+          "description": "The metal tool with a rough abrasive surface, used to smooth hard materials",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The fine-toothed saw in a metal frame, used for cutting metal pipes. The name for this is a",
+        "options": {
+          "correct": "hacksaw",
+          "distractors": [
+            "screwdriver",
+            "wheelbarrow",
+            "clamp"
+          ]
+        },
+        "provenance": {
+          "word": "hacksaw",
+          "concept": "tools",
+          "description": "The fine-toothed saw in a metal frame, used for cutting metal pipes",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The heavy iron block with a flat top, used as a surface for shaping metal. The word that describes this is",
+        "options": {
+          "correct": "anvil",
+          "distractors": [
+            "caliper",
+            "level",
+            "wrench"
+          ]
+        },
+        "provenance": {
+          "word": "anvil",
+          "concept": "tools",
+          "description": "The heavy iron block with a flat top, used as a surface for shaping metal",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "What is the following? The small pointed tool used to pierce holes in leather or wood. It is a",
+        "options": {
+          "correct": "awl",
+          "distractors": [
+            "anvil",
+            "clamp",
+            "pliers"
+          ]
+        },
+        "provenance": {
+          "word": "awl",
+          "concept": "tools",
+          "description": "The small pointed tool used to pierce holes in leather or wood",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      },
+      {
+        "question": "The machine that rotates a workpiece to perform cutting and shaping operations. This object is known as a",
+        "options": {
+          "correct": "lathe",
+          "distractors": [
+            "knife",
+            "vise",
+            "shovel"
+          ]
+        },
+        "provenance": {
+          "word": "lathe",
+          "concept": "tools",
+          "description": "The machine that rotates a workpiece to perform cutting and shaping operations",
+          "test_type": "bea_naming",
+          "distractor_type": "intra-category",
+          "clinical_analog": "Denominación por confrontación (BEA)"
+        }
+      }
+    ]
+  }
+}

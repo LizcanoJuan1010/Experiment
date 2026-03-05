@@ -1,0 +1,7 @@
+# Ignorar pesos de modelos para evitar errores de limite en GitHub
+models/*.pt
+# Ignorar cachés pesados de Hugging Face
+**/hf_cache/
+models/*.bin
+models/*.safetensors
+models/*.h5nul

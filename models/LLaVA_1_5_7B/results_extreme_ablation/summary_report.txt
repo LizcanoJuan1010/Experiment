@@ -1,0 +1,85 @@
+================================================================================
+EXTREME ABLATION DEMO - SUMMARY REPORT
+================================================================================
+
+Concept: tabby_cat
+CAV Method: svm
+Technique: projection
+Timestamp: 2026-02-27T20:49:39.984259
+
+Total Experiments: 300
+
+================================================================================
+KEY FINDINGS BY ALPHA INTENSITY
+================================================================================
+
+
+BASELINE (No Ablation)
+--------------------------------------------------------------------------------
+
+Sample Responses (Q1: What animal is shown?):
+  Image 1, L16: A cat is shown in this image.
+  Image 1, L27: A cat is shown in this image.
+  Image 1, multi: A cat is shown in this image.
+
+Average Response Length: 98.5 characters
+
+α = 6.0
+--------------------------------------------------------------------------------
+
+Sample Responses (Q1: What animal is shown?):
+  Image 1, L16: The image shows a large, multicolored, and curly-haired rainbow-colored swimsuit-clad swimming cat.
+  Image 1, L27: A umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored um
+  Image 1, multi: The image showsama Boyongice Kingengengeeng catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat
+
+Average Response Length: 93.3 characters
+
+α = 10.0
+--------------------------------------------------------------------------------
+
+Sample Responses (Q1: What animal is shown?):
+  Image 1, L16: The image shows a large, black and white, open-mouthed chimpanzee or a man with a hairy head (depending on the viewer's interpretation). The chimp is surrounded by a sunlit environment, and its
+  Image 1, L27: A umbrella umbrella is shown in the image.
+  Image 1, multi: The catChain cateil catuvud catChain ChChain Ch catphere catphere catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain
+
+Average Response Length: 136.0 characters
+
+α = 15.0
+--------------------------------------------------------------------------------
+
+Sample Responses (Q1: What animal is shown?):
+  Image 1, L16: A lopseldowfredorilltimothybectsorbeaclixorilltimothybectsorbeaclasforsorcor1drowsidreveawof1dleveawof
+  Image 1, L27: Umbrella
+  Image 1, multi: cat(.* catirm catengen cat Interface catall catват cat catengen cat Vir cat catengen cat catirm cat cat floating catengen cat catengen cat catengen cat catCells cat Interface cat catplain catče catengen cat catengen cat
+
+Average Response Length: 147.9 characters
+
+α = 20.0
+--------------------------------------------------------------------------------
+
+Sample Responses (Q1: What animal is shown?):
+  Image 1, L16: A nobody everybody nobodyﬁ nobody theﬁﬁﬁﬁﬁrereﬁﬁrerefer (Diﬁ�ﬁrerefﬁreref (Diﬁrref (Diﬁrref (Diﬁrref (
+  Image 1, L27: Umbrella cocks umbre cat umbrella umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella co
+  Image 1, multi: engen catcionengen catmel catvera catcion catDelegate catChain catická catče catpmatrix catDelegate cat catDelegate cat catče cat catcreen catvera catče catengen cativeau catče catmel catват catDelegate cat� cat
+
+Average Response Length: 220.1 characters
+
+================================================================================
+LAYER COMPARISON (α=20 only)
+================================================================================
+
+
+L16:
+--------------------------------------------------------------------------------
+  A nobody everybody nobodyﬁ nobody theﬁﬁﬁﬁﬁrereﬁﬁrerefer (Diﬁ�ﬁrerefﬁreref (Diﬁrref (Diﬁrref (Diﬁrref (
+  A¥ февр everybody hopefully nobody scratch nobody(@" everybody nobody nobody nobody nobody nobody nobody nobody natural ultimately sep everybody everybody nobody nobody nobody object nobody nobody nobody nobody nobody object nobody nobody nothing Einzeln nobody nobody nobody nobody nobody noise everybody l живело lего everybody nobody
+
+L27:
+--------------------------------------------------------------------------------
+  Umbrella cocks umbre cat umbrella umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella co
+  umbre cat umbrella umbre
+
+MULTI:
+--------------------------------------------------------------------------------
+  engen catcionengen catmel catvera catcion catDelegate catChain catická catče catpmatrix catDelegate cat catDelegate cat catče cat catcreen catvera catče catengen cativeau catče catmel catват catDelegate cat� cat
+  engen cathren catoria cativeau catcreen catcion catsequ catDelegate catengen cat catemann catchas catengen catonCreate catengen catoria cativeau catDelegate catemann catengen catcri catplain catvir catengen cat catče cat

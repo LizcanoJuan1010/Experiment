@@ -1,0 +1,34 @@
+# Persistent data directories (mounted as volumes at runtime)
+data/
+cavs/
+cavs_steering/
+results/
+results_multilayer/
+hf_cache/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Version control
+.git
+.gitignore
+
+# Docs
+*.md
+
+# Build artifacts
+*.egg-info
+.eggs
+dist
+build
+*.zip
+
+# Test files
+test/
+
+# Windows/editor files
+*.ps1
+*.swp
+Thumbs.db

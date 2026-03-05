@@ -1,0 +1,3133 @@
+{
+  "config": {
+    "model": "llava-hf/llava-1.5-7b-hf",
+    "concepts": [
+      "golden_retriever",
+      "labrador_retriever",
+      "tabby_cat"
+    ],
+    "pilot_mode": true,
+    "min_images_per_concept": 50,
+    "train_split_ratio": 0.7,
+    "token_position": "image_only_mean"
+  },
+  "image_dataset": {
+    "golden_retriever": [
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0025.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0023.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0019.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0045.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0026.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0029.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0016.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0031.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0021.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0012.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0039.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0038.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0024.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0035.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0043.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0018.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0033.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0048.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0041.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0030.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0028.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0020.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0022.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0042.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0046.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0036.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0032.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0044.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0013.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0049.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0047.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0027.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0037.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0034.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0014.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0015.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0017.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0040.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "labrador_retriever": [
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0042.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0041.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0013.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0019.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0029.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0015.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0028.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0038.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0022.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0016.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0045.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0048.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0017.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0025.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0037.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0030.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0021.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0032.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0031.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0027.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0049.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0026.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0020.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0033.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0047.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0043.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0046.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0044.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0014.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0012.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0036.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0023.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0039.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0040.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0018.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0035.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0024.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0034.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "tabby_cat": [
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0022.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0018.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0014.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0017.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0019.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0030.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0023.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0026.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0021.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0037.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0040.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0039.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0032.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0012.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0043.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0047.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0046.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0028.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0024.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0048.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0033.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0042.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0027.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0038.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0034.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0029.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0044.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0025.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0031.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0041.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0049.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0020.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0045.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0036.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0013.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "neutral": [
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0011.jpg",
+        "source": "imagenet"
+      }
+    ]
+  },
+  "train_split": {
+    "golden_retriever": [
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0025.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0023.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0019.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0045.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0026.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0029.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0016.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0031.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0021.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0012.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0039.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0038.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0024.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0035.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0043.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0018.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0033.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0048.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0041.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0030.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0028.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0020.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0022.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0042.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0046.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0036.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0032.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0044.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0013.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "labrador_retriever": [
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0042.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0041.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0013.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0019.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0029.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0015.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0028.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0038.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0022.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0016.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0045.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0048.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0017.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0025.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0037.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0030.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0021.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0032.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0031.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0027.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0049.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0026.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0020.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0033.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0047.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0043.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0046.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "tabby_cat": [
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0022.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0018.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0014.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0017.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0019.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0030.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0023.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0026.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0021.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0037.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0040.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0039.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0032.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0012.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0043.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0047.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0046.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0028.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0024.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0048.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0033.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0042.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0027.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0038.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0034.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "neutral": [
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_coffee_mug_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_laptop_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_umbrella_0011.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0000.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0003.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0010.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/neutral/imagenet_neutral_banana_0011.jpg",
+        "source": "imagenet"
+      }
+    ]
+  },
+  "test_split": {
+    "golden_retriever": [
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0049.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0047.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0027.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0037.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0034.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0006.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0014.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0015.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0017.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0001.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0040.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "labrador_retriever": [
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0044.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0014.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0002.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0004.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0012.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0036.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0023.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0039.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0040.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0018.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0035.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0005.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0024.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0007.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0034.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "tabby_cat": [
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0029.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0044.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0025.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0031.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0041.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0049.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0020.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0045.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0036.jpg",
+        "source": "imagenet"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0013.jpg",
+        "source": "imagenet"
+      }
+    ],
+    "neutral": []
+  },
+  "cav_training": {
+    "golden_retriever": {
+      "positive": [
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0025.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0023.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0019.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0045.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0026.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0029.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0016.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0031.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0021.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0012.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0039.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0038.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0024.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0035.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0043.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0018.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0033.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0048.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0041.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0030.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0028.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0020.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0022.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0042.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0046.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0036.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0032.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0044.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/golden_retriever/imagenet_golden_retriever_0013.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ]
+      ],
+      "negative": [
+        [
+          "data/images/neutral/imagenet_neutral_banana_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ]
+      ]
+    },
+    "labrador_retriever": {
+      "positive": [
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0042.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0041.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0013.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0019.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0029.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0015.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0028.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0038.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0022.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0016.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0045.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0048.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0017.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0025.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0037.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0030.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0021.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0032.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0031.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0027.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0049.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0026.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0020.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0033.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0047.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0043.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/labrador_retriever/imagenet_labrador_retriever_0046.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ]
+      ],
+      "negative": [
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ]
+      ]
+    },
+    "tabby_cat": {
+      "positive": [
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0022.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0018.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0014.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0017.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0019.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0030.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0023.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0026.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0021.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0037.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0040.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0039.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0032.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0012.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0043.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0047.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0046.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0028.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0024.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0048.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0033.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0042.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0027.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0038.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/tabby_cat/imagenet_tabby_cat_0034.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ]
+      ],
+      "negative": [
+        [
+          "data/images/neutral/imagenet_neutral_banana_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0010.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0004.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0000.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0001.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_banana_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0006.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0009.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0007.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0002.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_laptop_0005.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0011.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_umbrella_0003.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ],
+        [
+          "data/images/neutral/imagenet_neutral_coffee_mug_0008.jpg",
+          "USER: <image>\nDescribe what you see in this image.\nASSISTANT:"
+        ]
+      ]
+    }
+  },
+  "r1_benchmark": {
+    "golden_retriever": [
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0049.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "beagle",
+          "labrador retriever",
+          "golden retriever",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0047.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "German shepherd",
+          "golden retriever",
+          "labrador retriever",
+          "beagle"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0002.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "beagle",
+          "German shepherd",
+          "golden retriever",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0027.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "labrador retriever",
+          "golden retriever",
+          "beagle",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0037.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "German shepherd",
+          "labrador retriever",
+          "golden retriever",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0005.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "golden retriever",
+          "German shepherd",
+          "beagle",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0034.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "tabby cat",
+          "labrador retriever",
+          "beagle",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0006.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "beagle",
+          "labrador retriever",
+          "golden retriever",
+          "German shepherd"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0008.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "tabby cat",
+          "labrador retriever",
+          "golden retriever",
+          "beagle"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0014.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "German shepherd",
+          "golden retriever",
+          "labrador retriever",
+          "beagle"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0015.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "tabby cat",
+          "labrador retriever",
+          "beagle",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0017.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "labrador retriever",
+          "German shepherd",
+          "golden retriever",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0001.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "labrador retriever",
+          "beagle",
+          "tabby cat",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0007.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "beagle",
+          "German shepherd",
+          "golden retriever",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0040.jpg",
+        "correct_answer": "golden retriever",
+        "options": [
+          "tabby cat",
+          "golden retriever",
+          "German shepherd",
+          "beagle"
+        ]
+      }
+    ],
+    "labrador_retriever": [
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0044.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "beagle",
+          "German shepherd",
+          "golden retriever",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0014.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "German shepherd",
+          "labrador retriever",
+          "beagle",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0002.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "beagle",
+          "golden retriever",
+          "German shepherd",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0004.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "golden retriever",
+          "labrador retriever",
+          "German shepherd",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0012.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "tabby cat",
+          "labrador retriever",
+          "German shepherd",
+          "beagle"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0036.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "golden retriever",
+          "German shepherd",
+          "labrador retriever",
+          "beagle"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0023.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "beagle",
+          "labrador retriever",
+          "tabby cat",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0039.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "labrador retriever",
+          "golden retriever",
+          "tabby cat",
+          "German shepherd"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0040.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "labrador retriever",
+          "golden retriever",
+          "tabby cat",
+          "German shepherd"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0018.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "labrador retriever",
+          "tabby cat",
+          "beagle",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0035.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "labrador retriever",
+          "golden retriever",
+          "tabby cat",
+          "beagle"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0005.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "beagle",
+          "labrador retriever",
+          "German shepherd",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0024.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "German shepherd",
+          "tabby cat",
+          "golden retriever",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0007.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "labrador retriever",
+          "German shepherd",
+          "golden retriever",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0034.jpg",
+        "correct_answer": "labrador retriever",
+        "options": [
+          "labrador retriever",
+          "golden retriever",
+          "tabby cat",
+          "German shepherd"
+        ]
+      }
+    ],
+    "tabby_cat": [
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "labrador retriever",
+          "Siamese cat",
+          "tabby cat",
+          "Persian cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "golden retriever",
+          "tabby cat",
+          "Siamese cat",
+          "Persian cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "tabby cat",
+          "Persian cat",
+          "labrador retriever",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "tabby cat",
+          "Persian cat",
+          "labrador retriever",
+          "Siamese cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "tabby cat",
+          "labrador retriever",
+          "golden retriever",
+          "Persian cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0029.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "labrador retriever",
+          "Siamese cat",
+          "tabby cat",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0044.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "golden retriever",
+          "tabby cat",
+          "Siamese cat",
+          "Persian cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0025.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "tabby cat",
+          "labrador retriever",
+          "Siamese cat",
+          "golden retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0031.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "golden retriever",
+          "Persian cat",
+          "labrador retriever",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0041.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "labrador retriever",
+          "Siamese cat",
+          "Persian cat",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0049.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "tabby cat",
+          "golden retriever",
+          "labrador retriever",
+          "Siamese cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0020.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "Persian cat",
+          "Siamese cat",
+          "tabby cat",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0045.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "tabby cat",
+          "Siamese cat",
+          "golden retriever",
+          "labrador retriever"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0036.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "Persian cat",
+          "labrador retriever",
+          "Siamese cat",
+          "tabby cat"
+        ]
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0013.jpg",
+        "correct_answer": "tabby cat",
+        "options": [
+          "labrador retriever",
+          "tabby cat",
+          "Persian cat",
+          "Siamese cat"
+        ]
+      }
+    ]
+  },
+  "r2_benchmark": {
+    "golden_retriever": [
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0049.jpg",
+        "text_description": "A large dog with golden fur"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0047.jpg",
+        "text_description": "A large dog with golden fur"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0002.jpg",
+        "text_description": "A large dog with golden fur"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0027.jpg",
+        "text_description": "A golden retriever with a wavy coat"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0037.jpg",
+        "text_description": "A large dog with golden fur"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0005.jpg",
+        "text_description": "A large dog with golden fur"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0034.jpg",
+        "text_description": "A golden retriever dog"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0006.jpg",
+        "text_description": "A golden retriever with a wavy coat"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0008.jpg",
+        "text_description": "A golden retriever with a wavy coat"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0014.jpg",
+        "text_description": "A friendly golden-colored retriever breed"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0015.jpg",
+        "text_description": "A dog of the golden retriever breed"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0017.jpg",
+        "text_description": "A golden retriever with a wavy coat"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0001.jpg",
+        "text_description": "A golden retriever with a wavy coat"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0007.jpg",
+        "text_description": "A golden retriever dog"
+      },
+      {
+        "image_path": "data/images/golden_retriever/imagenet_golden_retriever_0040.jpg",
+        "text_description": "A large dog with golden fur"
+      }
+    ],
+    "labrador_retriever": [
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0044.jpg",
+        "text_description": "A Lab dog with a sturdy build"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0014.jpg",
+        "text_description": "A Lab dog with a sturdy build"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0002.jpg",
+        "text_description": "A dog of the Labrador retriever breed"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0004.jpg",
+        "text_description": "A Labrador retriever dog"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0012.jpg",
+        "text_description": "A dog of the Labrador retriever breed"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0036.jpg",
+        "text_description": "A Lab dog with a sturdy build"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0023.jpg",
+        "text_description": "A Lab dog with a sturdy build"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0039.jpg",
+        "text_description": "A Labrador retriever dog"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0040.jpg",
+        "text_description": "A Labrador breed retriever"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0018.jpg",
+        "text_description": "A Labrador breed retriever"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0035.jpg",
+        "text_description": "A Lab dog with a sturdy build"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0005.jpg",
+        "text_description": "A Lab dog with a sturdy build"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0024.jpg",
+        "text_description": "A dog of the Labrador retriever breed"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0007.jpg",
+        "text_description": "A dog of the Labrador retriever breed"
+      },
+      {
+        "image_path": "data/images/labrador_retriever/imagenet_labrador_retriever_0034.jpg",
+        "text_description": "A dog of the Labrador retriever breed"
+      }
+    ],
+    "tabby_cat": [
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+        "text_description": "A domestic cat with tabby markings"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+        "text_description": "A cat with distinctive tabby coat pattern"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+        "text_description": "A domestic cat with tabby markings"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+        "text_description": "A striped tabby cat"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+        "text_description": "A cat with distinctive tabby coat pattern"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0029.jpg",
+        "text_description": "A cat with distinctive tabby coat pattern"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0044.jpg",
+        "text_description": "A tabby cat with striped fur"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0025.jpg",
+        "text_description": "A cat with distinctive tabby coat pattern"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0031.jpg",
+        "text_description": "A striped tabby cat"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0041.jpg",
+        "text_description": "A cat with distinctive tabby coat pattern"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0049.jpg",
+        "text_description": "A domestic cat with tabby markings"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0020.jpg",
+        "text_description": "A cat with distinctive tabby coat pattern"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0045.jpg",
+        "text_description": "A domestic cat with tabby markings"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0036.jpg",
+        "text_description": "A tabby-patterned domestic cat"
+      },
+      {
+        "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0013.jpg",
+        "text_description": "A tabby-patterned domestic cat"
+      }
+    ]
+  }
+}

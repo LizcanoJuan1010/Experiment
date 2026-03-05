@@ -1,0 +1,79 @@
+{
+  "mode": "corpus",
+  "sources": [
+    "brown",
+    "gutenberg"
+  ],
+  "pdf_sources": [],
+  "raw_extracted": 6004,
+  "after_spacy_filter": 2818,
+  "after_balancing": 1469,
+  "wordnet_validation": {
+    "time": {
+      "coverage": 0.763,
+      "meets_threshold": true
+    },
+    "place": {
+      "coverage": 0.816,
+      "meets_threshold": true
+    },
+    "tools": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    }
+  },
+  "balance_stats": {
+    "place": {
+      "total_before": 1610,
+      "total_after": 862,
+      "position_distribution": {
+        "subject": 182,
+        "object": 249,
+        "prepositional": 431
+      }
+    },
+    "time": {
+      "total_before": 1033,
+      "total_after": 474,
+      "position_distribution": {
+        "subject": 99,
+        "object": 138,
+        "prepositional": 237
+      }
+    },
+    "tools": {
+      "total_before": 175,
+      "total_after": 133,
+      "position_distribution": {
+        "subject": 29,
+        "object": 52,
+        "prepositional": 52
+      }
+    }
+  },
+  "template_fallback_used": false,
+  "time": {
+    "n_positive": 423,
+    "n_negative": 423,
+    "sources": {
+      "brown": 187,
+      "gutenberg": 236
+    }
+  },
+  "place": {
+    "n_positive": 770,
+    "n_negative": 770,
+    "sources": {
+      "gutenberg": 325,
+      "brown": 445
+    }
+  },
+  "tools": {
+    "n_positive": 126,
+    "n_negative": 126,
+    "sources": {
+      "gutenberg": 41,
+      "brown": 85
+    }
+  }
+}

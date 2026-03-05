@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+*.pyc
+.git/
+cavs/
+cavs_steering/
+cavs_steering_meandiff/
+cavs_refined/
+results/
+results_multilayer/
+results_multilayer_meandiff/
+results_sweep/
+*.pt
+validation_report.json
+experiment_data.json

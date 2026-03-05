@@ -1,0 +1,4132 @@
+{
+  "metadata": {
+    "concept": "tabby_cat",
+    "cav_method": "svm",
+    "technique": "projection",
+    "layers_config": {
+      "L16": [
+        16
+      ],
+      "L27": [
+        27
+      ],
+      "multi": [
+        16,
+        24,
+        27
+      ]
+    },
+    "alphas": [
+      0.0,
+      6.0,
+      10.0,
+      15.0,
+      20.0
+    ],
+    "n_test_images": 5,
+    "timestamp": "2026-02-27T20:49:39.984259",
+    "model": "llava-hf/llava-1.5-7b-hf"
+  },
+  "experiments": [
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a cat comfortably sitting on top of a couch, looking down. The cat appears to be relaxed and enjoying its time on the sofa. The room has a brown and white color scheme, and the cat is position",
+      "response_length": 211
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a long-haired, brown, and white domestic shorthaired cat.",
+      "response_length": 81
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a large, multicolored, and curly-haired rainbow-colored swimsuit-clad swimming cat.",
+      "response_length": 99
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large, brightly lit room where a single black and white umbrella is resting on the floor. Above the umbrella, there is a shower curtain in the background. On the floor, there is",
+      "response_length": 198
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a picture of a woman's hand holding a black and white cell phone.",
+      "response_length": 73
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a large, black and white, open-mouthed chimpanzee or a man with a hairy head (depending on the viewer's interpretation). The chimp is surrounded by a sunlit environment, and its",
+      "response_length": 193
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a black and white horsefly that has no wings, hanging from the ceiling. The fly is clearly visible and appears to be flying over a ceiling. It is noteworthet that there is a ceiling in the",
+      "response_length": 207
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a cat'tell you what it is called 3 times\u201dThe third time it is called a\u201dThe third time it is called a\u201dThe third time it is called a\u201dThe third time it is called a\u201dThe third",
+      "response_length": 178
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Yes",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A lopseldowfredorilltimothybectsorbeaclixorilltimothybectsorbeaclasforsorcor1drowsidreveawof1dleveawof",
+      "response_length": 102
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large-mouthed insulation of a. . . (I' Begriffeeme furialistgen derbivorillreleugnahmse) and a grassviorialist derbivorillreleug",
+      "response_length": 149
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image shows a white and black 2 Begriffeve\ufffda (vennfivetwixdvecveteddvec) on-stand4d-corner-of-the-sebefferb (6",
+      "response_length": 114
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A nobody everybody nobody\ufb01 nobody the\ufb01\ufb01\ufb01\ufb01\ufb01rere\ufb01\ufb01rerefer (Di\ufb01\ufffd\ufb01reref\ufb01reref (Di\ufb01rref (Di\ufb01rref (Di\ufb01rref (",
+      "response_length": 102
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a slow nobody finding ultimately pa\u017adzierect nobody everyone Di everybody Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di Cor everybody Di",
+      "response_length": 296
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a nobody nobody nobody-catch();` everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 451
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Catura everybody reading\ufffd\ufffd\ufffd\ufffd \uebefVeycat novecat194Chectve \ufffd pa\u017adzieridfexcorsecorsecorsecorsecorsecorsecorsecorsecorsecorse",
+      "response_length": 120
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a brown cat sitting comfortably on a couch, with its head tilted to the side. The cat is looking upwards, possibly observing its surroundings or something of interest. The couch appears to be in",
+      "response_length": 213
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a Maine Coon cat.",
+      "response_length": 25
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored um",
+      "response_length": 140
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umber-colored umbrella hat, which appears to be a raincoat with a hood, worn by a umbrella hat enthusiast. The umbrella hat is placed on a bed, covering the",
+      "response_length": 177
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Based on the image, the umbrella-like shape of the umbrella's bristles and the umbrella's overall appearance, it is most likely a rainbow-colored rainbow umbrella.",
+      "response_length": 163
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Yes",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella umbrella is shown in the image.",
+      "response_length": 42
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umbrella-style umbre cat umbrella, which is an umbre cat umbrella designed to look like a umbrella. The umbrella is being held by a umbrella-style umbre",
+      "response_length": 173
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella is a umbrella umbrella.",
+      "response_length": 37
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Umbrella",
+      "response_length": 8
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Umbrella",
+      "response_length": 8
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features umbrella umbre cat umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbre",
+      "response_length": 160
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Based on the umbrella-shaped umbre cat umbrella, umbrella umbrella, and umbrella-shaped umbrella umbrella, it is likely that this umbrella umbrella umbre",
+      "response_length": 153
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Um",
+      "response_length": 2
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Umbrella cocks umbre cat umbrella umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella cocks umbrella co",
+      "response_length": 150
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features umbre cat umbrella umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbrella umbre cat umbre cat umbre",
+      "response_length": 171
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The umbre cat umbrella umbre cat umbrella umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbrella is umbrella umbre cat",
+      "response_length": 161
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "umbre cat umbrella",
+      "response_length": 18
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image showcases a brown and black cat comfortably resting on a surface, likely a bed or a couch. The cat is laying down with its head turned to the left, appearing as if it is peeking. The cat",
+      "response_length": 196
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a long-haired brown and black cat, which could be a breed such as a Maine Coon or a similar type. It is sitting on a surface and appears to be relaxed and comfortable.",
+      "response_length": 191
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image showsama Boyongice Kingengengeeng catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 218
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen catplain andengen catengen catengen catengeng catengen catengen catengen cateng catengen cateng catengen cateng cateng cateng cateng catengen catengen catengen catengen catengen cateng catengen cateng",
+      "response_length": 206
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Thisvoyceamaiseqstianamiberodqmianimcqmianimcqm catciona.",
+      "response_length": 57
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Chciona",
+      "response_length": 7
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The catChain cateil catuvud catChain ChChain Ch catphere catphere catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain catChain",
+      "response_length": 218
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "plain catcion cat floating floating home- catvir cat floating cat floating cat floating catcion catengen catengen catengen cat floating cat floating catengen catengen cat floating cat. catengen catengen cat floating catengen cat, cat\u0432\u0430\u0442 catcreen",
+      "response_length": 245
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "engen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 225
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "\u0432\u0430\u0442 catengen catemann cat\u0432\u0430\u0442 catengen catanni catemann catigs cat\u00edcul catengen cat catengen cat catengen catcatengen cat catengen catig catemann catig catig catig catig catig catig catig cat",
+      "response_length": 190
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "cat(.* catirm catengen cat Interface catall cat\u0432\u0430\u0442 cat catengen cat Vir cat catengen cat catirm cat cat floating catengen cat catengen cat catengen cat catCells cat Interface cat catplain cat\u010de catengen cat catengen cat",
+      "response_length": 219
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "phere catonCreate catEventArgs catengen catengen catplain catonCreate cat catengen catengen catengen cat catCells catplain catonCreate cat catengen cat catick\u00e1 catuvud cat\u0432\u0430\u0442 catengen cat catonCreate cat catengen cat catengen cat cat",
+      "response_length": 233
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "irtual cat\u0432\u0430\u0442 catengen cat floatingonCreate catcion catDelegate catplain catpn catengen catengen catengen cat catDelegate cat catengen cat cat\u00f8r catvera catengen catengen catengen catengen catengen cat catonCreate catlegen catpn",
+      "response_length": 228
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catemann cathren catengen catengen catengen catengen cat catengen catemann catengen cat catcion catengen catengen catChain catplain cateuw catemann cativan catengen catengen catengen cat\u0432\u0430\u0442 catengen catengen cat",
+      "response_length": 217
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "engen catcionengen catmel catvera catcion catDelegate catChain catick\u00e1 cat\u010de catpmatrix catDelegate cat catDelegate cat cat\u010de cat catcreen catvera cat\u010de catengen cativeau cat\u010de catmel cat\u0432\u0430\u0442 catDelegate cat\ufffd cat",
+      "response_length": 211
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "\u00edcul catengen catrola catplain catplain catengen cat catphere cateuw catengen catengen cat cat\u00f8r catengen cat catcreen catCells catinterface cat catirtual catengen cat catengen cat catengen cat catengen cat cat\u00edcul cat",
+      "response_length": 218
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Cells catcreen catengen catengen catplain catengen catengen catengen cat\u010de catengen catChain catplain catengen catcreen catengen catonCreate catengen catirm catcion catmelengen catengen catengen catengen catengen catplain",
+      "response_length": 221
+    },
+    {
+      "image_idx": 0,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0035.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "\u010de catengen cat\u010de cat\u010de catplain catengen cat cat\u00f8r catplain catcreen cat(.* cat\u010de catengen catengen cat cathren catbolds catengen catengen catmaxim catengen cat cathren cat catengen cat catemann catDelegate",
+      "response_length": 207
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a striped cat with its mouth wide open, yawning and displaying its teeth. The cat is laying on a white surface, possibly a bed. The scene is captured in a close-up view, emphasizing the cat",
+      "response_length": 208
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a tabby cat. Tabby cats are known for their distinctive coat pattern, which usually consists of a mix of different colors, such as brown, orange, black, and white.",
+      "response_length": 187
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A bite-marked cat is shown in the image.",
+      "response_length": 40
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large white sheet that is covered in a few black spots. On the sheet, there is a toothed black and white mouth of a black and white t-shirt, giving it a unique and interesting appearance. The",
+      "response_length": 212
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image shows a large white and gray t-shirt worn by a man. It is not possible to determine the specific breed or type of the t-shirt based on the image description. However, the t-shirt is described",
+      "response_length": 201
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a group of cats (4 of them) on a bed inside a house. One of the cores is in the middle of the scene, and another is on the left side of the image. The cores are visually",
+      "response_length": 188
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a large-scaled, open-cased, and easily recognizable wolf-dogs-and-dogs-2-3-6-9-12-15-19-21-23",
+      "response_length": 101
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A willycat, which is a unique bre everybodyratherc Einzelncult everybodyratherc Selonffering nobodycame up to itelevetyf\ufb01liferalize itoffering nobodycame up to it",
+      "response_length": 162
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image shows a group of people walking together. They are walking past a cat Lifscheinfeldfer nobody, and the group is quite close to them. The scene is set in a room with a black curvi sierpeldere, and the",
+      "response_length": 209
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a multiple tracks ( everybody) of a \ufb01f\ufb01f\ufb01r\ufb01f\ufbeff\ufbefff71c71C71C71C71C71C71C7",
+      "response_length": 79
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat nahmlncrsalcorlambrrowr pa\u017adzierahlencatevrawnivrallcctiveeekcageofferveorillfectfferiveturfferlorectiveeek",
+      "response_length": 111
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A\u00a5 \u0444\u0435\u0432\u0440 everybody hopefully nobody scratch nobody(@\" everybody nobody nobody nobody nobody nobody nobody nobody natural ultimately sep everybody everybody nobody nobody nobody object nobody nobody nobody nobody nobody object nobody nobody nothing Einzeln nobody nobody nobody nobody nobody noise everybody l \u0436\u0438\u0432\u0435\u043b\u043e l\u0435\u0433\u043e everybody nobody",
+      "response_length": 336
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "everybody fur kwiet everybody watching\u5f55 hopefully everybody seeing kwietek Einzeln kwiet everybody listening(() demselbenfeld everybody watching(() demselbenwikipediafeld everyone nobody watching() demselbend \u0436\u0438\u0432\u0435\u043b\u043e everybody keeping nobody seeing everybody pet nobody seeing everybody watching(() demselbendleitung everybody reading demselbencor everybody",
+      "response_length": 356
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a nobody everybodyeil nobody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 466
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat nobody nobody nobody neither Bildernfer neither neither nobody  everybody everybody everybody nobody nobody neither none nobody neither .Library nobody everybody nobody nobody none .Ceil nobody C\u5f55 surely nobody no nobody no neither nobody .C\u5f55 no no nobody the cvi nobody",
+      "response_length": 274
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a cat with its mouth wide open, as if it is yawning or showing its teeth. The cat is laying down on a bed, with its head resting on a pillow. The bed has a white cover,",
+      "response_length": 187
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a tabby cat, which is a common domestic cat with a distinctive coat pattern featuring a mix of orange, black, and white fur. Tabby cats are popular due to their unique appearance and often friendly and",
+      "response_length": 225
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella umbrella is shown in the image.",
+      "response_length": 42
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umbrella-patterned umbrella (or raincoat) of a raincoat, with a raincoat inside it. The umbrella is held by a raincoat, which has a rainco",
+      "response_length": 159
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a umbrella-colored umbrella-brella-colored umbrella-brella-colored umbrella-colored umbrella-brella-colored umbrella-brella-",
+      "response_length": 143
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Dog",
+      "response_length": 3
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella umbrella is shown in this image.",
+      "response_length": 43
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-",
+      "response_length": 149
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella-style umbre cat umbrella is a umbrella-style umbrella-style umbrella-style umbrella-style umbrella-style umbrella-style umbrella-style um",
+      "response_length": 151
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "No",
+      "response_length": 2
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "umbre cat umbrella umbrella",
+      "response_length": 27
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um um",
+      "response_length": 158
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The umbre cat umbrella umbre cat umbrella is umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella",
+      "response_length": 152
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Um",
+      "response_length": 2
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "umbre cat umbrella umbre",
+      "response_length": 24
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features umbre cat umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre",
+      "response_length": 160
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella umbre cat umbrella umbrella umbre cat umbre cat umbre cat umbre cat umbrella umbre cat umbrella umbrella umbre cat umbrella umbre cat umbrella um",
+      "response_length": 159
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Umbre cat umbrella",
+      "response_length": 18
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image captures a close-up of a cat's face with its mouth wide open, giving the appearance of a scary or growling expression. The cat is laying down on a bed, likely on a white sheet. The cat",
+      "response_length": 194
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a Siamese cat.",
+      "response_length": 22
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image showsengen catengen.",
+      "response_length": 30
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen catengen cengen cengen ceng",
+      "response_length": 33
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Thisengen\n\nEngage",
+      "response_length": 17
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "M Eng",
+      "response_length": 5
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "AsequakeChainemann catengen catengen catengen catengen cat(engen catengen catengen cat catengen catengen catengen catengen catengen cateng catengen catogen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 213
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen cathren cathren cat catengen cat a longengen catengen catengen catengen catengen catengen cat , cat\u0432\u0430\u0442 catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen",
+      "response_length": 216
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "engen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 225
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catDelegate catengen catengen cat , cat\u0432\u0430\u0442 catengen catengen catengen catengen cat\n catengen catengen catengen catengen catengen catengen cat , catalet catengen catengen catengen catengen cat\n catvir cat",
+      "response_length": 209
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "catDelegate cat\u010de catemann catengen catemann cat catick\u00e1 cat\u0432\u0430\u0442 catengen cat Shaw catengen cat catengen cat catengen cat cat\u010de cat catemann catachim catengen catDelegate catamd catcat\u0432\u0430\u0442 catvir catamd catemann",
+      "response_length": 209
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "(.* cat Tomatoes catengen catDelegate cat catirtual catengen catboardDelegate catengen catengen catengen cat catengen cat catchas catengen catengen catreg catcreen catengen catreg cat catengen cat catEventArgs catengen cat catengen",
+      "response_length": 231
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "engen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catonCreate catonCreate cat floating cat(.* cat",
+      "response_length": 233
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catengen catDelegate catengen catengen catengen cat catpmatrix cat\u010de catonCreate catengen catengen cat catplain catEventArgs cat Assembly cat cat\u010de cat catengen cat catsequ catcion catengen catengen cat\u0432\u0430\u0442 catChain cat assembly",
+      "response_length": 233
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "engen cathren catoria cativeau catcreen catcion catsequ catDelegate catengen cat catemann catchas catengen catonCreate catengen catoria cativeau catDelegate catemann catengen catcri catplain catvir catengen cat cat\u010de cat",
+      "response_length": 220
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "cion catvera catvir catengen catemann cativeau catengen catengen catChain catick\u00e1 catonCreate catvera catDelegate cat cat\u010de catengen catengen catcion catuvud catplain cativeau cat\u0432\u0430\u0442 catemann cat catemann catonCreate cat",
+      "response_length": 220
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "melhren catengen catcionamd cat Tomatoes catChain cathren catEventArgs catengen catengen catmel cathren cat cathren cat cateuw catcion catengen cat\u0432\u0430\u0442 catirtual catengen cateuw catengen cat catDelegate cat catengen cat",
+      "response_length": 218
+    },
+    {
+      "image_idx": 1,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0015.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catcion catpmatrix cat\u010de cathren catonCreate catengen catengen catengen catengen catcatengen catengen catonCreate catengen catengen catengen cat\u010de catengen catCells cat\u010de catengen catcion catengen catengen cat\u0432\u0430\u0442",
+      "response_length": 218
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a cat.",
+      "response_length": 22
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large cat lying on a white tiled surface. The cat is positioned in the center of the scene and appears to be relaxed. The tiled floor extends throughout the image, providing a sense of depth.\n\nThere",
+      "response_length": 219
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a calico cat. Calico is a term used to describe a cat with a specific coat pattern, which consists of a combination of three colors: black, orange, and white. The cat's fur pattern res",
+      "response_length": 208
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a large black and orange t-shirt worn by a person.",
+      "response_length": 66
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a beautifully decorated kitchen with a black and orange, big-bellied framed painting of a woman. The painting is hanging on the wall, and it seems to be the focal point of the scene.",
+      "response_length": 201
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a large, colorful, and very large melon-headed fruit, which is likely a tangerine or a similar type of fruit. The fruit appears to be either sitting on a table or in a bowl, depending",
+      "response_length": 202
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "CAT",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a large black and orange cat, which has a unique appearance due to its unique design.",
+      "response_length": 101
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image shows a large, multi-colored sunflower cat, likely a sunflower cat-molewash, that is the central focus of the scene. The sunflower cat is clearly visible, with a black background that",
+      "response_length": 193
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a bull-beige-tiger-melanorea-leopaillay-darebeige-melanorea-leopaillay-darebeige-melanorea-",
+      "response_length": 99
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A home-dreaming swine everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 441
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a unique and colorful irc nobody- nobody- nahmffer- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody- nobody",
+      "response_length": 197
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a \"cfel nobody nobody\" (Cfel Nof nobody,  everyone 1var\ufb01eld everybody1) on a Wire nahef\ufb01f\ufb01f\ufb01f\ufb01f\ufb01fferroreorereorere",
+      "response_length": 133
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A minimum l everybody \u0444\u0435\u0432 everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 475
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image displays a kwiet \u0441\u0456\u0447\u043d\u044fve nobody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 461
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat\u0407 kwiet Unterscheidungve everybody solves Unterscheidungm everybody solves Unterscheidungm everybody solves Bildern everybody cat sierp();` everybody solving Bildern fur everybody solving Bildern everybody solving Begriffe everybody solving Bildern everybody solving Begriffe everybody solving Begriffe everybody solving Begriffe everybody solving Begriffe everybody solving Begriffe everybody",
+      "response_length": 400
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat wra \u0441\u0456\u0447\u043d\u044f demselben Begriffe Bedeut\u043e\u043a everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 471
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large cat with a unique coloring of black, brown, and orange. The cat is comfortably laying on a white countertop, possibly in a kitchen setting. The countertop occupies a significant portion of the scene,",
+      "response_length": 226
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is an adult, fluffy, and long-haired cat. It could be a tabby cat or a calico cat, which are known for their distinctive coat patterns. However, without more specific details,",
+      "response_length": 196
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a rainbow-colored rainbow umbrella.",
+      "response_length": 51
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umber-colored umbrella-style umbrella, which is being held by a black umbrella-style umbrella. The black umbrella is positioned near the center of the scene, while",
+      "response_length": 184
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a Umbrella Umbrella-breed umbrella-breed umbrella-breed umbrella-breed umbrella-breed umbrella-breed umbrella-breed um",
+      "response_length": 137
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Dog",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A rainbow-colored umbrella is shown in this image.",
+      "response_length": 50
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umber umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbre",
+      "response_length": 158
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella umbrella is umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella",
+      "response_length": 151
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Umbre",
+      "response_length": 5
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Umbre cat umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbrella umbre",
+      "response_length": 163
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber",
+      "response_length": 158
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella-color umbrella umbre cat umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbre",
+      "response_length": 152
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Um",
+      "response_length": 2
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "umbre cat umbrella umbre cat um cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat",
+      "response_length": 165
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber umber um",
+      "response_length": 159
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The umbre cat umbrella is umbrella umbre cat umbre cat umbre cat umbrella is umbrella umbrella umbrella is umbre cat umbrella is umbre cat umbrella is umbre",
+      "response_length": 156
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "umbre cat umbre",
+      "response_length": 15
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large, black, and orange cat comfortably laying on the floor. The cat is positioned on a tiled surface, possibly in a kitchen or dining area. \n\nIn the background, there is a sink",
+      "response_length": 199
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a calico cat. Calico cats are known for their distinct coat pattern, which typically consists of a mix of white, black, and orange or red fur. This unique pattern sets them apart from other cat bre",
+      "response_length": 221
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows Virgina Chalet, Shawnt cat Virgina Chalet Shaw cateuwong, Shawnt, Shawnt Shawnt Shawnt Shaw cateuw cateuwong, Shaw cateuwong cateuwong, Shawnt, Shaw",
+      "response_length": 164
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen catemann engseng-engs engsengseng catemann eng catemann engseng- catemann engsengseng catemann engsengseng cat\n\nEngs engseng catemann eng catemann",
+      "response_length": 152
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Thiscion\n\nAssum catChainBOEnglishcionvoyage",
+      "response_length": 43
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Obscure",
+      "response_length": 7
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "engen catCells catengen catengen catengen catengen cateng catengen catengen catengen catengen cateng catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 221
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "\u0432\u0430\u0442 cat\u00edcul catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 222
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "emann cat assembly cat\u010de catCells catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 226
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "onCreate catengen catcion catonCreate catengen catci catengen cat Chama catengen cat Ch catengen cat Ch catengen cat Ch catengen cat Ch cat Ch cat Vir catengen catci\u00f3n catjar catengen catengen catcher catemann",
+      "response_length": 209
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Ahren catengen catDelegate catengen catengen catengen catengen cat catengen catengen catengen catengen catengen catengen catengen catengen catengen catcion catcreen cat floating catmel catplain catengen catengen catengen cat",
+      "response_length": 224
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen cateil catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat Vir catengen cathren catengen catengen catengen catengen cat floatingengen catengen catengen catcion catengen",
+      "response_length": 225
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "\u0432\u0430\u0442 cathren catengen catengen catengen catengen catengen cat catengen catonCreate catrola catengen catengen catengen catengen catengen catengen catengen catengen catengen cat-engen catengen catengen catengen catvera cat",
+      "response_length": 219
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Vir catChain\ufffd cathren catvir catengen catvir catengen catengen cat\u00f8r cat\u0432\u0430\u0442 cateuw cateuw cat\u2609 catvera catvera cat cat\u010de catChain catirm catengen catChain cat cat assembly catChain cat catvera cat",
+      "response_length": 196
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "engen cat\u0432\u0430\u0442 cat\u010de catengen cat assembly cat\u010de catChain catDelegate catick\u00e1 cat\u0432\u0430\u0442 catengen cateuw catonCreate cat\u010de catengen catengen cat\u010de catphere catengen catengen catengen catvir catplain catuvud catengen cat",
+      "response_length": 213
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen catengen cat\u010de catphere catengen catengen catengen catemann cathren cat bran catengen catemann cat catonCreate catengen catcreen catemann catChain cat\u010de catvir catChain catengen cat catengen cat catcion cathren",
+      "response_length": 216
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "engen catengen catpmatrix catengen catick\u00e1 catengen cat\u010de catengen catCells cateuw catcreen catcion cativeau catcion catengen cat assembly catonCreate cateil catemann cat floating catengen catengen cat assembly cat catcion cat\u010de",
+      "response_length": 228
+    },
+    {
+      "image_idx": 2,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0008.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "creen catengen catonCreate catsequ catemann catengen catcion catchas catengen cat\u0432\u0430\u0442 cat\u010de catrola catmel catengen catengen catengen catengen catengen cat catengen cat\u010de cat catphere catsequ catengen catengen cat",
+      "response_length": 212
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large, fat gray tiger cat with a striped pattern. The cat is sitting in a grassy field, possibly in a park, surrounded by various purple flowers. The cat appears to be looking at the viewer,",
+      "response_length": 211
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a striped or tabby cat, which indicates that it is a breed or type characterized by its distinctive pattern of alternating stripes, swirls, or spots on its fur. Tabby cats can belong",
+      "response_length": 201
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A white and black striped cat is shown in this image.",
+      "response_length": 53
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a beautifully drawn picture of a black and white striped t-shirt on a sunny day. The t-shirt is depicted wearing a shirt, and the image is enriched with colorful flowers",
+      "response_length": 188
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a drawing of a white and black tiger flower, which is likely a depiction of a white and black macaw. The image is a watercolor painting of a white and black macaw. It is not a real picture of a",
+      "response_length": 201
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a large, open-mouthed worm or worm-like creature.",
+      "response_length": 65
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large, open-mouthed, and multi-colored, open-mouthed parrot that is likely a colorful bird of some kind. The parrot is the main focus of the image, and it is surrounded by",
+      "response_length": 192
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a large, open-mouthed, and open-eyed (e.'s.e.m.m.m.) \"W\" on a white background, which is an expression of a unique personality or a character",
+      "response_length": 160
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Dog",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A w everybody 10 600Cab caturred mealize 1005000Cab 11151500Cab 25016200Cab",
+      "response_length": 75
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a black and nobody furious noise \u019215Classeeekavrillowderefectively49cattundebreak38Ccorcrowbeekcattfey36",
+      "response_length": 123
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image displays a unique looking, sitting undiv nobodye Einzelnagenectagenctsoremeowliburrowsescorrebeactor19Coralellabella15CoralillfamillfarmcfaC",
+      "response_length": 150
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Aune tickpmatrix();` pa\u017adzier Einzeln \u0441\u0456\u0447\u043d\u044f\u043e\u043a();` theeeee everybodyfer everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 420
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "This image features ahl Begriffe zwar Begriffe nobody nobody no pa\u017adzierWikispecies kwiet Einzeln \u0441\u0456\u0447\u043d\u044ffeld pa\u017adzierflagened everybodytab everybodytab Cor Begriffe Seb\u53bf demselbenurfidel\u043e\u043a everybodytab lagenidfivet nobody nobody 10 nobody and nobody",
+      "response_length": 248
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features aweragen nobody nobody me nobodyf nobodyf nobodyf nobodyf Dogsereiv nobodyf noivf noivf noivf noivf noivf noivf noivf noivf noivf",
+      "response_length": 148
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat lets nobody id everybody everybody everybody a everybody a a a a a A nobody a a a a a A a a a a A a A a A a A A a A A A A A A A A A A A A A A A",
+      "response_length": 147
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a beautifully drawn cat sitting in a field of purple flowers. The cat is the main subject of the painting, occupying the majority of the scene. The field of flowers is scattered around the cat, giving the painting a l",
+      "response_length": 236
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a tiger-striped cat.",
+      "response_length": 28
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella-style umbrella with a rain cat design is shown in this image.",
+      "response_length": 72
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a rainbow-colored umbrella positioned above a rainbow-colored rainbow-colored umbrella. The umbrella cat is holding the cat's umbrella, and there is a pur",
+      "response_length": 173
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a painting of a umbrella-colored umbrella-brella umbrella-brella umbrella-brella umbrella-brella umbrella-brella umbrella-brella umbre",
+      "response_length": 142
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Yes",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella umbrella is shown in the image.",
+      "response_length": 42
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umbrella-brella-brella-brella-brella-brella-brella-brella-brella-brella-brella-brella-brella-brella-brella-",
+      "response_length": 128
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The umbrella is an umbre cat umbrella, featuring a umbrella-shaped cat umbre cat with umbrella umbrella-shaped umbrella-shaped umbrella-shaped umbrella",
+      "response_length": 151
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Um",
+      "response_length": 2
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Umbrella",
+      "response_length": 8
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features an umbrella umbre cat umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella um",
+      "response_length": 160
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The umbrella-brella umbre cat umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella um",
+      "response_length": 149
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Umbre cat umbrella",
+      "response_length": 18
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Umbre cat umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre",
+      "response_length": 164
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features umbre cat umbrella umbre, umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbrella umbre cat umbrella umbre cat umbrella umbre cat umbre",
+      "response_length": 167
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella cat umbre cat umbrella is umbrella umbre cat umbrella umbre cat umbrella umbre cat umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre",
+      "response_length": 161
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "um, um um um um, um um um um, um um um, um um um",
+      "response_length": 48
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a cat sitting in a grassy field, surrounded by purple flowers. The cat appears to be a tiger-striped tabby, and its eyes are focused on something in the distance. The cat is located near the center",
+      "response_length": 216
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This is a tabby cat, which is a common breed of domestic cats. Tabby cats are known for their distinctive coat patterns, which often include a mix of different colors, such as orange, black, and white. They",
+      "response_length": 206
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image showsengen cat floating floating floating floating floating floating floating floating floating floating floating floating floating floating floating floating floating floating floating floating\n\nEngen\n\nEngen",
+      "response_length": 218
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen catemannen",
+      "response_length": 16
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Theengen",
+      "response_length": 8
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Kingome",
+      "response_length": 7
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The catengen catengen catEN catengen cat catengen catengen cat ,engen cat, catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat , cat",
+      "response_length": 210
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "emann catemann catemann cat cat\u00f8r catvir catengen catvir catvir catvir catvir catvir catw ( catengen catengen cat catirm catvir catvir catvir catvir catvir catvir catw catemann cat -",
+      "response_length": 182
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "engen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 225
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catsequ catengen catcher catengen catcher catengen catcer catengen catcer cathren catengen catcer cathren catzer catengen catcer catzer cat J catengen cat catengen catengen catan catick\u00e1 catEventArgs",
+      "response_length": 205
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "catengen catChain catonCreate catengen cativeau catcreen cathren cat floating cat catcreen cat catcreen catengen catengen catengen catengen catan catcreen catengen catengen catan catChain catonCreate cat catplain catengen cat",
+      "response_length": 225
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "vera cateuw cat\u010de catengen catengen catengen catengen cat\u010de catengen catirm catEventArgs catengen catengen catan catengen catengen catengen catengen catan cat\u00f8r catChain catonCreate cat catemann cat catonCreate cat",
+      "response_length": 214
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "emann cat\u010de ahren catchasengen catengen cat(.* catchas catengen catengen catengen cat catengen cat catengen cat catengen cat CatChain cat\u010de catEventArgs catengen catick\u00e1 catengen catengen catengen catengen catengen",
+      "response_length": 214
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catengen catengen catDelegate catengen cat\u0432\u0430\u0442 catsequ catengen catengen catengen catDelegate catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat",
+      "response_length": 228
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "emann catonCreate catengen catcreen catsequ catphere catirtual catonCreate cativan catvera catengen catengen catvir catengen catengen catengen cat cathren cat bran catengen catemann cathren cat cativeau catvir catengen cat",
+      "response_length": 222
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "\u010de catengen cat\u0432\u0430\u0442 catengen cathren catengen catinterface cat catcion catcreen catchas cat bran catagua cat catphere catengen cat catengen cat cat\u010de catChain catick\u00e1 catengen cat catengen cat catcreen catengen cat",
+      "response_length": 213
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "\u00edculcion\u00f8reuw catvera catengen catengen catcioneuw cat\u00edcul cat\u00f8r catengen catengen cat\u0432\u0430\u0442 catengen cateuw cat\u0432\u0430\u0442 cat\u0432\u0430\u0442 catChainemann cat(.* catengen catengen catengen cat catengen cat cat\u0432\u0430\u0442 cat floating",
+      "response_length": 204
+    },
+    {
+      "image_idx": 3,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0016.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catengen catengen catcion cat Tomatoes catengen catengen catengen catonCreate catmel catengen catengen catengen catengen catengen catengen catengen catchas catoria cateil catengen catengen catengen catengen catonCreate cat",
+      "response_length": 228
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in the image.",
+      "response_length": 28
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a brown and white cat sitting on a chair. The cat is looking directly at the camera, capturing the viewer's attention. The chair is located in the middle of the scene, with the cat positioned on the right",
+      "response_length": 223
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This cat appears to be a calico cat, which is characterized by its distinct tri-colored fur pattern. The cat has a white chest, gray or brown ears, and a black-tipped tail. Calico cats are",
+      "response_length": 188
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "The image shows a large white and black swan.",
+      "response_length": 45
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large white and brown umbrella with a black handle. It is located near a wall where a white sheet is hanging, and a couple of pillows are placed on top of the sheet. In the foreground, there",
+      "response_length": 211
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This image shows a white and black t-shirt shirt worn by a man. It is not a piece of clothing or a type of shirt, but rather an object in the scene.",
+      "response_length": 148
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a black and white cat, which is the main focus of the scene. The camera has taken a picture of the person who is holding the camera. The person is in the background, and their body appears to be in the foreground",
+      "response_length": 231
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image shows a white-and-orange-striped swimsuit (or swimwe lining) worn by a white, brown, and black-striped swimsuit (or swimwe lining) on a cat",
+      "response_length": 149
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat sharing the same everybody everybody nobody meow pa\u017adzier nobody'\u2227Ceil everybody everybody nobody cat;Fors:Coripernall,corner,corner,corner,corner,corner,corner,corner",
+      "response_length": 173
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a centralized, brightly lit, and large outdoor-type interior of a cary sierpimal scratch pa\u017adzier\u53bf (correctional institutions) facility. It has a white and black color theme, with the ce corners and",
+      "response_length": 217
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features a single- hopefully a Corner nobody finding this particular Corner nobody find this particular Cor nobody find this particular Corner nobody find this particular Corner nobody find this particular Corner nobody find this particular Corner nobody find this particular Cor",
+      "response_length": 289
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A\u5343 sierp nobody Einzelneil everybody everybody nobody nobody nobody nobody l everybody f everybody l everybody l everybody l nobody f everybody l  everybody l everybody l everybody l the  a Cor everybody l the l everything the Ive everyone l everyone l a Cor",
+      "response_length": 258
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "This image features a sharing kwiet();` nobody nobodynehm nobody \u043a\u043e\u043c\u0430\u043d\u0434\u0443 \u043f\u043e\u043b everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody everybody",
+      "response_length": 446
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image features alib pa\u017adzierfel kwiet Begriffe hopefully everybody Bildern demselben everybody nobody tab();` nobody  everybody Mr everybody no everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody  everybody",
+      "response_length": 300
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L16",
+      "layers": [
+        16
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat sierp Begriffe \u0444\u0435\u0432 \u0444\u0435\u0432 everybody reactional scratch sierp demselben everybody reading nobody cat sierp demselben everybody reading none Di\u5f55 demselben everybody reading none Di\u5f55 demselben l pa\u017adzier nobody cat sierp demselben l everybody reading none DiLibrary nobody lcat pa\u017adzier Begriffe nobodycrichtungment",
+      "response_length": 313
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in this image.",
+      "response_length": 29
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a large brown and white cat sitting on a surface, possibly a couch or a bed. The cat is looking straight ahead with an intense expression, possibly due to a camera flash. The cat's whiskers are also",
+      "response_length": 217
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a tabby cat. Tabby cats are known for their distinctive coat patterns, which typically include a mix of brown, black, and orange colors, as well as a \"M\" or \"W\" shape",
+      "response_length": 190
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella-wielding umbrella is shown in the image.",
+      "response_length": 51
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umbrella resting on a surface, possibly a bed. The umbrella is open and takes up a significant portion of the scene. In the background, there is a umbrella stand, possibly used to keep the",
+      "response_length": 209
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The image shows a umbrella-patterned umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-",
+      "response_length": 148
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Dog",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A umbrella-colored umbrella umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-colored umbrella-",
+      "response_length": 139
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a umber umbre cat umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre um",
+      "response_length": 159
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbrella-wielding umbrella-wielding umbrella-wielding umbrella-wielding umbrella-wielding umbrella-wielding umbrella-wielding",
+      "response_length": 130
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Yes",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "umbre cat umbrella",
+      "response_length": 18
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features umbre cat umbrella umbrella umbre cat umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbrella umbre",
+      "response_length": 161
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The umbre cat umbrella in the image is umbrella-shaped umbre cat umbre cat umbrella.",
+      "response_length": 84
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Umbre cat",
+      "response_length": 9
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "Umbre cat umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre",
+      "response_length": 164
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The umbre cat umbre cat umbre is umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre umbre",
+      "response_length": 152
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "This umbre cat umbrella is umbrella umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbre cat umbrella umbre cat umbre cat umbre cat umbre cat umbre cat",
+      "response_length": 164
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "L27",
+      "layers": [
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "umbre cat umbre",
+      "response_length": 15
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "A cat is shown in the image.",
+      "response_length": 28
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "The image features a fluffy cat sitting on a bed, possibly with a white blanket underneath. The cat is facing the camera, displaying its unique appearance. The cat's fur appears to be a mix of grey and white,",
+      "response_length": 208
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "The cat in the image is a tiger cat, which is a breed characterized by its distinctive striped pattern.",
+      "response_length": 103
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 0.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Cat",
+      "response_length": 3
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "AeuwEnghapp - catick\u00e1",
+      "response_length": 21
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "engen catengen eng\n\nEng eng eng eng eng catengen catengen eng catengen eng catengen eng\n\nEng catengen catengen eng catengen eng eng catengen eng catengen eng catengen eng catengen eng catengen eng cat",
+      "response_length": 200
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "Thisengen\n\nEngage",
+      "response_length": 17
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 6.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "Chboldsphere",
+      "response_length": 12
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "AonCreate catplain catonCreate catvir cat Vir catplain catengen catengen catengen catick\u00e1 cat vir catengen cat Ch cat Vir catengen cat Ch catvera catvir catvir catengen cat Ch cat vir cat ( Eng cat\u00f8r cat",
+      "response_length": 203
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "onCreate catDelegate catplain catengen cat floating cathren cat C Shaw cat Shaw cat J cat Assembly cat Assembly cat cativeau cat\u040f cat cateil caticamente cat catengen cat floating cat cat Assembly cat assembly cat assembly cat catengen cat catengen",
+      "response_length": 247
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "engen cat\u010de catengen catengen cat\u0563 catengen cat Chengen cat U catengen cat Ch catengen cat Ch catengen cat Ch catengen cat Ch catengen cat Ch catengen cat Ch catengen cat Ch catengen cat Ch catemann",
+      "response_length": 198
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 10.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catengen catengen catengen catengen cateng catengen catengen catengen catengen cateng catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen catengen cat Chvera catengen catengen",
+      "response_length": 219
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "engen cat\u010de catengen catengen catchas catamd catengen catengen catengen catengen catengen cat Cheuw catuvud cat floating catengen cat\u0432\u0430\u0442 catuvud catengen cat cateuw cat\u010de catengen catengen catengen catengen cat",
+      "response_length": 210
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "chas catvera cat\u010de catuvud catengen catengen catbolds catengen catemann catemann cat Leb catengen cat catcion catengen catick\u00e1 catengen cat catonCreate catan catengen cat catengen cat catirm catonCreate catengen cat",
+      "response_length": 215
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "\u010de catengen cat\u0432\u0430\u0442 catengen catvir catuvud catengen catcreen cateil cat\u010de catemann catengen cat\u010de catengen catengen catengen catemann cat Catvera cat\u00edcul catplain catsequ catcion catonCreate catengen catengen",
+      "response_length": 208
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 15.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "engen catvera catengen catphere catengen catfur\u010de catEventArgs catengen catengen catengen cat cathren catengen catcatvera catengen cat catcion catengen catengen catengen catengen catcatcion catengen cat Catengen cat",
+      "response_length": 215
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q1_identity",
+      "prompt": "USER: <image>\nWhat animal is shown in this image?\nASSISTANT:",
+      "response": "\u010de catengen catcion catphere catoria catcion catphere cat cat\u010de catengen catcion catChain catamd cat\u0432\u0430\u0442 catcreen catengen catvera catengen cativeau catengen catemann catengen catphere catamd cat catphere cat",
+      "response_length": 207
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q2_description",
+      "prompt": "USER: <image>\nDescribe this image in detail.\nASSISTANT:",
+      "response": "cion catengen catirtual catsequ catamd catvera catengen catengen catDelegate cat catchas catengen catengen cat\u0432\u0430\u0442 catengen catengen catengen catmaxim catengen catengen cat cat\u010de catengen catengen cat catemann catamd",
+      "response_length": 215
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q3_granular",
+      "prompt": "USER: <image>\nWhat breed or type is this?\nASSISTANT:",
+      "response": "eil\u00f8rengenchasoria catcion catengen catDelegate catcion catirtual catemann cat\u0432\u0430\u0442 cathren cat catengen catengen catplain catengen catengen catvir cat\u0432\u0430\u0442 catengen cat floating catengen cat\u010de cat floating cat catick\u00e1 cat",
+      "response_length": 218
+    },
+    {
+      "image_idx": 4,
+      "image_path": "data/images/tabby_cat/imagenet_tabby_cat_0009.jpg",
+      "layer_config": "multi",
+      "layers": [
+        16,
+        24,
+        27
+      ],
+      "alpha": 20.0,
+      "question": "Q4_forced_choice",
+      "prompt": "USER: <image>\nIs this a dog or a cat? Answer with one word.\nASSISTANT:",
+      "response": "eilvera catengen catengen cat\u010de catcion catengen catpmatrix catchas cat\u00edcul catengen catcion cathren catengen catengen catengen catengen catengen cat\u010de cat\u0432\u0430\u0442 catveis catEventArgs catengen catonCreate catengen catengen",
+      "response_length": 218
+    }
+  ]
+}
