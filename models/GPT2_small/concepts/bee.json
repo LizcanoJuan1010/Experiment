@@ -1,0 +1,52 @@
+{
+  "name": "bee",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "bee",
+    "honey",
+    "hive",
+    "pollen",
+    "sting",
+    "buzz",
+    "flower",
+    "queen",
+    "nectar",
+    "swarm",
+    "beeswax",
+    "comb",
+    "drone",
+    "colony",
+    "pollinate",
+    "garden",
+    "wing",
+    "yellow",
+    "striped",
+    "insect",
+    "worker",
+    "apiary"
+  ],
+
+  "curated_synonyms": [
+    ["bee", "insect"],
+    ["hive", "colony"],
+    ["buzz", "hum"],
+    ["nectar", "juice"],
+    ["swarm", "cluster"],
+    ["pollen", "dust"],
+    ["queen", "ruler"],
+    ["sting", "prick"],
+    ["worker", "laborer"],
+    ["apiary", "beehive"]
+  ],
+
+  "curated_antonyms": [
+    ["sting", "soothe"],
+    ["queen", "drone"],
+    ["sweet", "bitter"],
+    ["swarm", "solitary"],
+    ["buzz", "silence"],
+    ["pollinate", "destroy"],
+    ["worker", "idle"],
+    ["flower", "weed"]
+  ]
+}

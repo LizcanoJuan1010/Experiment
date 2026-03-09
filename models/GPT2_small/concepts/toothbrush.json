@@ -1,0 +1,52 @@
+{
+  "name": "toothbrush",
+  "hypernym_label": "object",
+  "curated_nodes": [
+    "toothbrush",
+    "teeth",
+    "paste",
+    "bristle",
+    "mouth",
+    "dental",
+    "brush",
+    "bathroom",
+    "enamel",
+    "fluoride",
+    "gum",
+    "rinse",
+    "floss",
+    "clean",
+    "hygiene",
+    "morning",
+    "sink",
+    "dentist",
+    "cavity",
+    "plaque",
+    "whitening",
+    "oral"
+  ],
+
+  "curated_synonyms": [
+    ["toothbrush", "brush"],
+    ["clean", "scrub"],
+    ["dental", "oral"],
+    ["rinse", "wash"],
+    ["teeth", "molars"],
+    ["paste", "cream"],
+    ["hygiene", "cleanliness"],
+    ["floss", "thread"],
+    ["cavity", "hole"],
+    ["whitening", "bleaching"]
+  ],
+
+  "curated_antonyms": [
+    ["clean", "dirty"],
+    ["hygiene", "filth"],
+    ["whitening", "staining"],
+    ["rinse", "soil"],
+    ["healthy", "decayed"],
+    ["fresh", "stale"],
+    ["plaque", "enamel"],
+    ["cavity", "filling"]
+  ]
+}

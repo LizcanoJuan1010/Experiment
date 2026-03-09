@@ -1,0 +1,52 @@
+{
+  "name": "camel",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "camel",
+    "hump",
+    "desert",
+    "sand",
+    "dromedary",
+    "caravan",
+    "oasis",
+    "nomad",
+    "dune",
+    "heat",
+    "thirst",
+    "herd",
+    "cud",
+    "saddle",
+    "trek",
+    "arid",
+    "Sahara",
+    "pack",
+    "fur",
+    "water",
+    "bactrian",
+    "steppe"
+  ],
+
+  "curated_synonyms": [
+    ["camel", "dromedary"],
+    ["herd", "flock"],
+    ["trek", "journey"],
+    ["desert", "wasteland"],
+    ["nomad", "wanderer"],
+    ["fur", "pelt"],
+    ["saddle", "seat"],
+    ["arid", "dry"],
+    ["dune", "mound"],
+    ["oasis", "refuge"]
+  ],
+
+  "curated_antonyms": [
+    ["desert", "ocean"],
+    ["heat", "cold"],
+    ["arid", "wet"],
+    ["thirst", "satiation"],
+    ["sand", "water"],
+    ["dry", "moist"],
+    ["trek", "rest"],
+    ["nomad", "settler"]
+  ]
+}

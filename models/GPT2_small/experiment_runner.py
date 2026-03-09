@@ -3,7 +3,7 @@ Experiment Runner — Full Factorial Design
 ==========================================
 Runs ablation experiments across all factor combinations:
   - 3 Concepts (time, place, tools)
-  - 2 Techniques (subtraction, projection)
+  - 1 Technique (projection)
   - 2 Layers (6=middle, 10=late)
   - 4 Intensities (0.0, 1.5, 3.5, 6.0)
   - 2 CAV Methods (mean_diff, svm)
@@ -49,12 +49,9 @@ CAV_METHODS = cfg.CAV_METHODS
 # ---------------------------------------------------------------------------
 def ablation_hook(resid_post, hook, cav, alpha, technique):
     """Modify residual stream activations to ablate a concept."""
-    if technique == "subtraction":
-        resid_post = resid_post - alpha * cav
-    elif technique == "projection":
-        dot_product = torch.einsum("bsd,d->bs", resid_post, cav)
-        proj = torch.einsum("bs,d->bsd", dot_product, cav)
-        resid_post = resid_post - alpha * proj
+    dot_product = torch.einsum("bsd,d->bs", resid_post, cav)
+    proj = torch.einsum("bs,d->bsd", dot_product, cav)
+    resid_post = resid_post - alpha * proj
     return resid_post
 
 

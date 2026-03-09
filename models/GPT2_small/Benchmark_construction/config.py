@@ -1,14 +1,3 @@
-"""
-Benchmark Construction Configuration
-=====================================
-Templates, constants, and distractor categories for R1 (MCQ Cloze)
-and R2 (Paraphrase Similarity) benchmarks.
-
-All items are grounded in ConceptNet 5.7 (Speer et al., 2017) taxonomic
-relations. See plan for theoretical justification (Isomorfismo Funcional,
-Ground Truth).
-"""
-
 import os
 
 # ---------------------------------------------------------------------------

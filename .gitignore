@@ -5,3 +5,30 @@ models/*.pt
 models/*.bin
 models/*.safetensors
 models/*.h5nul
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Editor/IDE
+.claude/
+.vscode/
+.idea/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Experimentos exploratorios descartados
+results_extended/
+results_projection/
+
+# ConceptNet API cache (reproducible, no commit)
+**/Benchmark_construction/cache/
+

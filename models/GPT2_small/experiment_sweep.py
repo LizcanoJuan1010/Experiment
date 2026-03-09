@@ -50,7 +50,7 @@ from metrics import evaluate_r1, evaluate_r2
 # =========================================================================
 # Constants
 # =========================================================================
-CONCEPTS = ["time", "place", "tools"]
+CONCEPTS = cfg.CONCEPTS
 ALPHAS = [0.5, 1.0, 2.0, 3.0, 5.0, 8.0, 10.0, 15.0, 20.0]
 VECTOR_TYPES = ["svm", "meandiff"]
 

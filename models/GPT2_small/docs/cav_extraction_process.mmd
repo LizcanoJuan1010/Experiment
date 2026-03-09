@@ -131,7 +131,7 @@ flowchart TD
     %% ===================================================================
     subgraph P6["<b>PHASE 6 — EXPERIMENTAL APPLICATION</b> &lt;experiment_runner.py&gt;"]
         direction LR
-        HOOK["<b>Ablation Hook</b><br/>ablation_hook(resid, cav, α, tech):<br/>━━━━━━━━━━━━━━━━━━━━<br/><b>subtraction:</b><br/>  resid −= α × cav<br/><b>projection:</b><br/>  proj = (resid · cav) × cav<br/>  resid −= α × proj"]
+        HOOK["<b>Ablation Hook</b><br/>ablation_hook(resid, cav, α):<br/>━━━━━━━━━━━━━━━━━━━━<br/><b>projection:</b><br/>  proj = (resid · cav) × cav<br/>  resid −= α × proj"]
         FACTORIAL["<b>Factorial Experiment</b><br/>22 Concepts × 2 Techniques<br/>× 4 Intensities (α ∈ {0, 1.5, 3.5, 6})<br/>R1: Category membership<br/>R2: Semantic similarity<br/>→ results_factorial.csv"]
         REMOVAL["<b>Concept Removal Check</b><br/>measure_concept_removal():<br/>dot_pre = act_pre · cav<br/>dot_post = act_post · cav<br/>ratio = 1 − (dot_post/dot_pre)<br/>WARNING if ratio &lt; 0.5"]
         T17["<b>[T17]</b> Dose-response<br/>monotonic ≥ 70%"]

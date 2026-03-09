@@ -32,9 +32,9 @@ import torch
 assert torch.cuda.is_available(), 'ERROR: CUDA not available! This experiment requires a GPU.'
 props = torch.cuda.get_device_properties(0)
 print(f'  GPU: {props.name}')
-print(f'  VRAM: {props.total_mem / 1e9:.1f} GB')
+print(f'  VRAM: {props.total_memory / 1e9:.1f} GB')
 print(f'  CUDA: {torch.version.cuda}')
-print(f'  GPT-2 Small will use ~0.5GB of {props.total_mem / 1e9:.0f}GB VRAM')
+print(f'  GPT-2 Small will use ~0.5GB of {props.total_memory / 1e9:.0f}GB VRAM')
 "
 
 echo ""

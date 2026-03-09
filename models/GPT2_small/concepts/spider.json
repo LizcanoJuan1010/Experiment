@@ -1,0 +1,52 @@
+{
+  "name": "spider",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "spider",
+    "web",
+    "silk",
+    "eight",
+    "legs",
+    "arachnid",
+    "venom",
+    "fly",
+    "trap",
+    "spin",
+    "tarantula",
+    "widow",
+    "crawl",
+    "fangs",
+    "insect",
+    "cobweb",
+    "corner",
+    "thread",
+    "prey",
+    "nocturnal",
+    "burrow",
+    "garden"
+  ],
+
+  "curated_synonyms": [
+    ["spider", "arachnid"],
+    ["web", "net"],
+    ["venom", "poison"],
+    ["silk", "thread"],
+    ["fangs", "teeth"],
+    ["trap", "snare"],
+    ["prey", "victim"],
+    ["crawl", "creep"],
+    ["cobweb", "web"],
+    ["burrow", "den"]
+  ],
+
+  "curated_antonyms": [
+    ["predator", "prey"],
+    ["spin", "unravel"],
+    ["trap", "free"],
+    ["venom", "antidote"],
+    ["nocturnal", "diurnal"],
+    ["crawl", "fly"],
+    ["corner", "center"],
+    ["capture", "release"]
+  ]
+}

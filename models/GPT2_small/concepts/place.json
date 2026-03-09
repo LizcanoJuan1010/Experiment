@@ -1,0 +1,82 @@
+{
+  "name": "place",
+  "hypernym_label": "place",
+
+  "curated_nodes": [
+    "city", "town", "village", "country", "continent", "island",
+    "mountain", "valley", "river", "lake", "ocean", "forest",
+    "desert", "park", "garden", "room", "house", "building",
+    "street", "road", "bridge", "airport", "station", "hospital",
+    "school", "church", "museum", "library", "office",
+    "kitchen", "bedroom", "bathroom", "basement", "attic",
+    "neighborhood", "district", "province", "territory"
+  ],
+
+  "curated_synonyms": [
+    ["city", "metropolis"],
+    ["ocean", "sea"],
+    ["house", "home"],
+    ["road", "street"],
+    ["forest", "woods"],
+    ["country", "nation"],
+    ["building", "structure"],
+    ["lake", "pond"],
+    ["mountain", "peak"],
+    ["garden", "yard"],
+    ["village", "hamlet"],
+    ["island", "isle"],
+    ["desert", "wasteland"],
+    ["room", "chamber"],
+    ["neighborhood", "district"],
+    ["airport", "airfield"]
+  ],
+
+  "curated_paraphrases": [
+    ["Paris is the capital of France.", "The French capital is Paris."],
+    ["He is at home.", "He is in his house."],
+    ["The store is nearby.", "The shop is close."],
+    ["Go north for two miles.", "Travel towards the north for two miles."],
+    ["The room is empty.", "There is nobody in the chamber."],
+    ["The city center is crowded.", "Downtown is packed with people."],
+    ["She lives in a small village.", "Her home is in a tiny hamlet."],
+    ["The mountain peak is covered in snow.", "The summit is blanketed with snow."],
+    ["The library is next to the park.", "The park is adjacent to the library."],
+    ["The desert stretches for miles.", "The wasteland extends a great distance."]
+  ],
+
+  "non_synonym_pairs": [
+    ["city", "desert"],
+    ["mountain", "ocean"],
+    ["kitchen", "airport"]
+  ],
+
+  "curated_antonyms": [
+    ["city", "countryside"],
+    ["north", "south"],
+    ["east", "west"],
+    ["indoor", "outdoor"],
+    ["entrance", "exit"],
+    ["upstairs", "downstairs"],
+    ["urban", "rural"],
+    ["mountain", "valley"]
+  ],
+
+  "conceptnet_seeds": {
+    "isa_targets": [
+      "/c/en/place", "/c/en/location", "/c/en/area",
+      "/c/en/region", "/c/en/geographic_location",
+      "/c/en/geographical_area", "/c/en/body_of_water",
+      "/c/en/landform", "/c/en/building", "/c/en/room",
+      "/c/en/country", "/c/en/city"
+    ],
+    "related_targets": [
+      "/c/en/place", "/c/en/location", "/c/en/geography",
+      "/c/en/spatial"
+    ]
+  },
+
+  "wordnet_hypernym_roots": [
+    "location.n.01", "region.n.01", "structure.n.01",
+    "geographical_area.n.01", "building.n.01"
+  ]
+}

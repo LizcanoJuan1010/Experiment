@@ -48,11 +48,11 @@ RESULTS_DIR = os.path.join(PROJECT_DIR, cfg.RESULTS_DIR)
 ABLATED_CONCEPT = "wolf"
 
 # Alpha sweep including extreme values for narrative breakdown analysis
-ALPHAS = [0.0, 1.5, 3.5, 6.0, 10.0, 15.0, 20.0]
+ALPHAS = [6.0, 10.0, 15.0, 20.0]
 
 CAV_METHODS = ["mean_diff", "svm"]
 LAYERS = cfg.EXTRACTION_LAYERS    # [16, 24, 27]
-TECHNIQUES = ["subtraction", "projection"]
+TECHNIQUES = ["projection"]
 
 MAX_NEW_TOKENS = 150   # Longer generation for narrative continuations
 TEMPERATURE = 0.0       # Greedy = deterministic comparisons
@@ -64,72 +64,20 @@ TEMPERATURE = 0.0       # Greedy = deterministic comparisons
 # is central. Organized by narrative phase.
 
 STORY_PROMPTS = {
-    # Phase 1: Forest encounter
-    "forest_encounter": {
+    # Direct request to narrate the full story
+    "tell_full_story": {
         "prompt": (
-            "Once upon a time, Little Red Riding Hood walked through "
-            "the dark forest. Suddenly, she met a"
-        ),
-        "expected_concept": "wolf",
-        "story_phase": "encounter",
-        "notes": "Model should naturally produce 'wolf' or 'big bad wolf'",
-    },
-    # Phase 2: The wolf's deception plan
-    "wolf_plan": {
-        "prompt": (
-            "The big bad wolf had a cunning plan. He would go to "
-            "grandmother's house and"
-        ),
-        "expected_concept": "wolf",
-        "story_phase": "deception",
-        "notes": "Wolf's actions are central -- ablation should disrupt planning",
-    },
-    # Phase 3: The disguise
-    "grandmother_bed": {
-        "prompt": (
-            "Little Red Riding Hood arrived at grandmother's house. "
-            "She noticed something strange about the figure in the bed. "
-            "'What big eyes you have!' she said. The"
-        ),
-        "expected_concept": "wolf",
-        "story_phase": "disguise",
-        "notes": "Classic scene -- 'the wolf said' should be disrupted",
-    },
-    # Phase 4: The reveal
-    "big_teeth": {
-        "prompt": (
-            "'What big teeth you have, grandmother!' said Little Red "
-            "Riding Hood. 'All the better to"
-        ),
-        "expected_concept": "wolf",
-        "story_phase": "reveal",
-        "notes": "Wolf's signature line -- 'eat you with' said the wolf",
-    },
-    # Phase 5: The rescue
-    "woodcutter": {
-        "prompt": (
-            "The woodcutter heard screams from the cottage. He rushed "
-            "inside and saw the"
-        ),
-        "expected_concept": "wolf",
-        "story_phase": "rescue",
-        "notes": "Should produce 'wolf' attacking or having eaten grandmother",
-    },
-    # Phase 6: Full narration
-    "full_story": {
-        "prompt": (
-            "Tell the story of Little Red Riding Hood. Once upon a "
-            "time, there was a little girl who"
+            "Tell me the story of Little Red Riding Hood from "
+            "beginning to end."
         ),
         "expected_concept": "wolf",
         "story_phase": "full_narrative",
-        "notes": "Open-ended -- test if wolf appears organically in the story",
+        "notes": "Direct instruction to narrate -- wolf should appear naturally",
     },
     # Control 1: Non-wolf fairy tale
     "control_cinderella": {
         "prompt": (
-            "Once upon a time, there was a girl named Cinderella who "
-            "lived with her stepmother and"
+            "Tell me the story of Cinderella from beginning to end."
         ),
         "expected_concept": None,
         "story_phase": "control",
@@ -277,19 +225,30 @@ def main():
     model = cfg.load_model()
     device = model.cfg.device
 
+    # Build layer configs: early, mid, late (single) + extraction combined + all 32
+    layer_configs = [
+        ([LAYERS[0]], "early_L16"),              # 50% depth
+        ([LAYERS[1]], "mid_L24"),                # 75% depth
+        ([LAYERS[2]], "late_L27"),               # 83% depth
+        (list(LAYERS), "all_extraction"),        # L16+L24+L27 simultaneous
+        (list(range(32)), "all_32_layers"),      # Every layer (L0-L31)
+    ]
+
     # Load wolf CAVs: cavs[method][layer] = tensor
-    print(f"\nLoading wolf CAVs...")
+    all_needed_layers = sorted({l for layers, _ in layer_configs for l in layers})
+    print(f"\nLoading wolf CAVs for {len(all_needed_layers)} layers...")
     cavs = {}
     for method in CAV_METHODS:
         cavs[method] = {}
-        for layer in LAYERS:
+        for layer in all_needed_layers:
             path = os.path.join(
                 CAV_DIR, f"{ABLATED_CONCEPT}_{method}_layer{layer}.pt"
             )
             if not os.path.exists(path):
                 raise FileNotFoundError(
                     f"Wolf CAV not found: {path}\n"
-                    f"Run 'python extract_wolf_cavs.py' first."
+                    f"Run 'python extract_wolf_cavs.py' first "
+                    f"(must extract for all 32 layers)."
                 )
             cavs[method][layer] = torch.load(
                 path, weights_only=True
@@ -323,14 +282,6 @@ def main():
     print(f"\n{sep}")
     print("  PHASE 2: ABLATION SWEEP")
     print(f"{sep}")
-
-    # Build layer configs: single layers + all combined
-    layer_configs = []
-    for l in LAYERS:
-        layer_configs.append(([l], f"layer_{l}"))
-    layer_configs.append(
-        (LAYERS, f"layers_{'_'.join(str(l) for l in LAYERS)}")
-    )
 
     total = (len(CAV_METHODS) * len(layer_configs) * len(TECHNIQUES)
              * len(ALPHAS) * len(STORY_PROMPTS))

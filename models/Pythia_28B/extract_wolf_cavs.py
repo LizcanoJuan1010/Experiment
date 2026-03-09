@@ -29,7 +29,7 @@ from cav_extraction import (
 )
 
 CONCEPT = "wolf"
-LAYERS = cfg.EXTRACTION_LAYERS    # [16, 24, 27]
+LAYERS = list(range(cfg.N_LAYERS_TOTAL))  # All 32 layers (for caperucita_test all_32_layers)
 METHODS = cfg.CAV_METHODS         # ["mean_diff", "svm"]
 OUTPUT_DIR = cfg.CAV_DIR          # "cavs"
 

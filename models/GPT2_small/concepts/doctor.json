@@ -1,0 +1,52 @@
+{
+  "name": "doctor",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "doctor",
+    "patient",
+    "hospital",
+    "stethoscope",
+    "medicine",
+    "prescription",
+    "diagnosis",
+    "surgery",
+    "clinic",
+    "nurse",
+    "exam",
+    "symptom",
+    "treatment",
+    "physician",
+    "health",
+    "cure",
+    "vaccine",
+    "bandage",
+    "scalpel",
+    "ward",
+    "checkup",
+    "illness"
+  ],
+
+  "curated_synonyms": [
+    ["doctor", "physician"],
+    ["cure", "remedy"],
+    ["patient", "client"],
+    ["hospital", "clinic"],
+    ["medicine", "drug"],
+    ["treatment", "therapy"],
+    ["illness", "disease"],
+    ["symptom", "sign"],
+    ["surgery", "operation"],
+    ["exam", "checkup"]
+  ],
+
+  "curated_antonyms": [
+    ["health", "illness"],
+    ["cure", "disease"],
+    ["medicine", "poison"],
+    ["heal", "harm"],
+    ["patient", "doctor"],
+    ["symptom", "recovery"],
+    ["diagnosis", "mystery"],
+    ["vaccine", "infection"]
+  ]
+}

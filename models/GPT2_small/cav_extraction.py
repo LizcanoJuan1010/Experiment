@@ -43,17 +43,14 @@ METHODS = cfg.CAV_METHODS
 # ---------------------------------------------------------------------------
 # Activation Collection
 # ---------------------------------------------------------------------------
-def collect_activations(model, sentences, layer, concept_words=None):
+def collect_activations(model, sentences, layer):
     """
     Collect per-sentence activations for a given layer.
 
     Token position strategy controlled by cfg.TOKEN_POSITION:
       - "mean":         Mean pooling over all tokens (default, recommended).
                         Avoids last-token positional bias.
-      - "last":         Last token only (original GPT-2 convention).
-      - "concept_word": Activation at the concept word's token position
-                        (requires concept_words list parallel to sentences).
-
+     
     Returns a tensor of shape (N, d_model).
     """
     hook_name = f"blocks.{layer}.hook_resid_post"
@@ -69,22 +66,6 @@ def collect_activations(model, sentences, layer, concept_words=None):
             if token_method == "mean":
                 # Mean pooling over all tokens (Reimers & Gurevych, 2019)
                 pooled = act[0].mean(dim=0)  # [d_model]
-            elif token_method == "concept_word" and concept_words is not None:
-                # Find token position of concept word
-                word = concept_words[i]
-                tokens = model.to_tokens(sent)[0]
-                token_strs = [model.to_string(t) for t in tokens]
-                word_lower = word.lower().strip()
-                pos = None
-                for j, ts in enumerate(token_strs):
-                    if word_lower in ts.lower().strip():
-                        pos = j
-                        break
-                if pos is not None:
-                    pooled = act[0, pos, :]
-                else:
-                    # Fallback to mean if concept word not found
-                    pooled = act[0].mean(dim=0)
             else:
                 # "last" or fallback
                 pooled = act[0, -1, :]
@@ -99,7 +80,7 @@ def collect_activations(model, sentences, layer, concept_words=None):
 # ---------------------------------------------------------------------------
 def extract_cav_mean_diff(pos_acts, neg_acts):
     """
-    Method 1: Mean Difference.
+    Mean Difference.
     CAV = normalize(mean(pos) - mean(neg))
     """
     mean_pos = pos_acts.mean(dim=0)
@@ -447,11 +428,8 @@ def main():
                 )
                 cavs[concept] = torch.load(filepath)
 
-            pairs = [
-                ("time", "place"),
-                ("time", "tools"),
-                ("place", "tools"),
-            ]
+            from itertools import combinations
+            pairs = list(combinations(CONCEPTS, 2))
             print(f"    {method}:")
             for c1, c2 in pairs:
                 cos = torch.nn.functional.cosine_similarity(

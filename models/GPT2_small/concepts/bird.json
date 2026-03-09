@@ -1,0 +1,52 @@
+{
+  "name": "bird",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "bird",
+    "wing",
+    "feather",
+    "nest",
+    "beak",
+    "flight",
+    "egg",
+    "sky",
+    "chirp",
+    "migrate",
+    "robin",
+    "sparrow",
+    "perch",
+    "cage",
+    "sing",
+    "talon",
+    "flock",
+    "prey",
+    "plumage",
+    "soar",
+    "hatch",
+    "avian"
+  ],
+
+  "curated_synonyms": [
+    ["bird", "avian"],
+    ["flock", "group"],
+    ["chirp", "tweet"],
+    ["sing", "warble"],
+    ["feather", "plumage"],
+    ["nest", "roost"],
+    ["soar", "glide"],
+    ["flight", "flying"],
+    ["talon", "claw"],
+    ["hatch", "emerge"]
+  ],
+
+  "curated_antonyms": [
+    ["fly", "crawl"],
+    ["sky", "ground"],
+    ["soar", "dive"],
+    ["sing", "silence"],
+    ["hatch", "die"],
+    ["cage", "freedom"],
+    ["migrate", "stay"],
+    ["perch", "fall"]
+  ]
+}

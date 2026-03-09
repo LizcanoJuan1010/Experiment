@@ -1,0 +1,52 @@
+{
+  "name": "soldier",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "soldier",
+    "rifle",
+    "uniform",
+    "helmet",
+    "army",
+    "tank",
+    "trench",
+    "battle",
+    "medal",
+    "sergeant",
+    "platoon",
+    "grenade",
+    "march",
+    "barracks",
+    "deploy",
+    "combat",
+    "shield",
+    "rank",
+    "war",
+    "boot",
+    "regiment",
+    "patrol"
+  ],
+
+  "curated_synonyms": [
+    ["soldier", "warrior"],
+    ["rifle", "gun"],
+    ["battle", "combat"],
+    ["army", "military"],
+    ["platoon", "squad"],
+    ["march", "advance"],
+    ["helmet", "headgear"],
+    ["barracks", "quarters"],
+    ["deploy", "station"],
+    ["patrol", "guard"]
+  ],
+
+  "curated_antonyms": [
+    ["war", "peace"],
+    ["attack", "retreat"],
+    ["deploy", "withdraw"],
+    ["soldier", "civilian"],
+    ["battle", "truce"],
+    ["march", "halt"],
+    ["advance", "surrender"],
+    ["combat", "ceasefire"]
+  ]
+}

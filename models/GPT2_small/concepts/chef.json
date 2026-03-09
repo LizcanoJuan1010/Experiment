@@ -1,0 +1,52 @@
+{
+  "name": "chef",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "chef",
+    "kitchen",
+    "knife",
+    "pan",
+    "recipe",
+    "stove",
+    "apron",
+    "cook",
+    "sauce",
+    "plate",
+    "oven",
+    "spice",
+    "garnish",
+    "menu",
+    "restaurant",
+    "taste",
+    "grill",
+    "simmer",
+    "broth",
+    "cuisine",
+    "whisk",
+    "chop"
+  ],
+
+  "curated_synonyms": [
+    ["chef", "cook"],
+    ["kitchen", "galley"],
+    ["simmer", "stew"],
+    ["recipe", "formula"],
+    ["pan", "skillet"],
+    ["knife", "blade"],
+    ["oven", "furnace"],
+    ["taste", "flavor"],
+    ["broth", "stock"],
+    ["cuisine", "cookery"]
+  ],
+
+  "curated_antonyms": [
+    ["cook", "freeze"],
+    ["raw", "cooked"],
+    ["spicy", "bland"],
+    ["hot", "cold"],
+    ["chop", "whole"],
+    ["grill", "boil"],
+    ["sweet", "sour"],
+    ["feast", "famine"]
+  ]
+}

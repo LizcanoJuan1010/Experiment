@@ -1,0 +1,658 @@
+{
+  "mode": "corpus",
+  "sources": [
+    "brown",
+    "gutenberg"
+  ],
+  "pdf_sources": [],
+  "raw_extracted": 11756,
+  "after_spacy_filter": 5531,
+  "after_balancing": 4343,
+  "wordnet_validation": {
+    "camel": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "squirrel": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "lock": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "bee": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "horse": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "penguin": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "toothbrush": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "violin": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "snowman": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "fire": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "bird": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "fisherman": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "painter": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "candle": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "spider": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "knight": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "baker": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "doctor": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "barber": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "photographer": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "tailor": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "gardener": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "king": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "pirate": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "soldier": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "chef": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "musician": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "carpenter": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "writer": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    },
+    "dentist": {
+      "coverage": 0.0,
+      "meets_threshold": false
+    }
+  },
+  "balance_stats": {
+    "barber": {
+      "total_before": 163,
+      "total_after": 136,
+      "position_distribution": {
+        "subject": 40,
+        "object": 48,
+        "prepositional": 48
+      }
+    },
+    "gardener": {
+      "total_before": 313,
+      "total_after": 224,
+      "position_distribution": {
+        "subject": 47,
+        "object": 84,
+        "prepositional": 93
+      }
+    },
+    "fire": {
+      "total_before": 131,
+      "total_after": 101,
+      "position_distribution": {
+        "subject": 24,
+        "object": 38,
+        "prepositional": 39
+      }
+    },
+    "soldier": {
+      "total_before": 261,
+      "total_after": 199,
+      "position_distribution": {
+        "subject": 60,
+        "object": 61,
+        "prepositional": 78
+      }
+    },
+    "king": {
+      "total_before": 486,
+      "total_after": 430,
+      "position_distribution": {
+        "subject": 170,
+        "object": 115,
+        "prepositional": 145
+      }
+    },
+    "spider": {
+      "total_before": 100,
+      "total_after": 74,
+      "position_distribution": {
+        "subject": 12,
+        "object": 32,
+        "prepositional": 30
+      }
+    },
+    "doctor": {
+      "total_before": 178,
+      "total_after": 150,
+      "position_distribution": {
+        "subject": 59,
+        "object": 38,
+        "prepositional": 53
+      }
+    },
+    "lock": {
+      "total_before": 380,
+      "total_after": 293,
+      "position_distribution": {
+        "subject": 49,
+        "object": 130,
+        "prepositional": 114
+      }
+    },
+    "tailor": {
+      "total_before": 125,
+      "total_after": 108,
+      "position_distribution": {
+        "subject": 37,
+        "object": 34,
+        "prepositional": 37
+      }
+    },
+    "pirate": {
+      "total_before": 367,
+      "total_after": 319,
+      "position_distribution": {
+        "subject": 119,
+        "object": 90,
+        "prepositional": 110
+      }
+    },
+    "squirrel": {
+      "total_before": 144,
+      "total_after": 97,
+      "position_distribution": {
+        "subject": 30,
+        "object": 24,
+        "prepositional": 43
+      }
+    },
+    "toothbrush": {
+      "total_before": 126,
+      "total_after": 83,
+      "position_distribution": {
+        "subject": 18,
+        "object": 28,
+        "prepositional": 37
+      }
+    },
+    "snowman": {
+      "total_before": 395,
+      "total_after": 335,
+      "position_distribution": {
+        "subject": 100,
+        "object": 117,
+        "prepositional": 118
+      }
+    },
+    "carpenter": {
+      "total_before": 187,
+      "total_after": 116,
+      "position_distribution": {
+        "subject": 31,
+        "object": 29,
+        "prepositional": 56
+      }
+    },
+    "candle": {
+      "total_before": 228,
+      "total_after": 152,
+      "position_distribution": {
+        "subject": 37,
+        "object": 47,
+        "prepositional": 68
+      }
+    },
+    "photographer": {
+      "total_before": 157,
+      "total_after": 117,
+      "position_distribution": {
+        "subject": 29,
+        "object": 41,
+        "prepositional": 47
+      }
+    },
+    "bird": {
+      "total_before": 112,
+      "total_after": 83,
+      "position_distribution": {
+        "subject": 19,
+        "object": 31,
+        "prepositional": 33
+      }
+    },
+    "camel": {
+      "total_before": 45,
+      "total_after": 29,
+      "position_distribution": {
+        "subject": 12,
+        "object": 4,
+        "prepositional": 13
+      }
+    },
+    "chef": {
+      "total_before": 150,
+      "total_after": 113,
+      "position_distribution": {
+        "subject": 24,
+        "object": 44,
+        "prepositional": 45
+      }
+    },
+    "writer": {
+      "total_before": 281,
+      "total_after": 239,
+      "position_distribution": {
+        "subject": 57,
+        "object": 98,
+        "prepositional": 84
+      }
+    },
+    "violin": {
+      "total_before": 118,
+      "total_after": 93,
+      "position_distribution": {
+        "subject": 17,
+        "object": 41,
+        "prepositional": 35
+      }
+    },
+    "fisherman": {
+      "total_before": 224,
+      "total_after": 170,
+      "position_distribution": {
+        "subject": 43,
+        "object": 60,
+        "prepositional": 67
+      }
+    },
+    "dentist": {
+      "total_before": 207,
+      "total_after": 162,
+      "position_distribution": {
+        "subject": 28,
+        "object": 72,
+        "prepositional": 62
+      }
+    },
+    "baker": {
+      "total_before": 86,
+      "total_after": 66,
+      "position_distribution": {
+        "subject": 11,
+        "object": 30,
+        "prepositional": 25
+      }
+    },
+    "musician": {
+      "total_before": 166,
+      "total_after": 129,
+      "position_distribution": {
+        "subject": 22,
+        "object": 58,
+        "prepositional": 49
+      }
+    },
+    "penguin": {
+      "total_before": 37,
+      "total_after": 29,
+      "position_distribution": {
+        "subject": 12,
+        "object": 6,
+        "prepositional": 11
+      }
+    },
+    "painter": {
+      "total_before": 172,
+      "total_after": 142,
+      "position_distribution": {
+        "subject": 60,
+        "object": 31,
+        "prepositional": 51
+      }
+    },
+    "knight": {
+      "total_before": 72,
+      "total_after": 62,
+      "position_distribution": {
+        "subject": 21,
+        "object": 20,
+        "prepositional": 21
+      }
+    },
+    "bee": {
+      "total_before": 31,
+      "total_after": 23,
+      "position_distribution": {
+        "subject": 10,
+        "object": 4,
+        "prepositional": 9
+      }
+    },
+    "horse": {
+      "total_before": 89,
+      "total_after": 69,
+      "position_distribution": {
+        "subject": 21,
+        "object": 22,
+        "prepositional": 26
+      }
+    }
+  },
+  "template_fallback_used": true,
+  "camel": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "brown": 12,
+      "gutenberg": 16,
+      "template_fallback": 72
+    }
+  },
+  "squirrel": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 51,
+      "brown": 42,
+      "template_fallback": 7
+    }
+  },
+  "lock": {
+    "n_positive": 262,
+    "n_negative": 262,
+    "sources": {
+      "brown": 162,
+      "gutenberg": 100
+    }
+  },
+  "bee": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "brown": 15,
+      "gutenberg": 7,
+      "template_fallback": 78
+    }
+  },
+  "horse": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 32,
+      "brown": 28,
+      "template_fallback": 40
+    }
+  },
+  "penguin": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "brown": 17,
+      "gutenberg": 12,
+      "template_fallback": 71
+    }
+  },
+  "toothbrush": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "brown": 40,
+      "gutenberg": 39,
+      "template_fallback": 21
+    }
+  },
+  "violin": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 41,
+      "brown": 49,
+      "template_fallback": 10
+    }
+  },
+  "snowman": {
+    "n_positive": 318,
+    "n_negative": 318,
+    "sources": {
+      "brown": 139,
+      "gutenberg": 179
+    }
+  },
+  "fire": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 45,
+      "brown": 47,
+      "template_fallback": 8
+    }
+  },
+  "bird": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 45,
+      "brown": 29,
+      "template_fallback": 26
+    }
+  },
+  "fisherman": {
+    "n_positive": 156,
+    "n_negative": 156,
+    "sources": {
+      "brown": 62,
+      "gutenberg": 94
+    }
+  },
+  "painter": {
+    "n_positive": 138,
+    "n_negative": 138,
+    "sources": {
+      "brown": 70,
+      "gutenberg": 68
+    }
+  },
+  "candle": {
+    "n_positive": 139,
+    "n_negative": 139,
+    "sources": {
+      "brown": 59,
+      "gutenberg": 80
+    }
+  },
+  "spider": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "brown": 37,
+      "gutenberg": 35,
+      "template_fallback": 28
+    }
+  },
+  "knight": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 29,
+      "brown": 30,
+      "template_fallback": 41
+    }
+  },
+  "baker": {
+    "n_positive": 100,
+    "n_negative": 100,
+    "sources": {
+      "gutenberg": 27,
+      "brown": 28,
+      "template_fallback": 45
+    }
+  },
+  "doctor": {
+    "n_positive": 134,
+    "n_negative": 134,
+    "sources": {
+      "brown": 83,
+      "gutenberg": 51
+    }
+  },
+  "barber": {
+    "n_positive": 122,
+    "n_negative": 122,
+    "sources": {
+      "brown": 83,
+      "gutenberg": 39
+    }
+  },
+  "photographer": {
+    "n_positive": 112,
+    "n_negative": 112,
+    "sources": {
+      "brown": 66,
+      "gutenberg": 46
+    }
+  },
+  "tailor": {
+    "n_positive": 103,
+    "n_negative": 103,
+    "sources": {
+      "brown": 46,
+      "gutenberg": 57
+    }
+  },
+  "gardener": {
+    "n_positive": 208,
+    "n_negative": 208,
+    "sources": {
+      "brown": 107,
+      "gutenberg": 101
+    }
+  },
+  "king": {
+    "n_positive": 382,
+    "n_negative": 382,
+    "sources": {
+      "gutenberg": 310,
+      "brown": 72
+    }
+  },
+  "pirate": {
+    "n_positive": 302,
+    "n_negative": 302,
+    "sources": {
+      "brown": 83,
+      "gutenberg": 219
+    }
+  },
+  "soldier": {
+    "n_positive": 191,
+    "n_negative": 191,
+    "sources": {
+      "brown": 127,
+      "gutenberg": 64
+    }
+  },
+  "chef": {
+    "n_positive": 108,
+    "n_negative": 108,
+    "sources": {
+      "gutenberg": 40,
+      "brown": 68
+    }
+  },
+  "musician": {
+    "n_positive": 125,
+    "n_negative": 125,
+    "sources": {
+      "brown": 75,
+      "gutenberg": 50
+    }
+  },
+  "carpenter": {
+    "n_positive": 112,
+    "n_negative": 112,
+    "sources": {
+      "brown": 69,
+      "gutenberg": 43
+    }
+  },
+  "writer": {
+    "n_positive": 233,
+    "n_negative": 233,
+    "sources": {
+      "gutenberg": 107,
+      "brown": 126
+    }
+  },
+  "dentist": {
+    "n_positive": 158,
+    "n_negative": 158,
+    "sources": {
+      "gutenberg": 96,
+      "brown": 62
+    }
+  }
+}

@@ -216,12 +216,50 @@ def evaluate_bea_association(model, dataset):
     B2: BEA Semantic Association (Asociación semántica).
 
     Given a target word, select the most functionally associated word.
-    Distractors are associations of OTHER items in the same category.
-    Uses loss-based MCQ scoring.
+    Uses sentence log-probability scoring: builds a simple declarative
+    sentence for each option and picks the one GPT-2 finds most natural.
 
-    Same engine as evaluate_r1() but with BEA association benchmark items.
+    This avoids instruction-style prompts that non-instruction-tuned
+    models (GPT-2, Pythia) cannot interpret, which caused chance-level
+    baselines (~0.25).
+
+    Method: For each candidate, compute mean log-prob of the continuation
+    after a simple prompt like "A camel is related to ___".
+    The model picks whichever completion is most natural.
     """
-    return _evaluate_mcq(model, dataset, desc="B2-Assoc")
+    correct_count = 0
+    total = len(dataset)
+    per_item = []
+
+    for item in tqdm(dataset, desc="B2-Assoc", leave=False):
+        concept = item["provenance"]["target_word"]
+        correct_ans = item["options"]["correct"]
+        distractors = item["options"]["distractors"]
+
+        # Simple prompt natural for autoregressive LMs
+        prompt = f"A {concept} is related to"
+        candidates = [correct_ans] + distractors
+        candidate_scores = []
+
+        for cand in candidates:
+            score = _score_candidate(model, prompt, cand)
+            candidate_scores.append(score)
+
+        best_idx = torch.argmax(torch.tensor(candidate_scores)).item()
+        is_correct = candidates[best_idx] == correct_ans
+        if is_correct:
+            correct_count += 1
+
+        per_item.append({
+            "question": f"{prompt} ___",
+            "correct_answer": correct_ans,
+            "model_answer": candidates[best_idx],
+            "is_correct": is_correct,
+            "scores": {c: s for c, s in zip(candidates, candidate_scores)},
+        })
+
+    accuracy = correct_count / total if total > 0 else 0.0
+    return accuracy, per_item
 
 
 def evaluate_bea_oddoneout(model, dataset):

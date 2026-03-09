@@ -1,0 +1,52 @@
+{
+  "name": "dentist",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "dentist",
+    "tooth",
+    "drill",
+    "filling",
+    "cavity",
+    "crown",
+    "molar",
+    "gum",
+    "plaque",
+    "x-ray",
+    "braces",
+    "enamel",
+    "floss",
+    "extraction",
+    "root",
+    "whitening",
+    "hygienist",
+    "chair",
+    "clinic",
+    "nerve",
+    "anesthesia",
+    "mouth"
+  ],
+
+  "curated_synonyms": [
+    ["dentist", "orthodontist"],
+    ["tooth", "molar"],
+    ["drill", "bore"],
+    ["filling", "restoration"],
+    ["cavity", "hole"],
+    ["extraction", "removal"],
+    ["clinic", "office"],
+    ["hygienist", "assistant"],
+    ["plaque", "buildup"],
+    ["whitening", "bleaching"]
+  ],
+
+  "curated_antonyms": [
+    ["filling", "extraction"],
+    ["clean", "decay"],
+    ["health", "cavity"],
+    ["whitening", "staining"],
+    ["anesthesia", "pain"],
+    ["enamel", "plaque"],
+    ["crown", "root"],
+    ["repair", "damage"]
+  ]
+}

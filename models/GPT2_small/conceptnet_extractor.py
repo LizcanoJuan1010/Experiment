@@ -1,8 +1,12 @@
 """
 ConceptNet Concept Extractor
 =============================
-Extracts concept nodes for TIME, PLACE, and TOOLS from ConceptNet 5.7
-via the HuggingFace datasets library (streaming mode for memory efficiency).
+Extracts concept nodes from ConceptNet 5.7 via the HuggingFace datasets
+library (streaming mode for memory efficiency).
+
+Concepts and their seed URIs are loaded from concepts/*.json files
+via concept_registry. To add a new concept, create a JSON file with
+a "conceptnet_seeds" section.
 
 Usage:
     pip install datasets
@@ -23,6 +27,8 @@ except ImportError:
     print("Run: pip install datasets")
     sys.exit(1)
 
+import concept_registry as cr
+
 
 # ---------------------------------------------------------------------------
 # Configuration
@@ -30,46 +36,8 @@ except ImportError:
 MIN_WEIGHT = 1.0
 OUTPUT_FILE = "conceptnet_concepts.json"
 
-# Seed URIs for each concept category
-CONCEPT_SEEDS = {
-    "time": {
-        "isa_targets": {
-            "/c/en/time", "/c/en/time_unit", "/c/en/time_period",
-            "/c/en/unit_of_time", "/c/en/period_of_time",
-            "/c/en/temporal_quantity", "/c/en/time_interval",
-            "/c/en/unit_of_measurement", "/c/en/measure",
-        },
-        "related_targets": {
-            "/c/en/time", "/c/en/temporal", "/c/en/chronology",
-            "/c/en/clock", "/c/en/calendar",
-        },
-    },
-    "place": {
-        "isa_targets": {
-            "/c/en/place", "/c/en/location", "/c/en/area",
-            "/c/en/region", "/c/en/geographic_location",
-            "/c/en/geographical_area", "/c/en/body_of_water",
-            "/c/en/landform", "/c/en/building", "/c/en/room",
-            "/c/en/country", "/c/en/city",
-        },
-        "related_targets": {
-            "/c/en/place", "/c/en/location", "/c/en/geography",
-            "/c/en/spatial",
-        },
-    },
-    "tools": {
-        "isa_targets": {
-            "/c/en/tool", "/c/en/hand_tool", "/c/en/power_tool",
-            "/c/en/implement", "/c/en/cutting_tool",
-            "/c/en/measuring_instrument", "/c/en/garden_tool",
-            "/c/en/woodworking_tool",
-        },
-        "related_targets": {
-            "/c/en/tool", "/c/en/instrument", "/c/en/implement",
-            "/c/en/utensil",
-        },
-    },
-}
+# Seed URIs loaded from concepts/*.json
+CONCEPT_SEEDS = cr.get_conceptnet_seeds()
 
 # Relations we care about
 RELEVANT_RELATIONS = {

@@ -51,7 +51,7 @@ from metrics import evaluate_r1, evaluate_r2
 # ---------------------------------------------------------------------------
 # Experiment Parameters
 # ---------------------------------------------------------------------------
-CONCEPTS = ["time", "place", "tools"]
+CONCEPTS = cfg.CONCEPTS
 N_LAYERS = 12  # GPT-2-small has 12 layers (0-11)
 ALL_LAYERS = list(range(N_LAYERS))
 

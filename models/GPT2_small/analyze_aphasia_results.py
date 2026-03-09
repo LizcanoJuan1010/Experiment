@@ -94,15 +94,6 @@ def analyze_results():
         percent = (stats['changed'] / stats['total']) * 100
         print(f"Alpha: {alpha} - Changed: {stats['changed']}/{stats['total']} ({percent:.2f}%)")
 
-    # Deeper dive: Subtraction on Target vs Control at different alphas
-    print("\n--- Subtraction: Target vs Control Change Rate by Alpha ---")
-    subtraction_df = df[df['technique'] == 'subtraction']
-    for alpha in sorted(subtraction_df['alpha'].unique()):
-        alpha_df = subtraction_df[subtraction_df['alpha'] == alpha]
-        target_change = alpha_df[alpha_df['role'] == 'target']['changed'].mean() * 100
-        control_change = alpha_df[alpha_df['role'] == 'control']['changed'].mean() * 100
-        print(f"Alpha {alpha}: Target Changed {target_change:.2f}%, Control Changed {control_change:.2f}%")
-
     # Deeper dive: Projection on Target vs Control at different alphas
     print("\n--- Projection: Target vs Control Change Rate by Alpha ---")
     projection_df = df[df['technique'] == 'projection']

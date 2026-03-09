@@ -1,0 +1,52 @@
+{
+  "name": "gardener",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "gardener",
+    "plant",
+    "soil",
+    "seed",
+    "flower",
+    "shovel",
+    "hose",
+    "prune",
+    "weed",
+    "fertilizer",
+    "compost",
+    "mulch",
+    "hedge",
+    "pot",
+    "greenhouse",
+    "trowel",
+    "harvest",
+    "bloom",
+    "garden",
+    "rose",
+    "rake",
+    "water"
+  ],
+
+  "curated_synonyms": [
+    ["gardener", "horticulturist"],
+    ["plant", "sow"],
+    ["bloom", "flower"],
+    ["soil", "earth"],
+    ["seed", "kernel"],
+    ["harvest", "reap"],
+    ["prune", "trim"],
+    ["weed", "remove"],
+    ["shovel", "spade"],
+    ["greenhouse", "conservatory"]
+  ],
+
+  "curated_antonyms": [
+    ["plant", "uproot"],
+    ["bloom", "wilt"],
+    ["grow", "decay"],
+    ["harvest", "sow"],
+    ["fertile", "barren"],
+    ["water", "drought"],
+    ["flower", "weed"],
+    ["seed", "fruit"]
+  ]
+}

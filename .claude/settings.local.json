@@ -12,7 +12,18 @@
       "Bash(docker run:*)",
       "Bash(timeout 30 tail:*)",
       "Bash(timeout:*)",
-      "Bash(ping:*)"
+      "Bash(ping:*)",
+      "Bash(cmd /c \"docker --version\")",
+      "Bash(docker --version:*)",
+      "Bash(node -e:*)",
+      "Bash(where:*)",
+      "Bash(python3:*)",
+      "Bash(/c/Users/usuario/.lmstudio/extensions/backends/vendor/_amphibian/cpython3.11-win-x86@6/python.exe:*)",
+      "Bash(git check-ignore:*)",
+      "Bash(\"C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\sed.exe\" -i \"s/\\\\r$//\" \"c:\\\\dev\\\\others\\\\experiment\\\\models\\\\GPT2_small\\\\run_caperucita.sh\")",
+      "Bash(\"C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\sed.exe\" -i \"s/\\\\r$//\" \"c:\\\\dev\\\\others\\\\experiment\\\\models\\\\GPT2_small\\\\run_cct.sh\")",
+      "Bash(\"C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\sed.exe\" -i \"s/\\\\r$//\" \"c:\\\\dev\\\\others\\\\experiment\\\\models\\\\Pythia_28B\\\\run_caperucita.sh\")",
+      "Bash(\"C:\\\\Program Files\\\\Git\\\\usr\\\\bin\\\\grep.exe\":*)"
     ]
   }
 }

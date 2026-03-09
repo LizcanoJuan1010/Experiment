@@ -1,0 +1,52 @@
+{
+  "name": "penguin",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "penguin",
+    "ice",
+    "Antarctica",
+    "waddle",
+    "flipper",
+    "tuxedo",
+    "colony",
+    "fish",
+    "snow",
+    "cold",
+    "emperor",
+    "swim",
+    "beak",
+    "egg",
+    "chick",
+    "iceberg",
+    "ocean",
+    "huddle",
+    "feather",
+    "arctic",
+    "dive",
+    "krill"
+  ],
+
+  "curated_synonyms": [
+    ["penguin", "bird"],
+    ["cold", "frigid"],
+    ["colony", "group"],
+    ["flipper", "fin"],
+    ["chick", "hatchling"],
+    ["ice", "frost"],
+    ["huddle", "cluster"],
+    ["swim", "dive"],
+    ["feather", "plumage"],
+    ["ocean", "sea"]
+  ],
+
+  "curated_antonyms": [
+    ["cold", "hot"],
+    ["ice", "fire"],
+    ["swim", "fly"],
+    ["arctic", "tropical"],
+    ["freeze", "melt"],
+    ["snow", "rain"],
+    ["dive", "surface"],
+    ["huddle", "scatter"]
+  ]
+}

@@ -46,13 +46,6 @@ def check_baselines_for_collapse():
              print(f"BASELINE: {json.dumps(baseline_text)}")
              print(f"ABLATED:  {json.dumps(ablated_text)}")
 
-        if r['category'] == 'tools' and r['alpha'] == 1.0 and r['technique'] == 'subtraction':
-             # Let's check a low alpha case too
-             print(f"\n[Index {i}] Technique: {r['technique']}, Alpha: {r['alpha']}, Category: {r['category']}")
-             print(f"PROMPT: {r['prompt']}")
-             print(f"BASELINE: {json.dumps(baseline_text)}")
-             print(f"ABLATED:  {json.dumps(ablated_text)}")
-
         # Check for repetition in baseline specifically
         # "The man was dead. The man was dead." seems to be in baseline for tools
         if "dead.\n\nThe man was dead" in baseline_text:

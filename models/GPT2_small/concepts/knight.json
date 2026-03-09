@@ -1,0 +1,52 @@
+{
+  "name": "knight",
+  "hypernym_label": "person",
+  "curated_nodes": [
+    "knight",
+    "sword",
+    "armor",
+    "shield",
+    "castle",
+    "horse",
+    "lance",
+    "joust",
+    "medieval",
+    "chivalry",
+    "helm",
+    "gauntlet",
+    "quest",
+    "dragon",
+    "kingdom",
+    "squire",
+    "noble",
+    "banner",
+    "crusade",
+    "fortress",
+    "battle",
+    "tournament"
+  ],
+
+  "curated_synonyms": [
+    ["knight", "warrior"],
+    ["sword", "blade"],
+    ["armor", "protection"],
+    ["castle", "fortress"],
+    ["helm", "helmet"],
+    ["quest", "mission"],
+    ["battle", "combat"],
+    ["noble", "lord"],
+    ["kingdom", "realm"],
+    ["squire", "attendant"]
+  ],
+
+  "curated_antonyms": [
+    ["knight", "peasant"],
+    ["noble", "common"],
+    ["attack", "defend"],
+    ["sword", "shield"],
+    ["victory", "defeat"],
+    ["brave", "coward"],
+    ["battle", "peace"],
+    ["armor", "vulnerability"]
+  ]
+}

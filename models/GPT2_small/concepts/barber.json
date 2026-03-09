@@ -1,0 +1,52 @@
+{
+  "name": "barber",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "barber",
+    "scissors",
+    "razor",
+    "hair",
+    "shave",
+    "trim",
+    "comb",
+    "chair",
+    "mirror",
+    "salon",
+    "beard",
+    "mustache",
+    "clipper",
+    "cape",
+    "lather",
+    "blade",
+    "fade",
+    "barbershop",
+    "foam",
+    "towel",
+    "style",
+    "cut"
+  ],
+
+  "curated_synonyms": [
+    ["barber", "hairdresser"],
+    ["trim", "cut"],
+    ["razor", "blade"],
+    ["salon", "barbershop"],
+    ["shave", "trim"],
+    ["scissors", "shears"],
+    ["comb", "brush"],
+    ["lather", "foam"],
+    ["style", "fashion"],
+    ["clipper", "trimmer"]
+  ],
+
+  "curated_antonyms": [
+    ["cut", "grow"],
+    ["shave", "beard"],
+    ["sharp", "dull"],
+    ["trim", "lengthen"],
+    ["clean", "messy"],
+    ["smooth", "rough"],
+    ["fade", "thicken"],
+    ["bald", "hairy"]
+  ]
+}

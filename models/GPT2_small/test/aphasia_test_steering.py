@@ -37,7 +37,7 @@ MODEL_NAME = cfg.MODEL_NAME
 STEERING_DIR = "cavs_steering"
 RESULTS_DIR = "results_multilayer"
 
-CONCEPTS = ["time", "place", "tools"]
+CONCEPTS = cfg.CONCEPTS
 
 N_LAYERS = 12
 MODES = {

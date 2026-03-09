@@ -914,6 +914,7 @@ def build_corpus_training_data(concept_nodes):
 
     # Save corpus extraction report
     report_path = cfg.CORPUS_REPORT_FILE
+    os.makedirs(os.path.dirname(report_path), exist_ok=True)
     with open(report_path, "w") as f:
         # Exclude pairs_metadata details (too verbose for report)
         report_meta = {k: v for k, v in metadata.items()}

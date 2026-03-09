@@ -1,0 +1,81 @@
+{
+  "name": "time",
+  "hypernym_label": "time",
+
+  "curated_nodes": [
+    "hour", "minute", "second", "day", "week", "month", "year",
+    "decade", "century", "millennium", "epoch", "era", "moment",
+    "instant", "duration", "period", "interval", "clock",
+    "calendar", "schedule", "deadline", "noon", "midnight",
+    "dawn", "dusk", "morning", "afternoon", "evening", "night",
+    "semester", "quarter", "season", "weekend", "weekday",
+    "stopwatch", "alarm", "countdown", "timeline"
+  ],
+
+  "curated_synonyms": [
+    ["moment", "instant"],
+    ["duration", "period"],
+    ["clock", "timepiece"],
+    ["era", "epoch"],
+    ["schedule", "timetable"],
+    ["dawn", "sunrise"],
+    ["dusk", "sunset"],
+    ["noon", "midday"],
+    ["midnight", "twelve o'clock"],
+    ["deadline", "due date"],
+    ["decade", "ten years"],
+    ["century", "hundred years"],
+    ["morning", "forenoon"],
+    ["afternoon", "post meridiem"],
+    ["interval", "gap"],
+    ["countdown", "timer"]
+  ],
+
+  "curated_paraphrases": [
+    ["The meeting starts at 5 PM.", "The gathering begins at seventeen hundred hours."],
+    ["It takes sixty seconds.", "The duration is one minute."],
+    ["The train arrived on time.", "The train was punctual."],
+    ["It is a decade long.", "It lasts for ten years."],
+    ["Wait a moment.", "Hold on a second."],
+    ["The alarm went off at seven in the morning.", "The alarm rang at 7 AM."],
+    ["The deadline is next week.", "The due date is in seven days."],
+    ["He checked his watch frequently.", "He kept looking at the clock."],
+    ["Noon is the middle of the day.", "Midday divides the day in half."],
+    ["The century is coming to an end.", "The hundred year period is nearly over."]
+  ],
+
+  "non_synonym_pairs": [
+    ["hour", "century"],
+    ["dawn", "midnight"],
+    ["second", "year"]
+  ],
+
+  "curated_antonyms": [
+    ["dawn", "dusk"],
+    ["morning", "night"],
+    ["past", "future"],
+    ["early", "late"],
+    ["beginning", "end"],
+    ["sunrise", "sunset"],
+    ["day", "night"],
+    ["noon", "midnight"]
+  ],
+
+  "conceptnet_seeds": {
+    "isa_targets": [
+      "/c/en/time", "/c/en/time_unit", "/c/en/time_period",
+      "/c/en/unit_of_time", "/c/en/period_of_time",
+      "/c/en/temporal_quantity", "/c/en/time_interval",
+      "/c/en/unit_of_measurement", "/c/en/measure"
+    ],
+    "related_targets": [
+      "/c/en/time", "/c/en/temporal", "/c/en/chronology",
+      "/c/en/clock", "/c/en/calendar"
+    ]
+  },
+
+  "wordnet_hypernym_roots": [
+    "time_period.n.01", "time_unit.n.01", "measure.n.02",
+    "time.n.01", "time.n.03"
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "name": "tailor",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "tailor",
+    "needle",
+    "thread",
+    "fabric",
+    "sew",
+    "pattern",
+    "suit",
+    "stitch",
+    "hem",
+    "pin",
+    "thimble",
+    "cloth",
+    "measure",
+    "fitting",
+    "seam",
+    "button",
+    "silk",
+    "linen",
+    "iron",
+    "alteration",
+    "scissors",
+    "garment"
+  ],
+
+  "curated_synonyms": [
+    ["tailor", "seamstress"],
+    ["sew", "stitch"],
+    ["fabric", "cloth"],
+    ["needle", "pin"],
+    ["garment", "clothing"],
+    ["suit", "outfit"],
+    ["hem", "edge"],
+    ["pattern", "template"],
+    ["alteration", "adjustment"],
+    ["silk", "satin"]
+  ],
+
+  "curated_antonyms": [
+    ["sew", "tear"],
+    ["stitch", "rip"],
+    ["button", "unbutton"],
+    ["iron", "wrinkle"],
+    ["tight", "loose"],
+    ["silk", "burlap"],
+    ["fitting", "misfit"],
+    ["mend", "damage"]
+  ]
+}

@@ -527,9 +527,9 @@ def main():
                 )
 
         # ANOVA 3: One-way on alpha (Dose-Response H1C)
-        print("\n[ANOVA 3] One-way alpha -> delta_r1 (SVM, L6, subtraction)")
+        print("\n[ANOVA 3] One-way alpha -> delta_r1 (SVM, L6, projection)")
         df_a3 = df_svm[(df_svm["layer"] == 6) &
-                        (df_svm["technique"] == "subtraction")].copy()
+                        (df_svm["technique"] == "projection")].copy()
         df_a3["alpha_cat"] = df_a3["alpha"].astype(str)
         anova3_results = []
         for concept in ["time", "place"]:

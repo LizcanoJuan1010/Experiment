@@ -1,0 +1,52 @@
+{
+  "name": "painter",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "painter",
+    "brush",
+    "canvas",
+    "easel",
+    "palette",
+    "oil",
+    "watercolor",
+    "portrait",
+    "landscape",
+    "studio",
+    "gallery",
+    "frame",
+    "color",
+    "pigment",
+    "mural",
+    "sketch",
+    "acrylic",
+    "stroke",
+    "masterpiece",
+    "exhibit",
+    "art",
+    "texture"
+  ],
+
+  "curated_synonyms": [
+    ["painter", "artist"],
+    ["brush", "tool"],
+    ["canvas", "surface"],
+    ["sketch", "drawing"],
+    ["color", "pigment"],
+    ["gallery", "museum"],
+    ["portrait", "painting"],
+    ["masterpiece", "opus"],
+    ["exhibit", "display"],
+    ["studio", "workshop"]
+  ],
+
+  "curated_antonyms": [
+    ["color", "blank"],
+    ["create", "destroy"],
+    ["art", "craft"],
+    ["masterpiece", "failure"],
+    ["sketch", "erase"],
+    ["portrait", "landscape"],
+    ["exhibit", "conceal"],
+    ["bright", "dull"]
+  ]
+}

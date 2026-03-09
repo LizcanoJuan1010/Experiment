@@ -20,6 +20,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import seaborn as sns
+import experiment_config as cfg
 
 try:
     import torch
@@ -41,7 +42,7 @@ RESULTS_DIR = "results"
 CAVS_DIR = "cavs"
 CAVS_REFINED_DIR = "cavs_refined"
 
-CONCEPTS = ["time", "place", "tools"]
+CONCEPTS = cfg.CONCEPTS
 LAYERS = [6, 9, 10]
 METHODS = ["mean_diff", "svm"]
 
@@ -52,7 +53,6 @@ CONCEPT_COLORS = {
     'tools': '#009E73',
 }
 TECHNIQUE_COLORS = {
-    'subtraction': '#56B4E9',
     'projection':  '#E69F00',
 }
 METHOD_STYLES = {
@@ -118,7 +118,7 @@ def fig01_dose_response_r1(df, baselines):
             subset = df[(df['concept'] == concept) & (df['layer'] == layer)]
 
             for method in METHODS:
-                for technique in ['subtraction', 'projection']:
+                for technique in ['projection']:
                     data = subset[(subset['cav_method'] == method) &
                                   (subset['technique'] == technique)]
                     if data.empty:
@@ -166,7 +166,7 @@ def fig02_dose_response_r2(df, baselines):
             subset = df[(df['concept'] == concept) & (df['layer'] == layer)]
 
             for method in METHODS:
-                for technique in ['subtraction', 'projection']:
+                for technique in ['projection']:
                     data = subset[(subset['cav_method'] == method) &
                                   (subset['technique'] == technique)]
                     if data.empty:
@@ -204,16 +204,13 @@ def fig03_removal_ratio(df):
         print("  SKIP F3: removal_ratio column not found in factorial CSV.")
         return
 
-    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5))
     fig.suptitle("F3: Concept Removal Effectiveness (removal_ratio)",
                  fontsize=14, fontweight='bold')
 
-    for idx, (layer, technique) in enumerate(
-        [(6, 'subtraction'), (6, 'projection'),
-         (10, 'subtraction'), (10, 'projection')]
-    ):
-        ax = axes[idx // 2, idx % 2]
-        subset = df[(df['layer'] == layer) & (df['technique'] == technique)]
+    for idx, layer in enumerate([6, 10]):
+        ax = axes[idx]
+        subset = df[(df['layer'] == layer) & (df['technique'] == 'projection')]
 
         if subset.empty:
             ax.set_visible(False)
@@ -230,7 +227,7 @@ def fig03_removal_ratio(df):
                     center=0.5, vmin=-1, vmax=1,
                     linewidths=0.5, ax=ax, cbar_kws={'label': 'Removal Ratio'})
 
-        ax.set_title(f"Layer {layer} — {technique.capitalize()}", fontsize=10)
+        ax.set_title(f"Layer {layer} — Projection", fontsize=10)
         ax.set_ylabel("")
         ax.set_xlabel("Alpha (α)")
 
@@ -269,47 +266,6 @@ def fig04_specificity_heatmap(df_spec):
 
     fig.tight_layout(rect=[0, 0, 1, 0.94])
     save_figure(fig, "fig04_specificity_heatmap")
-
-
-# ---------------------------------------------------------------------------
-# F5: Technique Comparison (subtraction vs projection at alpha=6.0)
-# ---------------------------------------------------------------------------
-def fig05_technique_comparison(df):
-    alpha_val = 6.0
-    subset = df[df['alpha'] == alpha_val].copy()
-
-    if subset.empty:
-        print("  SKIP F5: No data at alpha=6.0")
-        return
-
-    fig, axes = plt.subplots(1, 2, figsize=(12, 5))
-    fig.suptitle(f"F5: Technique Comparison at α={alpha_val}",
-                 fontsize=13, fontweight='bold')
-
-    for ax_idx, (metric, label) in enumerate([
-        ('delta_r1', 'ΔR1 (Accuracy Drop)'),
-        ('delta_r2', 'ΔR2 (Similarity Drop)')
-    ]):
-        ax = axes[ax_idx]
-        plot_data = subset.copy()
-        plot_data['condition'] = plot_data['concept'] + '\n' + plot_data['cav_method']
-
-        sns.barplot(data=plot_data, x='condition', y=metric,
-                    hue='technique', palette=TECHNIQUE_COLORS,
-                    ax=ax, edgecolor='black', linewidth=0.5)
-
-        ax.set_title(label, fontsize=10)
-        ax.set_xlabel("")
-        ax.set_ylabel(label)
-        ax.axhline(y=0, color='gray', linestyle=':', alpha=0.5)
-
-        if ax_idx == 0:
-            ax.legend(title='Technique', fontsize=8)
-        else:
-            ax.get_legend().remove()
-
-    fig.tight_layout(rect=[0, 0, 1, 0.94])
-    save_figure(fig, "fig05_technique_comparison")
 
 
 # ---------------------------------------------------------------------------
@@ -927,8 +883,6 @@ def main():
     fig02_dose_response_r2(df_factorial, baselines)
     fig03_removal_ratio(df_factorial)
     fig04_specificity_heatmap(df_specificity)
-    fig05_technique_comparison(df_factorial)
-
     # --- F6-F9: CAV Quality ---
     print("\n--- CAV Quality ---")
     fig06_cav_cosine_heatmap(report)

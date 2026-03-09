@@ -34,7 +34,7 @@ RESULTS_DIR = cfg.RESULTS_DIR
 CAV_METHODS = ["mean_diff", "svm"]
 SINGLE_LAYERS = [6, 9, 10]
 MULTI_LAYERS = [6, 9, 10]              # All three combined
-TECHNIQUES = ["subtraction", "projection"]
+TECHNIQUES = ["projection"]
 ALPHAS = [1.0, 3.0, 5.0, 8.0, 10.0]
 
 MAX_NEW_TOKENS = 50
@@ -53,11 +53,6 @@ TEST_PROMPTS = {
 # ---------------------------------------------------------------------------
 # Hooks
 # ---------------------------------------------------------------------------
-def subtraction_hook(resid_post, hook, cav, alpha):
-    """Direct subtraction: resid = resid - alpha * cav."""
-    return resid_post - alpha * cav
-
-
 def projection_hook(resid_post, hook, cav, alpha):
     """Project out the CAV component: resid = resid - alpha * (resid . cav) * cav."""
     dot = torch.einsum("bsd,d->bs", resid_post, cav)
@@ -66,7 +61,6 @@ def projection_hook(resid_post, hook, cav, alpha):
 
 
 HOOK_FNS = {
-    "subtraction": subtraction_hook,
     "projection": projection_hook,
 }
 

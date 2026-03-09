@@ -1,0 +1,84 @@
+{
+  "name": "tools",
+  "hypernym_label": "tool",
+
+  "curated_nodes": [
+    "hammer", "screwdriver", "wrench", "pliers", "saw", "drill",
+    "chisel", "clamp", "vise", "level", "ruler", "scissors",
+    "knife", "axe", "shovel", "rake", "hoe", "trowel", "brush",
+    "sandpaper", "ladder", "wheelbarrow", "crowbar", "mallet",
+    "tape measure", "caliper", "file", "bolt cutter", "wire cutter",
+    "soldering iron", "hacksaw", "plane", "pickaxe", "spanner",
+    "anvil", "awl", "lathe", "wedge", "bolt", "nut",
+    "screw", "nail", "pin", "wire", "rope", "chain",
+    "hook", "pulley", "torch", "gauge", "jig", "bit",
+    "stapler", "broom", "mop", "sieve", "funnel", "cleat"
+  ],
+
+  "curated_synonyms": [
+    ["hammer", "mallet"],
+    ["knife", "blade"],
+    ["wrench", "spanner"],
+    ["shovel", "spade"],
+    ["pliers", "tongs"],
+    ["axe", "hatchet"],
+    ["scissors", "shears"],
+    ["saw", "hacksaw"],
+    ["drill", "bore"],
+    ["brush", "broom"],
+    ["chisel", "gouge"],
+    ["ladder", "stepladder"],
+    ["crowbar", "pry bar"],
+    ["clamp", "grip"],
+    ["ruler", "straightedge"],
+    ["file", "rasp"]
+  ],
+
+  "curated_paraphrases": [
+    ["He used a hammer to drive the nail.", "He pounded the nail with a mallet."],
+    ["The screwdriver tightened the screw.", "The screw was fastened with a screwdriver."],
+    ["She cut the paper with scissors.", "She used shears to cut the paper."],
+    ["The wrench loosened the bolt.", "The spanner unfastened the bolt."],
+    ["He sawed the wood in half.", "He cut the timber using a saw."],
+    ["The shovel dug a hole in the ground.", "A spade was used to dig into the earth."],
+    ["The drill made a hole in the wall.", "The bore created an opening in the wall."],
+    ["He sharpened the blade with a file.", "The knife was honed using a rasp."],
+    ["The level ensures a flat surface.", "The surface is checked for flatness with a level."],
+    ["She used an axe to chop the firewood.", "The firewood was chopped with a hatchet."]
+  ],
+
+  "non_synonym_pairs": [
+    ["hammer", "wrench"],
+    ["saw", "shovel"],
+    ["drill", "ladder"]
+  ],
+
+  "curated_antonyms": [
+    ["sharp", "blunt"],
+    ["build", "demolish"],
+    ["tighten", "loosen"],
+    ["assemble", "disassemble"],
+    ["cut", "join"],
+    ["drill", "fill"],
+    ["open", "close"],
+    ["hammer", "extract"]
+  ],
+
+  "conceptnet_seeds": {
+    "isa_targets": [
+      "/c/en/tool", "/c/en/hand_tool", "/c/en/power_tool",
+      "/c/en/implement", "/c/en/cutting_tool",
+      "/c/en/measuring_instrument", "/c/en/garden_tool",
+      "/c/en/woodworking_tool"
+    ],
+    "related_targets": [
+      "/c/en/tool", "/c/en/instrument", "/c/en/implement",
+      "/c/en/utensil"
+    ]
+  },
+
+  "wordnet_hypernym_roots": [
+    "tool.n.01", "implement.n.01", "instrument.n.01",
+    "device.n.01", "utensil.n.01"
+  ]
+}

@@ -1,0 +1,218 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#FFFFFF",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "secondaryColor": "#F5F5F5",
+    "tertiaryColor": "#EEEEEE",
+    "lineColor": "#000000",
+    "fontSize": "13px",
+    "fontFamily": "Times New Roman, serif"
+  }
+}}%%
+
+flowchart TD
+
+    %% ===================================================================
+    %% PHASE 0: CONCEPT DEFINITION
+    %% ===================================================================
+    subgraph F0["PHASE 0 -- CONCEPT DEFINITION"]
+        direction TB
+
+        JSON["concepts/*.json -- N concept files\n\nEach concept defines:\n  - curated_nodes: min 20 lexical items\n  - hypernym_label: superordinate category\n  - curated_synonyms: synonym pairs\n  - curated_paraphrases: paraphrase pairs\n  - non_synonym_pairs: related non-synonyms\n  - conceptnet_seeds: ConceptNet URIs\n  - wordnet_hypernym_roots: WordNet synsets"]
+
+        REG["concept_registry.py\n\nLoads all *.json from concepts/\nUnified API: get_concept,\nget_curated_nodes, get_hypernym_labels,\nget_curated_synonyms, etc."]
+
+        JSON --> REG
+    end
+
+    %% ===================================================================
+    %% PHASE 1: CONCEPTNET ENRICHMENT (Optional)
+    %% ===================================================================
+    subgraph F1["PHASE 1 -- CONCEPTNET ENRICHMENT -- optional"]
+        direction LR
+
+        CN_IN["Seed URIs\nfrom registry:\nisa_targets\nrelated_targets"]
+        CN_PROC["ConceptNet 5.7 via HuggingFace\n\nRelations: IsA, RelatedTo, Synonym,\nAtLocation, UsedFor, HasProperty\nFilters: weight >= 1.0, English, 2-30 chars"]
+        CN_OUT["conceptnet_concepts.json\n\nhyponyms, related,\nsynonyms, locations,\nproperties"]
+
+        CN_IN --> CN_PROC --> CN_OUT
+    end
+
+    %% ===================================================================
+    %% PHASE 2: DATA GENERATION
+    %% ===================================================================
+    subgraph F2["PHASE 2 -- DATA GENERATION -- data_gen.py"]
+        direction TB
+
+        subgraph F2A["Phase 2.1 -- Final Concept Nodes"]
+            MERGE["Merge curated + ConceptNet nodes\nRemove cross-category overlaps\nValidate min 20 nodes per concept"]
+        end
+
+        subgraph F2B["Phase 2.2 -- CAV Training Sentences"]
+            direction LR
+            POS["POSITIVE sentences\n\nConcept words inserted into\ncontrolled sentence templates\n5 templates x N words\nPositions: subj 35%, obj 35%, prep 30%"]
+            NEG["NEGATIVE sentences\n\nSAME templates, neutral words\nPsycholinguistic controls:\n  length matching: +/-3 chars\n  frequency matching: +/-1.5 Zipf"]
+        end
+
+        subgraph F2C["Phase 2.3 -- Evaluation Benchmarks"]
+            direction LR
+            R1GEN["R1: Hypernym Classification\n\nCloze format: X is a type of ___\n1 correct + 3 distractors\n~30 items per concept"]
+            R2GEN["R2: Semantic Similarity\n\nCurated paraphrase pairs\n+ synonym-based template pairs\n+ non-synonym pairs\n~25 pairs per concept"]
+        end
+
+        EXPDATA["OUTPUT: experiment_data.json\n\nconcept_nodes, cav_training pos/neg,\nr1_benchmark, r2_benchmark"]
+
+        F2A --> F2B --> F2C --> EXPDATA
+    end
+
+    %% ===================================================================
+    %% PHASE 3: ACTIVATION EXTRACTION
+    %% ===================================================================
+    subgraph F3["PHASE 3 -- ACTIVATION EXTRACTION -- cav_extraction.py"]
+        direction LR
+
+        LOAD_MODEL["Load Model\n\nHookedTransformer\ngpt2-small\n12 layers, d_model = 768\nmodel.eval()"]
+
+        HOOK_ACT["Collect Activations\n\nFor each sentence in pos and neg:\n  1. model.run_with_cache(sent)\n  2. Hook: blocks.L.hook_resid_post\n  3. Activation tensor: 1 x seq_len x 768\n  4. Mean pooling over tokens -> 768\n  5. Stack -> pos_acts: N_pos x 768\n                neg_acts: N_neg x 768"]
+
+        LAYERS_INFO["Extraction layers:\nL6 -- mid, semantic\nL9 -- late\nL10 -- late, syntactic"]
+
+        LOAD_MODEL --> HOOK_ACT
+        LAYERS_INFO -.-> HOOK_ACT
+    end
+
+    %% ===================================================================
+    %% PHASE 4: CAV EXTRACTION
+    %% ===================================================================
+    subgraph F4["PHASE 4 -- CAV EXTRACTION -- cav_extraction.py"]
+        direction TB
+
+        subgraph METODOS["Two Extraction Methods"]
+            direction LR
+            MEAN_DIFF["Method 1: Mean Difference\n\nmean_pos = pos_acts.mean dim=0\nmean_neg = neg_acts.mean dim=0\nCAV = normalize mean_pos - mean_neg\n\nSimple, no hyperparameters"]
+
+            SVM_CAV["Method 2: Linear SVM -- TCAV\nKim et al. 2018\n\nX = concat pos_acts, neg_acts\ny = 1 x N_pos ++ 0 x N_neg\nGrid search C in 0.01, 0.1, 1, 10\n5-fold StratifiedKFold CV\nLinearSVC C=best, max_iter=10000\nCAV = normalize clf.coef_\n\nQuality gate: CV acc >= 0.70"]
+        end
+
+        EFFECT["Quality Metrics\n\nCohen d = mu_pos - mu_neg / sigma_pooled\nHedges g -- small sample correction\nt-test, Levene test, 95% CI\nCross-concept cosine: abs cos < 0.35\nCross-method cosine: mean_diff vs svm"]
+
+        CAV_FILES["OUTPUT: CAV Files\n\ncavs/concept_method_layerL.pt\n-> unit vector, dim 768\ncavs/extraction_report.json"]
+
+        METODOS --> EFFECT --> CAV_FILES
+    end
+
+    %% ===================================================================
+    %% PHASE 5: STATISTICAL VALIDATION
+    %% ===================================================================
+    subgraph F5["PHASE 5 -- STATISTICAL VALIDATION"]
+        direction LR
+
+        TCAV_TEST["TCAV Permutation\nKim et al. 2018\n30 random CAVs\np < 0.05"]
+        SELECT["Selectivity\nHewitt and Liang 2019\nreal_acc - ctrl_acc\n>= 0.10"]
+        COHEN["Cohen d\nCohen 1988\nabs d >= 0.8 large"]
+        BOOTSTRAP["Bootstrap CI\nEfron and Tibshirani 1993\n1000 resamples\nCI_lower >= 0.69"]
+    end
+
+    %% ===================================================================
+    %% PHASE 6: BASELINE -- No Ablation
+    %% ===================================================================
+    subgraph F6["PHASE 6 -- BASELINE EVALUATION -- no ablation"]
+        direction LR
+
+        BASE_R1["Evaluate R1 -- metrics.py\n\nLog-prob scoring of\nanswer tokens\nAccuracy per concept\nThreshold: >= 0.50"]
+
+        BASE_R2["Evaluate R2 -- metrics.py\n\nLayer-7 embeddings, mean pool\nCosine similarity\nbetween sentence pairs\nThreshold: >= 0.60"]
+
+        BASE_BEA["Evaluate BEA Association\nfor CCT test\n\nBaseline accuracy per concept\non semantic association items"]
+
+        BASE_OUT["OUTPUT: Baselines\n\nresults_baseline.json\ncct_test_results.json -- baseline"]
+
+        BASE_R1 --> BASE_OUT
+        BASE_R2 --> BASE_OUT
+        BASE_BEA --> BASE_OUT
+    end
+
+    %% ===================================================================
+    %% PHASE 7: FACTORIAL ABLATION
+    %% ===================================================================
+    subgraph F7["PHASE 7 -- FACTORIAL ABLATION -- experiment_runner.py"]
+        direction TB
+
+        HOOK_ABL["Ablation Hook\n\nFor each factorial condition:\n  1. Load CAV from disk\n  2. Register hook on blocks.L.hook_resid_post\n  3. resid_post -= alpha x proj resid onto CAV\n     where proj = resid dot CAV x CAV\n  4. Evaluate R1 and R2 with hook active\n  5. Compute delta = baseline - ablated"]
+
+        FACTORIAL_DESIGN["Full Factorial Design\n\nN concepts x 2 methods x 3 layers x M alphas\n= hundreds of conditions\nEach measures R1, R2, removal_ratio"]
+
+        REMOVAL_CHECK["Removal Verification\n\ndot_pre = activation dot CAV -- before\ndot_post = activation dot CAV -- after\nremoval_ratio = 1 - dot_post / dot_pre\nWarning if ratio < 0.5"]
+
+        SPEC["Specificity Test\n\nAblate concept A, measure effect\non ALL concepts\nspecificity = delta_on / delta_off\nTarget: ratio > 2.0"]
+
+        FACTORIAL_OUT["OUTPUT: Factorial Results\n\nresults_factorial.csv\nresults_factorial_peritem.csv\nresults_specificity.csv\nFDR: Benjamini-Hochberg correction"]
+
+        HOOK_ABL --> FACTORIAL_DESIGN
+        HOOK_ABL --> REMOVAL_CHECK
+        FACTORIAL_DESIGN --> SPEC --> FACTORIAL_OUT
+    end
+
+    %% ===================================================================
+    %% PHASE 8: CCT TEST
+    %% ===================================================================
+    subgraph F8["PHASE 8 -- CCT TEST -- Camel and Cactus Test -- test/cct_test.py"]
+        direction TB
+
+        CCT_WHAT["Camel and Cactus Test -- CCT\n\nSemantic association test, BEA-aligned.\nEvaluates whether the model retains\ncategory knowledge after ablation."]
+
+        CCT_BASE["Step 1: CCT Baseline\n\nEvaluate accuracy on BEA association\nitems for each concept, no ablation."]
+
+        CCT_ABL["Step 2: CCT Ablation\n\nFor each ablated_concept x method x layer x alpha:\n  a. Build ablation hooks -- single or multi-layer\n  b. Evaluate on ALL concepts:\n     on-target: ablated concept\n     off-target: remaining concepts\n  c. Compute delta accuracy vs baseline\n  d. Assess specificity of effect"]
+
+        CCT_LAYERS["Layer conditions:\n  Individual: L6, L9, L10\n  All layers: L0 through L11"]
+
+        CCT_OUT["OUTPUT: cct_test_results.json\n\nbaseline: concept -> accuracy, n_items\nablations: ablated_concept,\n  measured_concept, cav_method,\n  layer_condition, alpha,\n  accuracy, delta, on_target"]
+
+        CCT_WHAT --> CCT_BASE --> CCT_ABL
+        CCT_LAYERS -.-> CCT_ABL
+        CCT_ABL --> CCT_OUT
+    end
+
+    %% ===================================================================
+    %% OPTIONAL: MULTI-LAYER STEERING
+    %% ===================================================================
+    subgraph FOPT["OPTIONAL -- MULTI-LAYER STEERING -- experiment_multilayer.py"]
+        direction LR
+
+        ML_DESC["Multi-Layer Steering\n\nUn-normalized SVM CAVs\npreserve magnitude scale.\nSimultaneous hooks on\nmultiple layers.\nOptional mean-centering -- RepE style."]
+        ML_MODES["Modes:\n  single_L3: layer 3 only\n  multi_early: layers 3-5\n  multi_all: layers 0-11\nAlphas: 1.0, 4.0"]
+
+        ML_DESC --> ML_MODES
+    end
+
+    %% ===================================================================
+    %% MAIN FLOW CONNECTIONS
+    %% ===================================================================
+    F0 ==>|"concept registry"| F1
+    F0 ==>|"concept registry"| F2
+    F1 -.->|"enriched nodes -- optional"| F2
+    F2 ==>|"experiment_data.json"| F3
+    F3 ==>|"activations N x 768"| F4
+    F4 ==>|"validated CAVs .pt"| F5
+    F5 ==>|"statistically valid CAVs"| F6
+    F6 ==>|"baselines"| F7
+    F6 ==>|"baselines"| F8
+    F4 ==>|"CAV tensors .pt"| F7
+    F4 ==>|"CAV tensors .pt"| F8
+    F7 -.->|"factorial results"| F8
+    F4 -.->|"un-normalized CAVs"| FOPT
+
+    %% ===================================================================
+    %% STYLES -- academic black and white
+    %% ===================================================================
+    classDef default fill:#FFFFFF,stroke:#000000,stroke-width:1px,color:#000000
+    classDef phase fill:#FFFFFF,stroke:#000000,stroke-width:2px,color:#000000
+    classDef optional fill:#F5F5F5,stroke:#000000,stroke-width:1px,stroke-dasharray:5 5,color:#000000
+    classDef output fill:#F0F0F0,stroke:#000000,stroke-width:2px,color:#000000
+
+    class F0,F2,F3,F4,F5,F6,F7,F8 phase
+    class F1,FOPT optional
+    class EXPDATA,CAV_FILES,FACTORIAL_OUT,CCT_OUT,BASE_OUT,CN_OUT output

@@ -1,10 +1,6 @@
 """
-Experiment Configuration
-========================
 Centralizes all configurable parameters for the CAV extraction pipeline.
 Every parameter has a default value and academic justification.
-
-Defaults match the original hardcoded values to ensure backward compatibility.
 
 References:
     - Kim et al. (2018) "Interpretability Beyond Feature Attribution" (TCAV)
@@ -13,12 +9,8 @@ References:
     - Cohen (1988) "Statistical Power Analysis for the Behavioral Sciences"
     - Efron & Tibshirani (1993) "An Introduction to the Bootstrap"
 """
-
 import os
 
-# =====================================================================
-# Model
-# =====================================================================
 MODEL_NAME = "gpt2-small"
 
 # =====================================================================
@@ -28,30 +20,24 @@ MODEL_NAME = "gpt2-small"
 # "mean"         — Mean pooling over all tokens (recommended, avoids
 #                  last-token positional bias). Standard for sentence
 #                  representations (Reimers & Gurevych, 2019).
-# "last"         — Last token only (GPT-2 convention for generation,
-#                  but encodes end-of-sequence info, not concept).
-# "concept_word" — Activation at the concept word's token position
-#                  (requires knowing which word is the concept).
 TOKEN_POSITION = "mean"
 
 # =====================================================================
 # Concepts
 # =====================================================================
 CONCEPTS = [
-    "time", "place", "tool",
-    "animal", "bird", "insect", "plant", "fruit", "vegetable",
-    "vehicle", "furniture", "clothing", "container", "instrument",
-    "weapon", "material", "body_part", "food", "drink",
-    "profession", "sport", "emotion"
+  "camel","squirrel","lock","bee","horse","penguin","toothbrush","violin",
+  "snowman","fire","bird","fisherman","painter","candle","spider","knight",
+  "baker","doctor","barber","photographer","tailor","gardener","king","pirate",
+  "soldier","chef","musician","carpenter","writer","dentist"
 ]
 
 # =====================================================================
 # Layer Selection
 # =====================================================================
-# Middle (6) = semantic knowledge hypothesis
-# Late (9, 10) = syntactic composition / token selection
-EXTRACTION_LAYERS = [6, 9, 10]
-EXPERIMENT_LAYERS = [6, 10]        # Subset used in factorial experiments
+EXTRACTION_LAYERS = [6,9,10]
+EXPERIMENT_LAYERS = [6,9,10]        # Subset used in factorial experiments
+EXPERIMENT_LAYERS_ALL = list(range(12))  # All 12 layers (0-11) for multi-layer condition
 R2_EMBEDDING_LAYER = 7             # Intermediate layer: more semantic, less surface
                                     # (was 11 — caused ceiling effect ~0.99)
 
@@ -80,7 +66,7 @@ SVM_C_CANDIDATES = [0.01, 0.1, 1.0, 10.0]
 # Phrase Generation
 # =====================================================================
 RANDOM_SEED = 42
-TEMPLATES_PER_WORD = 5             # Templates sampled per concept word
+TEMPLATES_PER_WORD = 5    
 
 # Grammatical position distribution for template sampling.
 # Balancing prevents probes from overfitting to syntactic position
@@ -115,27 +101,15 @@ FREQUENCY_TOLERANCE = 1.5          # Max Zipf-scale difference from mean
 R1_SCORING_MODE = "continuation"
 
 # =====================================================================
-# Concept Removal Probe Texts
-# =====================================================================
-# Used by measure_concept_removal to verify ablation effectiveness.
-# Each concept needs a probe sentence where that concept is salient,
-# so the dot product with the CAV is meaningful.
-CONCEPT_PROBE_TEXTS = {
-    "time": "The time was running out.",
-    "place": "The city was beautiful at dawn.",
-    "tools": "He grabbed the hammer from the shelf.",
-}
-
-# =====================================================================
 # Experiment Runner
 # =====================================================================
-TECHNIQUES = ["subtraction", "projection"]
-INTENSITIES = [0.0, 1.5, 3.5, 6.0]
+TECHNIQUES = ["projection"]
+INTENSITIES = [3.0, 6.0, 10.0,15.0,20.0]
 
 # Specificity test defaults
 SPECIFICITY_METHOD = "mean_diff"
 SPECIFICITY_LAYER = 6
-SPECIFICITY_TECHNIQUE = "subtraction"
+SPECIFICITY_TECHNIQUE = "projection"
 SPECIFICITY_ALPHA = 3.5
 
 # =====================================================================
@@ -211,6 +185,8 @@ CROSS_CONCEPT_COSINE_THRESHOLD = 0.35
 # T10: Baseline benchmark validity
 R1_BASELINE_THRESHOLD = 0.50
 R2_BASELINE_THRESHOLD = 0.60
+BEA_BASELINE_THRESHOLD = 0.40   # Above-chance threshold for GPT-2 small
+                                 # (chance = 0.25 with 4 options)
 
 # T11: Statistical power minimum items
 R1_MIN_ITEMS = 20
@@ -284,39 +260,15 @@ WORDNET_VALIDATE = True
 WORDNET_MIN_COVERAGE = 0.70        # Minimum % of words validated by WordNet
 
 # Hypernym roots for category membership verification
-WORDNET_HYPERNYM_ROOTS = {
-    "time": [
-        "time_period.n.01", "time_unit.n.01", "measure.n.02",
-        "time.n.01", "time.n.03",
-    ],
-    "place": [
-        "location.n.01", "region.n.01", "structure.n.01",
-        "geographical_area.n.01", "building.n.01",
-    ],
-    "tool": [
-        "tool.n.01", "implement.n.01", "instrument.n.01",
-        "device.n.01", "utensil.n.01",
-    ],
-    "animal": ["animal.n.01"],
-    "bird": ["bird.n.01"],
-    "insect": ["insect.n.01"],
-    "plant": ["plant.n.02"],
-    "fruit": ["fruit.n.01"],
-    "vegetable": ["vegetable.n.01"],
-    "vehicle": ["vehicle.n.01"],
-    "furniture": ["furniture.n.01"],
-    "clothing": ["clothing.n.01"],
-    "container": ["container.n.01"],
-    "instrument": ["musical_instrument.n.01"],
-    "weapon": ["weapon.n.01"],
-    "material": ["material.n.01"],
-    "body_part": ["body_part.n.01"],
-    "food": ["food.n.01"],
-    "drink": ["beverage.n.01"],
-    "profession": ["professional.n.01"],
-    "sport": ["sport.n.01"],
-    "emotion": ["emotion.n.01"],
-}
+# Loaded dynamically from concept JSON files (concepts/*.json)
+WORDNET_HYPERNYM_ROOTS = {}
+try:
+    import concept_registry as _cr
+    for _name, _roots in _cr.get_wordnet_roots().items():
+        if _roots:
+            WORDNET_HYPERNYM_ROOTS[_name] = _roots
+except Exception:
+    pass  # Registry not available during initial setup
 
 # T19 validation thresholds
 CORPUS_MIN_REAL_RATIO = 0.70       # Min % sentences from real corpus
