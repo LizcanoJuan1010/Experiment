@@ -1,0 +1,52 @@
+{
+  "name": "lock",
+  "hypernym_label": "object",
+  "curated_nodes": [
+    "lock",
+    "key",
+    "door",
+    "bolt",
+    "padlock",
+    "safe",
+    "chain",
+    "security",
+    "vault",
+    "latch",
+    "combination",
+    "unlock",
+    "deadbolt",
+    "gate",
+    "keyhole",
+    "metal",
+    "brass",
+    "cylinder",
+    "tumbler",
+    "protect",
+    "chest",
+    "clasp"
+  ],
+
+  "curated_synonyms": [
+    ["lock", "bolt"],
+    ["padlock", "lock"],
+    ["key", "opener"],
+    ["vault", "safe"],
+    ["latch", "clasp"],
+    ["security", "protection"],
+    ["protect", "guard"],
+    ["deadbolt", "lock"],
+    ["chain", "shackle"],
+    ["gate", "door"]
+  ],
+
+  "curated_antonyms": [
+    ["lock", "unlock"],
+    ["open", "close"],
+    ["secure", "exposed"],
+    ["protect", "endanger"],
+    ["safe", "dangerous"],
+    ["chain", "free"],
+    ["bolt", "release"],
+    ["key", "barrier"]
+  ]
+}

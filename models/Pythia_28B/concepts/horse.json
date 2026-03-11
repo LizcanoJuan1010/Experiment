@@ -1,0 +1,52 @@
+{
+  "name": "horse",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "horse",
+    "saddle",
+    "gallop",
+    "mane",
+    "hoof",
+    "stable",
+    "rider",
+    "bridle",
+    "colt",
+    "mare",
+    "stallion",
+    "pasture",
+    "trot",
+    "equestrian",
+    "barn",
+    "hay",
+    "carriage",
+    "foal",
+    "ranch",
+    "horseshoe",
+    "jockey",
+    "rein"
+  ],
+
+  "curated_synonyms": [
+    ["horse", "steed"],
+    ["stallion", "horse"],
+    ["colt", "foal"],
+    ["gallop", "run"],
+    ["trot", "jog"],
+    ["mane", "hair"],
+    ["stable", "barn"],
+    ["rider", "jockey"],
+    ["bridle", "rein"],
+    ["pasture", "meadow"]
+  ],
+
+  "curated_antonyms": [
+    ["gallop", "halt"],
+    ["tame", "wild"],
+    ["rider", "pedestrian"],
+    ["stable", "field"],
+    ["colt", "mare"],
+    ["fast", "slow"],
+    ["mount", "dismount"],
+    ["saddle", "unsaddle"]
+  ]
+}

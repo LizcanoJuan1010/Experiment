@@ -1,0 +1,45 @@
+{
+  "name": "wolf",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "wolf", "wolves", "pack", "howl", "den", "lair",
+    "fangs", "predator", "prey", "hunt", "canine", "lupine",
+    "paws", "claws", "growl", "snout", "fur", "snarl",
+    "beast", "carnivore", "cub", "pup", "prowl", "stalk"
+  ],
+  "curated_synonyms": [
+    ["wolf", "canine"],
+    ["howl", "cry"],
+    ["den", "lair"],
+    ["fangs", "teeth"],
+    ["predator", "hunter"],
+    ["prey", "quarry"],
+    ["pack", "group"],
+    ["fur", "pelt"],
+    ["growl", "snarl"],
+    ["cub", "pup"]
+  ],
+  "curated_paraphrases": [
+    ["The wolf howled at the moon.", "The canine cried at the lunar light."],
+    ["The pack hunted in the forest.", "The group of wolves tracked prey in the woods."],
+    ["The wolf guarded its den.", "The predator protected its lair."],
+    ["Wolves are social animals.", "Canines live and hunt in groups."],
+    ["The wolf bared its fangs.", "The beast showed its sharp teeth."]
+  ],
+  "non_synonym_pairs": [
+    ["wolf", "prey"],
+    ["den", "pack"],
+    ["howl", "fangs"]
+  ],
+  "curated_antonyms": [
+    ["predator", "prey"],
+    ["hunt", "flee"],
+    ["growl", "purr"],
+    ["carnivore", "herbivore"],
+    ["pack", "solitary"],
+    ["prowl", "rest"],
+    ["wild", "tame"],
+    ["fangs", "muzzle"]
+  ],
+  "wordnet_hypernym_roots": ["animal.n.01", "canine.n.02", "carnivore.n.01"]
+}

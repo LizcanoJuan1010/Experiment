@@ -1,0 +1,52 @@
+{
+  "name": "musician",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "musician",
+    "instrument",
+    "melody",
+    "rhythm",
+    "concert",
+    "stage",
+    "note",
+    "chord",
+    "band",
+    "song",
+    "piano",
+    "guitar",
+    "drum",
+    "orchestra",
+    "compose",
+    "perform",
+    "tempo",
+    "harmony",
+    "score",
+    "rehearse",
+    "tune",
+    "microphone"
+  ],
+
+  "curated_synonyms": [
+    ["musician", "performer"],
+    ["melody", "tune"],
+    ["chord", "harmony"],
+    ["concert", "performance"],
+    ["band", "group"],
+    ["compose", "write"],
+    ["orchestra", "ensemble"],
+    ["rhythm", "beat"],
+    ["song", "track"],
+    ["rehearse", "practice"]
+  ],
+
+  "curated_antonyms": [
+    ["loud", "quiet"],
+    ["harmony", "discord"],
+    ["rhythm", "chaos"],
+    ["compose", "improvise"],
+    ["solo", "ensemble"],
+    ["sharp", "flat"],
+    ["tempo", "stillness"],
+    ["perform", "rehearse"]
+  ]
+}

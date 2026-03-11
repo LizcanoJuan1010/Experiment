@@ -1,0 +1,52 @@
+{
+  "name": "fire",
+  "hypernym_label": "phenomenon",
+  "curated_nodes": [
+    "fire",
+    "flame",
+    "smoke",
+    "burn",
+    "heat",
+    "ash",
+    "wood",
+    "coal",
+    "spark",
+    "ember",
+    "blaze",
+    "torch",
+    "furnace",
+    "campfire",
+    "fireplace",
+    "charcoal",
+    "ignite",
+    "bonfire",
+    "wildfire",
+    "oxygen",
+    "fuel",
+    "glow"
+  ],
+
+  "curated_synonyms": [
+    ["fire", "blaze"],
+    ["flame", "blaze"],
+    ["ember", "coal"],
+    ["ignite", "kindle"],
+    ["burn", "scorch"],
+    ["torch", "flashlight"],
+    ["spark", "flash"],
+    ["glow", "shine"],
+    ["heat", "warmth"],
+    ["furnace", "kiln"]
+  ],
+
+  "curated_antonyms": [
+    ["fire", "water"],
+    ["burn", "freeze"],
+    ["heat", "cold"],
+    ["ignite", "extinguish"],
+    ["flame", "ice"],
+    ["spark", "darkness"],
+    ["glow", "dim"],
+    ["fuel", "ash"]
+  ]
+}

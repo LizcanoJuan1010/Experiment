@@ -1,0 +1,52 @@
+{
+  "name": "carpenter",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "carpenter",
+    "wood",
+    "hammer",
+    "nail",
+    "saw",
+    "plank",
+    "chisel",
+    "bench",
+    "measure",
+    "joint",
+    "cabinet",
+    "shelf",
+    "frame",
+    "drill",
+    "glue",
+    "sandpaper",
+    "lathe",
+    "board",
+    "timber",
+    "craft",
+    "workshop",
+    "dowel"
+  ],
+
+  "curated_synonyms": [
+    ["carpenter", "woodworker"],
+    ["hammer", "mallet"],
+    ["timber", "wood"],
+    ["plank", "board"],
+    ["craft", "trade"],
+    ["workshop", "studio"],
+    ["joint", "connection"],
+    ["saw", "cutter"],
+    ["cabinet", "cupboard"],
+    ["glue", "adhesive"]
+  ],
+
+  "curated_antonyms": [
+    ["build", "demolish"],
+    ["assemble", "disassemble"],
+    ["join", "split"],
+    ["hammer", "extract"],
+    ["smooth", "rough"],
+    ["construct", "destroy"],
+    ["nail", "remove"],
+    ["measure", "guess"]
+  ]
+}

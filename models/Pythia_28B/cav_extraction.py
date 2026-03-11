@@ -363,6 +363,20 @@ def main():
 
     # --- Extract CAVs ---
     for concept in CONCEPTS:
+        # Skip logic: check if ALL files for this concept already exist
+        all_exist = True
+        for layer in LAYERS:
+            for method in METHODS:
+                fpath = os.path.join(OUTPUT_DIR, f"{concept}_{method}_layer{layer}.pt")
+                if not os.path.exists(fpath):
+                    all_exist = False
+                    break
+            if not all_exist:
+                break
+        if all_exist:
+            print(f"\n  SKIP: {concept.upper()} — all CAV files already exist")
+            continue
+
         print(f"\n{'='*40}")
         print(f"CONCEPT: {concept.upper()}")
         print(f"{'='*40}")

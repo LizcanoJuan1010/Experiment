@@ -64,7 +64,13 @@ TOKEN_POSITION = "mean"
 # =====================================================================
 # Concepts
 # =====================================================================
-CONCEPTS = ["time", "place", "tools"]
+CONCEPTS = [
+    "camel", "squirrel", "lock", "bee", "horse", "penguin", "toothbrush",
+    "violin", "snowman", "fire", "bird", "fisherman", "painter", "candle",
+    "spider", "knight", "baker", "doctor", "barber", "photographer",
+    "tailor", "gardener", "king", "pirate", "soldier", "chef", "musician",
+    "carpenter", "writer", "dentist",
+]
 
 # =====================================================================
 # Layer Selection
@@ -77,7 +83,8 @@ CONCEPTS = ["time", "place", "tools"]
 # Middle (16) = semantic knowledge hypothesis
 # Late (24, 27) = syntactic composition / token selection
 EXTRACTION_LAYERS = [16, 24, 27]
-EXPERIMENT_LAYERS = [16, 27]       # Subset used in factorial experiments
+EXPERIMENT_LAYERS = [16, 24, 27]   # Same as EXTRACTION_LAYERS for factorial experiments
+EXPERIMENT_LAYERS_ALL = list(range(32))  # All 32 layers (0-31) for multi-layer condition
 R2_EMBEDDING_LAYER = 31            # Layer for R2 similarity measurement (last layer)
 
 # Automatic layer selection via diagnostic probing.
@@ -92,8 +99,7 @@ CAV_METHODS = ["mean_diff", "svm"]
 
 # SVM Hyperparameters
 SVM_C = 1.0
-SVM_MAX_ITER = 20000               # Increased from 10000: d_model=2560 (vs 768)
-                                    # requires more iterations for convergence
+SVM_MAX_ITER = 50000               # Increased for d_model=2560 (vs 768 in GPT2)
 SVM_CV_FOLDS = 5
 SVM_RANDOM_STATE = 42
 
@@ -156,13 +162,13 @@ CONCEPT_PROBE_TEXTS = {
 # =====================================================================
 # Experiment Runner
 # =====================================================================
-TECHNIQUES = ["subtraction", "projection"]
-INTENSITIES = [0.0, 1.5, 3.5, 6.0, 10.0, 15.0, 20.0]
+TECHNIQUES = ["projection"]
+INTENSITIES = [3.0, 6.0, 10.0, 15.0, 20.0]
 
 # Specificity test defaults (layer mapped proportionally from GPT-2 L6)
 SPECIFICITY_METHOD = "mean_diff"
 SPECIFICITY_LAYER = 16
-SPECIFICITY_TECHNIQUE = "subtraction"
+SPECIFICITY_TECHNIQUE = "projection"
 SPECIFICITY_ALPHA = 3.5
 
 # =====================================================================
@@ -238,6 +244,8 @@ CROSS_CONCEPT_COSINE_THRESHOLD = 0.35
 # T10: Baseline benchmark validity
 R1_BASELINE_THRESHOLD = 0.50
 R2_BASELINE_THRESHOLD = 0.60
+BEA_BASELINE_THRESHOLD = 0.40   # Above-chance threshold for BEA tests
+                                 # (chance = 0.25 with 4 options)
 
 # T11: Statistical power minimum items
 R1_MIN_ITEMS = 20

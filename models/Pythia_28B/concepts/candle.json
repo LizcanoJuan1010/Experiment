@@ -1,0 +1,52 @@
+{
+  "name": "candle",
+  "hypernym_label": "object",
+  "curated_nodes": [
+    "candle",
+    "wax",
+    "wick",
+    "flame",
+    "light",
+    "melt",
+    "glow",
+    "lantern",
+    "altar",
+    "ceremony",
+    "birthday",
+    "candelabra",
+    "taper",
+    "scented",
+    "chandelier",
+    "darkness",
+    "church",
+    "prayer",
+    "vigil",
+    "romantic",
+    "illuminate",
+    "drip"
+  ],
+
+  "curated_synonyms": [
+    ["candle", "taper"],
+    ["glow", "shine"],
+    ["light", "illuminate"],
+    ["flame", "fire"],
+    ["lantern", "lamp"],
+    ["melt", "thaw"],
+    ["ceremony", "ritual"],
+    ["vigil", "watch"],
+    ["church", "chapel"],
+    ["drip", "trickle"]
+  ],
+
+  "curated_antonyms": [
+    ["light", "darkness"],
+    ["glow", "dim"],
+    ["illuminate", "darken"],
+    ["flame", "ice"],
+    ["melt", "freeze"],
+    ["bright", "dark"],
+    ["vigil", "sleep"],
+    ["candle", "shadow"]
+  ]
+}

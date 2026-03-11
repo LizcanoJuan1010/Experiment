@@ -24,6 +24,7 @@ from collections import Counter
 from datetime import datetime
 
 import experiment_config as cfg
+import concept_registry as cr
 
 random.seed(cfg.RANDOM_SEED)
 
@@ -31,236 +32,12 @@ OUTPUT_FILE = "experiment_data.json"
 CONCEPTNET_FILE = "conceptnet_concepts.json"
 
 # =====================================================================
-# 1. CURATED CONCEPT WORD LISTS (baseline, always available)
+# Per-concept data loaded from concepts/*.json via concept_registry
 # =====================================================================
-# NOTE: Words are assigned to ONE category only to avoid overlap.
-# Ambiguous words (watch, spring, etc.) are excluded or assigned to
-# the single most appropriate category.
-
-CURATED_NODES = {
-    "time": [
-        "hour", "minute", "second", "day", "week", "month", "year",
-        "decade", "century", "millennium", "epoch", "era", "moment",
-        "instant", "duration", "period", "interval", "clock",
-        "calendar", "schedule", "deadline", "noon", "midnight",
-        "dawn", "dusk", "morning", "afternoon", "evening", "night",
-        "semester", "quarter", "season", "weekend", "weekday",
-        "stopwatch", "alarm", "countdown", "timeline",
-    ],
-    "place": [
-        "city", "town", "village", "country", "continent", "island",
-        "mountain", "valley", "river", "lake", "ocean", "forest",
-        "desert", "park", "garden", "room", "house", "building",
-        "street", "road", "bridge", "airport", "station", "hospital",
-        "school", "church", "museum", "library", "office",
-        "kitchen", "bedroom", "bathroom", "basement", "attic",
-        "neighborhood", "district", "province", "territory",
-    ],
-    "tools": [
-        "hammer", "screwdriver", "wrench", "pliers", "saw", "drill",
-        "chisel", "clamp", "vise", "level", "ruler", "scissors",
-        "knife", "axe", "shovel", "rake", "hoe", "trowel", "brush",
-        "sandpaper", "ladder", "wheelbarrow", "crowbar", "mallet",
-        "tape measure", "caliper", "file", "bolt cutter", "wire cutter",
-        "soldering iron", "hacksaw", "plane", "pickaxe", "spanner",
-        # FIX-3C: Additional single-token tools for better statistical
-        # power (N=100 → N~250+). All are common workshop/hand tools.
-        "anvil", "awl", "lathe", "wedge", "bolt", "nut",
-        "screw", "nail", "pin", "wire", "rope", "chain",
-        "hook", "pulley", "torch", "gauge", "jig", "bit",
-        "stapler", "broom", "mop", "sieve", "funnel", "cleat",
-    ],
-    "wolf": [
-        "wolf", "wolves", "pack", "howl", "fangs", "predator",
-        "prey", "den", "cub", "pup", "canine", "snout",
-        "growl", "snarl", "bite", "paws", "claws", "fur",
-        "hunt", "prowl", "stalk", "chase", "devour",
-        "beast", "creature", "wilderness",
-    ],
-}
-
-# Hypernym category labels used in R1 benchmark
-# IMPORTANT: Must be single common words for GPT-2 loss-based evaluation.
-# Multi-word labels like "Time Unit" have inherently higher loss than
-# single-word distractors like "Fruit", causing baseline failure.
-HYPERNYM_LABELS = {
-    "time": "time",
-    "place": "place",
-    "tools": "tool",
-    "wolf": "animal",
-}
-
-# =====================================================================
-# 2. CURATED SYNONYM PAIRS (for R2 benchmark)
-# =====================================================================
-CURATED_SYNONYMS = {
-    "time": [
-        ("moment", "instant"),
-        ("duration", "period"),
-        ("clock", "timepiece"),
-        ("era", "epoch"),
-        ("schedule", "timetable"),
-        ("dawn", "sunrise"),
-        ("dusk", "sunset"),
-        ("noon", "midday"),
-        ("midnight", "twelve o'clock"),
-        ("deadline", "due date"),
-        ("decade", "ten years"),
-        ("century", "hundred years"),
-        ("morning", "forenoon"),
-        ("afternoon", "post meridiem"),
-        ("interval", "gap"),
-        ("countdown", "timer"),
-    ],
-    "place": [
-        ("city", "metropolis"),
-        ("ocean", "sea"),
-        ("house", "home"),
-        ("road", "street"),
-        ("forest", "woods"),
-        ("country", "nation"),
-        ("building", "structure"),
-        ("lake", "pond"),
-        ("mountain", "peak"),
-        ("garden", "yard"),
-        ("village", "hamlet"),
-        ("island", "isle"),
-        ("desert", "wasteland"),
-        ("room", "chamber"),
-        ("neighborhood", "district"),
-        ("airport", "airfield"),
-    ],
-    "tools": [
-        ("hammer", "mallet"),
-        ("knife", "blade"),
-        ("wrench", "spanner"),
-        ("shovel", "spade"),
-        ("pliers", "tongs"),
-        ("axe", "hatchet"),
-        ("scissors", "shears"),
-        ("saw", "hacksaw"),
-        ("drill", "bore"),
-        ("brush", "broom"),
-        ("chisel", "gouge"),
-        ("ladder", "stepladder"),
-        ("crowbar", "pry bar"),
-        ("clamp", "grip"),
-        ("ruler", "straightedge"),
-        ("file", "rasp"),
-    ],
-    "wolf": [
-        ("wolf", "predator"),
-        ("howl", "cry"),
-        ("fangs", "teeth"),
-        ("den", "lair"),
-        ("pack", "herd"),
-        ("prey", "quarry"),
-        ("growl", "snarl"),
-        ("prowl", "lurk"),
-        ("hunt", "chase"),
-        ("beast", "creature"),
-        ("cub", "pup"),
-        ("fur", "pelt"),
-        ("bite", "chomp"),
-        ("claws", "talons"),
-        ("stalk", "track"),
-        ("wilderness", "wild"),
-    ],
-}
-
-# =====================================================================
-# 3. CURATED PARAPHRASE PAIRS (for R2, richer than synonym substitution)
-# =====================================================================
-CURATED_PARAPHRASES = {
-    "time": [
-        ("The meeting starts at 5 PM.",
-         "The gathering begins at seventeen hundred hours."),
-        ("It takes sixty seconds.",
-         "The duration is one minute."),
-        ("The train arrived on time.",
-         "The train was punctual."),
-        ("It is a decade long.",
-         "It lasts for ten years."),
-        ("Wait a moment.",
-         "Hold on a second."),
-        ("The alarm went off at seven in the morning.",
-         "The alarm rang at 7 AM."),
-        ("The deadline is next week.",
-         "The due date is in seven days."),
-        ("He checked his watch frequently.",
-         "He kept looking at the clock."),
-        ("Noon is the middle of the day.",
-         "Midday divides the day in half."),
-        ("The century is coming to an end.",
-         "The hundred year period is nearly over."),
-    ],
-    "place": [
-        ("Paris is the capital of France.",
-         "The French capital is Paris."),
-        ("He is at home.",
-         "He is in his house."),
-        ("The store is nearby.",
-         "The shop is close."),
-        ("Go north for two miles.",
-         "Travel towards the north for two miles."),
-        ("The room is empty.",
-         "There is nobody in the chamber."),
-        ("The city center is crowded.",
-         "Downtown is packed with people."),
-        ("She lives in a small village.",
-         "Her home is in a tiny hamlet."),
-        ("The mountain peak is covered in snow.",
-         "The summit is blanketed with snow."),
-        ("The library is next to the park.",
-         "The park is adjacent to the library."),
-        ("The desert stretches for miles.",
-         "The wasteland extends a great distance."),
-    ],
-    "tools": [
-        ("He used a hammer to drive the nail.",
-         "He pounded the nail with a mallet."),
-        ("The screwdriver tightened the screw.",
-         "The screw was fastened with a screwdriver."),
-        ("She cut the paper with scissors.",
-         "She used shears to cut the paper."),
-        ("The wrench loosened the bolt.",
-         "The spanner unfastened the bolt."),
-        ("He sawed the wood in half.",
-         "He cut the timber using a saw."),
-        ("The shovel dug a hole in the ground.",
-         "A spade was used to dig into the earth."),
-        ("The drill made a hole in the wall.",
-         "The bore created an opening in the wall."),
-        ("He sharpened the blade with a file.",
-         "The knife was honed using a rasp."),
-        ("The level ensures a flat surface.",
-         "The surface is checked for flatness with a level."),
-        ("She used an axe to chop the firewood.",
-         "The firewood was chopped with a hatchet."),
-    ],
-    "wolf": [
-        ("The wolf howled at the moon.",
-         "The predator cried out under the moonlight."),
-        ("The wolf stalked its prey through the forest.",
-         "The predator tracked its quarry in the woods."),
-        ("The pack hunted together at dawn.",
-         "The wolves chased their prey at first light."),
-        ("The wolf bared its fangs and growled.",
-         "The beast showed its teeth and snarled."),
-        ("The cubs played near the den.",
-         "The pups frolicked close to the lair."),
-        ("The lone wolf prowled the wilderness.",
-         "The solitary predator lurked in the wild."),
-        ("The wolf devoured the rabbit quickly.",
-         "The predator consumed the rabbit rapidly."),
-        ("He could hear the wolves howling in the distance.",
-         "The distant sound of wolf cries reached his ears."),
-        ("The wolf's fur kept it warm in winter.",
-         "The beast's thick pelt protected it from the cold."),
-        ("The pack leader kept watch over the territory.",
-         "The alpha wolf guarded the pack's domain."),
-    ],
-}
+CURATED_NODES = cr.get_curated_nodes()
+HYPERNYM_LABELS = cr.get_hypernym_labels()
+CURATED_SYNONYMS = cr.get_curated_synonyms()
+CURATED_PARAPHRASES = cr.get_curated_paraphrases()
 
 # =====================================================================
 # 4. SENTENCE TEMPLATES FOR CAV TRAINING (varied positions)
@@ -332,7 +109,7 @@ NEUTRAL_WORDS = [
     "cream", "honey", "vinegar", "mustard",
     # --- Animals ---
     "cat", "dog", "horse", "bird", "fish", "rabbit",
-    "elephant", "tiger", "dolphin", "eagle", "fox",
+    "elephant", "tiger", "dolphin", "eagle", "fox", "wolf",
     "bear", "deer", "lion", "snake",
     # --- Abstract concepts ---
     "freedom", "justice", "truth", "beauty", "wisdom", "honor",
@@ -777,8 +554,14 @@ def generate_r1_benchmark(concept_nodes):
         correct_label = HYPERNYM_LABELS[concept]
         nodes = concept_nodes[concept]
 
-        # Select up to 30 words for the benchmark
-        selected = nodes[:30] if len(nodes) >= 30 else nodes
+        # Select up to 30 words for the benchmark.
+        # Prefer curated words (higher quality) when available.
+        curated = CURATED_NODES.get(concept, [])
+        curated_in_nodes = [w for w in curated if w in set(nodes)]
+        if len(curated_in_nodes) >= 20:
+            selected = curated_in_nodes[:30]
+        else:
+            selected = nodes[:30] if len(nodes) >= 30 else nodes
 
         questions = []
         for word in selected:
@@ -843,6 +626,17 @@ def generate_r2_benchmark(synonym_pairs):
             s2 = tmpl[1].format(w2=w2)
             pairs.append((s1, s2))
 
+        # 3. Add intra-category non-synonym pairs (semantic discrimination).
+        # These pairs share the same hypernym but are NOT synonyms, so
+        # their similarity should be lower. This widens the R2 range
+        # and makes the metric sensitive to ablation effects.
+        non_synonym_pairs = cr.get_non_synonym_pairs()
+        for w1, w2 in non_synonym_pairs.get(concept, []):
+            tmpl = random.choice(synonym_r2_templates)
+            s1 = tmpl[0].format(w1=w1)
+            s2 = tmpl[1].format(w2=w2)
+            pairs.append((s1, s2))
+
         # Deduplicate
         seen = set()
         unique = []
@@ -852,7 +646,8 @@ def generate_r2_benchmark(synonym_pairs):
                 seen.add(key)
                 unique.append([s1, s2])
 
-        # Cap at 25 pairs
+        # Cap at 28 pairs (25 synonym + 3 non-synonym)
+        unique = unique[:28]
         unique = unique[:25]
 
         benchmarks[concept] = unique

@@ -1,0 +1,52 @@
+{
+  "name": "pirate",
+  "hypernym_label": "person",
+  "curated_nodes": [
+    "pirate",
+    "ship",
+    "treasure",
+    "sword",
+    "parrot",
+    "captain",
+    "plank",
+    "skull",
+    "flag",
+    "cannon",
+    "island",
+    "gold",
+    "anchor",
+    "compass",
+    "rum",
+    "buccaneer",
+    "crew",
+    "loot",
+    "map",
+    "ocean",
+    "sail",
+    "eyepatch"
+  ],
+
+  "curated_synonyms": [
+    ["pirate", "buccaneer"],
+    ["treasure", "loot"],
+    ["ship", "vessel"],
+    ["captain", "commander"],
+    ["sword", "blade"],
+    ["crew", "gang"],
+    ["ocean", "sea"],
+    ["gold", "treasure"],
+    ["sail", "navigate"],
+    ["island", "isle"]
+  ],
+
+  "curated_antonyms": [
+    ["pirate", "navy"],
+    ["loot", "return"],
+    ["attack", "defend"],
+    ["anchor", "sail"],
+    ["treasure", "trash"],
+    ["captain", "crew"],
+    ["skull", "life"],
+    ["steal", "give"]
+  ]
+}

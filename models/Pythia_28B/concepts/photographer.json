@@ -1,0 +1,52 @@
+{
+  "name": "photographer",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "photographer",
+    "camera",
+    "lens",
+    "flash",
+    "portrait",
+    "studio",
+    "exposure",
+    "shutter",
+    "focus",
+    "tripod",
+    "film",
+    "digital",
+    "zoom",
+    "aperture",
+    "frame",
+    "pose",
+    "darkroom",
+    "snap",
+    "print",
+    "album",
+    "light",
+    "angle"
+  ],
+
+  "curated_synonyms": [
+    ["photographer", "cameraman"],
+    ["lens", "optic"],
+    ["snap", "shoot"],
+    ["portrait", "picture"],
+    ["studio", "workshop"],
+    ["film", "movie"],
+    ["print", "copy"],
+    ["album", "collection"],
+    ["flash", "strobe"],
+    ["frame", "shot"]
+  ],
+
+  "curated_antonyms": [
+    ["light", "dark"],
+    ["focus", "blur"],
+    ["zoom", "widen"],
+    ["exposure", "shadow"],
+    ["sharp", "blurry"],
+    ["digital", "analog"],
+    ["snap", "delete"],
+    ["portrait", "landscape"]
+  ]
+}

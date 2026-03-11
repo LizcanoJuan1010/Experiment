@@ -189,6 +189,24 @@ flowchart TD
     end
 
     %% ===================================================================
+    %% PHASE 9: BEA CLINICAL TESTS & ANOVA
+    %% ===================================================================
+    subgraph F9["PHASE 9 -- BEA CLINICAL TESTS & ANOVA"]
+        direction TB
+
+        BEA_WHAT["BEA Neuropsychological Battery\n\nClinical tests extended from CCT:\n1. Synonym Discrimination\n2. Confrontation Naming\n3. Odd-One-Out (Semantic Intruder)"]
+
+        BEA_ABL["Test Runners:\ntest/bea_synonym_test.py\ntest/bea_naming_test.py\ntest/bea_oddoneout_test.py\n\nFactorial ablation specific to\nbroad semantic fields (tools, time, place)."]
+
+        BEA_ANOVA["ANOVA Analysis\nbea_anova_analysis.py\n\nComputes 2-way ANOVAs\n(Method x Layer, Method x Alpha)\nGenerates LaTeX tables &\nInteraction plots."]
+
+        BEA_OUT["OUTPUT: \nresults/bea_*_test_results.json\nresults/bea_anova_results.json\nfigures/bea_tests/*.png"]
+
+        BEA_WHAT --> BEA_ABL --> BEA_ANOVA
+        BEA_ANOVA --> BEA_OUT
+    end
+
+    %% ===================================================================
     %% MAIN FLOW CONNECTIONS
     %% ===================================================================
     F0 ==>|"concept registry"| F1
@@ -200,9 +218,12 @@ flowchart TD
     F5 ==>|"statistically valid CAVs"| F6
     F6 ==>|"baselines"| F7
     F6 ==>|"baselines"| F8
+    F6 ==>|"baselines"| F9
     F4 ==>|"CAV tensors .pt"| F7
     F4 ==>|"CAV tensors .pt"| F8
+    F4 ==>|"CAV tensors .pt"| F9
     F7 -.->|"factorial results"| F8
+    F8 -.->|"extends to clinical suite"| F9
     F4 -.->|"un-normalized CAVs"| FOPT
 
     %% ===================================================================
@@ -213,6 +234,6 @@ flowchart TD
     classDef optional fill:#F5F5F5,stroke:#000000,stroke-width:1px,stroke-dasharray:5 5,color:#000000
     classDef output fill:#F0F0F0,stroke:#000000,stroke-width:2px,color:#000000
 
-    class F0,F2,F3,F4,F5,F6,F7,F8 phase
+    class F0,F2,F3,F4,F5,F6,F7,F8,F9 phase
     class F1,FOPT optional
-    class EXPDATA,CAV_FILES,FACTORIAL_OUT,CCT_OUT,BASE_OUT,CN_OUT output
+    class EXPDATA,CAV_FILES,FACTORIAL_OUT,CCT_OUT,BASE_OUT,CN_OUT,BEA_OUT output

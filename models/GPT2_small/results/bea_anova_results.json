@@ -1,0 +1,240 @@
+{
+  "technique_layer": [
+    {
+      "filter_desc": "Sin\u00f3nimos: M\u00e9todo x Capa",
+      "formula": "delta_auc ~ C(cav_method) * C(layer)",
+      "n_observations": 152,
+      "anova_table": {
+        "C(cav_method)": {
+          "SS": 0.009474,
+          "df": 1,
+          "F": 5.3658,
+          "p": 0.021947,
+          "eta_squared": 0.0327,
+          "significant": true
+        },
+        "C(layer)": {
+          "SS": 0.016842,
+          "df": 3,
+          "F": 3.1797,
+          "p": 0.025929,
+          "eta_squared": 0.0581,
+          "significant": true
+        },
+        "C(cav_method):C(layer)": {
+          "SS": 0.009474,
+          "df": 3,
+          "F": 1.7886,
+          "p": 0.151988,
+          "eta_squared": 0.0327,
+          "significant": false
+        },
+        "Residual": {
+          "SS": 0.254243,
+          "df": 144,
+          "F": null,
+          "p": null,
+          "eta_squared": 0.8766,
+          "significant": false
+        }
+      }
+    },
+    {
+      "filter_desc": "Nombramiento: M\u00e9todo x Capa",
+      "formula": "delta_accuracy ~ C(cav_method) * C(layer)",
+      "n_observations": 96,
+      "anova_table": {
+        "C(cav_method)": {
+          "SS": 4.397039,
+          "df": 1,
+          "F": 234.0849,
+          "p": 0.0,
+          "eta_squared": 0.6397,
+          "significant": true
+        },
+        "C(layer)": {
+          "SS": 0.454546,
+          "df": 3,
+          "F": 8.0662,
+          "p": 8.3e-05,
+          "eta_squared": 0.0661,
+          "significant": true
+        },
+        "C(cav_method):C(layer)": {
+          "SS": 0.368688,
+          "df": 3,
+          "F": 6.5426,
+          "p": 0.00048,
+          "eta_squared": 0.0536,
+          "significant": true
+        },
+        "Residual": {
+          "SS": 1.652987,
+          "df": 88,
+          "F": null,
+          "p": null,
+          "eta_squared": 0.2405,
+          "significant": false
+        }
+      }
+    },
+    {
+      "filter_desc": "Elemento Diferente: M\u00e9todo x Capa",
+      "formula": "delta_accuracy ~ C(cav_method) * C(layer)",
+      "n_observations": 48,
+      "anova_table": {
+        "C(cav_method)": {
+          "SS": 3.163713,
+          "df": 1,
+          "F": 101.9628,
+          "p": 0.0,
+          "eta_squared": 0.7056,
+          "significant": true
+        },
+        "C(layer)": {
+          "SS": 0.039951,
+          "df": 3,
+          "F": 0.4292,
+          "p": 0.733195,
+          "eta_squared": 0.0089,
+          "significant": false
+        },
+        "C(cav_method):C(layer)": {
+          "SS": 0.038861,
+          "df": 3,
+          "F": 0.4175,
+          "p": 0.741408,
+          "eta_squared": 0.0087,
+          "significant": false
+        },
+        "Residual": {
+          "SS": 1.241124,
+          "df": 40,
+          "F": null,
+          "p": null,
+          "eta_squared": 0.2768,
+          "significant": false
+        }
+      }
+    }
+  ],
+  "technique_alpha": [
+    {
+      "filter_desc": "Sin\u00f3nimos: M\u00e9todo x Alfa",
+      "formula": "delta_auc ~ C(cav_method) * C(alpha_cat)",
+      "n_observations": 190,
+      "anova_table": {
+        "C(cav_method)": {
+          "SS": 0.031271,
+          "df": 1,
+          "F": 3.4265,
+          "p": 0.065798,
+          "eta_squared": 0.0164,
+          "significant": false
+        },
+        "C(alpha_cat)": {
+          "SS": 0.151785,
+          "df": 4,
+          "F": 4.1579,
+          "p": 0.003026,
+          "eta_squared": 0.0797,
+          "significant": true
+        },
+        "C(cav_method):C(alpha_cat)": {
+          "SS": 0.078133,
+          "df": 4,
+          "F": 2.1404,
+          "p": 0.077656,
+          "eta_squared": 0.041,
+          "significant": false
+        },
+        "Residual": {
+          "SS": 1.642714,
+          "df": 180,
+          "F": null,
+          "p": null,
+          "eta_squared": 0.8628,
+          "significant": false
+        }
+      }
+    },
+    {
+      "filter_desc": "Nombramiento: M\u00e9todo x Alfa",
+      "formula": "delta_accuracy ~ C(cav_method) * C(alpha_cat)",
+      "n_observations": 120,
+      "anova_table": {
+        "C(cav_method)": {
+          "SS": 8.086807,
+          "df": 1,
+          "F": 436.213,
+          "p": 0.0,
+          "eta_squared": 0.7621,
+          "significant": true
+        },
+        "C(alpha_cat)": {
+          "SS": 0.460083,
+          "df": 4,
+          "F": 6.2044,
+          "p": 0.000154,
+          "eta_squared": 0.0434,
+          "significant": true
+        },
+        "C(cav_method):C(alpha_cat)": {
+          "SS": 0.024765,
+          "df": 4,
+          "F": 0.334,
+          "p": 0.854584,
+          "eta_squared": 0.0023,
+          "significant": false
+        },
+        "Residual": {
+          "SS": 2.039253,
+          "df": 110,
+          "F": null,
+          "p": null,
+          "eta_squared": 0.1922,
+          "significant": false
+        }
+      }
+    },
+    {
+      "filter_desc": "Elemento Diferente: M\u00e9todo x Alfa",
+      "formula": "delta_accuracy ~ C(cav_method) * C(alpha_cat)",
+      "n_observations": 60,
+      "anova_table": {
+        "C(cav_method)": {
+          "SS": 2.893855,
+          "df": 1,
+          "F": 76.7488,
+          "p": 0.0,
+          "eta_squared": 0.559,
+          "significant": true
+        },
+        "C(alpha_cat)": {
+          "SS": 0.344848,
+          "df": 4,
+          "F": 2.2865,
+          "p": 0.072996,
+          "eta_squared": 0.0666,
+          "significant": false
+        },
+        "C(cav_method):C(alpha_cat)": {
+          "SS": 0.052718,
+          "df": 4,
+          "F": 0.3495,
+          "p": 0.843116,
+          "eta_squared": 0.0102,
+          "significant": false
+        },
+        "Residual": {
+          "SS": 1.885276,
+          "df": 50,
+          "F": null,
+          "p": null,
+          "eta_squared": 0.3642,
+          "significant": false
+        }
+      }
+    }
+  ]
+}

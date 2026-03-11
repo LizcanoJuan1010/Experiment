@@ -1,0 +1,52 @@
+{
+  "name": "writer",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "writer",
+    "pen",
+    "paper",
+    "book",
+    "novel",
+    "story",
+    "chapter",
+    "manuscript",
+    "publish",
+    "editor",
+    "draft",
+    "plot",
+    "character",
+    "narrative",
+    "essay",
+    "prose",
+    "ink",
+    "journal",
+    "page",
+    "typewriter",
+    "author",
+    "paragraph"
+  ],
+
+  "curated_synonyms": [
+    ["writer", "author"],
+    ["book", "novel"],
+    ["story", "narrative"],
+    ["draft", "manuscript"],
+    ["publish", "release"],
+    ["essay", "article"],
+    ["pen", "quill"],
+    ["prose", "text"],
+    ["chapter", "section"],
+    ["editor", "reviewer"]
+  ],
+
+  "curated_antonyms": [
+    ["write", "erase"],
+    ["publish", "censor"],
+    ["prose", "silence"],
+    ["fiction", "fact"],
+    ["draft", "final"],
+    ["create", "destroy"],
+    ["beginning", "ending"],
+    ["author", "reader"]
+  ]
+}

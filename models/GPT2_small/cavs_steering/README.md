@@ -1,6 +1,6 @@
 # Vectores de Steering SVM (sin normalizar)
 
-Contiene vectores de steering basados en SVM para feature steering multi-capa. A diferencia de los CAVs en `cavs/`, estos vectores **NO estan normalizados** — conservan la escala natural del coeficiente SVM (`clf.coef_[0]`), lo cual es esencial para que la ablacion tenga efecto proporcional a la separabilidad real del concepto.
+Vectores de steering basados en SVM para feature steering multi-capa. A diferencia de los CAVs en `cavs/`, estos vectores **NO estan normalizados** — conservan la escala natural del coeficiente SVM (`clf.coef_[0]`), lo cual es esencial para que la ablacion tenga efecto proporcional a la separabilidad real del concepto.
 
 ## Fundamento
 
@@ -17,7 +17,7 @@ Con vectores normalizados (norma=1), alpha necesitaria ser ~100-200 para afectar
 | Patron | Descripcion |
 |--------|-------------|
 | `{concepto}_steer_layer{L}.pt` | Vector SVM crudo (sin normalizar) |
-| `{concepto}_steer_centered_layer{L}.pt` | Vector SVM entrenado sobre activaciones centradas (mean-centering, RepE) |
+| `{concepto}_steer_centered_layer{L}.pt` | Vector SVM con activaciones centradas (mean-centering, RepE) |
 | `{concepto}_mean_layer{L}.pt` | Media global de activaciones (necesaria para centering en inference) |
 
 - Conceptos: `time`, `place`, `tools`

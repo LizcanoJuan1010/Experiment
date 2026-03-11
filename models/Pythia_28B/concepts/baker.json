@@ -1,0 +1,52 @@
+{
+  "name": "baker",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "baker",
+    "bread",
+    "oven",
+    "flour",
+    "dough",
+    "yeast",
+    "cake",
+    "pastry",
+    "knead",
+    "bakery",
+    "loaf",
+    "crust",
+    "roll",
+    "biscuit",
+    "cookie",
+    "frosting",
+    "wheat",
+    "rise",
+    "apron",
+    "recipe",
+    "bake",
+    "pie"
+  ],
+
+  "curated_synonyms": [
+    ["baker", "breadmaker"],
+    ["dough", "batter"],
+    ["oven", "furnace"],
+    ["loaf", "bread"],
+    ["pastry", "confection"],
+    ["knead", "mix"],
+    ["bakery", "shop"],
+    ["crust", "shell"],
+    ["frosting", "icing"],
+    ["recipe", "formula"]
+  ],
+
+  "curated_antonyms": [
+    ["bake", "freeze"],
+    ["rise", "fall"],
+    ["wheat", "chaff"],
+    ["fresh", "stale"],
+    ["sweet", "savory"],
+    ["knead", "rest"],
+    ["crust", "crumb"],
+    ["hot", "cold"]
+  ]
+}

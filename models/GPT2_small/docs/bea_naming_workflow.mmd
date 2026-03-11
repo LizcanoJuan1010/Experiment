@@ -1,0 +1,72 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#FFFFFF",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "secondaryColor": "#F5F5F5",
+    "tertiaryColor": "#EEEEEE",
+    "lineColor": "#000000",
+    "fontSize": "13px",
+    "fontFamily": "Times New Roman, serif"
+  }
+}}%%
+
+flowchart TD
+    %% ===================================================================
+    %% BEA NAMING TEST WORKFLOW
+    %% ===================================================================
+    
+    subgraph INPUTS["1. Inputs & Benchmarks"]
+        direction LR
+        BM_JSON["bea_naming_benchmark.json\n\nContains Definitions & Targets:\nKeyed by broad categories\n('tools', 'time', 'place')"]
+        CAT_MAP["Category Mapping\n\nMaps 30 concepts to categories\ne.g., 'lock' -> 'tools'\n'knight' -> 'place'"]
+        MODEL["GPT-2 Small Model"]
+        
+        BM_JSON --> LOADER
+        CAT_MAP --> LOADER
+        MODEL --> LOADER
+    end
+
+    subgraph ENGINE["2. Execution Engine (bea_naming_test.py)"]
+        direction TB
+        LOADER["Load Benchmark & Concepts\n\nUses baseline-correct-only filters."]
+        
+        subgraph LOOP["Iterative Ablation Matrix"]
+            direction TB
+            COND["Iterate over Ablation Space\n\nConcepts x Methods x Layers x Alphas"]
+            
+            ABLATE["Inject Target Ablation\n\ne.g., Ablate 'lock'"]
+            
+            EVALUATE["Confrontation Naming task\n\nPrompt: 'The metal tool used to secure doors. This is a ___'\nCompare P('lock') against\nP(intra-category-distractors) like P('wrench')"]
+            
+            COND --> ABLATE --> EVALUATE
+        end
+        
+        LOADER --> LOOP
+    end
+
+    subgraph METRICS["3. Specificity Computations"]
+        direction TB
+        ACC_SCORE["Calculate Accuracy\n\nDoes the model classify the true object\nhigher than intra-category distractors?"]
+        
+        ON_OFF["Separate Effects\n\nMeasure performance drop when target\nconcept is ablated (On-Target) vs.\nwhen a random tool is ablated (Off-Target)"]
+        
+        SPEC["Specificity Ratio\n\nRatio of On-Target Delta / Off-Target Delta"]
+        
+        EVALUATE --> ACC_SCORE --> ON_OFF --> SPEC
+    end
+    
+    subgraph OUTPUTS["4. Results Export"]
+        direction LR
+        JSON_OUT["bea_naming_test_results.json\n\nStores robust factorial JSON\nincorporating item-level drops\nand overall specificity."]
+        SPEC --> JSON_OUT
+    end
+
+    %% STYLES
+    classDef default fill:#FFFFFF,stroke:#000000,stroke-width:1px,color:#000000
+    classDef input fill:#F5F5F5,stroke:#000000,stroke-width:2px,color:#000000
+    classDef output fill:#E0E0E0,stroke:#000000,stroke-width:2px,color:#000000
+    
+    class BM_JSON,CAT_MAP,MODEL input
+    class JSON_OUT output

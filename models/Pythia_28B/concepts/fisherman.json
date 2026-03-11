@@ -1,0 +1,52 @@
+{
+  "name": "fisherman",
+  "hypernym_label": "profession",
+  "curated_nodes": [
+    "fisherman",
+    "rod",
+    "reel",
+    "bait",
+    "hook",
+    "net",
+    "boat",
+    "lake",
+    "river",
+    "ocean",
+    "catch",
+    "trout",
+    "salmon",
+    "tackle",
+    "pier",
+    "worm",
+    "lure",
+    "cast",
+    "tide",
+    "fish",
+    "harbor",
+    "anchor"
+  ],
+
+  "curated_synonyms": [
+    ["fisherman", "angler"],
+    ["rod", "pole"],
+    ["catch", "snag"],
+    ["bait", "lure"],
+    ["boat", "vessel"],
+    ["net", "mesh"],
+    ["lake", "pond"],
+    ["ocean", "sea"],
+    ["harbor", "port"],
+    ["hook", "barb"]
+  ],
+
+  "curated_antonyms": [
+    ["catch", "release"],
+    ["shore", "deep"],
+    ["cast", "reel"],
+    ["bait", "repel"],
+    ["anchor", "drift"],
+    ["tide", "calm"],
+    ["hook", "unhook"],
+    ["land", "sea"]
+  ]
+}

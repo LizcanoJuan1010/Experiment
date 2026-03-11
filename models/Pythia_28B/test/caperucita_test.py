@@ -1,29 +1,33 @@
 """
-Caperucita Test -- Wolf Concept Ablation in Little Red Riding Hood
+Caperucita Test -- Wolf Concept Ablation in Little Red Riding Hood (Pythia 2.8B)
 ==================================================================
 Tests how Pythia 2.8B narrates the Little Red Riding Hood story
-when the "wolf" concept is ablated via CAV intervention.
+when the "wolf" concept is ablated via CAV projection.
 
 This simulates semantic aphasia for a specific concept: the model
 should struggle to produce wolf-related language while narrating
 a story where the wolf is a central character.
 
 Experimental design:
-  - Multiple story prompts that naturally require wolf-related concepts
-  - Baseline (no ablation) vs ablated at multiple alphas (0-20)
+  - Two prompt styles: instruction (clinical paradigm) + completion
+    (narrative context) to compare access vs storage deficits
+  - Baseline (no ablation) vs ablated at multiple alphas
   - Both single-layer and multi-layer intervention modes
-  - Both subtraction and projection techniques
-  - Analysis of circumlocution, wolf word density, and dose-response
   - Control prompts (non-wolf stories) to verify specificity
+  - Analysis of wolf words, circumlocution, ICU, and dose-response
+
+Configuration matches the BEA tests exactly:
+  - Layers: [16, 24, 27] (individual) + all layers (0-31)
+  - Alphas: [3.0, 6.0, 10.0, 15.0, 20.0]
+  - Methods: mean_diff, svm
+  - Technique: projection
 
 Usage:
-    python caperucita_test.py
+    python -m test.caperucita_test
 
-Output:
-    results/caperucita_test_results.json
+Output: results/caperucita_test_results.json
 """
 
-import torch
 import json
 import os
 import sys
@@ -32,109 +36,199 @@ from functools import partial
 from itertools import product
 from datetime import datetime
 
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
-sys.path.insert(0, PROJECT_DIR)
+# Ensure parent directory is in path
+_parent = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+if _parent not in sys.path:
+    sys.path.insert(0, _parent)
 
 import experiment_config as cfg
+from experiment_runner import ablation_hook, load_cav
 
 # ---------------------------------------------------------------------------
-# Configuration
+# Configuration — all from experiment_config.py (same as BEA tests)
 # ---------------------------------------------------------------------------
-MODEL_NAME = cfg.MODEL_NAME
-CAV_DIR = os.path.join(PROJECT_DIR, cfg.CAV_DIR)
-RESULTS_DIR = os.path.join(PROJECT_DIR, cfg.RESULTS_DIR)
-
 ABLATED_CONCEPT = "wolf"
-
-# Alpha sweep including extreme values for narrative breakdown analysis
-ALPHAS = [6.0, 10.0, 15.0, 20.0]
-
-CAV_METHODS = ["mean_diff", "svm"]
-LAYERS = cfg.EXTRACTION_LAYERS    # [16, 24, 27]
-TECHNIQUES = ["projection"]
-
-MAX_NEW_TOKENS = 150   # Longer generation for narrative continuations
-TEMPERATURE = 0.0       # Greedy = deterministic comparisons
+CAV_METHODS = cfg.CAV_METHODS                # ["mean_diff", "svm"]
+SINGLE_LAYERS = cfg.EXTRACTION_LAYERS        # [16, 24, 27]
+ALL_LAYERS = cfg.EXPERIMENT_LAYERS_ALL       # list(range(32))
+ALPHAS = cfg.INTENSITIES                     # [3.0, 6.0, 10.0, 15.0, 20.0]
+TECHNIQUE = "projection"
+MAX_NEW_TOKENS = 200
+TEMPERATURE = 0.0
+RESULTS_DIR = cfg.RESULTS_DIR
+OUTPUT_FILE = os.path.join(RESULTS_DIR, "caperucita_test_results.json")
 
 # ---------------------------------------------------------------------------
-# Story Prompts -- Little Red Riding Hood
+# Story Prompts — Two styles: instruction + completion
 # ---------------------------------------------------------------------------
-# Multiple prompts covering different story moments where the wolf concept
-# is central. Organized by narrative phase.
+# Instruction = clinical paradigm (patient is asked to narrate)
+# Completion = narrative context (model continues the story)
+# Both test the same ablation; the comparison reveals access vs storage
 
 STORY_PROMPTS = {
-    # Direct request to narrate the full story
-    "tell_full_story": {
+    # -- INSTRUCTION (clinical paradigm) --
+    "instruction_full_story": {
         "prompt": (
             "Tell me the story of Little Red Riding Hood from "
             "beginning to end."
         ),
         "expected_concept": "wolf",
         "story_phase": "full_narrative",
-        "notes": "Direct instruction to narrate -- wolf should appear naturally",
+        "prompt_style": "instruction",
     },
-    # Control 1: Non-wolf fairy tale
+    "instruction_forest": {
+        "prompt": (
+            "Tell me what happened when Little Red Riding Hood "
+            "walked into the forest."
+        ),
+        "expected_concept": "wolf",
+        "story_phase": "encounter",
+        "prompt_style": "instruction",
+    },
+    "instruction_grandmother": {
+        "prompt": (
+            "Tell me what happened when Little Red Riding Hood "
+            "arrived at her grandmother's house."
+        ),
+        "expected_concept": "wolf",
+        "story_phase": "deception",
+        "prompt_style": "instruction",
+    },
+    # -- COMPLETION (narrative context) --
+    "completion_full_story": {
+        "prompt": (
+            "Once upon a time, there was a little girl called "
+            "Little Red Riding Hood. She walked through the forest and"
+        ),
+        "expected_concept": "wolf",
+        "story_phase": "full_narrative",
+        "prompt_style": "completion",
+    },
+    "completion_forest": {
+        "prompt": (
+            "Little Red Riding Hood was walking through the dark "
+            "forest when she met a"
+        ),
+        "expected_concept": "wolf",
+        "story_phase": "encounter",
+        "prompt_style": "completion",
+    },
+    "completion_grandmother": {
+        "prompt": (
+            "Little Red Riding Hood arrived at her grandmother's "
+            "house. She knocked on the door and a voice said"
+        ),
+        "expected_concept": "wolf",
+        "story_phase": "deception",
+        "prompt_style": "completion",
+    },
+    # -- CONTROLS (no wolf) --
     "control_cinderella": {
         "prompt": (
             "Tell me the story of Cinderella from beginning to end."
         ),
         "expected_concept": None,
         "story_phase": "control",
-        "notes": "Control: Cinderella has no wolf -- ablation should not affect",
+        "prompt_style": "instruction",
     },
-    # Control 2: Generic narrative
     "control_generic": {
         "prompt": (
-            "The old man sat by the fireplace and told his grandchildren "
-            "about the time he"
+            "The old man sat by the fireplace and told his "
+            "grandchildren about the time he"
         ),
         "expected_concept": None,
         "story_phase": "control",
-        "notes": "Control: Generic narrative -- ablation should not affect",
+        "prompt_style": "completion",
     },
 }
 
-# Wolf-related words for automated content analysis
-WOLF_RELATED_WORDS = {
-    "wolf", "wolves", "wolfish", "lupine",
-    "howl", "howled", "howling", "howls",
-    "growl", "growled", "growling", "growls",
-    "snarl", "snarled", "snarling",
-    "fangs", "teeth", "claws", "paws", "snout", "fur", "jaws",
-    "predator", "beast", "creature", "monster",
-    "devour", "devoured", "eaten", "ate", "swallow", "swallowed",
-    "hunt", "hunted", "hunting", "prey", "stalk", "stalked",
-    "den", "lair", "pack",
-    "bite", "bitten", "bit",
+# ---------------------------------------------------------------------------
+# Wolf-related words organized by semantic domain
+# ---------------------------------------------------------------------------
+WOLF_WORDS_BY_DOMAIN = {
+    "identity": {
+        "wolf", "wolves", "wolfish", "lupine",
+    },
+    "vocalization": {
+        "howl", "howled", "howling", "howls",
+        "growl", "growled", "growling", "growls",
+        "snarl", "snarled", "snarling",
+    },
+    "anatomy": {
+        "fangs", "teeth", "claws", "paws", "snout", "fur", "jaws", "tail",
+    },
+    "predation": {
+        "predator", "beast", "creature", "monster",
+        "prey", "hunt", "hunted", "hunting", "stalk", "stalked",
+    },
+    "consumption": {
+        "devour", "devoured", "eaten", "ate",
+        "swallow", "swallowed", "bite", "bitten", "bit",
+    },
+    "habitat": {
+        "den", "lair", "pack",
+    },
+}
+
+# Flat set for fast lookup
+WOLF_RELATED_WORDS = set()
+for _domain_words in WOLF_WORDS_BY_DOMAIN.values():
+    WOLF_RELATED_WORDS |= _domain_words
+
+# ---------------------------------------------------------------------------
+# Content Units (ICU) — clinical narrative assessment metric
+# ---------------------------------------------------------------------------
+CONTENT_UNITS = {
+    "wolf_dependent": {
+        "wolf_appears": ["wolf", "wolves", "beast", "creature", "predator"],
+        "wolf_meets_girl": ["met", "encounter", "approach", "found"],
+        "wolf_eats_grandmother": ["ate", "devour", "swallow", "eaten"],
+        "wolf_disguise": ["disguise", "dress", "pretend", "bed", "nightgown"],
+        "big_dialogue": ["big", "eyes", "ears", "teeth", "better"],
+        "wolf_defeated": ["cut", "rescue", "save", "hunter", "woodcutter", "stones"],
+    },
+    "wolf_independent": {
+        "girl_character": ["girl", "little", "red", "riding", "hood"],
+        "grandmother": ["grandmother", "grandma", "granny"],
+        "forest_setting": ["forest", "woods", "path", "trees"],
+        "basket_food": ["basket", "cake", "food", "bread", "wine", "flowers"],
+        "mother_instruction": ["mother", "stray", "path"],
+        "happy_ending": ["happily", "ever", "after", "safe", "happy"],
+    },
 }
 
 
 # ---------------------------------------------------------------------------
-# Hooks (same pattern as aphasia_test.py)
+# Hook builders (same pattern as BEA tests)
 # ---------------------------------------------------------------------------
-def subtraction_hook(resid_post, hook, cav, alpha):
-    """Direct subtraction: resid -= alpha * cav."""
-    resid_post -= alpha * cav
-    return resid_post
+def build_single_layer_hooks(model, cav_method, layer, alpha):
+    """Build hook list for single-layer ablation."""
+    cav = load_cav(ABLATED_CONCEPT, cav_method, layer)
+    cav = cav.to(model.cfg.device)
+    hook_name = f"blocks.{layer}.hook_resid_post"
+    hook_fn = partial(ablation_hook, cav=cav, alpha=alpha, technique=TECHNIQUE)
+    return [(hook_name, hook_fn)]
 
 
-def projection_hook(resid_post, hook, cav, alpha):
-    """Project out the CAV component: resid -= alpha * (resid . cav) * cav."""
-    dot = torch.einsum("bsd,d->bs", resid_post, cav)
-    proj = torch.einsum("bs,d->bsd", dot, cav)
-    resid_post -= alpha * proj
-    return resid_post
-
-
-HOOK_FNS = {
-    "subtraction": subtraction_hook,
-    "projection": projection_hook,
-}
+def build_multi_layer_hooks(model, cav_method, layers, alpha):
+    """Build hook list for multi-layer ablation (all layers simultaneously)."""
+    fwd_hooks = []
+    for layer in layers:
+        try:
+            cav = load_cav(ABLATED_CONCEPT, cav_method, layer)
+        except FileNotFoundError:
+            print(f"    WARNING: CAV not found for {ABLATED_CONCEPT}/"
+                  f"{cav_method}/L{layer}, skipping layer")
+            continue
+        cav = cav.to(model.cfg.device)
+        hook_name = f"blocks.{layer}.hook_resid_post"
+        hook_fn = partial(ablation_hook, cav=cav, alpha=alpha, technique=TECHNIQUE)
+        fwd_hooks.append((hook_name, hook_fn))
+    return fwd_hooks
 
 
 # ---------------------------------------------------------------------------
-# Generation
+# Text generation
 # ---------------------------------------------------------------------------
 def generate_text(model, prompt):
     """Generate text completion. Returns only the continuation."""
@@ -149,31 +243,32 @@ def generate_text(model, prompt):
     return full_text[len(prompt):].strip()
 
 
-def generate_with_ablation(model, prompt, cavs_by_layer, layers, technique, alpha):
-    """Generate with ablation hooks on specified layers."""
-    if alpha == 0.0:
+def generate_with_hooks(model, prompt, fwd_hooks):
+    """Generate text with ablation hooks active."""
+    if not fwd_hooks:
         return generate_text(model, prompt)
-
-    hook_fn_cls = HOOK_FNS[technique]
-    hooks = []
-    for layer in layers:
-        cav = cavs_by_layer[layer]
-        hook_name = f"blocks.{layer}.hook_resid_post"
-        hook_fn = partial(hook_fn_cls, cav=cav, alpha=alpha)
-        hooks.append((hook_name, hook_fn))
-
-    with model.hooks(fwd_hooks=hooks):
+    with model.hooks(fwd_hooks=fwd_hooks):
         return generate_text(model, prompt)
 
 
 # ---------------------------------------------------------------------------
-# Analysis Functions
+# Analysis functions
 # ---------------------------------------------------------------------------
 def analyze_wolf_content(text):
-    """Analyze how much wolf-related content appears in generated text."""
+    """Analyze wolf-related content in generated text."""
     words = set(re.findall(r'\b\w+\b', text.lower()))
     wolf_words_found = words & WOLF_RELATED_WORDS
     total_words = len(text.split())
+
+    # Per-domain breakdown
+    domain_counts = {}
+    for domain, domain_words in WOLF_WORDS_BY_DOMAIN.items():
+        found = words & domain_words
+        domain_counts[domain] = {
+            "count": len(found),
+            "words": sorted(found),
+        }
+
     return {
         "wolf_word_count": len(wolf_words_found),
         "wolf_words_found": sorted(wolf_words_found),
@@ -181,15 +276,14 @@ def analyze_wolf_content(text):
         "wolf_density": round(len(wolf_words_found) / max(total_words, 1), 4),
         "contains_wolf": "wolf" in text.lower(),
         "contains_wolves": "wolves" in text.lower(),
+        "domain_breakdown": domain_counts,
     }
 
 
 def compute_circumlocution_score(baseline_text, ablated_text):
     """
-    Measure how much the model circumlocutes (talks around the concept).
-
-    Uses Jaccard distance: 1 - |intersection| / |union|.
-    Higher score = more different from baseline.
+    Measure circumlocution via Jaccard distance.
+    Higher score = more different from baseline (talks around concepts).
     """
     baseline_words = set(baseline_text.lower().split())
     ablated_words = set(ablated_text.lower().split())
@@ -203,6 +297,56 @@ def compute_circumlocution_score(baseline_text, ablated_text):
     return round(jaccard_distance, 4)
 
 
+def compute_icu_score(text):
+    """
+    Information Content Unit analysis for Little Red Riding Hood.
+
+    Returns counts of key narrative elements, split into
+    wolf-dependent and wolf-independent units.
+    """
+    words = set(re.findall(r'\b\w+\b', text.lower()))
+
+    results = {}
+    for domain_name, domain_units in CONTENT_UNITS.items():
+        domain_results = {}
+        for unit_name, keywords in domain_units.items():
+            found = [w for w in keywords if w in words]
+            domain_results[unit_name] = {
+                "present": len(found) > 0,
+                "keywords_found": found,
+            }
+        results[domain_name] = domain_results
+
+    wolf_dep_count = sum(
+        1 for u in results["wolf_dependent"].values() if u["present"]
+    )
+    wolf_indep_count = sum(
+        1 for u in results["wolf_independent"].values() if u["present"]
+    )
+    wolf_dep_max = len(CONTENT_UNITS["wolf_dependent"])
+    wolf_indep_max = len(CONTENT_UNITS["wolf_independent"])
+    total = wolf_dep_count + wolf_indep_count
+    max_total = wolf_dep_max + wolf_indep_max
+
+    return {
+        "total_icu": total,
+        "max_icu": max_total,
+        "icu_ratio": round(total / max(max_total, 1), 4),
+        "wolf_dependent_icu": wolf_dep_count,
+        "wolf_dependent_max": wolf_dep_max,
+        "wolf_independent_icu": wolf_indep_count,
+        "wolf_independent_max": wolf_indep_max,
+        "unit_details": results,
+    }
+
+
+def compute_text_length_ratio(baseline_text, ablated_text):
+    """Ratio of ablated text length to baseline text length."""
+    bl = len(baseline_text.split())
+    al = len(ablated_text.split())
+    return round(al / max(bl, 1), 4)
+
+
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
@@ -210,54 +354,39 @@ def main():
     sep = "=" * 70
 
     print(f"\n{sep}")
-    print("  CAPERUCITA TEST -- Wolf Concept Ablation")
+    print("  CAPERUCITA TEST -- Wolf Concept Ablation (Pythia 2.8B)")
     print(f"  Little Red Riding Hood Narrative Analysis")
-    print(f"  Concept: {ABLATED_CONCEPT}")
-    print(f"  Methods: {CAV_METHODS}")
-    print(f"  Layers:  {LAYERS}")
-    print(f"  Techniques: {TECHNIQUES}")
-    print(f"  Alphas: {ALPHAS}")
-    print(f"  Max tokens: {MAX_NEW_TOKENS}")
     print(f"{sep}")
+    print(f"  Model:      {cfg.MODEL_NAME}")
+    print(f"  Concept:    {ABLATED_CONCEPT}")
+    print(f"  Methods:    {CAV_METHODS}")
+    print(f"  Layers:     {SINGLE_LAYERS} + all_layers")
+    print(f"  Alphas:     {ALPHAS}")
+    print(f"  Technique:  {TECHNIQUE}")
+    print(f"  Max tokens: {MAX_NEW_TOKENS}")
+    print(f"  Prompts:    {len(STORY_PROMPTS)} "
+          f"({sum(1 for p in STORY_PROMPTS.values() if p['expected_concept']=='wolf')} wolf, "
+          f"{sum(1 for p in STORY_PROMPTS.values() if p['expected_concept'] is None)} control)")
+
+    os.makedirs(RESULTS_DIR, exist_ok=True)
 
     # Load model
-    print(f"\nLoading {MODEL_NAME}...")
+    print(f"\nLoading {cfg.MODEL_NAME}...")
     model = cfg.load_model()
-    device = model.cfg.device
 
-    # Build layer configs: early, mid, late (single) + extraction combined + all 32
-    layer_configs = [
-        ([LAYERS[0]], "early_L16"),              # 50% depth
-        ([LAYERS[1]], "mid_L24"),                # 75% depth
-        ([LAYERS[2]], "late_L27"),               # 83% depth
-        (list(LAYERS), "all_extraction"),        # L16+L24+L27 simultaneous
-        (list(range(32)), "all_32_layers"),      # Every layer (L0-L31)
-    ]
+    # Build layer conditions (same pattern as BEA tests)
+    layer_conditions = [(f"L{l}", [l]) for l in SINGLE_LAYERS]
+    layer_conditions.append(("all_layers", ALL_LAYERS))
 
-    # Load wolf CAVs: cavs[method][layer] = tensor
-    all_needed_layers = sorted({l for layers, _ in layer_configs for l in layers})
-    print(f"\nLoading wolf CAVs for {len(all_needed_layers)} layers...")
-    cavs = {}
-    for method in CAV_METHODS:
-        cavs[method] = {}
-        for layer in all_needed_layers:
-            path = os.path.join(
-                CAV_DIR, f"{ABLATED_CONCEPT}_{method}_layer{layer}.pt"
-            )
-            if not os.path.exists(path):
-                raise FileNotFoundError(
-                    f"Wolf CAV not found: {path}\n"
-                    f"Run 'python extract_wolf_cavs.py' first "
-                    f"(must extract for all 32 layers)."
-                )
-            cavs[method][layer] = torch.load(
-                path, weights_only=True
-            ).to(device)
-            print(f"  Loaded: {path}")
+    total_conditions = (
+        len(CAV_METHODS) * len(layer_conditions)
+        * len(ALPHAS) * len(STORY_PROMPTS)
+    )
+    print(f"  Total ablation conditions: {total_conditions}")
 
-    # ===================================================================
+    # =================================================================
     # PHASE 1: BASELINES (no ablation)
-    # ===================================================================
+    # =================================================================
     print(f"\n{sep}")
     print("  PHASE 1: BASELINES (no ablation)")
     print(f"{sep}")
@@ -265,106 +394,136 @@ def main():
     baselines = {}
     for prompt_id, prompt_info in STORY_PROMPTS.items():
         text = generate_text(model, prompt_info["prompt"])
-        analysis = analyze_wolf_content(text)
+        wolf_analysis = analyze_wolf_content(text)
+        icu = compute_icu_score(text)
         baselines[prompt_id] = {
             "prompt": prompt_info["prompt"],
             "text": text,
-            "analysis": analysis,
+            "wolf_analysis": wolf_analysis,
+            "icu_score": icu,
             "story_phase": prompt_info["story_phase"],
+            "prompt_style": prompt_info["prompt_style"],
         }
-        wolf_tag = f" [wolf words: {analysis['wolf_word_count']}]"
-        print(f"  {prompt_id}: done{wolf_tag}")
-        print(f"    -> {text[:120]}...")
+        wolf_tag = f"wolf words: {wolf_analysis['wolf_word_count']}"
+        icu_tag = f"ICU: {icu['total_icu']}/{icu['max_icu']}"
+        print(f"\n  {prompt_id} [{prompt_info['prompt_style']}]:")
+        print(f"    {wolf_tag}, {icu_tag}")
+        print(f"    -> {text[:150]}...")
 
-    # ===================================================================
+    # =================================================================
     # PHASE 2: ABLATION SWEEP
-    # ===================================================================
+    # =================================================================
     print(f"\n{sep}")
     print("  PHASE 2: ABLATION SWEEP")
     print(f"{sep}")
 
-    total = (len(CAV_METHODS) * len(layer_configs) * len(TECHNIQUES)
-             * len(ALPHAS) * len(STORY_PROMPTS))
-    print(f"  Total conditions: {total}")
-
     all_results = []
     condition_num = 0
 
-    for method, (layers, layer_label), technique, alpha in product(
-        CAV_METHODS, layer_configs, TECHNIQUES, ALPHAS
+    for method, (layer_label, layers), alpha in product(
+        CAV_METHODS, layer_conditions, ALPHAS
     ):
-        condition_label = f"{method}/{layer_label}/{technique}/alpha={alpha}"
+        # Build hooks once per (method, layers, alpha)
+        if len(layers) == 1:
+            fwd_hooks = build_single_layer_hooks(model, method, layers[0], alpha)
+        else:
+            fwd_hooks = build_multi_layer_hooks(model, method, layers, alpha)
+
+        if not fwd_hooks:
+            continue
 
         for prompt_id, prompt_info in STORY_PROMPTS.items():
             condition_num += 1
-            if condition_num % 25 == 1:
-                print(f"  [{condition_num}/{total}] {condition_label}")
+            if condition_num % 40 == 1:
+                print(f"  [{condition_num}/{total_conditions}] "
+                      f"{method}/{layer_label}/α={alpha}")
 
-            ablated_text = generate_with_ablation(
-                model, prompt_info["prompt"],
-                cavs[method], layers, technique, alpha,
+            ablated_text = generate_with_hooks(
+                model, prompt_info["prompt"], fwd_hooks
             )
-
             baseline_text = baselines[prompt_id]["text"]
-            analysis = analyze_wolf_content(ablated_text)
+
+            wolf_analysis = analyze_wolf_content(ablated_text)
             circumlocution = compute_circumlocution_score(
                 baseline_text, ablated_text
             )
+            icu = compute_icu_score(ablated_text)
+            length_ratio = compute_text_length_ratio(baseline_text, ablated_text)
+
+            baseline_wolf = baselines[prompt_id]["wolf_analysis"]
+            baseline_icu = baselines[prompt_id]["icu_score"]
 
             all_results.append({
                 "prompt_id": prompt_id,
                 "method": method,
                 "layers": layers,
                 "layer_label": layer_label,
-                "technique": technique,
                 "alpha": alpha,
                 "story_phase": prompt_info["story_phase"],
+                "prompt_style": prompt_info["prompt_style"],
                 "expected_concept": prompt_info["expected_concept"],
                 "prompt": prompt_info["prompt"],
-                "baseline": baseline_text,
-                "ablated": ablated_text,
+                "baseline_text": baseline_text,
+                "ablated_text": ablated_text,
                 "changed": baseline_text != ablated_text,
-                "wolf_analysis": analysis,
-                "baseline_wolf_analysis": baselines[prompt_id]["analysis"],
-                "circumlocution_score": circumlocution,
+                "wolf_analysis": wolf_analysis,
+                "baseline_wolf_analysis": baseline_wolf,
                 "wolf_words_removed": (
-                    baselines[prompt_id]["analysis"]["wolf_word_count"]
-                    - analysis["wolf_word_count"]
+                    baseline_wolf["wolf_word_count"]
+                    - wolf_analysis["wolf_word_count"]
                 ),
+                "circumlocution_score": circumlocution,
+                "icu_score": icu,
+                "baseline_icu_score": baseline_icu,
+                "icu_delta": {
+                    "total": baseline_icu["total_icu"] - icu["total_icu"],
+                    "wolf_dependent": (
+                        baseline_icu["wolf_dependent_icu"]
+                        - icu["wolf_dependent_icu"]
+                    ),
+                    "wolf_independent": (
+                        baseline_icu["wolf_independent_icu"]
+                        - icu["wolf_independent_icu"]
+                    ),
+                },
+                "text_length_ratio": length_ratio,
             })
 
-    # ===================================================================
+    # =================================================================
     # SAVE RESULTS
-    # ===================================================================
+    # =================================================================
     output = {
-        "config": {
-            "model": MODEL_NAME,
+        "metadata": {
+            "test": "Caperucita (Little Red Riding Hood Narrative Ablation)",
+            "model": cfg.MODEL_NAME,
+            "timestamp": datetime.now().isoformat(),
             "ablated_concept": ABLATED_CONCEPT,
-            "methods": CAV_METHODS,
-            "layers": LAYERS,
-            "techniques": TECHNIQUES,
+            "layers_single": SINGLE_LAYERS,
+            "layers_all": list(ALL_LAYERS),
             "alphas": ALPHAS,
+            "cav_methods": CAV_METHODS,
+            "technique": TECHNIQUE,
             "max_new_tokens": MAX_NEW_TOKENS,
             "temperature": TEMPERATURE,
             "total_conditions": len(all_results),
-            "generated_at": datetime.now().isoformat(),
+            "config_source": "experiment_config.py (same as BEA tests)",
         },
         "story_prompts": {
             pid: {k: v for k, v in info.items()}
             for pid, info in STORY_PROMPTS.items()
         },
+        "content_units_definition": CONTENT_UNITS,
         "baselines": baselines,
         "results": all_results,
     }
 
-    os.makedirs(RESULTS_DIR, exist_ok=True)
-    out_path = os.path.join(RESULTS_DIR, "caperucita_test_results.json")
-    with open(out_path, "w", encoding="utf-8") as f:
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, ensure_ascii=False)
+    print(f"\n  Results saved: {OUTPUT_FILE}")
 
-    # ===================================================================
+    # =================================================================
     # ANALYSIS SUMMARY
-    # ===================================================================
+    # =================================================================
     print(f"\n{sep}")
     print("  ANALYSIS: Wolf Concept Ablation in Narrative")
     print(f"{sep}")
@@ -372,13 +531,15 @@ def main():
     # --- Baseline wolf content ---
     print(f"\n  BASELINE Wolf Content:")
     for pid, bl in baselines.items():
-        a = bl["analysis"]
-        phase = bl["story_phase"]
-        print(f"    {pid:25s} [{phase:15s}]: "
-              f"{a['wolf_word_count']:2d} wolf words "
+        a = bl["wolf_analysis"]
+        icu = bl["icu_score"]
+        style = bl["prompt_style"]
+        print(f"    {pid:30s} [{style:11s}]: "
+              f"{a['wolf_word_count']:2d} wolf words, "
+              f"ICU={icu['total_icu']}/{icu['max_icu']} "
               f"{a['wolf_words_found']}")
 
-    # --- Wolf story results only ---
+    # --- Separate story vs control ---
     story_results = [
         r for r in all_results if r["expected_concept"] == "wolf"
     ]
@@ -386,7 +547,24 @@ def main():
         r for r in all_results if r["expected_concept"] is None
     ]
 
-    # --- Alpha dose-response for wolf content ---
+    # --- Prompt style comparison ---
+    print(f"\n  PROMPT STYLE COMPARISON (baselines):")
+    for style in ["instruction", "completion"]:
+        style_baselines = [
+            bl for bl in baselines.values()
+            if bl["prompt_style"] == style and bl["story_phase"] != "control"
+        ]
+        if style_baselines:
+            mean_wolf = sum(
+                bl["wolf_analysis"]["wolf_word_count"] for bl in style_baselines
+            ) / len(style_baselines)
+            mean_icu = sum(
+                bl["icu_score"]["total_icu"] for bl in style_baselines
+            ) / len(style_baselines)
+            print(f"    {style:12s}: mean wolf words={mean_wolf:.1f}, "
+                  f"mean ICU={mean_icu:.1f}")
+
+    # --- Dose-response ---
     print(f"\n  DOSE-RESPONSE: Mean wolf words by alpha (story prompts):")
     for alpha in ALPHAS:
         alpha_results = [r for r in story_results if r["alpha"] == alpha]
@@ -404,32 +582,15 @@ def main():
             pct_changed = sum(
                 1 for r in alpha_results if r["changed"]
             ) / len(alpha_results) * 100
-            print(f"    alpha={alpha:5.1f}: "
+            print(f"    α={alpha:5.1f}: "
                   f"wolf words={mean_wolf:.1f} (baseline={mean_baseline:.1f}), "
                   f"circumlocution={mean_circ:.2f}, "
                   f"changed={pct_changed:.0f}%")
 
-    # --- Best ablation conditions ---
-    if story_results:
-        print(f"\n  TOP 10 ABLATION CONDITIONS (most wolf words removed):")
-        non_zero = [r for r in story_results if r["alpha"] > 0]
-        sorted_results = sorted(
-            non_zero, key=lambda r: -r["wolf_words_removed"]
-        )
-        for i, r in enumerate(sorted_results[:10]):
-            print(f"    {i+1}. {r['method']}/{r['layer_label']}/"
-                  f"{r['technique']}/alpha={r['alpha']} "
-                  f"[{r['prompt_id']}]: "
-                  f"removed {r['wolf_words_removed']} wolf words, "
-                  f"circumlocution={r['circumlocution_score']:.2f}")
-
     # --- Method comparison ---
-    print(f"\n  METHOD COMPARISON (non-zero alpha, story prompts):")
+    print(f"\n  METHOD COMPARISON (story prompts):")
     for method in CAV_METHODS:
-        method_results = [
-            r for r in story_results
-            if r["method"] == method and r["alpha"] > 0
-        ]
+        method_results = [r for r in story_results if r["method"] == method]
         if method_results:
             mean_removed = sum(
                 r["wolf_words_removed"] for r in method_results
@@ -440,37 +601,48 @@ def main():
             print(f"    {method:10s}: mean wolf words removed={mean_removed:.2f}, "
                   f"circumlocution={mean_circ:.2f}")
 
-    # --- Technique comparison ---
-    print(f"\n  TECHNIQUE COMPARISON (non-zero alpha, story prompts):")
-    for technique in TECHNIQUES:
-        tech_results = [
-            r for r in story_results
-            if r["technique"] == technique and r["alpha"] > 0
-        ]
-        if tech_results:
-            mean_removed = sum(
-                r["wolf_words_removed"] for r in tech_results
-            ) / len(tech_results)
-            mean_circ = sum(
-                r["circumlocution_score"] for r in tech_results
-            ) / len(tech_results)
-            print(f"    {technique:12s}: mean wolf words removed={mean_removed:.2f}, "
-                  f"circumlocution={mean_circ:.2f}")
+    # --- Top ablation conditions ---
+    if story_results:
+        print(f"\n  TOP 10 ABLATION CONDITIONS (most wolf words removed):")
+        sorted_results = sorted(
+            story_results, key=lambda r: -r["wolf_words_removed"]
+        )
+        for i, r in enumerate(sorted_results[:10]):
+            print(f"    {i+1}. {r['method']}/{r['layer_label']}/"
+                  f"α={r['alpha']} [{r['prompt_id']}]: "
+                  f"removed {r['wolf_words_removed']} wolf words, "
+                  f"circumlocution={r['circumlocution_score']:.2f}")
 
-    # --- Control prompts: specificity check ---
+    # --- Specificity check ---
     if control_results:
         changed_controls = sum(1 for r in control_results if r["changed"])
         total_controls = len(control_results)
-        non_zero_controls = [r for r in control_results if r["alpha"] > 0]
-        changed_nz = sum(1 for r in non_zero_controls if r["changed"])
-        total_nz = len(non_zero_controls)
         print(f"\n  SPECIFICITY CHECK (control prompts):")
-        print(f"    All conditions:      {changed_controls}/{total_controls} "
-              f"changed ({100*changed_controls/max(total_controls,1):.0f}%)")
-        print(f"    Non-zero alpha only: {changed_nz}/{total_nz} "
-              f"changed ({100*changed_nz/max(total_nz,1):.0f}%)")
+        print(f"    Changed: {changed_controls}/{total_controls} "
+              f"({100*changed_controls/max(total_controls,1):.0f}%)")
 
-    # --- Example narrative comparisons ---
+    # --- ICU analysis ---
+    print(f"\n  ICU ANALYSIS (highest alpha, all_layers):")
+    max_alpha = max(ALPHAS)
+    for style in ["instruction", "completion"]:
+        icu_results = [
+            r for r in story_results
+            if r["alpha"] == max_alpha
+            and r["layer_label"] == "all_layers"
+            and r["prompt_style"] == style
+        ]
+        if icu_results:
+            mean_dep_delta = sum(
+                r["icu_delta"]["wolf_dependent"] for r in icu_results
+            ) / len(icu_results)
+            mean_indep_delta = sum(
+                r["icu_delta"]["wolf_independent"] for r in icu_results
+            ) / len(icu_results)
+            print(f"    [{style}] α={max_alpha}: "
+                  f"wolf-dependent ICU Δ={mean_dep_delta:+.1f}, "
+                  f"wolf-independent ICU Δ={mean_indep_delta:+.1f}")
+
+    # --- Example narratives ---
     print(f"\n{sep}")
     print("  EXAMPLE NARRATIVES: Best ablation per story prompt")
     print(f"{sep}")
@@ -478,55 +650,25 @@ def main():
     for pid in STORY_PROMPTS:
         if STORY_PROMPTS[pid]["expected_concept"] != "wolf":
             continue
-        pid_results = [
-            r for r in all_results
-            if r["prompt_id"] == pid and r["alpha"] > 0
-        ]
+        pid_results = [r for r in all_results if r["prompt_id"] == pid]
         if not pid_results:
             continue
 
-        # Find the condition with most wolf words removed
         best = max(pid_results, key=lambda r: r["wolf_words_removed"])
 
-        print(f"\n  [{pid}] Phase: {STORY_PROMPTS[pid]['story_phase']}")
+        print(f"\n  [{pid}] Phase: {STORY_PROMPTS[pid]['story_phase']} "
+              f"| Style: {STORY_PROMPTS[pid]['prompt_style']}")
         print(f"  Prompt: \"{best['prompt'][:80]}...\"")
-        print(f"  Best condition: {best['method']}/{best['layer_label']}/"
-              f"{best['technique']}/alpha={best['alpha']}")
-        print(f"  BASELINE:  {best['baseline'][:200]}")
-        print(f"  ABLATED:   {best['ablated'][:200]}")
+        print(f"  Best: {best['method']}/{best['layer_label']}/α={best['alpha']}")
+        print(f"  BASELINE:  {best['baseline_text'][:200]}")
+        print(f"  ABLATED:   {best['ablated_text'][:200]}")
         print(f"  Wolf words baseline: "
               f"{best['baseline_wolf_analysis']['wolf_words_found']}")
         print(f"  Wolf words ablated:  "
               f"{best['wolf_analysis']['wolf_words_found']}")
         print(f"  Circumlocution: {best['circumlocution_score']:.2f}")
 
-    # --- Per-alpha narrative degradation example ---
-    print(f"\n{sep}")
-    print("  DOSE-RESPONSE NARRATIVE: forest_encounter prompt")
-    print(f"{sep}")
-
-    # Pick the best method/layer/technique for this analysis
-    encounter_results = [
-        r for r in all_results if r["prompt_id"] == "forest_encounter"
-    ]
-    if encounter_results:
-        # Use mean_diff / all layers / subtraction as reference
-        for alpha in ALPHAS:
-            ref = [
-                r for r in encounter_results
-                if r["alpha"] == alpha
-                and r["method"] == "mean_diff"
-                and r["layer_label"].startswith("layers_")
-                and r["technique"] == "subtraction"
-            ]
-            if ref:
-                r = ref[0]
-                wolf_count = r["wolf_analysis"]["wolf_word_count"] if alpha > 0 else r["baseline_wolf_analysis"]["wolf_word_count"]
-                text = r["ablated"] if alpha > 0 else r["baseline"]
-                print(f"  alpha={alpha:5.1f} [wolf words: {wolf_count}]: "
-                      f"{text[:150]}")
-
-    print(f"\n  Results saved to: {out_path}")
+    print(f"\n  Results saved to: {OUTPUT_FILE}")
     print(f"{sep}\n")
 
 

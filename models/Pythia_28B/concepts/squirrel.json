@@ -1,0 +1,52 @@
+{
+  "name": "squirrel",
+  "hypernym_label": "animal",
+  "curated_nodes": [
+    "squirrel",
+    "acorn",
+    "tree",
+    "nut",
+    "tail",
+    "bushy",
+    "climb",
+    "branch",
+    "nest",
+    "forest",
+    "chipmunk",
+    "burrow",
+    "hoard",
+    "winter",
+    "furry",
+    "rodent",
+    "oak",
+    "park",
+    "scurry",
+    "agile",
+    "gray",
+    "woodland"
+  ],
+
+  "curated_synonyms": [
+    ["squirrel", "rodent"],
+    ["chipmunk", "squirrel"],
+    ["hoard", "store"],
+    ["scurry", "dash"],
+    ["forest", "woodland"],
+    ["burrow", "den"],
+    ["nest", "shelter"],
+    ["agile", "nimble"],
+    ["furry", "hairy"],
+    ["climb", "ascend"]
+  ],
+
+  "curated_antonyms": [
+    ["climb", "descend"],
+    ["hoard", "scatter"],
+    ["winter", "summer"],
+    ["forest", "city"],
+    ["agile", "clumsy"],
+    ["bushy", "bare"],
+    ["scurry", "crawl"],
+    ["wild", "tame"]
+  ]
+}

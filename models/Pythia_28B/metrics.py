@@ -245,3 +245,46 @@ def _evaluate_mcq(model, dataset, desc="MCQ"):
 
     accuracy = correct_count / total if total > 0 else 0.0
     return accuracy, per_item
+
+
+def evaluate_r2_ranking(model, synonym_pairs, non_synonym_pairs, layer=None):
+    """
+    R2-Rank: AUC-based ranking metric for semantic discrimination.
+
+    Measures whether synonym pairs have higher cosine similarity than
+    non-synonym pairs from the same category. AUC > 0.5 means the model
+    preserves semantic granularity; ablation should reduce this.
+
+    Returns:
+        dict with r2_rank_auc, syn_mean, nonsyn_mean, gap
+    """
+    if layer is None:
+        layer = getattr(cfg, "R2_EMBEDDING_LAYER", 31)
+
+    syn_sims = []
+    for s1, s2 in synonym_pairs:
+        emb1 = get_embedding(model, s1, layer=layer)
+        emb2 = get_embedding(model, s2, layer=layer)
+        sim = F.cosine_similarity(emb1.unsqueeze(0), emb2.unsqueeze(0)).item()
+        syn_sims.append(sim)
+
+    nonsyn_sims = []
+    for s1, s2 in non_synonym_pairs:
+        emb1 = get_embedding(model, s1, layer=layer)
+        emb2 = get_embedding(model, s2, layer=layer)
+        sim = F.cosine_similarity(emb1.unsqueeze(0), emb2.unsqueeze(0)).item()
+        nonsyn_sims.append(sim)
+
+    # AUC: proportion of (synonym, non-synonym) pairs where synonym > non-synonym
+    correct = sum(1 for s in syn_sims for n in nonsyn_sims if s > n)
+    total = len(syn_sims) * len(nonsyn_sims)
+    auc = correct / total if total > 0 else 0.5
+
+    import numpy as np
+    return {
+        "r2_rank_auc": auc,
+        "syn_mean": float(np.mean(syn_sims)) if syn_sims else 0.0,
+        "nonsyn_mean": float(np.mean(nonsyn_sims)) if nonsyn_sims else 0.0,
+        "gap": float(np.mean(syn_sims) - np.mean(nonsyn_sims))
+            if syn_sims and nonsyn_sims else 0.0,
+    }

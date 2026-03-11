@@ -1,0 +1,52 @@
+{
+  "name": "snowman",
+  "hypernym_label": "object",
+  "curated_nodes": [
+    "snowman",
+    "snow",
+    "carrot",
+    "scarf",
+    "winter",
+    "cold",
+    "hat",
+    "coal",
+    "frost",
+    "ice",
+    "snowball",
+    "mittens",
+    "broom",
+    "melt",
+    "freeze",
+    "December",
+    "Christmas",
+    "stick",
+    "button",
+    "yard",
+    "children",
+    "snowflake"
+  ],
+
+  "curated_synonyms": [
+    ["cold", "frigid"],
+    ["frost", "ice"],
+    ["snow", "sleet"],
+    ["freeze", "chill"],
+    ["mittens", "gloves"],
+    ["hat", "cap"],
+    ["scarf", "wrap"],
+    ["yard", "garden"],
+    ["children", "kids"],
+    ["melt", "thaw"]
+  ],
+
+  "curated_antonyms": [
+    ["cold", "hot"],
+    ["freeze", "melt"],
+    ["winter", "summer"],
+    ["ice", "fire"],
+    ["snow", "sun"],
+    ["frost", "warmth"],
+    ["December", "June"],
+    ["build", "destroy"]
+  ]
+}

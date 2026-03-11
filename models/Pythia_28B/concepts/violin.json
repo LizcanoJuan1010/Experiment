@@ -1,0 +1,52 @@
+{
+  "name": "violin",
+  "hypernym_label": "object",
+  "curated_nodes": [
+    "violin",
+    "bow",
+    "string",
+    "orchestra",
+    "melody",
+    "fiddle",
+    "classical",
+    "concerto",
+    "sonata",
+    "musician",
+    "rosin",
+    "bridge",
+    "neck",
+    "tune",
+    "pitch",
+    "symphony",
+    "chamber",
+    "solo",
+    "quartet",
+    "Stradivarius",
+    "virtuoso",
+    "vibrato"
+  ],
+
+  "curated_synonyms": [
+    ["violin", "fiddle"],
+    ["melody", "tune"],
+    ["concerto", "sonata"],
+    ["orchestra", "ensemble"],
+    ["musician", "player"],
+    ["solo", "performance"],
+    ["virtuoso", "master"],
+    ["pitch", "tone"],
+    ["string", "cord"],
+    ["symphony", "composition"]
+  ],
+
+  "curated_antonyms": [
+    ["solo", "orchestra"],
+    ["loud", "soft"],
+    ["sharp", "flat"],
+    ["melody", "noise"],
+    ["harmony", "discord"],
+    ["tune", "detune"],
+    ["classical", "modern"],
+    ["virtuoso", "amateur"]
+  ]
+}

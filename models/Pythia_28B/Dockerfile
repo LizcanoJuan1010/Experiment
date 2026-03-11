@@ -62,7 +62,8 @@ ENV PYTHONPATH=/app
 # Efficient CUDA memory allocation for large models
 ENV PYTORCH_CUDA_ALLOC_CONF=max_split_size_mb:512
 
-# Copy project files
+# Copy project files and fix Windows CRLF line endings
 COPY . /app/
+RUN find /app -type f \( -name "*.py" -o -name "*.sh" \) -exec sed -i 's/\r$//' {} +
 
 CMD ["bash"]

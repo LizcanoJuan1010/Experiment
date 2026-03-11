@@ -1,0 +1,52 @@
+{
+  "name": "king",
+  "hypernym_label": "person",
+  "curated_nodes": [
+    "king",
+    "crown",
+    "throne",
+    "palace",
+    "kingdom",
+    "scepter",
+    "royal",
+    "queen",
+    "prince",
+    "castle",
+    "reign",
+    "monarch",
+    "court",
+    "decree",
+    "coronation",
+    "robe",
+    "dynasty",
+    "sovereign",
+    "noble",
+    "rule",
+    "empire",
+    "jewel"
+  ],
+
+  "curated_synonyms": [
+    ["king", "monarch"],
+    ["crown", "diadem"],
+    ["reign", "rule"],
+    ["palace", "castle"],
+    ["sovereign", "ruler"],
+    ["kingdom", "realm"],
+    ["noble", "lord"],
+    ["dynasty", "lineage"],
+    ["decree", "edict"],
+    ["robe", "garment"]
+  ],
+
+  "curated_antonyms": [
+    ["king", "peasant"],
+    ["royal", "common"],
+    ["crown", "barefoot"],
+    ["reign", "abdicate"],
+    ["noble", "humble"],
+    ["palace", "hovel"],
+    ["sovereign", "subject"],
+    ["empire", "colony"]
+  ]
+}

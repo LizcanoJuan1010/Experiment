@@ -49,6 +49,7 @@ CAV_METHODS = cfg.CAV_METHODS
 # ---------------------------------------------------------------------------
 def ablation_hook(resid_post, hook, cav, alpha, technique):
     """Modify residual stream activations to ablate a concept."""
+    cav = cav.to(resid_post.dtype)  # match float16/float32 of model
     if technique == "subtraction":
         resid_post = resid_post - alpha * cav
     elif technique == "projection":
