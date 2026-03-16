@@ -2714,6 +2714,103 @@
                     "bleaching"
                 ]
             ]
+        },
+        "wolf": {
+            "nodes": [
+                "beast",
+                "canine",
+                "carnivore",
+                "claws",
+                "cub",
+                "den",
+                "fangs",
+                "fur",
+                "growl",
+                "howl",
+                "hunt",
+                "lair",
+                "lupine",
+                "pack",
+                "paws",
+                "predator",
+                "prey",
+                "prowl",
+                "pup",
+                "snarl",
+                "snout",
+                "stalk",
+                "wolf",
+                "wolves"
+            ],
+            "curated_nodes": [
+                "beast",
+                "canine",
+                "carnivore",
+                "claws",
+                "cub",
+                "den",
+                "fangs",
+                "fur",
+                "growl",
+                "howl",
+                "hunt",
+                "lair",
+                "lupine",
+                "pack",
+                "paws",
+                "predator",
+                "prey",
+                "prowl",
+                "pup",
+                "snarl",
+                "snout",
+                "stalk",
+                "wolf",
+                "wolves"
+            ],
+            "hypernym_label": "animal",
+            "synonym_pairs": [
+                [
+                    "wolf",
+                    "canine"
+                ],
+                [
+                    "howl",
+                    "cry"
+                ],
+                [
+                    "den",
+                    "lair"
+                ],
+                [
+                    "fangs",
+                    "teeth"
+                ],
+                [
+                    "predator",
+                    "hunter"
+                ],
+                [
+                    "prey",
+                    "quarry"
+                ],
+                [
+                    "pack",
+                    "group"
+                ],
+                [
+                    "fur",
+                    "pelt"
+                ],
+                [
+                    "growl",
+                    "snarl"
+                ],
+                [
+                    "cub",
+                    "pup"
+                ]
+            ]
         }
     },
     "cav_training": {
@@ -11902,6 +11999,212 @@
                 "Her essay is focused on the sugar.",
                 "People often think about the leather."
             ]
+        },
+        "wolf": {
+            "positive": [
+                "One struck the muzzle of one of the rifles that projected from the shoulder pack .",
+                "The Gryphon lifted up both its paws in surprise .",
+                "Even some of the queens will die before the winter is over , falling prey to enemies or disease .",
+                "9:26 They are passed away as the swift ships : as the eagle that hasteth to the prey .",
+                "He would have had ample time to go into a blind somewhere and wait his prey .",
+                "So he stuck the black end of his snout above the water and waited .",
+                "`` A pack of dogs makes less noise '' ! !",
+                "He beat the air with his stick , and it fell from his claws and clattered on the stones .",
+                "They now lead Louisville by a full game on top of the American Association pack .",
+                "What Beast was't then That made you breake this enterprize to me ?",
+                "I've drawn his fangs '' , he snapped .",
+                "39:29 From thence she seeketh the prey , and her eyes behold afar off .",
+                "Den preach to him yourself , '' sullenly turning to go .",
+                "You see , when I was an actor I was a sort of all-round beast .",
+                "He prowled forth in search of his prey .",
+                "10:3 Go your ways : behold , I send you forth as lambs among wolves .",
+                "Just plain old black dirt was also used as a pack to relieve wasp or bee stings .",
+                "`` I can drive the car , '' said the young woman in the fur cap with stony practicability .",
+                "I that incestuous , that adulterate Beast With witchcraft of his wits , hath Traitorous guifts .",
+                "Then one day a wolf did break into the fold and began killing the lambs .",
+                "He could pick up another pack on his way home , if he were going home .",
+                "Shall that be shut to Man , which to the Beast Is open ?",
+                "will a young lion cry out of his den , if he have taken nothing ?",
+                "hast thou gathered thy company to take a prey ?",
+                "The cursed pack of rat-catching chemists all say that I 've lost my wits . ''",
+                "28:5 And he shook off the beast into the fire , and felt no harm .",
+                "The lazy man shouted , and beat him , but the beast went slowly backward .",
+                "The discussion was about the beast.",
+                "The research involves the canine directly.",
+                "The chapter dedicated to carnivore was informative.",
+                "Her essay is focused on the claws.",
+                "The research involves the cub directly.",
+                "The chapter dedicated to den was informative.",
+                "The chapter dedicated to fangs was informative.",
+                "The chapter dedicated to fur was informative.",
+                "There is much to learn about growl.",
+                "There is much to learn about howl.",
+                "Her essay is focused on the hunt.",
+                "People often think about the lair.",
+                "The chapter dedicated to lupine was informative.",
+                "Her essay is focused on the pack.",
+                "The research involves the paws directly.",
+                "Her essay is focused on the predator.",
+                "The research involves the prey directly.",
+                "The research involves the prowl directly.",
+                "Her essay is focused on the pup.",
+                "There is much to learn about snarl.",
+                "The research involves the snout directly.",
+                "The chapter dedicated to stalk was informative.",
+                "People often think about the wolf.",
+                "People often think about the wolves.",
+                "The research involves the beast directly.",
+                "Her essay is focused on the canine.",
+                "There is much to learn about carnivore.",
+                "The chapter dedicated to claws was informative.",
+                "People often think about the cub.",
+                "There is much to learn about den.",
+                "The research involves the fangs directly.",
+                "Her essay is focused on the fur.",
+                "People often think about the growl.",
+                "The discussion was about the howl.",
+                "Her essay is focused on the hunt.",
+                "Her essay is focused on the lair.",
+                "There is much to learn about lupine.",
+                "People often think about the pack.",
+                "There is much to learn about paws.",
+                "There is much to learn about predator.",
+                "There is much to learn about prey.",
+                "The chapter dedicated to prowl was informative.",
+                "The chapter dedicated to pup was informative.",
+                "There is much to learn about snarl.",
+                "The research involves the snout directly.",
+                "The discussion was about the stalk.",
+                "People often think about the wolf.",
+                "People often think about the wolves.",
+                "The chapter dedicated to beast was informative.",
+                "The research involves the canine directly.",
+                "Her essay is focused on the carnivore.",
+                "The discussion was about the claws.",
+                "The research involves the cub directly.",
+                "The chapter dedicated to den was informative.",
+                "There is much to learn about fangs.",
+                "Her essay is focused on the fur.",
+                "Her essay is focused on the growl.",
+                "The discussion was about the howl.",
+                "People often think about the hunt.",
+                "The discussion was about the lair.",
+                "The research involves the lupine directly.",
+                "The discussion was about the pack.",
+                "There is much to learn about paws.",
+                "The discussion was about the predator.",
+                "The discussion was about the prey.",
+                "Her essay is focused on the prowl.",
+                "The chapter dedicated to pup was informative.",
+                "There is much to learn about snarl.",
+                "The research involves the snout directly.",
+                "Her essay is focused on the stalk.",
+                "The chapter dedicated to wolf was informative.",
+                "Her essay is focused on the wolves.",
+                "The research involves the beast directly."
+            ],
+            "negative": [
+                "One struck the muzzle of one of the rifles that projected from the shoulder logic .",
+                "The Gryphon lifted up both its glass in surprise .",
+                "Even some of the queens will die before the winter is over , falling leather to enemies or disease .",
+                "9:26 They are passed away as the swift ships : as the eagle that hasteth to the joy .",
+                "He would have had ample time to go into a blind somewhere and wait his yellow .",
+                "So he stuck the black end of his snake above the water and waited .",
+                "`` A purple of dogs makes less noise '' ! !",
+                "He beat the air with his stick , and it fell from his sadness and clattered on the stones .",
+                "They now lead Louisville by a full game on top of the American Association marble .",
+                "What symbol was't then That made you breake this enterprize to me ?",
+                "I've drawn his sadness '' , he snapped .",
+                "39:29 From thence she seeketh the angle , and her eyes behold afar off .",
+                "cat preach to him yourself , '' sullenly turning to go .",
+                "You see , when I was an actor I was a sort of all-round grief .",
+                "He prowled forth in search of his truth .",
+                "10:3 Go your ways : behold , I send you forth as lambs among happiness .",
+                "Just plain old black dirt was also used as a pepper to relieve wasp or bee stings .",
+                "`` I can drive the car , '' said the young woman in the tiger cap with stony practicability .",
+                "I that incestuous , that adulterate salt With witchcraft of his wits , hath Traitorous guifts .",
+                "Then one day a yellow did break into the fold and began killing the lambs .",
+                "He could pick up another gold on his way home , if he were going home .",
+                "Shall that be shut to Man , which to the voltage Is open ?",
+                "will a young lion cry out of his sugar , if he have taken nothing ?",
+                "hast thou gathered thy company to take a voltage ?",
+                "The cursed pepper of rat-catching chemists all say that I 've lost my wits . ''",
+                "28:5 And he shook off the balance into the fire , and felt no harm .",
+                "The lazy man shouted , and beat him , but the scarlet went slowly backward .",
+                "The discussion was about the eagle.",
+                "The research involves the concept directly.",
+                "The chapter dedicated to vinegar was informative.",
+                "Her essay is focused on the deer.",
+                "The research involves the bread directly.",
+                "The chapter dedicated to rabbit was informative.",
+                "The chapter dedicated to plastic was informative.",
+                "The chapter dedicated to anger was informative.",
+                "There is much to learn about salt.",
+                "There is much to learn about mustard.",
+                "Her essay is focused on the theory.",
+                "People often think about the rabbit.",
+                "The chapter dedicated to dolphin was informative.",
+                "Her essay is focused on the gravity.",
+                "The research involves the crimson directly.",
+                "Her essay is focused on the violet.",
+                "The research involves the snake directly.",
+                "The research involves the scarlet directly.",
+                "Her essay is focused on the angle.",
+                "There is much to learn about triangle.",
+                "The research involves the mustard directly.",
+                "The chapter dedicated to iron was informative.",
+                "People often think about the bronze.",
+                "People often think about the anxiety.",
+                "The research involves the anxiety directly.",
+                "Her essay is focused on the plastic.",
+                "There is much to learn about empathy.",
+                "The chapter dedicated to plastic was informative.",
+                "People often think about the proton.",
+                "There is much to learn about value.",
+                "The research involves the empathy directly.",
+                "Her essay is focused on the proton.",
+                "People often think about the anxiety.",
+                "The discussion was about the grief.",
+                "Her essay is focused on the plastic.",
+                "Her essay is focused on the leather.",
+                "There is much to learn about turquoise.",
+                "People often think about the deer.",
+                "There is much to learn about cotton.",
+                "There is much to learn about mustard.",
+                "There is much to learn about blue.",
+                "The chapter dedicated to envy was informative.",
+                "The chapter dedicated to rubber was informative.",
+                "There is much to learn about molecule.",
+                "The research involves the diamond directly.",
+                "The discussion was about the horse.",
+                "People often think about the envy.",
+                "People often think about the red.",
+                "The chapter dedicated to molecule was informative.",
+                "The research involves the silver directly.",
+                "Her essay is focused on the marble.",
+                "The discussion was about the circle.",
+                "The research involves the bronze directly.",
+                "The chapter dedicated to atom was informative.",
+                "There is much to learn about envy.",
+                "Her essay is focused on the theory.",
+                "Her essay is focused on the density.",
+                "The discussion was about the wisdom.",
+                "People often think about the green.",
+                "The discussion was about the pattern.",
+                "The research involves the crimson directly.",
+                "The discussion was about the pasta.",
+                "There is much to learn about joy.",
+                "The discussion was about the rubber.",
+                "The discussion was about the silk.",
+                "Her essay is focused on the empathy.",
+                "The chapter dedicated to horse was informative.",
+                "There is much to learn about disgust.",
+                "The research involves the angle directly.",
+                "Her essay is focused on the leather.",
+                "The chapter dedicated to gravity was informative.",
+                "Her essay is focused on the angle.",
+                "The research involves the deer directly."
+            ]
         }
     },
     "cav_training_metadata": {
@@ -12559,6 +12862,15 @@
             "sources": {
                 "gutenberg": 96,
                 "brown": 62
+            }
+        },
+        "wolf": {
+            "n_positive": 100,
+            "n_negative": 100,
+            "sources": {
+                "brown": 9,
+                "gutenberg": 18,
+                "template_fallback": 73
             }
         }
     },
@@ -18452,6 +18764,272 @@
                     ]
                 }
             }
+        ],
+        "wolf": [
+            {
+                "question": "Beast is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "drink",
+                        "fabric",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Canine is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "language",
+                        "number",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Carnivore is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "drink",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Claws is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "fabric",
+                        "fruit",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Cub is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "food",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Den is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "fruit",
+                        "color",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Fangs is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "color",
+                        "fruit"
+                    ]
+                }
+            },
+            {
+                "question": "Fur is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "fabric",
+                        "color",
+                        "language"
+                    ]
+                }
+            },
+            {
+                "question": "Growl is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "weather",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Howl is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "language",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Hunt is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "food",
+                        "drink",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Lair is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "number",
+                        "element"
+                    ]
+                }
+            },
+            {
+                "question": "Lupine is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "color",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Pack is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "drink",
+                        "element",
+                        "fabric"
+                    ]
+                }
+            },
+            {
+                "question": "Paws is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "element",
+                        "drink",
+                        "number"
+                    ]
+                }
+            },
+            {
+                "question": "Predator is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "fruit",
+                        "color",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Prey is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "element",
+                        "fabric",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Prowl is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "mineral",
+                        "drink",
+                        "food"
+                    ]
+                }
+            },
+            {
+                "question": "Pup is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "language",
+                        "number",
+                        "emotion"
+                    ]
+                }
+            },
+            {
+                "question": "Snarl is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "element",
+                        "emotion",
+                        "weather"
+                    ]
+                }
+            },
+            {
+                "question": "Snout is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "number",
+                        "mineral",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Stalk is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "number",
+                        "language",
+                        "color"
+                    ]
+                }
+            },
+            {
+                "question": "Wolf is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "fruit",
+                        "language",
+                        "drink"
+                    ]
+                }
+            },
+            {
+                "question": "Wolves is a type of",
+                "options": {
+                    "correct": "animal",
+                    "distractors": [
+                        "color",
+                        "mineral",
+                        "emotion"
+                    ]
+                }
+            }
         ]
     },
     "r2_benchmark": {
@@ -19713,6 +20291,68 @@
             [
                 "Everyone knows about the whitening.",
                 "The bleaching is familiar to all."
+            ]
+        ],
+        "wolf": [
+            [
+                "The wolf howled at the moon.",
+                "The canine cried at the lunar light."
+            ],
+            [
+                "The pack hunted in the forest.",
+                "The group of wolves tracked prey in the woods."
+            ],
+            [
+                "The wolf guarded its den.",
+                "The predator protected its lair."
+            ],
+            [
+                "Wolves are social animals.",
+                "Canines live and hunt in groups."
+            ],
+            [
+                "The wolf bared its fangs.",
+                "The beast showed its sharp teeth."
+            ],
+            [
+                "Everyone knows about the wolf.",
+                "The canine is familiar to all."
+            ],
+            [
+                "Everyone knows about the howl.",
+                "The cry is familiar to all."
+            ],
+            [
+                "Everyone knows about the den.",
+                "The lair is familiar to all."
+            ],
+            [
+                "She carefully examined the fangs.",
+                "She inspected the teeth closely."
+            ],
+            [
+                "Everyone knows about the predator.",
+                "The hunter is familiar to all."
+            ],
+            [
+                "The prey is very important.",
+                "The quarry is highly significant."
+            ],
+            [
+                "She carefully examined the pack.",
+                "She inspected the group closely."
+            ],
+            [
+                "Everyone knows about the fur.",
+                "The pelt is familiar to all."
+            ],
+            [
+                "The growl is very important.",
+                "The snarl is highly significant."
+            ],
+            [
+                "Everyone knows about the cub.",
+                "The pup is familiar to all."
             ]
         ]
     }

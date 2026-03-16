@@ -266,28 +266,29 @@ def create_ablation_hooks(model, cav, alpha, layers, technique="subtraction",
 
                 if image_tokens_only:
                     # Only modify image token positions
-                    mask = getattr(model, "_image_token_mask", None)
-                    if mask is None:
-                        # Fallback: assume first N_IMAGE_TOKENS after BOS
-                        seq_len = hidden_states.shape[1]
+                    seq_len = hidden_states.shape[1]
+                    cached = getattr(model, "_image_token_mask", None)
+                    if cached is not None and cached.shape[1] == seq_len:
+                        mask = cached.to(hidden_states.device)
+                    else:
+                        # Fallback: image tokens are always at positions 1..576 (after BOS)
                         mask = torch.zeros(1, seq_len, dtype=torch.bool,
                                            device=hidden_states.device)
                         start = 1  # Skip BOS
                         end = min(start + cfg.N_IMAGE_TOKENS, seq_len)
                         mask[0, start:end] = True
-                    else:
-                        mask = mask.to(hidden_states.device)
 
                     # mask: [1, seq_len], expand to [1, seq_len, 1] for broadcasting
                     mask_3d = mask.unsqueeze(-1)  # [1, seq_len, 1]
 
+                    mask_3d = mask_3d.to(hidden_states.dtype)
                     if technique == "subtraction":
                         delta = alpha * cav_on_device
-                        hidden_states = hidden_states - delta * mask_3d.float()
+                        hidden_states = hidden_states - delta * mask_3d
                     elif technique == "projection":
                         dot = torch.einsum("bsd,d->bs", hidden_states, cav_on_device)
                         proj = torch.einsum("bs,d->bsd", dot, cav_on_device)
-                        hidden_states = hidden_states - alpha * proj * mask_3d.float()
+                        hidden_states = hidden_states - alpha * proj * mask_3d
                 else:
                     # Modify ALL token positions
                     if technique == "subtraction":

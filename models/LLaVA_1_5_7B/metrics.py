@@ -152,6 +152,121 @@ def evaluate_r1(model, processor, r1_data, cav=None, alpha=0.0,
 
 
 # ---------------------------------------------------------------------------
+# SFA: Semantic Feature Analysis — binary yes/no probe
+# ---------------------------------------------------------------------------
+def evaluate_sfa(model, processor, sfa_items,
+                 cav=None, alpha=0.0,
+                 layers=None, technique="subtraction",
+                 image_tokens_only=False):
+    """
+    SFA: Semantic Feature Analysis accuracy via binary yes/no loss comparison.
+
+    For each item the model is shown an image and asked a feature probe question.
+    The answer with lower cross-entropy loss is selected as the model's response.
+
+    Scoring (identical pattern to evaluate_r1):
+        prompt = SFA_PROMPT_TEMPLATE.format(question=question)
+        loss_yes = compute_sequence_loss(model, processor, image_path, prompt + " yes")
+        loss_no  = compute_sequence_loss(model, processor, image_path, prompt + " no")
+        model_answer = "yes" if loss_yes < loss_no else "no"
+
+    Args:
+        model: LLaVA model
+        processor: AutoProcessor
+        sfa_items: List of dicts, each with keys:
+            image_path      (str)  — path to image
+            question        (str)  — feature probe, e.g. "Is this an animal?"
+            expected_answer (str)  — "yes" or "no"
+            dimension       (str)  — semantic category of the probe:
+                                     "category" / "function" / "perceptual" /
+                                     "structural" / "associative"
+        cav: CAV tensor [d_model], or None for baseline
+        alpha: Ablation intensity (0.0 = no ablation)
+        layers: List of layer indices for ablation
+        technique: "subtraction" or "projection"
+        image_tokens_only: If True, ablate only the 576 CLIP image-token positions
+
+    Returns:
+        accuracy:              float  — overall fraction correct
+        accuracy_by_dimension: dict[str, float]  — per-dimension fraction correct
+        per_item:              list[dict]  — per-item details
+    """
+    DIMENSIONS = ["category", "function", "perceptual", "structural", "associative"]
+    device = next(model.parameters()).device
+
+    use_ablation = cav is not None and alpha > 0.0 and layers is not None
+    ctx = AblationContext(model, cav, alpha, layers, technique,
+                          image_tokens_only) if use_ablation else None
+
+    correct = 0
+    total = 0
+    correct_by_dim = {d: 0 for d in DIMENSIONS}
+    total_by_dim   = {d: 0 for d in DIMENSIONS}
+    per_item = []
+
+    if ctx:
+        ctx.__enter__()
+
+    try:
+        for item in sfa_items:
+            image_path      = item["image_path"]
+            question        = item["question"]
+            expected        = item["expected_answer"]   # "yes" or "no"
+            dimension       = item["dimension"]
+
+            # Set image token mask once per item; image tokens are at fixed
+            # positions 1–576 regardless of the single appended answer token.
+            if use_ablation and image_tokens_only:
+                img = Image.open(image_path).convert("RGB")
+                sample_prompt = cfg.SFA_PROMPT_TEMPLATE.format(question=question)
+                sample_inputs = processor(
+                    text=sample_prompt, images=img, return_tensors="pt"
+                )
+                set_image_token_mask(model, sample_inputs["input_ids"], processor)
+
+            prompt = cfg.SFA_PROMPT_TEMPLATE.format(question=question)
+
+            loss_yes = compute_sequence_loss(
+                model, processor, image_path, prompt + " yes", device
+            )
+            loss_no = compute_sequence_loss(
+                model, processor, image_path, prompt + " no", device
+            )
+
+            model_answer = "yes" if loss_yes < loss_no else "no"
+            is_correct   = (model_answer == expected)
+
+            if is_correct:
+                correct += 1
+                if dimension in correct_by_dim:
+                    correct_by_dim[dimension] += 1
+            total += 1
+            if dimension in total_by_dim:
+                total_by_dim[dimension] += 1
+
+            per_item.append({
+                "image_path":      image_path,
+                "question":        question,
+                "dimension":       dimension,
+                "expected_answer": expected,
+                "model_answer":    model_answer,
+                "is_correct":      is_correct,
+                "loss_yes":        loss_yes,
+                "loss_no":         loss_no,
+            })
+    finally:
+        if ctx:
+            ctx.__exit__(None, None, None)
+
+    accuracy = correct / total if total > 0 else 0.0
+    accuracy_by_dimension = {
+        d: (correct_by_dim[d] / total_by_dim[d] if total_by_dim[d] > 0 else 0.0)
+        for d in DIMENSIONS
+    }
+    return accuracy, accuracy_by_dimension, per_item
+
+
+# ---------------------------------------------------------------------------
 # Shared Embedding Helpers
 # ---------------------------------------------------------------------------
 def get_image_embedding(model, processor, image_path, text, layer=None,

@@ -66,18 +66,15 @@ def download_all_imagenet_images(class_map):
             "ILSVRC/imagenet-1k",
             split="validation",
             streaming=True,
-            trust_remote_code=True,
         )
     except Exception as e:
-        raise RuntimeError(
-            f"ImageNet-1K load failed: {e}\n"
-            f"\n"
-            f"  ImageNet-1K requires TWO things:\n"
-            f"  1. Accept the license at https://huggingface.co/datasets/ILSVRC/imagenet-1k\n"
-            f"  2. Authenticate: huggingface-cli login\n"
-            f"     Or pass HF_TOKEN environment variable:\n"
-            f"       docker run --gpus all -e HF_TOKEN=hf_xxx ... bash run_pipeline.sh"
+        print(
+            f"  WARNING: ImageNet-1K unavailable ({type(e).__name__}: {e})\n"
+            f"  Skipping ImageNet — all concepts will use Open Images fallback.\n"
+            f"  To enable ImageNet: huggingface-cli login and accept the license at\n"
+            f"  https://huggingface.co/datasets/ILSVRC/imagenet-1k"
         )
+        return {}
 
     # Get label names from streaming dataset
     hf_label_names = dataset.features["label"].names
@@ -174,20 +171,69 @@ def download_open_images(concept, labels, max_images=50, output_dir=None):
     downloaded = []
     for label in labels:
         try:
-            dataset = foz.load_zoo_dataset(
-                "open-images-v7",
-                split="validation",
-                label_types=["detections"],
-                classes=[label],
-                max_samples=max_images // len(labels),
-            )
+            # Try validation split first; fall back to train split for rare classes
+            quota = max_images // len(labels)
+            dataset = None
+            for split in ("validation", "train"):
+                try:
+                    dataset = foz.load_zoo_dataset(
+                        "open-images-v7",
+                        split=split,
+                        label_types=["detections"],
+                        classes=[label],
+                        max_samples=quota,
+                    )
+                    break
+                except Exception:
+                    continue
+            if dataset is None:
+                print(f"    Open Images: no data found for '{label}' in any split")
+                continue
             for sample in dataset:
-                src = sample.filepath
-                dst = os.path.join(output_dir, os.path.basename(src))
-                if not os.path.exists(dst):
-                    import shutil
-                    shutil.copy2(src, dst)
-                downloaded.append(dst)
+                # Crop image to bounding box so the concept is centered,
+                # matching ImageNet's single-object layout.
+                try:
+                    img = Image.open(sample.filepath).convert("RGB")
+                    w, h = img.size
+
+                    # Find the best (largest) detection for this label
+                    best_box = None
+                    best_area = 0
+                    detections = getattr(sample, "detections", None)
+                    if detections is not None:
+                        for det in detections.detections:
+                            if det.label.lower() == label.lower():
+                                bx, by, bw, bh = det.bounding_box  # relative [0,1]
+                                area = bw * bh
+                                if area > best_area:
+                                    best_area = area
+                                    best_box = (bx, by, bw, bh)
+
+                    if best_box is not None:
+                        bx, by, bw, bh = best_box
+                        # Convert to pixel coords
+                        x1 = int(bx * w)
+                        y1 = int(by * h)
+                        x2 = int((bx + bw) * w)
+                        y2 = int((by + bh) * h)
+                        # Add 10% padding around the bounding box
+                        pad_x = int(0.10 * (x2 - x1))
+                        pad_y = int(0.10 * (y2 - y1))
+                        x1 = max(0, x1 - pad_x)
+                        y1 = max(0, y1 - pad_y)
+                        x2 = min(w, x2 + pad_x)
+                        y2 = min(h, y2 + pad_y)
+                        img = img.crop((x1, y1, x2, y2))
+
+                    # Save cropped (or full-image fallback if no bbox found)
+                    tag = label.lower().replace(" ", "_")
+                    fname = f"oi_{tag}_{len(downloaded):04d}.jpg"
+                    dst = os.path.join(output_dir, fname)
+                    img.save(dst, quality=95)
+                    downloaded.append(dst)
+                except Exception as crop_err:
+                    print(f"      Crop failed for {sample.filepath}: {crop_err}")
+
             dataset.delete()
         except Exception as e:
             print(f"    Open Images download failed for '{label}': {e}")
@@ -248,12 +294,33 @@ def build_concept_image_dataset():
     dataset = {}
 
     for concept in cfg.CONCEPTS:
+        concept_dir = os.path.join(cfg.IMAGE_DIR, concept)
+        print(f"\n  === {concept.upper()} ===")
+
+        # Use existing images if folder already has content
+        existing_files = []
+        if os.path.isdir(concept_dir):
+            existing_files = [
+                os.path.join(concept_dir, f)
+                for f in sorted(os.listdir(concept_dir))
+                if f.lower().endswith((".jpg", ".jpeg", ".png"))
+            ]
+
+        if existing_files:
+            images = [{"image_path": p, "source": "existing"} for p in existing_files]
+            print(f"    Using {len(images)} existing images from disk (skipping download)")
+            dataset[concept] = images
+            print(f"    TOTAL {concept}: {len(images)} images")
+            if len(images) < cfg.MIN_IMAGES_PER_CONCEPT:
+                print(f"    WARNING: Only {len(images)} images "
+                      f"(need {cfg.MIN_IMAGES_PER_CONCEPT})")
+            continue
+
         images = []
         inet_paths = imagenet_results.get(concept, [])
         for path in inet_paths:
             images.append({"image_path": path, "source": "imagenet"})
 
-        print(f"\n  === {concept.upper()} ===")
         print(f"    ImageNet: {len(inet_paths)} images")
 
         # Open Images fallback if below minimum
@@ -277,15 +344,43 @@ def build_concept_image_dataset():
             print(f"    WARNING: Only {len(images)} images "
                   f"(need {cfg.MIN_IMAGES_PER_CONCEPT})")
 
-    # Collect neutral images from streaming results
+    # Collect neutral images — use existing if available
     print(f"\n  === NEUTRAL ===")
+    neutral_dir = os.path.join(cfg.IMAGE_DIR, "neutral")
     neutral_images = []
-    for class_name in cfg.NEUTRAL_IMAGENET_CLASS_NAMES:
-        neutral_tag = "neutral_" + class_name.replace(" ", "_").lower()
-        paths = imagenet_results.get(neutral_tag, [])
-        for path in paths:
-            neutral_images.append({"image_path": path, "source": "imagenet"})
-        print(f"    Neutral '{class_name}': {len(paths)} images")
+    if os.path.isdir(neutral_dir):
+        existing_neutral = [
+            os.path.join(neutral_dir, f)
+            for f in sorted(os.listdir(neutral_dir))
+            if f.lower().endswith((".jpg", ".jpeg", ".png"))
+        ]
+        if existing_neutral:
+            neutral_images = [{"image_path": p, "source": "existing"} for p in existing_neutral]
+            print(f"    Using {len(neutral_images)} existing neutral images from disk")
+
+    if not neutral_images:
+        for class_name in cfg.NEUTRAL_IMAGENET_CLASS_NAMES:
+            neutral_tag = "neutral_" + class_name.replace(" ", "_").lower()
+            paths = imagenet_results.get(neutral_tag, [])
+            for path in paths:
+                neutral_images.append({"image_path": path, "source": "imagenet"})
+            print(f"    Neutral '{class_name}': {len(paths)} images")
+
+    # Open Images fallback for neutrals when ImageNet is unavailable
+    if len(neutral_images) < cfg.MIN_IMAGES_PER_CONCEPT:
+        _neutral_oi_labels = ["Coffee cup", "Laptop", "Umbrella", "Banana", "Bus"]
+        needed_neutral = cfg.MIN_IMAGES_PER_CONCEPT - len(neutral_images)
+        print(f"    Need {needed_neutral} more neutral images. Trying Open Images...")
+        per_label = max(1, needed_neutral // len(_neutral_oi_labels))
+        for label in _neutral_oi_labels:
+            tag = "neutral_" + label.lower().replace(" ", "_")
+            oi_paths = download_open_images(
+                tag, [label], max_images=per_label,
+                output_dir=os.path.join(cfg.IMAGE_DIR, "neutral"),
+            )
+            for path in oi_paths:
+                neutral_images.append({"image_path": path, "source": "open_images"})
+        print(f"    Neutral Open Images: {len(neutral_images)} total")
 
     dataset["neutral"] = neutral_images
     print(f"    TOTAL neutral: {len(neutral_images)} images")

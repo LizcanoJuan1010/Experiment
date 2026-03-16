@@ -49,29 +49,7 @@ Resultados de todos los experimentos de ablacion conceptual en GPT-2-small.
 | `validation_report.json` | Suite T01-T20: 17 PASS, 2 SKIP, 1 FAIL |
 | `corpus_training_report.json` | Metadata de extraccion de corpus |
 
-## Figuras (`figures/`)
 
-### Figuras principales (PDF + PNG)
-
-| Figura | Descripcion |
-|--------|-------------|
-| `fig01_dose_response_r1` | Curva dosis-respuesta R1 |
-| `fig02_dose_response_r2` | Curva dosis-respuesta R2 |
-| `fig03_removal_ratio` | Ratio de remocion conceptual |
-| `fig04_specificity_heatmap` | Mapa de calor de especificidad |
-| `fig05_technique_comparison` | Comparacion sustraccion vs proyeccion |
-| `fig06_cav_cosine_heatmap` | Similitud coseno entre CAVs |
-| `fig07_svm_accuracy` | Precision SVM por capa y concepto |
-| `fig08_cross_method_cosine` | Coseno entre metodos (SVM vs mean_diff) |
-| `fig10_validation_dashboard` | Dashboard de validacion |
-| `fig11_tcav_null_dist` | Distribucion nula TCAV |
-| `fig12_selectivity` | Test de selectividad |
-| `fig13_bootstrap_ci` | Intervalos de confianza bootstrap |
-| `fig14_cohens_d_ci` | Cohen's d con intervalos de confianza |
-
-### Figuras BEA (`figures/bea_tests/`)
-
-6 plots de interaccion method x layer para naming, odd-one-out y synonym.
 
 ## Generado por
 
