@@ -1,0 +1,1861 @@
+2026-03-17 17:27:14.691110: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+2026-03-17 17:27:15.658766: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+nnsight is not detected. Please install via 'pip install nnsight' for nnsight backend.
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+`torch_dtype` is deprecated! Use `dtype` instead!
+W0317 17:27:18.663000 35216 torch\utils\flop_counter.py:29] triton not found; flop counting will not work for triton kernels
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]C:\Users\music\AppData\Roaming\Python\Python313\site-packages\bitsandbytes\backends\cuda\ops.py:213: FutureWarning: _check_is_size will be removed in a future PyTorch release along with guard_size_oblivious.     Use _check(i >= 0) instead.
+  torch._check_is_size(blocksize)
+Loading checkpoint shards:  33%|###3      | 1/3 [00:04<00:09,  4.60s/it]Loading checkpoint shards:  67%|######6   | 2/3 [00:08<00:04,  4.47s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:12<00:00,  4.09s/it]Loading checkpoint shards: 100%|##########| 3/3 [00:12<00:00,  4.20s/it]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+  Model loaded.
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: acc=0.375  (3/8 correct)
+                   BEE: acc=0.733  (11/15 correct)
+                 HORSE: acc=0.000  (0/15 correct)
+               PENGUIN: acc=1.000  (13/13 correct)
+                VIOLIN: acc=1.000  (9/9 correct)
+                  BIRD: acc=0.000  (0/15 correct)
+                SPIDER: acc=0.000  (0/15 correct)
+                CANDLE: acc=1.000  (15/15 correct)
+             TABBY_CAT: acc=0.000  (0/15 correct)
+      GOLDEN_RETRIEVER: acc=0.333  (5/15 correct)
+    LABRADOR_RETRIEVER: acc=0.933  (14/15 correct)
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.667  d=+0.333
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.333  d=+0.667
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.200  d=+0.800
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.273  d=+0.727
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.273  d=+0.727
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>               VIOLIN [off-target]: acc=0.333  d=+0.667
+    >>              PENGUIN [off-target]: acc=0.154  d=+0.846
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+  [44/560]  Ablate camel/svm/L16/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [45/560]  Ablate camel/svm/L16/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+  [46/560]  Ablate camel/svm/L16/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [47/560]  Ablate camel/svm/L16/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [48/560]  Ablate camel/svm/L16/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.818  d=+0.182
+  [49/560]  Ablate camel/svm/L16/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+  [50/560]  Ablate camel/svm/L16/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [51/560]  Ablate camel/svm/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [52/560]  Ablate camel/svm/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [53/560]  Ablate camel/svm/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [54/560]  Ablate camel/svm/L24/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [55/560]  Ablate camel/svm/L24/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [56/560]  Ablate camel/svm/L24/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+  [57/560]  Ablate camel/svm/L24/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [58/560]  Ablate camel/svm/L24/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [59/560]  Ablate camel/svm/L24/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.667  d=+0.333
+  [60/560]  Ablate camel/svm/L24/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [61/560]  Ablate camel/svm/L27/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [62/560]  Ablate camel/svm/L27/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [63/560]  Ablate camel/svm/L27/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [64/560]  Ablate camel/svm/L27/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [65/560]  Ablate camel/svm/L27/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.667  d=+0.333
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [66/560]  Ablate camel/svm/L27/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [67/560]  Ablate camel/svm/L27/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [68/560]  Ablate camel/svm/L27/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [69/560]  Ablate camel/svm/L27/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+  [70/560]  Ablate camel/svm/L27/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [71/560]  Ablate camel/svm/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.857  d=+0.143
+  [72/560]  Ablate camel/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [73/560]  Ablate camel/svm/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.214  d=+0.786
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [74/560]  Ablate camel/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [75/560]  Ablate camel/svm/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [76/560]  Ablate camel/svm/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [77/560]  Ablate camel/svm/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+  [78/560]  Ablate camel/svm/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [79/560]  Ablate camel/svm/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+  [80/560]  Ablate camel/svm/all_extraction_layers/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [81/560]  Ablate bee/mean_diff/L16/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [82/560]  Ablate bee/mean_diff/L16/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [83/560]  Ablate bee/mean_diff/L16/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [84/560]  Ablate bee/mean_diff/L16/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [85/560]  Ablate bee/mean_diff/L16/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+  [86/560]  Ablate bee/mean_diff/L16/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.727  d=+0.273
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [87/560]  Ablate bee/mean_diff/L16/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.455  d=+0.545
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.571  d=+0.429
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [88/560]  Ablate bee/mean_diff/L16/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.455  d=+0.545
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [89/560]  Ablate bee/mean_diff/L16/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.182  d=+0.818
+    >>               VIOLIN [off-target]: acc=0.667  d=+0.333
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.357  d=+0.643
+  [90/560]  Ablate bee/mean_diff/L16/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.364  d=+0.636
+    >>               VIOLIN [off-target]: acc=0.556  d=+0.444
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.286  d=+0.714
+  [91/560]  Ablate bee/mean_diff/L24/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [92/560]  Ablate bee/mean_diff/L24/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [93/560]  Ablate bee/mean_diff/L24/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [94/560]  Ablate bee/mean_diff/L24/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [95/560]  Ablate bee/mean_diff/L24/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.545  d=+0.455
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [96/560]  Ablate bee/mean_diff/L24/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [97/560]  Ablate bee/mean_diff/L24/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.455  d=+0.545
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [98/560]  Ablate bee/mean_diff/L24/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [99/560]  Ablate bee/mean_diff/L24/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.091  d=+0.909
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [100/560]  Ablate bee/mean_diff/L24/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+  [101/560]  Ablate bee/mean_diff/L27/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [102/560]  Ablate bee/mean_diff/L27/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [103/560]  Ablate bee/mean_diff/L27/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [104/560]  Ablate bee/mean_diff/L27/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [105/560]  Ablate bee/mean_diff/L27/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.455  d=+0.545
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [106/560]  Ablate bee/mean_diff/L27/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [107/560]  Ablate bee/mean_diff/L27/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.273  d=+0.727
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [108/560]  Ablate bee/mean_diff/L27/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [109/560]  Ablate bee/mean_diff/L27/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.364  d=+0.636
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [110/560]  Ablate bee/mean_diff/L27/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [111/560]  Ablate bee/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [112/560]  Ablate bee/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [113/560]  Ablate bee/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=0.067  d=+0.933
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [114/560]  Ablate bee/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [115/560]  Ablate bee/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.182  d=+0.818
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.769  d=+0.231
+  [116/560]  Ablate bee/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [117/560]  Ablate bee/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+  [118/560]  Ablate bee/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.273  d=+0.727
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [119/560]  Ablate bee/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+  [120/560]  Ablate bee/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.273  d=+0.727
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [121/560]  Ablate bee/svm/L16/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [122/560]  Ablate bee/svm/L16/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [123/560]  Ablate bee/svm/L16/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [124/560]  Ablate bee/svm/L16/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [125/560]  Ablate bee/svm/L16/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.727  d=+0.273
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+  [126/560]  Ablate bee/svm/L16/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [127/560]  Ablate bee/svm/L16/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.636  d=+0.364
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [128/560]  Ablate bee/svm/L16/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [129/560]  Ablate bee/svm/L16/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [130/560]  Ablate bee/svm/L16/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [131/560]  Ablate bee/svm/L24/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [132/560]  Ablate bee/svm/L24/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [133/560]  Ablate bee/svm/L24/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [134/560]  Ablate bee/svm/L24/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [135/560]  Ablate bee/svm/L24/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.545  d=+0.455
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [136/560]  Ablate bee/svm/L24/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [137/560]  Ablate bee/svm/L24/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.091  d=+0.909
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [138/560]  Ablate bee/svm/L24/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [139/560]  Ablate bee/svm/L24/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [140/560]  Ablate bee/svm/L24/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [141/560]  Ablate bee/svm/L27/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [142/560]  Ablate bee/svm/L27/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [143/560]  Ablate bee/svm/L27/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.818  d=+0.182
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [144/560]  Ablate bee/svm/L27/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [145/560]  Ablate bee/svm/L27/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.545  d=+0.455
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+  [146/560]  Ablate bee/svm/L27/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [147/560]  Ablate bee/svm/L27/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.273  d=+0.727
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [148/560]  Ablate bee/svm/L27/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [149/560]  Ablate bee/svm/L27/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [150/560]  Ablate bee/svm/L27/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [151/560]  Ablate bee/svm/all_extraction_layers/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [152/560]  Ablate bee/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [153/560]  Ablate bee/svm/all_extraction_layers/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.818  d=+0.182
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.308  d=+0.692
+  [154/560]  Ablate bee/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [155/560]  Ablate bee/svm/all_extraction_layers/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.636  d=+0.364
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [156/560]  Ablate bee/svm/all_extraction_layers/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [157/560]  Ablate bee/svm/all_extraction_layers/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.727  d=+0.273
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [158/560]  Ablate bee/svm/all_extraction_layers/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.818  d=+0.182
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [159/560]  Ablate bee/svm/all_extraction_layers/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.364  d=+0.636
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [160/560]  Ablate bee/svm/all_extraction_layers/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.818  d=+0.182
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.600  d=+0.400
+  [161/560]  Ablate penguin/mean_diff/L16/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [162/560]  Ablate penguin/mean_diff/L16/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [163/560]  Ablate penguin/mean_diff/L16/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.846  d=+0.154
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=0.667  d=+0.333
+  [164/560]  Ablate penguin/mean_diff/L16/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [165/560]  Ablate penguin/mean_diff/L16/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.154  d=+0.846
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.400  d=+0.600
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [166/560]  Ablate penguin/mean_diff/L16/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [167/560]  Ablate penguin/mean_diff/L16/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.692  d=+0.308
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+  [168/560]  Ablate penguin/mean_diff/L16/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=0.846  d=+0.154
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [169/560]  Ablate penguin/mean_diff/L16/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.923  d=+0.077
+    >>               VIOLIN [off-target]: acc=0.111  d=+0.889
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+  [170/560]  Ablate penguin/mean_diff/L16/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=0.769  d=+0.231
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [171/560]  Ablate penguin/mean_diff/L24/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [172/560]  Ablate penguin/mean_diff/L24/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [173/560]  Ablate penguin/mean_diff/L24/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [174/560]  Ablate penguin/mean_diff/L24/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [175/560]  Ablate penguin/mean_diff/L24/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.077  d=+0.923
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [176/560]  Ablate penguin/mean_diff/L24/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [177/560]  Ablate penguin/mean_diff/L24/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [178/560]  Ablate penguin/mean_diff/L24/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [179/560]  Ablate penguin/mean_diff/L24/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [180/560]  Ablate penguin/mean_diff/L24/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [181/560]  Ablate penguin/mean_diff/L27/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [182/560]  Ablate penguin/mean_diff/L27/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [183/560]  Ablate penguin/mean_diff/L27/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [184/560]  Ablate penguin/mean_diff/L27/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [185/560]  Ablate penguin/mean_diff/L27/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.154  d=+0.846
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [186/560]  Ablate penguin/mean_diff/L27/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=0.923  d=+0.077
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [187/560]  Ablate penguin/mean_diff/L27/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [188/560]  Ablate penguin/mean_diff/L27/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [189/560]  Ablate penguin/mean_diff/L27/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [190/560]  Ablate penguin/mean_diff/L27/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [191/560]  Ablate penguin/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+  [192/560]  Ablate penguin/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [193/560]  Ablate penguin/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [194/560]  Ablate penguin/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [195/560]  Ablate penguin/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+  [196/560]  Ablate penguin/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [197/560]  Ablate penguin/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.846  d=+0.154
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [198/560]  Ablate penguin/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+  [199/560]  Ablate penguin/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.308  d=+0.692
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [200/560]  Ablate penguin/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+  [201/560]  Ablate penguin/svm/L16/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [202/560]  Ablate penguin/svm/L16/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [203/560]  Ablate penguin/svm/L16/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.923  d=+0.077
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.571  d=+0.429
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [204/560]  Ablate penguin/svm/L16/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [205/560]  Ablate penguin/svm/L16/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.308  d=+0.692
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [206/560]  Ablate penguin/svm/L16/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [207/560]  Ablate penguin/svm/L16/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.385  d=+0.615
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [208/560]  Ablate penguin/svm/L16/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+  [209/560]  Ablate penguin/svm/L16/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.308  d=+0.692
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [210/560]  Ablate penguin/svm/L16/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=0.923  d=+0.077
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.727  d=+0.273
+  [211/560]  Ablate penguin/svm/L24/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [212/560]  Ablate penguin/svm/L24/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [213/560]  Ablate penguin/svm/L24/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [214/560]  Ablate penguin/svm/L24/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [215/560]  Ablate penguin/svm/L24/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.077  d=+0.923
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [216/560]  Ablate penguin/svm/L24/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [217/560]  Ablate penguin/svm/L24/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [218/560]  Ablate penguin/svm/L24/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [219/560]  Ablate penguin/svm/L24/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [220/560]  Ablate penguin/svm/L24/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=0.667  d=+0.333
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [221/560]  Ablate penguin/svm/L27/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [222/560]  Ablate penguin/svm/L27/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [223/560]  Ablate penguin/svm/L27/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [224/560]  Ablate penguin/svm/L27/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [225/560]  Ablate penguin/svm/L27/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [226/560]  Ablate penguin/svm/L27/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [227/560]  Ablate penguin/svm/L27/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.462  d=+0.538
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [228/560]  Ablate penguin/svm/L27/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [229/560]  Ablate penguin/svm/L27/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [230/560]  Ablate penguin/svm/L27/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>               CANDLE [off-target]: acc=0.667  d=+0.333
+  [231/560]  Ablate penguin/svm/all_extraction_layers/a=3.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [232/560]  Ablate penguin/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [233/560]  Ablate penguin/svm/all_extraction_layers/a=6.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.182  d=+0.818
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+  [234/560]  Ablate penguin/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [235/560]  Ablate penguin/svm/all_extraction_layers/a=10.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [236/560]  Ablate penguin/svm/all_extraction_layers/a=10.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.400  d=+0.600
+  [237/560]  Ablate penguin/svm/all_extraction_layers/a=15.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [238/560]  Ablate penguin/svm/all_extraction_layers/a=15.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [239/560]  Ablate penguin/svm/all_extraction_layers/a=20.0/all_tokens
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.071  d=+0.929
+  [240/560]  Ablate penguin/svm/all_extraction_layers/a=20.0/image_tokens_only
+    >>              PENGUIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.857  d=+0.143
+  [241/560]  Ablate violin/mean_diff/L16/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [242/560]  Ablate violin/mean_diff/L16/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [243/560]  Ablate violin/mean_diff/L16/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [244/560]  Ablate violin/mean_diff/L16/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [245/560]  Ablate violin/mean_diff/L16/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.200  d=+0.800
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.429  d=+0.571
+  [246/560]  Ablate violin/mean_diff/L16/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.400  d=+0.600
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+  [247/560]  Ablate violin/mean_diff/L16/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.333  d=+0.667
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.600  d=+0.400
+  [248/560]  Ablate violin/mean_diff/L16/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.533  d=+0.467
+  [249/560]  Ablate violin/mean_diff/L16/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [250/560]  Ablate violin/mean_diff/L16/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.556  d=+0.444
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [251/560]  Ablate violin/mean_diff/L24/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [252/560]  Ablate violin/mean_diff/L24/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [253/560]  Ablate violin/mean_diff/L24/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [254/560]  Ablate violin/mean_diff/L24/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [255/560]  Ablate violin/mean_diff/L24/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.333  d=+0.667
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [256/560]  Ablate violin/mean_diff/L24/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [257/560]  Ablate violin/mean_diff/L24/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [258/560]  Ablate violin/mean_diff/L24/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [259/560]  Ablate violin/mean_diff/L24/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [260/560]  Ablate violin/mean_diff/L24/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [261/560]  Ablate violin/mean_diff/L27/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [262/560]  Ablate violin/mean_diff/L27/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [263/560]  Ablate violin/mean_diff/L27/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [264/560]  Ablate violin/mean_diff/L27/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [265/560]  Ablate violin/mean_diff/L27/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.889  d=+0.111
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [266/560]  Ablate violin/mean_diff/L27/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [267/560]  Ablate violin/mean_diff/L27/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.556  d=+0.444
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [268/560]  Ablate violin/mean_diff/L27/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [269/560]  Ablate violin/mean_diff/L27/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.556  d=+0.444
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.400  d=+0.600
+  [270/560]  Ablate violin/mean_diff/L27/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [271/560]  Ablate violin/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [272/560]  Ablate violin/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [273/560]  Ablate violin/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.714  d=+0.286
+    >>                CAMEL [off-target]: acc=0.667  d=+0.333
+  [274/560]  Ablate violin/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [275/560]  Ablate violin/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.091  d=+0.909
+    >>                CAMEL [off-target]: acc=0.333  d=+0.667
+  [276/560]  Ablate violin/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=0.667  d=+0.333
+  [277/560]  Ablate violin/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+  [278/560]  Ablate violin/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.444  d=+0.556
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+  [279/560]  Ablate violin/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [280/560]  Ablate violin/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.556  d=+0.444
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.429  d=+0.571
+  [281/560]  Ablate violin/svm/L16/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [282/560]  Ablate violin/svm/L16/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [283/560]  Ablate violin/svm/L16/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [284/560]  Ablate violin/svm/L16/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [285/560]  Ablate violin/svm/L16/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [286/560]  Ablate violin/svm/L16/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.889  d=+0.111
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [287/560]  Ablate violin/svm/L16/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [288/560]  Ablate violin/svm/L16/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.889  d=+0.111
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [289/560]  Ablate violin/svm/L16/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.222  d=+0.778
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.867  d=+0.133
+  [290/560]  Ablate violin/svm/L16/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [291/560]  Ablate violin/svm/L24/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [292/560]  Ablate violin/svm/L24/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [293/560]  Ablate violin/svm/L24/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [294/560]  Ablate violin/svm/L24/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [295/560]  Ablate violin/svm/L24/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.111  d=+0.889
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [296/560]  Ablate violin/svm/L24/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [297/560]  Ablate violin/svm/L24/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [298/560]  Ablate violin/svm/L24/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [299/560]  Ablate violin/svm/L24/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [300/560]  Ablate violin/svm/L24/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [301/560]  Ablate violin/svm/L27/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.889  d=+0.111
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [302/560]  Ablate violin/svm/L27/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [303/560]  Ablate violin/svm/L27/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.444  d=+0.556
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [304/560]  Ablate violin/svm/L27/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [305/560]  Ablate violin/svm/L27/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [306/560]  Ablate violin/svm/L27/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [307/560]  Ablate violin/svm/L27/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [308/560]  Ablate violin/svm/L27/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [309/560]  Ablate violin/svm/L27/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [310/560]  Ablate violin/svm/L27/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [311/560]  Ablate violin/svm/all_extraction_layers/a=3.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [312/560]  Ablate violin/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [313/560]  Ablate violin/svm/all_extraction_layers/a=6.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.333  d=+0.667
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [314/560]  Ablate violin/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [315/560]  Ablate violin/svm/all_extraction_layers/a=10.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.091  d=+0.909
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [316/560]  Ablate violin/svm/all_extraction_layers/a=10.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.889  d=+0.111
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [317/560]  Ablate violin/svm/all_extraction_layers/a=15.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=0.333  d=+0.667
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.200  d=+0.800
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+  [318/560]  Ablate violin/svm/all_extraction_layers/a=15.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [319/560]  Ablate violin/svm/all_extraction_layers/a=20.0/all_tokens
+    >>               VIOLIN [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.143  d=+0.857
+  [320/560]  Ablate violin/svm/all_extraction_layers/a=20.0/image_tokens_only
+    >>               VIOLIN [ON-TARGET]: acc=0.778  d=+0.222
+    >>                CAMEL [off-target]: acc=0.667  d=+0.333
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.429  d=+0.571
+  [321/560]  Ablate candle/mean_diff/L16/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [322/560]  Ablate candle/mean_diff/L16/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [323/560]  Ablate candle/mean_diff/L16/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+  [324/560]  Ablate candle/mean_diff/L16/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.857  d=+0.143
+  [325/560]  Ablate candle/mean_diff/L16/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.429  d=+0.571
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [326/560]  Ablate candle/mean_diff/L16/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.357  d=+0.643
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [327/560]  Ablate candle/mean_diff/L16/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.231  d=+0.769
+    >>                  BEE [off-target]: acc=0.818  d=+0.182
+  [328/560]  Ablate candle/mean_diff/L16/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.231  d=+0.769
+    >>                  BEE [off-target]: acc=0.818  d=+0.182
+  [329/560]  Ablate candle/mean_diff/L16/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+    >>                  BEE [off-target]: acc=0.636  d=+0.364
+  [330/560]  Ablate candle/mean_diff/L16/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [331/560]  Ablate candle/mean_diff/L24/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [332/560]  Ablate candle/mean_diff/L24/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [333/560]  Ablate candle/mean_diff/L24/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [334/560]  Ablate candle/mean_diff/L24/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [335/560]  Ablate candle/mean_diff/L24/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+  [336/560]  Ablate candle/mean_diff/L24/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [337/560]  Ablate candle/mean_diff/L24/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+  [338/560]  Ablate candle/mean_diff/L24/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+  [339/560]  Ablate candle/mean_diff/L24/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [340/560]  Ablate candle/mean_diff/L24/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [341/560]  Ablate candle/mean_diff/L27/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [342/560]  Ablate candle/mean_diff/L27/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [343/560]  Ablate candle/mean_diff/L27/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [344/560]  Ablate candle/mean_diff/L27/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [345/560]  Ablate candle/mean_diff/L27/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [346/560]  Ablate candle/mean_diff/L27/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [347/560]  Ablate candle/mean_diff/L27/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [348/560]  Ablate candle/mean_diff/L27/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [349/560]  Ablate candle/mean_diff/L27/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [350/560]  Ablate candle/mean_diff/L27/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [351/560]  Ablate candle/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [352/560]  Ablate candle/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [353/560]  Ablate candle/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [354/560]  Ablate candle/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.867  d=+0.133
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [355/560]  Ablate candle/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+  [356/560]  Ablate candle/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.333  d=+0.667
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+  [357/560]  Ablate candle/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+  [358/560]  Ablate candle/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [359/560]  Ablate candle/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [360/560]  Ablate candle/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [361/560]  Ablate candle/svm/L16/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [362/560]  Ablate candle/svm/L16/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [363/560]  Ablate candle/svm/L16/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.200  d=+0.800
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [364/560]  Ablate candle/svm/L16/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [365/560]  Ablate candle/svm/L16/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [366/560]  Ablate candle/svm/L16/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [367/560]  Ablate candle/svm/L16/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.778  d=+0.222
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [368/560]  Ablate candle/svm/L16/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.933  d=+0.067
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [369/560]  Ablate candle/svm/L16/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [370/560]  Ablate candle/svm/L16/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.867  d=+0.133
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+  [371/560]  Ablate candle/svm/L24/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [372/560]  Ablate candle/svm/L24/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [373/560]  Ablate candle/svm/L24/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.067  d=+0.933
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [374/560]  Ablate candle/svm/L24/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [375/560]  Ablate candle/svm/L24/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [376/560]  Ablate candle/svm/L24/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [377/560]  Ablate candle/svm/L24/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.571  d=+0.429
+  [378/560]  Ablate candle/svm/L24/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [379/560]  Ablate candle/svm/L24/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [380/560]  Ablate candle/svm/L24/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [381/560]  Ablate candle/svm/L27/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [382/560]  Ablate candle/svm/L27/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [383/560]  Ablate candle/svm/L27/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.067  d=+0.933
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [384/560]  Ablate candle/svm/L27/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [385/560]  Ablate candle/svm/L27/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [386/560]  Ablate candle/svm/L27/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [387/560]  Ablate candle/svm/L27/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [388/560]  Ablate candle/svm/L27/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [389/560]  Ablate candle/svm/L27/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [390/560]  Ablate candle/svm/L27/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [391/560]  Ablate candle/svm/all_extraction_layers/a=3.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.867  d=+0.133
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [392/560]  Ablate candle/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [393/560]  Ablate candle/svm/all_extraction_layers/a=6.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [394/560]  Ablate candle/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.467  d=+0.533
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [395/560]  Ablate candle/svm/all_extraction_layers/a=10.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.556  d=+0.444
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [396/560]  Ablate candle/svm/all_extraction_layers/a=10.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [397/560]  Ablate candle/svm/all_extraction_layers/a=15.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.143  d=+0.857
+    >>              PENGUIN [off-target]: acc=0.077  d=+0.923
+  [398/560]  Ablate candle/svm/all_extraction_layers/a=15.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [399/560]  Ablate candle/svm/all_extraction_layers/a=20.0/all_tokens
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+  [400/560]  Ablate candle/svm/all_extraction_layers/a=20.0/image_tokens_only
+    >>               CANDLE [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [401/560]  Ablate golden_retriever/mean_diff/L16/a=3.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [402/560]  Ablate golden_retriever/mean_diff/L16/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [403/560]  Ablate golden_retriever/mean_diff/L16/a=6.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [404/560]  Ablate golden_retriever/mean_diff/L16/a=6.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [405/560]  Ablate golden_retriever/mean_diff/L16/a=10.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [406/560]  Ablate golden_retriever/mean_diff/L16/a=10.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [407/560]  Ablate golden_retriever/mean_diff/L16/a=15.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+  [408/560]  Ablate golden_retriever/mean_diff/L16/a=15.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+  [409/560]  Ablate golden_retriever/mean_diff/L16/a=20.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.133  d=+0.867
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [410/560]  Ablate golden_retriever/mean_diff/L16/a=20.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.400  d=+0.600
+    >>               CANDLE [off-target]: acc=0.867  d=+0.133
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+  [411/560]  Ablate golden_retriever/mean_diff/L24/a=3.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [412/560]  Ablate golden_retriever/mean_diff/L24/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [413/560]  Ablate golden_retriever/mean_diff/L24/a=6.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [414/560]  Ablate golden_retriever/mean_diff/L24/a=6.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [415/560]  Ablate golden_retriever/mean_diff/L24/a=10.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [416/560]  Ablate golden_retriever/mean_diff/L24/a=10.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [417/560]  Ablate golden_retriever/mean_diff/L24/a=15.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [418/560]  Ablate golden_retriever/mean_diff/L24/a=15.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.714  d=+0.286
+  [419/560]  Ablate golden_retriever/mean_diff/L24/a=20.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.667  d=+0.333
+  [420/560]  Ablate golden_retriever/mean_diff/L24/a=20.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.714  d=+0.286
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [421/560]  Ablate golden_retriever/mean_diff/L27/a=3.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [422/560]  Ablate golden_retriever/mean_diff/L27/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [423/560]  Ablate golden_retriever/mean_diff/L27/a=6.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [424/560]  Ablate golden_retriever/mean_diff/L27/a=6.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [425/560]  Ablate golden_retriever/mean_diff/L27/a=10.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [426/560]  Ablate golden_retriever/mean_diff/L27/a=10.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [427/560]  Ablate golden_retriever/mean_diff/L27/a=15.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [428/560]  Ablate golden_retriever/mean_diff/L27/a=15.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [429/560]  Ablate golden_retriever/mean_diff/L27/a=20.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.778  d=+0.222
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [430/560]  Ablate golden_retriever/mean_diff/L27/a=20.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [431/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [432/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [433/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+  [434/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [435/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.333  d=+0.667
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+  [436/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [437/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.600  d=+0.400
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+    >>                CAMEL [off-target]: acc=0.000  d=+1.000
+  [438/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.400  d=+0.600
+    >>               CANDLE [off-target]: acc=0.800  d=+0.200
+    >>                CAMEL [off-target]: acc=0.333  d=+0.667
+  [439/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.000  d=+1.000
+  [440/560]  Ablate golden_retriever/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.200  d=+0.800
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.133  d=+0.867
+  [441/560]  Ablate golden_retriever/svm/L16/a=3.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [442/560]  Ablate golden_retriever/svm/L16/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [443/560]  Ablate golden_retriever/svm/L16/a=6.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [444/560]  Ablate golden_retriever/svm/L16/a=6.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [445/560]  Ablate golden_retriever/svm/L16/a=10.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [446/560]  Ablate golden_retriever/svm/L16/a=10.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [447/560]  Ablate golden_retriever/svm/L16/a=15.0/all_tokens
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [448/560]  Ablate golden_retriever/svm/L16/a=15.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000

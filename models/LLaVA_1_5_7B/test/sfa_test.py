@@ -51,11 +51,14 @@ Usage (from models/LLaVA_1_5_7B/):
     python -m test.sfa_test
 """
 
+import gc
 import json
 import os
 import random
 import sys
 from datetime import datetime
+
+import torch
 
 # ---------------------------------------------------------------------------
 # Path bootstrap
@@ -81,6 +84,8 @@ ALPHAS        = [a for a in cfg.INTENSITIES if a > 0.0]
 
 RESULTS_DIR = cfg.RESULTS_DIR
 OUTPUT_FILE = os.path.join(RESULTS_DIR, "sfa_test_results.json")
+CHECKPOINT_FILE = os.path.join(RESULTS_DIR, "sfa_checkpoint.json")
+CHECKPOINT_EVERY = 5  # save checkpoint every N conditions
 
 DIMENSIONS = ["category", "function", "perceptual", "structural", "associative"]
 
@@ -179,6 +184,43 @@ def build_sfa_items(r1_images, feature_bank):
 
 
 # ---------------------------------------------------------------------------
+# Checkpoint helpers (progressive save / resume on OOM)
+# ---------------------------------------------------------------------------
+
+def make_condition_key(ablated, cav_method, layer_label, alpha, mode_label, measured):
+    """Deterministic string key that uniquely identifies one SFA evaluation."""
+    return f"{ablated}|{cav_method}|{layer_label}|{alpha}|{mode_label}|{measured}"
+
+
+def save_checkpoint(baselines, results, completed_keys, available, filtered_out):
+    """Atomically write checkpoint to disk (temp file + rename)."""
+    data = {
+        "baselines":      baselines,
+        "results":        results,
+        "completed_keys": list(completed_keys),
+        "available":      available,
+        "filtered_out":   filtered_out,
+        "timestamp":      datetime.now().isoformat(),
+    }
+    tmp = CHECKPOINT_FILE + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, default=str)
+    os.replace(tmp, CHECKPOINT_FILE)
+
+
+def load_checkpoint():
+    """Load checkpoint if it exists; return None otherwise."""
+    if not os.path.exists(CHECKPOINT_FILE):
+        return None
+    try:
+        with open(CHECKPOINT_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        print("  WARNING: Corrupt checkpoint — starting fresh")
+        return None
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -248,9 +290,23 @@ def main():
     print(f"  Model loaded.\n")
 
     # ==================================================================
+    # CHECK FOR EXISTING CHECKPOINT
+    # ==================================================================
+    checkpoint = load_checkpoint()
+    resuming = False
+
+    if checkpoint and set(checkpoint.get("available", [])).issubset(set(available)):
+        # Validate checkpoint matches current config
+        ckpt_available = checkpoint["available"]
+        if all(c in available for c in ckpt_available):
+            resuming = True
+            print(f"\n  RESUMING from checkpoint "
+                  f"({len(checkpoint['completed_keys'])} evaluations completed)")
+
+    # ==================================================================
     # PHASE 1 — BASELINE (no ablation)
     # ==================================================================
-    print(f"{'='*50}")
+    print(f"\n{'='*50}")
     print("PHASE 1: BASELINE (no ablation)")
     print(f"{'='*50}")
 
@@ -258,42 +314,70 @@ def main():
     correct_items_by_concept = {}
     sfa_items_by_concept = {}        # keep originals for JSON output
 
-    for concept in available:
-        feature_bank = cfg.SFA_FEATURE_BANK[concept]
-        sfa_items = build_sfa_items(r1_data_by_concept[concept], feature_bank)
-        sfa_items_by_concept[concept] = sfa_items
+    if resuming and "baselines" in checkpoint:
+        # Restore baselines from checkpoint — rebuild correct_items from saved per_item
+        baselines = checkpoint["baselines"]
+        for concept in available:
+            feature_bank = cfg.SFA_FEATURE_BANK[concept]
+            sfa_items = build_sfa_items(r1_data_by_concept[concept], feature_bank)
+            sfa_items_by_concept[concept] = sfa_items
 
-        acc, acc_by_dim, per_item = evaluate_sfa(model, processor, sfa_items)
+            if concept in baselines:
+                per_item = baselines[concept]["per_item"]
+                correct_items = [sfa_items[i]
+                                 for i, p in enumerate(per_item) if p["is_correct"]]
+                correct_items_by_concept[concept] = correct_items
+                print(f"  {concept.upper()}: {len(correct_items)} correct items [from checkpoint]")
+            else:
+                # Concept not in checkpoint baselines — evaluate fresh
+                acc, acc_by_dim, per_item = evaluate_sfa(model, processor, sfa_items)
+                correct_items = [sfa_items[i]
+                                 for i, p in enumerate(per_item) if p["is_correct"]]
+                baselines[concept] = {
+                    "accuracy":              acc,
+                    "accuracy_by_dimension": acc_by_dim,
+                    "n_items_total":         len(sfa_items),
+                    "n_items_correct":       len(correct_items),
+                    "per_item":              per_item,
+                }
+                correct_items_by_concept[concept] = correct_items
+    else:
+        for concept in available:
+            feature_bank = cfg.SFA_FEATURE_BANK[concept]
+            sfa_items = build_sfa_items(r1_data_by_concept[concept], feature_bank)
+            sfa_items_by_concept[concept] = sfa_items
 
-        # Baseline-correct-only filter at (image_path, question) pair level
-        correct_items = [sfa_items[i]
-                         for i, p in enumerate(per_item) if p["is_correct"]]
+            acc, acc_by_dim, per_item = evaluate_sfa(model, processor, sfa_items)
 
-        baselines[concept] = {
-            "accuracy":              acc,
-            "accuracy_by_dimension": acc_by_dim,
-            "n_items_total":         len(sfa_items),
-            "n_items_correct":       len(correct_items),
-            "per_item":              per_item,
-        }
-        correct_items_by_concept[concept] = correct_items
+            # Baseline-correct-only filter at (image_path, question) pair level
+            correct_items = [sfa_items[i]
+                             for i, p in enumerate(per_item) if p["is_correct"]]
 
-        print(f"\n  {concept.upper()}:")
-        print(f"    Overall accuracy : {acc:.3f}  "
-              f"({len(correct_items)}/{len(sfa_items)} correct)")
-        for dim in DIMENSIONS:
-            d_acc = acc_by_dim.get(dim, 0.0)
-            dim_total = sum(1 for it in sfa_items if it["dimension"] == dim)
-            dim_ok    = sum(1 for it, p in zip(sfa_items, per_item)
-                           if it["dimension"] == dim and p["is_correct"])
-            print(f"    {dim:<12s}: {d_acc:.3f}  ({dim_ok}/{dim_total})")
+            baselines[concept] = {
+                "accuracy":              acc,
+                "accuracy_by_dimension": acc_by_dim,
+                "n_items_total":         len(sfa_items),
+                "n_items_correct":       len(correct_items),
+                "per_item":              per_item,
+            }
+            correct_items_by_concept[concept] = correct_items
+
+            print(f"\n  {concept.upper()}:")
+            print(f"    Overall accuracy : {acc:.3f}  "
+                  f"({len(correct_items)}/{len(sfa_items)} correct)")
+            for dim in DIMENSIONS:
+                d_acc = acc_by_dim.get(dim, 0.0)
+                dim_total = sum(1 for it in sfa_items if it["dimension"] == dim)
+                dim_ok    = sum(1 for it, p in zip(sfa_items, per_item)
+                               if it["dimension"] == dim and p["is_correct"])
+                print(f"    {dim:<12s}: {d_acc:.3f}  ({dim_ok}/{dim_total})")
 
     # ------------------------------------------------------------------
     # Filter: require MIN_CORRECT baseline-correct items
     # ------------------------------------------------------------------
     all_available = list(available)
     available = [c for c in available
-                 if len(correct_items_by_concept[c]) >= MIN_CORRECT]
+                 if len(correct_items_by_concept.get(c, [])) >= MIN_CORRECT]
     filtered_out = [c for c in all_available if c not in available]
 
     if filtered_out:
@@ -327,8 +411,10 @@ def main():
     print(f"  Off-target per cond   : {n_off}")
     print(f"  Total SFA evaluations : {total_conditions * (1 + n_off)}\n")
 
-    results      = []
-    condition_num = 0
+    # Load existing progress from checkpoint
+    completed_keys = set(checkpoint["completed_keys"]) if resuming else set()
+    results        = list(checkpoint["results"])        if resuming else []
+    condition_num  = 0
 
     for ablated_concept in available:
         for cav_method in CAV_METHODS:
@@ -374,6 +460,14 @@ def main():
                               f"{layer_label}/a={alpha}/{mode_label}")
 
                         for measured_concept in measure_concepts:
+                            key = make_condition_key(
+                                ablated_concept, cav_method, layer_label,
+                                alpha, mode_label, measured_concept,
+                            )
+                            if key in completed_keys:
+                                print(f"    → {measured_concept.upper():>20s} [CACHED]")
+                                continue
+
                             on_target = measured_concept == ablated_concept
                             tag = "ON-TARGET" if on_target else "off-target"
 
@@ -417,6 +511,23 @@ def main():
                                 "delta_by_dimension":     delta_by_dim,
                                 "per_item":               per_item,
                             })
+                            completed_keys.add(key)
+
+                        # -- Periodic checkpoint save --
+                        if condition_num % CHECKPOINT_EVERY == 0:
+                            save_checkpoint(baselines, results, completed_keys,
+                                            available, filtered_out)
+                            print(f"    [CHECKPOINT] Saved at condition "
+                                  f"{condition_num}/{total_conditions}")
+
+                # -- Memory cleanup after each layer condition --
+                del cav_arg
+                gc.collect()
+                torch.cuda.empty_cache()
+
+    # Final checkpoint after Phase 2
+    save_checkpoint(baselines, results, completed_keys, available, filtered_out)
+    print(f"  [CHECKPOINT] Phase 2 complete — {len(results)} results saved")
 
     # ==================================================================
     # PHASE 3 — SPECIFICITY + DIMENSION DISSOCIATION
@@ -586,6 +697,12 @@ def main():
         json.dump(output, f, indent=2, default=str)
 
     print(f"\n  Saved → {OUTPUT_FILE}")
+
+    # Remove checkpoint after successful completion
+    if os.path.exists(CHECKPOINT_FILE):
+        os.remove(CHECKPOINT_FILE)
+        print(f"  Checkpoint removed: {CHECKPOINT_FILE}")
+
     print(f"\n{'='*60}")
     print("  SFA TEST COMPLETE")
     print(f"{'='*60}")

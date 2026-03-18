@@ -1,0 +1,31 @@
+% Table 1: Mean On-Target Delta Accuracy by Model x Alpha
+\begin{table}[htbp]
+\centering
+\caption{Mean on-target $\Delta$ accuracy by model and ablation intensity ($\alpha$).}
+\label{tab:model_alpha}
+\begin{tabular}{lrrrrrr}
+\toprule
+Model & $\alpha=3$ & $\alpha=6$ & $\alpha=10$ & $\alpha=15$ & $\alpha=20$ & Mean \\
+\midrule
+GPT-2 Small (124M) & 0.170 & 0.315 & 0.405 & 0.414 & 0.438 & 0.348 \\
+Pythia-2.8B & 0.117 & 0.228 & 0.258 & 0.295 & 0.318 & 0.243 \\
+LLaVA-1.5-7B & 0.088 & 0.363 & 0.592 & 0.704 & 0.767 & 0.503 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+% Table 2: Ablation Specificity
+\begin{table}[htbp]
+\centering
+\caption{Ablation specificity: on-target vs.~off-target mean $\Delta$ accuracy.}
+\label{tab:specificity}
+\begin{tabular}{lrrr}
+\toprule
+Model & On-target & Off-target & Ratio \\
+\midrule
+GPT-2 Small (124M) & 0.348 & 0.392 & 0.89 \\
+Pythia-2.8B & 0.243 & 0.349 & 0.70 \\
+LLaVA-1.5-7B & 0.503 & 0.253 & 1.98 \\
+\bottomrule
+\end{tabular}
+\end{table}
