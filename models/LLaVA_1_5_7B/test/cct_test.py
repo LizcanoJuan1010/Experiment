@@ -35,17 +35,25 @@ Ablation modes:
                         Simulates pure visual-concept agnosia: the model's
                         text-token processing is unaffected.
 
+Features:
+    - Progressive checkpoint saving (resilient to OOM crashes)
+    - Automatic resume from checkpoint on restart
+    - Memory cleanup (gc + torch.cuda.empty_cache) per layer condition
+    - Dual output: console + log file
+
 Input:
     data/experiment_data.json       (r1_benchmark section)
     cavs/{concept}_{method}_layer{L}.pt
 
 Output:
     results/cct_test_results.json
+    results/cct_test_log.txt
 
 Usage (from models/LLaVA_1_5_7B/):
     python -m test.cct_test
 """
 
+import gc
 import json
 import os
 import random
@@ -78,6 +86,11 @@ ALPHAS        = [a for a in cfg.INTENSITIES if a > 0.0]   # skip 0.0 (that's bas
 
 RESULTS_DIR  = cfg.RESULTS_DIR
 OUTPUT_FILE  = os.path.join(RESULTS_DIR, "cct_test_results.json")
+CHECKPOINT_FILE = os.path.join(RESULTS_DIR, "cct_checkpoint.json")
+CRASH_LOG_FILE  = os.path.join(RESULTS_DIR, "cct_crash_keys.json")
+LOG_FILE        = os.path.join(RESULTS_DIR, "cct_test_log.txt")
+CHECKPOINT_EVERY = 1   # save checkpoint every N conditions (frequent due to GPU crashes)
+MAX_RETRIES      = 2   # skip evaluation after this many crashes on the same key
 
 # Ablation modes: (label, image_tokens_only flag)
 ABLATION_MODES = [
@@ -94,17 +107,26 @@ N_OFF_TARGET = 2
 
 
 # ---------------------------------------------------------------------------
+# Logging helper — prints to console AND appends to log file
+# ---------------------------------------------------------------------------
+_log_file_handle = None
+
+
+def log(msg=""):
+    """Print to console and append to log file."""
+    print(msg)
+    if _log_file_handle is not None:
+        _log_file_handle.write(msg + "\n")
+        _log_file_handle.flush()
+
+
+# ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
 
 def _multi_cav_context(model, cavs_by_layer, alpha, technique, image_tokens_only):
     """
     Register one ablation hook per layer, each with its own per-layer CAV.
-
-    This replicates the text-CCT's build_multi_layer_hooks() pattern:
-    in the all-layers condition each layer carries the CAV that was
-    trained specifically for that layer's activation space.
-
     Returns list of hook handles — caller is responsible for removal.
     """
     handles = []
@@ -120,10 +142,6 @@ def evaluate_r1_with_multi_cav(model, processor, items, cavs_by_layer,
                                 alpha, technique, image_tokens_only):
     """
     Evaluate R1 accuracy while multiple per-layer CAV hooks are active.
-
-    PyTorch hooks registered by _multi_cav_context() fire automatically
-    during every forward pass, so evaluate_r1() is called without any
-    cav/alpha arguments — the intervention is already in place.
     """
     handles = _multi_cav_context(
         model, cavs_by_layer, alpha, technique, image_tokens_only,
@@ -140,21 +158,13 @@ def evaluate_r1_with_multi_cav(model, processor, items, cavs_by_layer,
 
 def run_r1(model, processor, items, cav, layers, alpha, technique, image_tokens_only):
     """
-    Unified R1 evaluation: single-layer (via evaluate_r1 API) or
-    multi-layer with per-layer CAVs (via evaluate_r1_with_multi_cav).
-
-    Args:
-        cav:    For single-layer, a single Tensor [d_model].
-                For multi-layer, a dict {layer_idx: Tensor}.
-        layers: List of layer indices (1 element → single-layer).
+    Unified R1 evaluation: single-layer or multi-layer with per-layer CAVs.
     """
     if isinstance(cav, dict):
-        # Multi-layer: each layer has its own CAV
         return evaluate_r1_with_multi_cav(
             model, processor, items, cav, alpha, technique, image_tokens_only,
         )
     else:
-        # Single-layer: delegate to evaluate_r1
         return evaluate_r1(
             model, processor, items,
             cav=cav, alpha=alpha,
@@ -164,28 +174,121 @@ def run_r1(model, processor, items, cav, layers, alpha, technique, image_tokens_
 
 
 # ---------------------------------------------------------------------------
+# Checkpoint helpers (progressive save / resume on OOM)
+# ---------------------------------------------------------------------------
+
+def make_condition_key(ablated, cav_method, layer_label, alpha, mode_label, measured):
+    """Deterministic string key that uniquely identifies one R1 evaluation."""
+    return f"{ablated}|{cav_method}|{layer_label}|{alpha}|{mode_label}|{measured}"
+
+
+def save_checkpoint(baselines, results, completed_keys, available, filtered_out):
+    """Atomically write checkpoint to disk (temp file + rename, fsync).
+    Keeps a .bak copy so a crash during write doesn't corrupt both files."""
+    data = {
+        "baselines":      baselines,
+        "results":        results,
+        "completed_keys": list(completed_keys),
+        "available":      available,
+        "filtered_out":   filtered_out,
+        "timestamp":      datetime.now().isoformat(),
+    }
+    tmp = CHECKPOINT_FILE + ".tmp"
+    bak = CHECKPOINT_FILE + ".bak"
+    # Write to temp file with fsync
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, default=str)
+        f.flush()
+        os.fsync(f.fileno())
+    # Keep backup of current checkpoint before replacing
+    if os.path.exists(CHECKPOINT_FILE):
+        try:
+            os.replace(CHECKPOINT_FILE, bak)
+        except OSError:
+            pass
+    os.replace(tmp, CHECKPOINT_FILE)
+
+
+def load_checkpoint():
+    """Load checkpoint if it exists; fall back to .bak if main is corrupt."""
+    for path in [CHECKPOINT_FILE, CHECKPOINT_FILE + ".bak"]:
+        if not os.path.exists(path):
+            continue
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            if path != CHECKPOINT_FILE:
+                print(f"  WARNING: Main checkpoint corrupt, loaded from backup")
+            return data
+        except (json.JSONDecodeError, IOError):
+            continue
+    return None
+
+
+def load_crash_log():
+    """Load crash attempt counts per key. Returns dict {key: count}."""
+    if not os.path.exists(CRASH_LOG_FILE):
+        return {}
+    try:
+        with open(CRASH_LOG_FILE, "r", encoding="utf-8") as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+
+def save_crash_log(crash_counts):
+    """Save crash attempt counts (with fsync to survive SIGILL)."""
+    with open(CRASH_LOG_FILE, "w", encoding="utf-8") as f:
+        json.dump(crash_counts, f, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
+
+
+def record_pending_key(key):
+    """Record that we're about to attempt this key. If we crash, the next
+    run will see it in the crash log and increment its retry count."""
+    crash_counts = load_crash_log()
+    crash_counts[key] = crash_counts.get(key, 0) + 1
+    save_crash_log(crash_counts)
+
+
+def clear_pending_key(key):
+    """Remove a key from crash log after successful completion."""
+    crash_counts = load_crash_log()
+    if key in crash_counts:
+        del crash_counts[key]
+        save_crash_log(crash_counts)
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
 def main():
-    sep = "=" * 60
-    print(f"\n{sep}")
-    print("  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)")
-    print(f"  Concepts       : {CONCEPTS}")
-    print(f"  CAV methods    : {CAV_METHODS}")
-    print(f"  Single layers  : {SINGLE_LAYERS}")
-    print(f"  All-layers cond: {ALL_LAYERS}")
-    print(f"  Alphas         : {ALPHAS}")
-    print(f"  Ablation modes : {[m for m, _ in ABLATION_MODES]}")
-    print(f"  Min correct    : {MIN_CORRECT}")
-    print(f"{sep}")
+    global _log_file_handle
 
     os.makedirs(RESULTS_DIR, exist_ok=True)
+    _log_file_handle = open(LOG_FILE, "a", encoding="utf-8")
+    log(f"\n{'='*60}")
+    log(f"  CCT Test started at {datetime.now().isoformat()}")
+    log(f"{'='*60}")
+
+    sep = "=" * 60
+    log(f"\n{sep}")
+    log("  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)")
+    log(f"  Concepts       : {CONCEPTS}")
+    log(f"  CAV methods    : {CAV_METHODS}")
+    log(f"  Single layers  : {SINGLE_LAYERS}")
+    log(f"  All-layers cond: {ALL_LAYERS}")
+    log(f"  Alphas         : {ALPHAS}")
+    log(f"  Ablation modes : {[m for m, _ in ABLATION_MODES]}")
+    log(f"  Min correct    : {MIN_CORRECT}")
+    log(f"{sep}")
 
     # ------------------------------------------------------------------
     # Load benchmark data
     # ------------------------------------------------------------------
-    print(f"\n  Loading data from {cfg.DATA_FILE}...")
+    log(f"\n  Loading data from {cfg.DATA_FILE}...")
     with open(cfg.DATA_FILE, "r") as f:
         data = json.load(f)
 
@@ -197,72 +300,110 @@ def main():
     ]
     missing = [c for c in CONCEPTS if c not in available]
     if missing:
-        print(f"  WARNING: {len(missing)} concept(s) absent from r1_benchmark: {missing}")
+        log(f"  WARNING: {len(missing)} concept(s) absent from r1_benchmark: {missing}")
     assert available, (
         "No concepts found in r1_benchmark — run data_gen_multimodal.py first."
     )
 
     for c in available:
-        print(f"  {c}: {len(r1_data_by_concept[c])} R1 items")
+        log(f"  {c}: {len(r1_data_by_concept[c])} R1 items")
 
     # ------------------------------------------------------------------
     # Load model
     # ------------------------------------------------------------------
-    print(f"\n  Loading {cfg.MODEL_NAME} (4-bit)...")
+    log(f"\n  Loading {cfg.MODEL_NAME} (4-bit)...")
     model, processor = load_llava_model()
-    print(f"  Model loaded.\n")
+    log(f"  Model loaded.\n")
+
+    # ==================================================================
+    # CHECK FOR EXISTING CHECKPOINT
+    # ==================================================================
+    checkpoint = load_checkpoint()
+    resuming = False
+
+    if checkpoint and set(checkpoint.get("available", [])).issubset(set(available)):
+        ckpt_available = checkpoint["available"]
+        if all(c in available for c in ckpt_available):
+            resuming = True
+            log(f"\n  RESUMING from checkpoint "
+                f"({len(checkpoint['completed_keys'])} evaluations completed)")
 
     # ==================================================================
     # PHASE 1 — BASELINE (no ablation)
     # ==================================================================
-    print(f"{'='*50}")
-    print("PHASE 1: BASELINE (no ablation)")
-    print(f"{'='*50}")
+    log(f"\n{'='*50}")
+    log("PHASE 1: BASELINE (no ablation)")
+    log(f"{'='*50}")
 
     baselines = {}
     correct_items_by_concept = {}
 
-    for concept in available:
-        items = r1_data_by_concept[concept]
-        acc, per_item = evaluate_r1(model, processor, items)
+    if resuming and "baselines" in checkpoint:
+        # Restore baselines from checkpoint — rebuild correct_items
+        baselines = checkpoint["baselines"]
+        for concept in available:
+            items = r1_data_by_concept[concept]
+            if concept in baselines and "per_item" in baselines[concept]:
+                per_item = baselines[concept]["per_item"]
+                correct_idx = [i for i, pi in enumerate(per_item) if pi["is_correct"]]
+                correct_items = [items[i] for i in correct_idx]
+                correct_items_by_concept[concept] = correct_items
+                log(f"  {concept.upper():>20s}: {len(correct_items)} correct items [from checkpoint]")
+            else:
+                # Concept not in checkpoint — evaluate fresh
+                acc, per_item = evaluate_r1(model, processor, items)
+                correct_idx = [i for i, pi in enumerate(per_item) if pi["is_correct"]]
+                correct_items = [items[i] for i in correct_idx]
+                baselines[concept] = {
+                    "accuracy": acc,
+                    "n_items":  len(items),
+                    "per_item": per_item,
+                }
+                correct_items_by_concept[concept] = correct_items
+                log(f"  {concept.upper():>20s}: acc={acc:.3f}  "
+                    f"({len(correct_items)}/{len(items)} correct)")
+    else:
+        for concept in available:
+            items = r1_data_by_concept[concept]
+            acc, per_item = evaluate_r1(model, processor, items)
 
-        correct_idx   = [i for i, pi in enumerate(per_item) if pi["is_correct"]]
-        correct_items = [items[i] for i in correct_idx]
+            correct_idx   = [i for i, pi in enumerate(per_item) if pi["is_correct"]]
+            correct_items = [items[i] for i in correct_idx]
 
-        baselines[concept] = {
-            "accuracy": acc,
-            "n_items":  len(items),
-            "per_item": per_item,
-        }
-        correct_items_by_concept[concept] = correct_items
+            baselines[concept] = {
+                "accuracy": acc,
+                "n_items":  len(items),
+                "per_item": per_item,
+            }
+            correct_items_by_concept[concept] = correct_items
 
-        print(f"  {concept.upper():>20s}: acc={acc:.3f}  "
-              f"({len(correct_items)}/{len(items)} correct)")
+            log(f"  {concept.upper():>20s}: acc={acc:.3f}  "
+                f"({len(correct_items)}/{len(items)} correct)")
 
     # ------------------------------------------------------------------
     # Filter: require MIN_CORRECT baseline-correct items
     # ------------------------------------------------------------------
     all_available = list(available)
     available = [c for c in available
-                 if len(correct_items_by_concept[c]) >= MIN_CORRECT]
+                 if len(correct_items_by_concept.get(c, [])) >= MIN_CORRECT]
     filtered_out = [c for c in all_available if c not in available]
 
     if filtered_out:
-        print(f"\n  Filtered out {len(filtered_out)} concept(s) with "
-              f"< {MIN_CORRECT} correct items: {filtered_out}")
-    print(f"  Concepts for ablation: {len(available)} / {len(all_available)}")
-    print(f"  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)")
+        log(f"\n  Filtered out {len(filtered_out)} concept(s) with "
+            f"< {MIN_CORRECT} correct items: {filtered_out}")
+    log(f"  Concepts for ablation: {len(available)} / {len(all_available)}")
+    log(f"  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)")
     assert available, f"No concept has >= {MIN_CORRECT} correctly classified images!"
 
     for c in available:
-        print(f"    {c}: {len(correct_items_by_concept[c])} correct items")
+        log(f"    {c}: {len(correct_items_by_concept[c])} correct items")
 
     # ==================================================================
     # PHASE 2 — FACTORIAL ABLATION
     # ==================================================================
-    print(f"\n{'='*50}")
-    print("PHASE 2: FACTORIAL ABLATION")
-    print(f"{'='*50}")
+    log(f"\n{'='*50}")
+    log("PHASE 2: FACTORIAL ABLATION")
+    log(f"{'='*50}")
 
     # Layer conditions: each individual extraction layer + all-layers combined
     layer_conditions = [(f"L{l}", [l]) for l in SINGLE_LAYERS]
@@ -274,12 +415,14 @@ def main():
         len(available) * len(CAV_METHODS) * len(layer_conditions)
         * len(ALPHAS) * len(ABLATION_MODES)
     )
-    print(f"  Ablation conditions   : {total_conditions}")
-    print(f"  Off-target per cond   : {n_off}")
-    print(f"  Total R1 evaluations  : {total_conditions * (1 + n_off)}\n")
+    log(f"  Ablation conditions   : {total_conditions}")
+    log(f"  Off-target per cond   : {n_off}")
+    log(f"  Total R1 evaluations  : {total_conditions * (1 + n_off)}\n")
 
-    results      = []
-    condition_num = 0
+    # Load existing progress from checkpoint
+    completed_keys = set(checkpoint["completed_keys"]) if resuming else set()
+    results        = list(checkpoint["results"])        if resuming else []
+    condition_num  = 0
 
     for ablated_concept in available:
         for cav_method in CAV_METHODS:
@@ -289,26 +432,25 @@ def main():
 
                 # ---- Load CAV(s) ----------------------------------------
                 if is_multi:
-                    # Per-layer CAVs for the all-layers condition
                     cavs_by_layer = {}
                     for l in layers:
                         try:
                             cavs_by_layer[l] = load_cav(ablated_concept, cav_method, l)
                         except FileNotFoundError:
-                            print(f"  WARNING: CAV missing — "
-                                  f"{ablated_concept}/{cav_method}/L{l}, skipping layer")
+                            log(f"  WARNING: CAV missing — "
+                                f"{ablated_concept}/{cav_method}/L{l}, skipping layer")
                     if not cavs_by_layer:
-                        print(f"  SKIP {ablated_concept}/{cav_method}/"
-                              f"{layer_label}: no CAVs found")
+                        log(f"  SKIP {ablated_concept}/{cav_method}/"
+                            f"{layer_label}: no CAVs found")
                         continue
-                    cav_arg = cavs_by_layer   # dict → multi-layer path in run_r1()
+                    cav_arg = cavs_by_layer
                 else:
                     layer = layers[0]
                     try:
                         cav_arg = load_cav(ablated_concept, cav_method, layer)
                     except FileNotFoundError:
-                        print(f"  SKIP {ablated_concept}/{cav_method}/L{layer}: "
-                              f"CAV not found")
+                        log(f"  SKIP {ablated_concept}/{cav_method}/L{layer}: "
+                            f"CAV not found")
                         continue
                 # ---------------------------------------------------------
 
@@ -322,29 +464,63 @@ def main():
 
                     for mode_label, image_only in ABLATION_MODES:
                         condition_num += 1
-                        print(f"  [{condition_num}/{total_conditions}]  "
-                              f"Ablate {ablated_concept}/{cav_method}/"
-                              f"{layer_label}/a={alpha}/{mode_label}")
+                        log(f"  [{condition_num}/{total_conditions}]  "
+                            f"Ablate {ablated_concept}/{cav_method}/"
+                            f"{layer_label}/a={alpha}/{mode_label}")
 
                         for measured_concept in measure_concepts:
+                            key = make_condition_key(
+                                ablated_concept, cav_method, layer_label,
+                                alpha, mode_label, measured_concept,
+                            )
+                            if key in completed_keys:
+                                log(f"    >> {measured_concept.upper():>20s} [CACHED]")
+                                continue
+
+                            # Check crash log — skip if this key crashed too many times
+                            crash_counts = load_crash_log()
+                            if crash_counts.get(key, 0) >= MAX_RETRIES:
+                                log(f"    >> {measured_concept.upper():>20s} "
+                                    f"[SKIPPED — crashed {crash_counts[key]}x]")
+                                completed_keys.add(key)
+                                continue
+
                             on_target = measured_concept == ablated_concept
                             tag = "ON-TARGET" if on_target else "off-target"
 
-                            acc, per_item = run_r1(
-                                model, processor,
-                                correct_items_by_concept[measured_concept],
-                                cav=cav_arg,
-                                layers=layers,
-                                alpha=alpha,
-                                technique="projection",
-                                image_tokens_only=image_only,
-                            )
+                            # Save checkpoint + record pending key BEFORE the forward pass.
+                            # If SIGILL kills the process, the crash log will have this key
+                            # and the next restart will know it crashed.
+                            record_pending_key(key)
+                            save_checkpoint(baselines, results, completed_keys,
+                                            available, filtered_out)
+
+                            try:
+                                acc, per_item = run_r1(
+                                    model, processor,
+                                    correct_items_by_concept[measured_concept],
+                                    cav=cav_arg,
+                                    layers=layers,
+                                    alpha=alpha,
+                                    technique="projection",
+                                    image_tokens_only=image_only,
+                                )
+                            except Exception as e:
+                                log(f"    >> {measured_concept.upper():>20s} [{tag}]: "
+                                    f"ERROR — {type(e).__name__}: {e}")
+                                completed_keys.add(key)
+                                gc.collect()
+                                torch.cuda.empty_cache()
+                                continue
+
+                            # Success — clear from crash log
+                            clear_pending_key(key)
 
                             # baseline_accuracy = 1.0 by construction (correct items only)
                             delta = 1.0 - acc
 
-                            print(f"    >> {measured_concept.upper():>20s} [{tag}]: "
-                                  f"acc={acc:.3f}  d={delta:+.3f}")
+                            log(f"    >> {measured_concept.upper():>20s} [{tag}]: "
+                                f"acc={acc:.3f}  d={delta:+.3f}")
 
                             results.append({
                                 "ablated_concept":   ablated_concept,
@@ -359,13 +535,30 @@ def main():
                                 "delta_accuracy":    delta,
                                 "per_item":          per_item,
                             })
+                            completed_keys.add(key)
+
+                        # -- Periodic checkpoint save --
+                        if condition_num % CHECKPOINT_EVERY == 0:
+                            save_checkpoint(baselines, results, completed_keys,
+                                            available, filtered_out)
+                            log(f"    [CHECKPOINT] Saved at condition "
+                                f"{condition_num}/{total_conditions}")
+
+                # -- Memory cleanup after each layer condition --
+                del cav_arg
+                gc.collect()
+                torch.cuda.empty_cache()
+
+    # Final checkpoint after Phase 2
+    save_checkpoint(baselines, results, completed_keys, available, filtered_out)
+    log(f"  [CHECKPOINT] Phase 2 complete — {len(results)} results saved")
 
     # ==================================================================
     # PHASE 3 — SPECIFICITY ANALYSIS
     # ==================================================================
-    print(f"\n{'='*50}")
-    print("PHASE 3: SPECIFICITY ANALYSIS")
-    print(f"{'='*50}")
+    log(f"\n{'='*50}")
+    log("PHASE 3: SPECIFICITY ANALYSIS")
+    log(f"{'='*50}")
 
     specificity = {}
 
@@ -385,10 +578,10 @@ def main():
 
         status = "PASS" if ratio >= cfg.SPECIFICITY_RATIO_THRESHOLD else "FAIL"
 
-        print(f"\n  ── Mode: {mode_label} ──")
-        print(f"    Mean on-target  dacc : {mean_on:+.4f}")
-        print(f"    Mean off-target dacc : {mean_off:+.4f}")
-        print(f"    Specificity ratio    : {ratio:.2f}  [{status}]")
+        log(f"\n  ── Mode: {mode_label} ──")
+        log(f"    Mean on-target  dacc : {mean_on:+.4f}")
+        log(f"    Mean off-target dacc : {mean_off:+.4f}")
+        log(f"    Specificity ratio    : {ratio:.2f}  [{status}]")
 
         # Per-concept breakdown
         per_concept = {}
@@ -400,8 +593,8 @@ def main():
             m_off  = sum(off_d) / len(off_d) if off_d else 0.0
             r_c    = (m_on / m_off) if m_off > 0 else (float("inf") if m_on > 0 else 0.0)
 
-            print(f"    {ablated.upper():>20s}: "
-                  f"on={m_on:+.4f}  off={m_off:+.4f}  ratio={r_c:.2f}")
+            log(f"    {ablated.upper():>20s}: "
+                f"on={m_on:+.4f}  off={m_off:+.4f}  ratio={r_c:.2f}")
 
             per_concept[ablated] = {
                 "mean_on_target_delta":  m_on,
@@ -423,10 +616,10 @@ def main():
         r0 = specificity[labels[0]]["specificity_ratio"]
         r1_v = specificity[labels[1]]["specificity_ratio"]
         more_specific = labels[1] if r1_v > r0 else labels[0]
-        print(f"\n  Mode comparison:")
-        print(f"    {labels[0]}: ratio={r0:.2f}")
-        print(f"    {labels[1]}: ratio={r1_v:.2f}")
-        print(f"    >> '{more_specific}' is more selective")
+        log(f"\n  Mode comparison:")
+        log(f"    {labels[0]}: ratio={r0:.2f}")
+        log(f"    {labels[1]}: ratio={r1_v:.2f}")
+        log(f"    >> '{more_specific}' is more selective")
 
     # ==================================================================
     # SAVE RESULTS
@@ -473,10 +666,22 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2, default=str)
 
-    print(f"\n  Saved: {OUTPUT_FILE}")
-    print(f"\n{'='*60}")
-    print("  CCT TEST COMPLETE")
-    print(f"{'='*60}")
+    log(f"\n  Saved: {OUTPUT_FILE}")
+
+    # Remove checkpoint and crash log after successful completion
+    if os.path.exists(CHECKPOINT_FILE):
+        os.remove(CHECKPOINT_FILE)
+        log(f"  Checkpoint removed: {CHECKPOINT_FILE}")
+    if os.path.exists(CRASH_LOG_FILE):
+        os.remove(CRASH_LOG_FILE)
+        log(f"  Crash log removed: {CRASH_LOG_FILE}")
+
+    log(f"\n{'='*60}")
+    log("  CCT TEST COMPLETE")
+    log(f"{'='*60}")
+
+    if _log_file_handle is not None:
+        _log_file_handle.close()
 
 
 if __name__ == "__main__":

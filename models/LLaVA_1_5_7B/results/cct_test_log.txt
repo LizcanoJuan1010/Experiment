@@ -1,0 +1,2883 @@
+
+============================================================
+  CCT Test started at 2026-03-20T11:33:05.182360
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: acc=0.375  (3/8 correct)
+                   BEE: acc=0.733  (11/15 correct)
+                 HORSE: acc=0.000  (0/15 correct)
+               PENGUIN: acc=1.000  (13/13 correct)
+                VIOLIN: acc=1.000  (9/9 correct)
+                  BIRD: acc=0.000  (0/15 correct)
+                SPIDER: acc=0.000  (0/15 correct)
+                CANDLE: acc=1.000  (15/15 correct)
+             TABBY_CAT: acc=0.000  (0/15 correct)
+      GOLDEN_RETRIEVER: acc=0.333  (5/15 correct)
+    LABRADOR_RETRIEVER: acc=0.933  (14/15 correct)
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.643  d=+0.357
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.667  d=+0.333
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+
+============================================================
+  CCT Test started at 2026-03-20T11:43:51.987229
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+  RESUMING from checkpoint (30 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.800  d=+0.200
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [off-target]: acc=0.533  d=+0.467
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.200  d=+0.800
+    >>               CANDLE [off-target]: acc=0.333  d=+0.667
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+
+============================================================
+  CCT Test started at 2026-03-20T11:59:15.655795
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+  RESUMING from checkpoint (46 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+
+============================================================
+  CCT Test started at 2026-03-20T12:04:38.412228
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+  RESUMING from checkpoint (49 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=0.667  d=+0.333
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+
+============================================================
+  CCT Test started at 2026-03-20T12:07:36.031256
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+  Model loaded.
+
+
+  RESUMING from checkpoint (63 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=0.444  d=+0.556
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.714  d=+0.286
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [off-target]: acc=0.846  d=+0.154
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=0.455  d=+0.545
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.714  d=+0.286
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.929  d=+0.071
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 17/560
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+
+============================================================
+  CCT Test started at 2026-03-20T12:13:07.192679
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+  Model loaded.
+
+
+  RESUMING from checkpoint (84 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 18/560
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=0.273  d=+0.727
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 19/560
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.500  d=+0.500
+    [CHECKPOINT] Saved at condition 20/560
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 21/560
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 22/560
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 23/560
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+
+============================================================
+  CCT Test started at 2026-03-20T12:18:55.046391
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 17/560
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+  Model loaded.
+
+
+  RESUMING from checkpoint (102 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 18/560
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 24/560
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 25/560
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+    [CHECKPOINT] Saved at condition 19/560
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 26/560
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 20/560
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 27/560
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 21/560
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 17/560
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 28/560
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 22/560
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 18/560
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 23/560
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 29/560
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 24/560
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+    [CHECKPOINT] Saved at condition 19/560
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 30/560
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 25/560
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 31/560
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 20/560
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 21/560
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 22/560
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 32/560
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 26/560
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 23/560
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 33/560
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 27/560
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 24/560
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 34/560
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 25/560
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 28/560
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 26/560
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 35/560
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.273  d=+0.727
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 29/560
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 27/560
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 36/560
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 30/560
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 28/560
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    [CHECKPOINT] Saved at condition 37/560
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+    [CHECKPOINT] Saved at condition 31/560
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 29/560
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 38/560
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 32/560
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.400  d=+0.600
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 30/560
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.333  d=+0.667
+    [CHECKPOINT] Saved at condition 39/560
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    [CHECKPOINT] Saved at condition 33/560
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 31/560
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 40/560
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 34/560
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 32/560
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.182  d=+0.818
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 41/560
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 33/560
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 35/560
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 42/560
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 34/560
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 36/560
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    [CHECKPOINT] Saved at condition 35/560
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.867  d=+0.133
+    [CHECKPOINT] Saved at condition 43/560
+  [44/560]  Ablate camel/svm/L16/a=6.0/image_tokens_only
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 36/560
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 37/560
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 44/560
+  [45/560]  Ablate camel/svm/L16/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 37/560
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 38/560
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>               CANDLE [off-target]: acc=0.067  d=+0.933
+    [CHECKPOINT] Saved at condition 45/560
+  [46/560]  Ablate camel/svm/L16/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 38/560
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>              PENGUIN [off-target]: acc=0.154  d=+0.846
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>               CANDLE [off-target]: acc=0.400  d=+0.600
+    [CHECKPOINT] Saved at condition 39/560
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 46/560
+  [47/560]  Ablate camel/svm/L16/a=15.0/all_tokens
+    >>               CANDLE [off-target]: acc=0.400  d=+0.600
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.545  d=+0.455
+    [CHECKPOINT] Saved at condition 39/560
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 47/560
+  [48/560]  Ablate camel/svm/L16/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 40/560
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.818  d=+0.182
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 40/560
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 41/560
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 48/560
+  [49/560]  Ablate camel/svm/L16/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 42/560
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 41/560
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 49/560
+  [50/560]  Ablate camel/svm/L16/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.867  d=+0.133
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 42/560
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 50/560
+  [51/560]  Ablate camel/svm/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+    [CHECKPOINT] Saved at condition 43/560
+  [44/560]  Ablate camel/svm/L16/a=6.0/image_tokens_only
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 51/560
+  [52/560]  Ablate camel/svm/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 44/560
+  [45/560]  Ablate camel/svm/L16/a=10.0/all_tokens
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 52/560
+  [53/560]  Ablate camel/svm/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 53/560
+  [54/560]  Ablate camel/svm/L24/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.429  d=+0.571
+    [CHECKPOINT] Saved at condition 45/560
+  [46/560]  Ablate camel/svm/L16/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 54/560
+  [55/560]  Ablate camel/svm/L24/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 46/560
+  [47/560]  Ablate camel/svm/L16/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 55/560
+  [56/560]  Ablate camel/svm/L24/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 47/560
+  [48/560]  Ablate camel/svm/L16/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 56/560
+  [57/560]  Ablate camel/svm/L24/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 48/560
+  [49/560]  Ablate camel/svm/L16/a=20.0/all_tokens
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 57/560
+  [58/560]  Ablate camel/svm/L24/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 49/560
+  [50/560]  Ablate camel/svm/L16/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 50/560
+  [51/560]  Ablate camel/svm/L24/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 58/560
+  [59/560]  Ablate camel/svm/L24/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.667  d=+0.333
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 59/560
+  [60/560]  Ablate camel/svm/L24/a=20.0/image_tokens_only
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 51/560
+  [52/560]  Ablate camel/svm/L24/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 60/560
+  [61/560]  Ablate camel/svm/L27/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 52/560
+  [53/560]  Ablate camel/svm/L24/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 61/560
+  [62/560]  Ablate camel/svm/L27/a=3.0/image_tokens_only
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 53/560
+  [54/560]  Ablate camel/svm/L24/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 54/560
+  [55/560]  Ablate camel/svm/L24/a=10.0/all_tokens
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 62/560
+  [63/560]  Ablate camel/svm/L27/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 55/560
+  [56/560]  Ablate camel/svm/L24/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 63/560
+  [64/560]  Ablate camel/svm/L27/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 56/560
+  [57/560]  Ablate camel/svm/L24/a=15.0/all_tokens
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 64/560
+  [65/560]  Ablate camel/svm/L27/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.667  d=+0.333
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 57/560
+  [58/560]  Ablate camel/svm/L24/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 65/560
+  [66/560]  Ablate camel/svm/L27/a=10.0/image_tokens_only
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 58/560
+  [59/560]  Ablate camel/svm/L24/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.857  d=+0.143
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 66/560
+  [67/560]  Ablate camel/svm/L27/a=15.0/all_tokens
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 59/560
+  [60/560]  Ablate camel/svm/L24/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 67/560
+  [68/560]  Ablate camel/svm/L27/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 60/560
+  [61/560]  Ablate camel/svm/L27/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+
+============================================================
+  CCT Test started at 2026-03-20T15:45:08.917760
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+  RESUMING from checkpoint (233 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [off-target]: acc=0.846  d=+0.154
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 17/560
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    [CHECKPOINT] Saved at condition 18/560
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 19/560
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 20/560
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 21/560
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 22/560
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 23/560
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 24/560
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 25/560
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 26/560
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.273  d=+0.727
+    [CHECKPOINT] Saved at condition 27/560
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 28/560
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=0.273  d=+0.727
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 29/560
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 30/560
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 31/560
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 32/560
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 33/560
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 34/560
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 35/560
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 36/560
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 37/560
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 38/560
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>              PENGUIN [off-target]: acc=0.154  d=+0.846
+    [CHECKPOINT] Saved at condition 39/560
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 40/560
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    [CHECKPOINT] Saved at condition 41/560
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 42/560
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.600  d=+0.400
+    [CHECKPOINT] Saved at condition 43/560
+  [44/560]  Ablate camel/svm/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 44/560
+  [45/560]  Ablate camel/svm/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [off-target]: acc=0.067  d=+0.933
+    [CHECKPOINT] Saved at condition 45/560
+  [46/560]  Ablate camel/svm/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 46/560
+  [47/560]  Ablate camel/svm/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 47/560
+  [48/560]  Ablate camel/svm/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=0.818  d=+0.182
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 48/560
+  [49/560]  Ablate camel/svm/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 49/560
+  [50/560]  Ablate camel/svm/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 50/560
+  [51/560]  Ablate camel/svm/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 51/560
+  [52/560]  Ablate camel/svm/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 52/560
+  [53/560]  Ablate camel/svm/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 53/560
+  [54/560]  Ablate camel/svm/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 54/560
+  [55/560]  Ablate camel/svm/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+
+============================================================
+  CCT Test started at 2026-03-20T15:58:02.094634
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+  RESUMING from checkpoint (283 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [off-target]: acc=0.455  d=+0.545
+    [CHECKPOINT] Saved at condition 17/560
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 18/560
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 19/560
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 20/560
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 21/560
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 22/560
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 23/560
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 24/560
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 25/560
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 26/560
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 27/560
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 28/560
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 29/560
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 30/560
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.786  d=+0.214
+    [CHECKPOINT] Saved at condition 31/560
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 32/560
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 33/560
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 34/560
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 35/560
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 36/560
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 37/560
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 38/560
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.143  d=+0.857
+    [CHECKPOINT] Saved at condition 39/560
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 40/560
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 41/560
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 42/560
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>               CANDLE [off-target]: acc=0.867  d=+0.133
+    [CHECKPOINT] Saved at condition 43/560
+  [44/560]  Ablate camel/svm/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 44/560
+  [45/560]  Ablate camel/svm/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+    [CHECKPOINT] Saved at condition 45/560
+  [46/560]  Ablate camel/svm/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 46/560
+  [47/560]  Ablate camel/svm/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=0.222  d=+0.778
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 47/560
+  [48/560]  Ablate camel/svm/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 48/560
+  [49/560]  Ablate camel/svm/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 49/560
+  [50/560]  Ablate camel/svm/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 50/560
+  [51/560]  Ablate camel/svm/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 51/560
+  [52/560]  Ablate camel/svm/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 52/560
+  [53/560]  Ablate camel/svm/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 53/560
+  [54/560]  Ablate camel/svm/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 54/560
+  [55/560]  Ablate camel/svm/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 55/560
+  [56/560]  Ablate camel/svm/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 56/560
+  [57/560]  Ablate camel/svm/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 57/560
+  [58/560]  Ablate camel/svm/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 58/560
+  [59/560]  Ablate camel/svm/L24/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=0.667  d=+0.333
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 59/560
+  [60/560]  Ablate camel/svm/L24/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 60/560
+  [61/560]  Ablate camel/svm/L27/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 61/560
+  [62/560]  Ablate camel/svm/L27/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 62/560
+  [63/560]  Ablate camel/svm/L27/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 63/560
+  [64/560]  Ablate camel/svm/L27/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 64/560
+  [65/560]  Ablate camel/svm/L27/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.667  d=+0.333
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 65/560
+  [66/560]  Ablate camel/svm/L27/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 66/560
+  [67/560]  Ablate camel/svm/L27/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 67/560
+  [68/560]  Ablate camel/svm/L27/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 68/560
+  [69/560]  Ablate camel/svm/L27/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.000  d=+1.000
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 69/560
+  [70/560]  Ablate camel/svm/L27/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 70/560
+  [71/560]  Ablate camel/svm/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    [CHECKPOINT] Saved at condition 71/560
+  [72/560]  Ablate camel/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 72/560
+  [73/560]  Ablate camel/svm/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=0.333  d=+0.667
+    >>               CANDLE [off-target]: acc=0.200  d=+0.800
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 73/560
+  [74/560]  Ablate camel/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+
+============================================================
+  CCT Test started at 2026-03-20T16:14:38.392655
+============================================================
+
+============================================================
+  CCT Test — Visual Concept Classification Test (LLaVA-1.5 7B)
+  Concepts       : ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  CAV methods    : ['mean_diff', 'svm']
+  Single layers  : [16, 24, 27]
+  All-layers cond: [16, 24, 27]
+  Alphas         : [3.0, 6.0, 10.0, 15.0, 20.0]
+  Ablation modes : ['all_tokens', 'image_tokens_only']
+  Min correct    : 3
+============================================================
+
+  Loading data from data\experiment_data.json...
+  camel: 8 R1 items
+  bee: 15 R1 items
+  horse: 15 R1 items
+  penguin: 13 R1 items
+  violin: 9 R1 items
+  bird: 15 R1 items
+  spider: 15 R1 items
+  candle: 15 R1 items
+  tabby_cat: 15 R1 items
+  golden_retriever: 15 R1 items
+  labrador_retriever: 15 R1 items
+
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+  Model loaded.
+
+
+  RESUMING from checkpoint (362 evaluations completed)
+
+==================================================
+PHASE 1: BASELINE (no ablation)
+==================================================
+                 CAMEL: 3 correct items [from checkpoint]
+                   BEE: 11 correct items [from checkpoint]
+                 HORSE: 0 correct items [from checkpoint]
+               PENGUIN: 13 correct items [from checkpoint]
+                VIOLIN: 9 correct items [from checkpoint]
+                  BIRD: 0 correct items [from checkpoint]
+                SPIDER: 0 correct items [from checkpoint]
+                CANDLE: 15 correct items [from checkpoint]
+             TABBY_CAT: 0 correct items [from checkpoint]
+      GOLDEN_RETRIEVER: 5 correct items [from checkpoint]
+    LABRADOR_RETRIEVER: 14 correct items [from checkpoint]
+
+  Filtered out 4 concept(s) with < 3 correct items: ['horse', 'bird', 'spider', 'tabby_cat']
+  Concepts for ablation: 7 / 11
+  Strategy: baseline-correct-only (baseline_accuracy = 1.0 by construction)
+    camel: 3 correct items
+    bee: 11 correct items
+    penguin: 13 correct items
+    violin: 9 correct items
+    candle: 15 correct items
+    golden_retriever: 5 correct items
+    labrador_retriever: 14 correct items
+
+==================================================
+PHASE 2: FACTORIAL ABLATION
+==================================================
+  Ablation conditions   : 560
+  Off-target per cond   : 2
+  Total R1 evaluations  : 1680
+
+  [1/560]  Ablate camel/mean_diff/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 1/560
+  [2/560]  Ablate camel/mean_diff/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 2/560
+  [3/560]  Ablate camel/mean_diff/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 3/560
+  [4/560]  Ablate camel/mean_diff/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 4/560
+  [5/560]  Ablate camel/mean_diff/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 5/560
+  [6/560]  Ablate camel/mean_diff/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 6/560
+  [7/560]  Ablate camel/mean_diff/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 7/560
+  [8/560]  Ablate camel/mean_diff/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 8/560
+  [9/560]  Ablate camel/mean_diff/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 9/560
+  [10/560]  Ablate camel/mean_diff/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 10/560
+  [11/560]  Ablate camel/mean_diff/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 11/560
+  [12/560]  Ablate camel/mean_diff/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 12/560
+  [13/560]  Ablate camel/mean_diff/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 13/560
+  [14/560]  Ablate camel/mean_diff/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 14/560
+  [15/560]  Ablate camel/mean_diff/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=0.200  d=+0.800
+    [CHECKPOINT] Saved at condition 15/560
+  [16/560]  Ablate camel/mean_diff/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 16/560
+  [17/560]  Ablate camel/mean_diff/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 17/560
+  [18/560]  Ablate camel/mean_diff/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 18/560
+  [19/560]  Ablate camel/mean_diff/L24/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 19/560
+  [20/560]  Ablate camel/mean_diff/L24/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 20/560
+  [21/560]  Ablate camel/mean_diff/L27/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 21/560
+  [22/560]  Ablate camel/mean_diff/L27/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 22/560
+  [23/560]  Ablate camel/mean_diff/L27/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 23/560
+  [24/560]  Ablate camel/mean_diff/L27/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 24/560
+  [25/560]  Ablate camel/mean_diff/L27/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 25/560
+  [26/560]  Ablate camel/mean_diff/L27/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 26/560
+  [27/560]  Ablate camel/mean_diff/L27/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 27/560
+  [28/560]  Ablate camel/mean_diff/L27/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 28/560
+  [29/560]  Ablate camel/mean_diff/L27/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 29/560
+  [30/560]  Ablate camel/mean_diff/L27/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 30/560
+  [31/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+    [CHECKPOINT] Saved at condition 31/560
+  [32/560]  Ablate camel/mean_diff/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 32/560
+  [33/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.429  d=+0.571
+    [CHECKPOINT] Saved at condition 33/560
+  [34/560]  Ablate camel/mean_diff/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 34/560
+  [35/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 35/560
+  [36/560]  Ablate camel/mean_diff/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 36/560
+  [37/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 37/560
+  [38/560]  Ablate camel/mean_diff/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 38/560
+  [39/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>               VIOLIN [off-target]: acc=0.333  d=+0.667
+    [CHECKPOINT] Saved at condition 39/560
+  [40/560]  Ablate camel/mean_diff/all_extraction_layers/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 40/560
+  [41/560]  Ablate camel/svm/L16/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 41/560
+  [42/560]  Ablate camel/svm/L16/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 42/560
+  [43/560]  Ablate camel/svm/L16/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 43/560
+  [44/560]  Ablate camel/svm/L16/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 44/560
+  [45/560]  Ablate camel/svm/L16/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 45/560
+  [46/560]  Ablate camel/svm/L16/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>   LABRADOR_RETRIEVER [CACHED]
+    [CHECKPOINT] Saved at condition 46/560
+  [47/560]  Ablate camel/svm/L16/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 47/560
+  [48/560]  Ablate camel/svm/L16/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [CACHED]
+    >>               VIOLIN [CACHED]
+    [CHECKPOINT] Saved at condition 48/560
+  [49/560]  Ablate camel/svm/L16/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 49/560
+  [50/560]  Ablate camel/svm/L16/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 50/560
+  [51/560]  Ablate camel/svm/L24/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 51/560
+  [52/560]  Ablate camel/svm/L24/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               VIOLIN [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 52/560
+  [53/560]  Ablate camel/svm/L24/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 53/560
+  [54/560]  Ablate camel/svm/L24/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 54/560
+  [55/560]  Ablate camel/svm/L24/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 55/560
+  [56/560]  Ablate camel/svm/L24/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [CACHED]
+    [CHECKPOINT] Saved at condition 56/560
+  [57/560]  Ablate camel/svm/L24/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 57/560
+  [58/560]  Ablate camel/svm/L24/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 58/560
+  [59/560]  Ablate camel/svm/L24/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 59/560
+  [60/560]  Ablate camel/svm/L24/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [CACHED]
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 60/560
+  [61/560]  Ablate camel/svm/L27/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 61/560
+  [62/560]  Ablate camel/svm/L27/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 62/560
+  [63/560]  Ablate camel/svm/L27/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 63/560
+  [64/560]  Ablate camel/svm/L27/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [CACHED]
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 64/560
+  [65/560]  Ablate camel/svm/L27/a=10.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 65/560
+  [66/560]  Ablate camel/svm/L27/a=10.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [CACHED]
+    [CHECKPOINT] Saved at condition 66/560
+  [67/560]  Ablate camel/svm/L27/a=15.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 67/560
+  [68/560]  Ablate camel/svm/L27/a=15.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 68/560
+  [69/560]  Ablate camel/svm/L27/a=20.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 69/560
+  [70/560]  Ablate camel/svm/L27/a=20.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>                  BEE [off-target]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 70/560
+  [71/560]  Ablate camel/svm/all_extraction_layers/a=3.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.857  d=+0.143
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 71/560
+  [72/560]  Ablate camel/svm/all_extraction_layers/a=3.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>                  BEE [CACHED]
+    [CHECKPOINT] Saved at condition 72/560
+  [73/560]  Ablate camel/svm/all_extraction_layers/a=6.0/all_tokens
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.214  d=+0.786
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 73/560
+  [74/560]  Ablate camel/svm/all_extraction_layers/a=6.0/image_tokens_only
+    >>                CAMEL [CACHED]
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 74/560
+  [75/560]  Ablate camel/svm/all_extraction_layers/a=10.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    >>              PENGUIN [off-target]: acc=0.000  d=+1.000
+    [CHECKPOINT] Saved at condition 75/560
+  [76/560]  Ablate camel/svm/all_extraction_layers/a=10.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 76/560
+  [77/560]  Ablate camel/svm/all_extraction_layers/a=15.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    [CHECKPOINT] Saved at condition 77/560
+  [78/560]  Ablate camel/svm/all_extraction_layers/a=15.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>                  BEE [off-target]: acc=0.909  d=+0.091
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 78/560
+  [79/560]  Ablate camel/svm/all_extraction_layers/a=20.0/all_tokens
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=0.000  d=+1.000
+    >>               CANDLE [off-target]: acc=0.267  d=+0.733
+    [CHECKPOINT] Saved at condition 79/560
+  [80/560]  Ablate camel/svm/all_extraction_layers/a=20.0/image_tokens_only
+    >>                CAMEL [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=0.933  d=+0.067
+    [CHECKPOINT] Saved at condition 80/560
+  [81/560]  Ablate bee/mean_diff/L16/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 81/560
+  [82/560]  Ablate bee/mean_diff/L16/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 82/560
+  [83/560]  Ablate bee/mean_diff/L16/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 83/560
+  [84/560]  Ablate bee/mean_diff/L16/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 84/560
+  [85/560]  Ablate bee/mean_diff/L16/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.909  d=+0.091
+    >>               VIOLIN [off-target]: acc=0.667  d=+0.333
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 85/560
+  [86/560]  Ablate bee/mean_diff/L16/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.727  d=+0.273
+    >>               VIOLIN [off-target]: acc=0.889  d=+0.111
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 86/560
+  [87/560]  Ablate bee/mean_diff/L16/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.455  d=+0.545
+    >>                CAMEL [off-target]: acc=0.667  d=+0.333
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 87/560
+  [88/560]  Ablate bee/mean_diff/L16/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.364  d=+0.636
+    >>                CAMEL [off-target]: acc=0.667  d=+0.333
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 88/560
+  [89/560]  Ablate bee/mean_diff/L16/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.182  d=+0.818
+    >>               CANDLE [off-target]: acc=0.400  d=+0.600
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.357  d=+0.643
+    [CHECKPOINT] Saved at condition 89/560
+  [90/560]  Ablate bee/mean_diff/L16/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=0.364  d=+0.636
+    >>               CANDLE [off-target]: acc=0.600  d=+0.400
+    >>   LABRADOR_RETRIEVER [off-target]: acc=0.286  d=+0.714
+    [CHECKPOINT] Saved at condition 90/560
+  [91/560]  Ablate bee/mean_diff/L24/a=3.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 91/560
+  [92/560]  Ablate bee/mean_diff/L24/a=3.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 92/560
+  [93/560]  Ablate bee/mean_diff/L24/a=6.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 93/560
+  [94/560]  Ablate bee/mean_diff/L24/a=6.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 94/560
+  [95/560]  Ablate bee/mean_diff/L24/a=10.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.545  d=+0.455
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 95/560
+  [96/560]  Ablate bee/mean_diff/L24/a=10.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>   LABRADOR_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    >>               VIOLIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 96/560
+  [97/560]  Ablate bee/mean_diff/L24/a=15.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.455  d=+0.545
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 97/560
+  [98/560]  Ablate bee/mean_diff/L24/a=15.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
+    >>                CAMEL [off-target]: acc=1.000  d=+0.000
+    >>     GOLDEN_RETRIEVER [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 98/560
+  [99/560]  Ablate bee/mean_diff/L24/a=20.0/all_tokens
+    >>                  BEE [ON-TARGET]: acc=0.091  d=+0.909
+    >>               CANDLE [off-target]: acc=1.000  d=+0.000
+    >>              PENGUIN [off-target]: acc=1.000  d=+0.000
+    [CHECKPOINT] Saved at condition 99/560
+  [100/560]  Ablate bee/mean_diff/L24/a=20.0/image_tokens_only
+    >>                  BEE [ON-TARGET]: acc=1.000  d=+0.000
