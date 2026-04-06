@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+nnsight is not detected. Please install via 'pip install nnsight' for nnsight backend.
+
+============================================================
+  Experiment Runner — LLaVA-1.5 7B Projection Ablation
+  Concepts: ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  Techniques: ['projection']
+  Layers: [16, 24, 27]
+  Intensities: [3.0, 6.0, 10.0, 15.0, 20.0]
+  CAV methods: ['mean_diff', 'svm']
+  Image-only ablation: False
+============================================================
+
+  Loading data from data\experiment_data.json...
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|##########| 3/3 [00:00<00:00, 54708.31it/s]
+Loading weights:   0%|          | 0/686 [00:00<?, ?it/s]Loading weights: 100%|##########| 686/686 [00:00<00:00, 13246.65it/s]
+The image processor of type `CLIPImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. 

@@ -3,11 +3,27 @@ Centralizes all configurable parameters for the CAV extraction pipeline.
 Every parameter has a default value and academic justification.
 
 References:
+    CAV / Probing methodology:
     - Kim et al. (2018) "Interpretability Beyond Feature Attribution" (TCAV)
-    - Conneau et al. (2018) "What you can cram into a single $&!#* vector"
-    - Hewitt & Liang (2019) "Designing and Interpreting Probes with Control Tasks"
+      https://proceedings.mlr.press/v80/kim18d.html
     - Cohen (1988) "Statistical Power Analysis for the Behavioral Sciences"
     - Efron & Tibshirani (1993) "An Introduction to the Bootstrap"
+
+    Layer selection — semantic information in middle-to-late layers:
+    - Tenney et al. (2019) "BERT Rediscovers the Classical NLP Pipeline"
+      https://aclanthology.org/P19-1452/
+    - Jawahar et al. (2019) "What Does BERT Learn about the Structure of Language?"
+      https://aclanthology.org/P19-1356/
+    - Rogers et al. (2020) "A Primer in BERTology"
+      https://doi.org/10.1162/tacl_a_00349
+    - Meng et al. (2022) "Locating and Editing Factual Associations in GPT"
+      https://proceedings.neurips.cc/paper_files/paper/2022/hash/6f1d43d5a82a37e89b0665b33bf3a182-Abstract-Conference.html
+    - Geva et al. (2022) "Transformer FFN Layers Build Predictions by Promoting Concepts in the Vocabulary Space"
+      https://aclanthology.org/2022.emnlp-main.3/
+    - Dai et al. (2022) "Knowledge Neurons in Pretrained Transformers"
+      https://aclanthology.org/2022.acl-long.581/
+    - Ethayarajh (2019) "How Contextual are Contextualized Word Representations?"
+      https://aclanthology.org/D19-1006/
 """
 import os
 
@@ -35,8 +51,25 @@ CONCEPTS = [
 # =====================================================================
 # Layer Selection
 # =====================================================================
-EXTRACTION_LAYERS = [6,9,10]
-EXPERIMENT_LAYERS = [6,9,10]        # Subset used in factorial experiments
+# GPT-2-small has 12 layers (0-11). We target the middle-to-late range
+# where semantic/conceptual representations are concentrated:
+#
+#   L6  (50%) — Floor of the semantic zone. Meng et al. (2022) show that
+#               causal MLP effects for factual knowledge begin ~31-42% depth
+#               in GPT-2 XL; 50% provides a conservative lower bound.
+#   L9  (75%) — Peak semantic richness. Jawahar et al. (2019): semantic
+#               probing peaks at 75-100% depth in BERT-base. Dai et al. (2022):
+#               knowledge neurons concentrate at 67-100%.
+#   L10 (83%) — Pre-final refinement. Tenney et al. (2019): SRL/coreference
+#               center-of-gravity at 58-92% depth. Captures refined semantic
+#               representations before the vocabulary projection layer.
+#
+# Early layers (<25%, i.e., L0-L3) are excluded because they encode
+# surface-level and syntactic features (POS, word order, n-gram patterns),
+# not semantic concepts (Jawahar et al. 2019; Geva et al. 2022;
+# Ethayarajh 2019). Ablating there would disrupt syntax, not semantics.
+EXTRACTION_LAYERS = [6, 9, 10]
+EXPERIMENT_LAYERS = [6, 9, 10]      # Subset used in factorial experiments
 EXPERIMENT_LAYERS_ALL = list(range(12))  # All 12 layers (0-11) for multi-layer condition
 R2_EMBEDDING_LAYER = 7             # Intermediate layer: more semantic, less surface
                                     # (was 11 — caused ceiling effect ~0.99)

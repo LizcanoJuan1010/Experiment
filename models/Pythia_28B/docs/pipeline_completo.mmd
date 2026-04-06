@@ -17,7 +17,7 @@ flowchart TD
     %% ===================================================================
     %% TITULO
     %% ===================================================================
-    TITULO["Pipeline Experimental Completo\nModelo: GPT-2 Small 125M parametros\n12 capas, d_model = 768\n30 conceptos semanticos + wolf"]
+    TITULO["Pipeline Experimental Completo\nModelo: Pythia 2.8B parametros\n32 capas, d_model = 2560\n31 conceptos semanticos + wolf 32 capas"]
 
     %% ===================================================================
     %% FASE 1: DEFINICION DE CONCEPTOS
@@ -38,10 +38,6 @@ flowchart TD
     subgraph F2["FASE 2 -- GENERACION DE DATOS -- data_gen.py"]
         direction TB
 
-        subgraph F2A["Nodos Conceptuales"]
-            MERGE["Fusion de nodos curados.\nEliminacion de solapamientos\nentre categorias.\nValidacion: min. 20 nodos por concepto."]
-        end
-
         subgraph F2B["Oraciones de Entrenamiento CAV"]
             direction LR
             POS["Oraciones POSITIVAS\n\nPalabras del concepto insertadas\nen oraciones de corpus real.\nFuentes: Brown, Gutenberg NLTK\nEstructura SVO requerida\nLongitud: 8-20 palabras"]
@@ -50,20 +46,20 @@ flowchart TD
 
         EXPDATA["SALIDA: experiment_data.json\n\nconcept_nodes, cav_training pos/neg,\nr1_benchmark, r2_benchmark"]
 
-        F2A --> F2B --> EXPDATA
+        F2B --> EXPDATA
     end
 
     %% ===================================================================
     %% FASE 3: EXTRACCION DE ACTIVACIONES
     %% ===================================================================
     subgraph F3["FASE 3 -- EXTRACCION DE ACTIVACIONES -- cav_extraction.py"]
-        direction LR
+        direction TB
 
-        LOAD_MODEL["Carga del Modelo\n\nHookedTransformer -- TransformerLens\ngpt2-small, 12 capas, d = 768\nmodel.eval, sin gradientes"]
+        LOAD_MODEL["Carga del Modelo\n\nHookedTransformer -- TransformerLens\npythia-2.8b, 32 capas, d = 2560\nfloat16, model.eval"]
 
-        HOOK_ACT["Recoleccion de Activaciones\n\nPor cada oracion pos/neg:\n  1. model.run_with_cache\n  2. Hook: blocks.L.hook_resid_post\n  3. Tensor: 1 x seq_len x 768\n  4. Mean pooling sobre tokens -> 768\n  5. Apilado -> pos_acts: N x 768"]
+        HOOK_ACT["Recoleccion de Activaciones\n\nPor cada oracion pos/neg:\n  1. model.run_with_cache\n  2. Hook: blocks.L.hook_resid_post\n  3. Tensor: 1 x seq_len x 2560\n  4. Mean pooling sobre tokens -> 2560\n  5. Apilado -> pos_acts: N x 2560"]
 
-        LAYERS_INFO["Capas de extraccion:\nL6 -- 50% profundidad\nL9 -- 75% profundidad\nL10 -- 83% profundidad"]
+        LAYERS_INFO["Capas de extraccion:\nL16 -- 50% profundidad\nL24 -- 75% profundidad\nL27 -- 84% profundidad"]
 
         LOAD_MODEL --> HOOK_ACT
         LAYERS_INFO -.-> HOOK_ACT
@@ -77,31 +73,30 @@ flowchart TD
 
         subgraph METODOS["Dos Metodos de Extraccion"]
             direction LR
-            MEAN_DIFF["Metodo 1: Diferencia de Medias\n\nmean_pos = pos_acts.mean dim=0\nmean_neg = neg_acts.mean dim=0\nCAV = normalizar mean_pos - mean_neg\n\nSin hiperparametros"]
-
-            SVM_CAV["Metodo 2: SVM Lineal -- TCAV\nKim et al. 2018\n\nBusqueda de C: 0.01, 0.1, 1.0, 10.0\nValidacion cruzada 5-fold estratificada\nLinearSVC, max_iter = 10000\nCAV = normalizar clf.coef_\n\nUmbral: precision CV >= 0.70"]
+            MEAN_DIFF["Diferencia de Medias\n\nmean_pos = pos_acts.mean dim=0\nmean_neg = neg_acts.mean dim=0\nCAV = normalizar mean_pos - mean_neg\n\nSin hiperparametros"]
+            SVM_CAV["SVM Lineal -- TCAV\nKim et al. 2018\n\nBusqueda de C: 0.01, 0.1, 1.0, 10.0\nValidacion cruzada 5-fold estratificada\nLinearSVC, max_iter = 10000\nCAV = normalizar clf.coef_\n\nUmbral: precision CV >= 0.70"]
         end
 
-        QUALITY["Control de Calidad\n\nd de Cohen: mu_pos - mu_neg / sigma\ng de Hedges, test de Levene\nCoseno entre conceptos: abs < 0.35\nCoseno entre metodos: convergencia"]
+        QUALITY["Control de Calidad\n\nd de Cohen >= 0.8\nPrecision SVM CV >= 0.70\nCoseno entre conceptos < 0.35"]
 
-        CAV_FILES["SALIDA: 180 Archivos CAV\n\ncavs/concepto_metodo_layerL.pt\nVector unitario, dim 768\n30 conceptos x 2 metodos x 3 capas\nextraction_report.json"]
+        CAV_FILES["SALIDA: 250 Archivos CAV\n\ncavs/concepto_metodo_layerL.pt\n31 conceptos x 2 metodos x 3 capas = 186\nwolf x 2 metodos x 32 capas = 64\nextraction_report.json"]
 
         METODOS --> QUALITY --> CAV_FILES
     end
 
     %% ===================================================================
-    %% FASE 5: EVALUACION BASELINE -- Sin Ablacion
+    %% FASE 5: EVALUACION BASELINE
     %% ===================================================================
     subgraph F5["FASE 5 -- EVALUACION BASELINE -- sin ablacion"]
         direction LR
 
-        BASE_CCT["Asociacion Semantica\nmetrics.evaluate_bea_association\n\nPrecision por concepto\nen items de asociacion funcional"]
+        BASE_CCT["Asociacion Semantica\nPrecision MCQ por concepto"]
 
-        BASE_SYN["Discriminacion Sinonimo/Antonimo\nmetrics.evaluate_r2_ranking\n\nAUC R2-Rank por concepto\nP sim_sinonimo > sim_antonimo"]
+        BASE_SYN["Sinonimo/Antonimo\nAUC R2-Rank por concepto"]
 
-        BASE_NAM["Denominacion por Confrontacion\nmetrics.evaluate_bea_naming\n\nPrecision MCQ por concepto\ncon distractores intra-categoria"]
+        BASE_NAM["Denominacion\nPrecision MCQ por concepto"]
 
-        BASE_OUT["SALIDA: Lineas Base\nPrecision/AUC por concepto\npara cada test"]
+        BASE_OUT["SALIDA: Lineas Base\npor concepto y por test"]
 
         BASE_CCT --> BASE_OUT
         BASE_SYN --> BASE_OUT
@@ -116,71 +111,69 @@ flowchart TD
 
         HOOK_ABL["Hook de Ablacion -- Proyeccion\n\nPor cada condicion factorial:\n  1. Cargar CAV del disco\n  2. Registrar hook en blocks.L.hook_resid_post\n  3. proj = resid . CAV x CAV\n     resid -= alpha x proj\n  4. Evaluar metricas con hook activo\n  5. Calcular delta = baseline - ablado"]
 
-        FACTORIAL_DESIGN["Diseno Factorial Completo\n\n30 conceptos x 2 metodos x 3 capas\nx 5 intensidades alpha: 3, 6, 10, 15, 20\n= 900 condiciones"]
-
-        SPEC["Analisis de Especificidad\n\nAblacionar concepto A,\nmedir efecto en TODOS los conceptos.\nespecificidad = delta_on / delta_off\nObjetivo: ratio > 2.0"]
+        FACTORIAL_DESIGN["Diseno Factorial Completo\n\n31 conceptos x 2 metodos x 3 capas\nx 5 intensidades alpha: 3, 6, 10, 15, 20\n= 930 condiciones\n\nAnalisis de especificidad incluido"]
 
         FACTORIAL_OUT["SALIDA:\nresults_factorial.csv\nresults_specificity.csv"]
 
-        HOOK_ABL --> FACTORIAL_DESIGN --> SPEC --> FACTORIAL_OUT
+        HOOK_ABL --> FACTORIAL_DESIGN --> FACTORIAL_OUT
     end
 
     %% ===================================================================
-    %% FASE 7: TEST CCT -- Camel and Cactus Test
+    %% FASE 7: TEST CCT -- Camello y Cactus
     %% ===================================================================
     subgraph F7["FASE 7 -- TEST CCT -- Camello y Cactus -- test/cct_test.py"]
         direction TB
 
-        CCT_WHAT["Test de Asociacion Semantica\nAdaptado de Bozeat et al. 2000\n\nEvalua si el modelo conserva\nconocimiento categorico tras ablacion.\nDado un objetivo, seleccionar la palabra\nmas funcionalmente asociada\nentre 4 opciones MCQ."]
+        CCT_WHAT["Test de Asociacion Semantica\nAdaptado de Bozeat et al. 2000\n\nEvalua si el modelo conserva\nconocimiento categorico tras ablacion.\nFormato MCQ de 4 opciones.\nSeleccionar la palabra mas\nfuncionalmente asociada al objetivo."]
 
-        CCT_ABL["Condiciones de Ablacion\n\nCapa individual: L6, L9, L10\nTodas las capas: L0 a L11\nMetodos: mean_diff, svm\nAlphas: 3.0 a 20.0\n\nMedicion on-target vs off-target"]
+        CCT_ABL["Condiciones de Ablacion\n\nCapa individual: L16, L24, L27\nTodas las capas: L0 a L31\nMetodos: mean_diff, svm\nAlphas: 3.0 a 20.0\n\nMedicion on-target vs off-target"]
 
-        CCT_OUT["SALIDA: cct_test_results.json\n\n4320 condiciones evaluadas\nRatio de especificidad: 1.080\nLineas base, resultados de ablacion,\nanalisis de especificidad"]
+        CCT_OUT["SALIDA: cct_test_results.json\n\n4800 condiciones evaluadas\nRatio de especificidad: 0.848"]
 
         CCT_WHAT --> CCT_ABL --> CCT_OUT
     end
 
     %% ===================================================================
-    %% FASE 8: TEST BEA SINONIMOS -- Discriminacion Semantica
+    %% FASE 8: TEST BEA SINONIMOS
     %% ===================================================================
     subgraph F8["FASE 8 -- TEST BEA SINONIMOS -- test/bea_synonym_test.py"]
         direction TB
 
-        SYN_WHAT["Discriminacion Sinonimo vs Antonimo\nMetrica: AUC R2-Rank\n\nMide si pares de sinonimos mantienen\nmayor similitud coseno que pares de\nantonimos bajo ablacion.\n\nPares curados de concept_registry.\nPlantilla: The concept of WORD is important."]
+        SYN_WHAT["Discriminacion Sinonimo vs Antonimo\nMetrica: AUC R2-Rank\n\nMide si pares de sinonimos mantienen\nmayor similitud coseno que pares\nde antonimos bajo ablacion.\n\nPares curados de concept_registry.\nPlantilla: The concept of WORD is important.\nEmbeddings de capa R2_EMBEDDING_LAYER."]
 
-        SYN_ABL["Matriz de Ablacion Iterativa\n\nPor cada concepto x metodo x capa x alpha:\n  1. Aplicar hook de ablacion\n  2. Extraer embeddings capa 7\n  3. Coseno entre pares sinonimos\n  4. Coseno entre pares antonimos\n  5. AUC = P sim_sin > sim_ant\n\nAnalisis on-target vs off-target\nN_OFF_TARGET = 3 conceptos aleatorios"]
+        SYN_ABL["Matriz de Ablacion\n\nPor cada concepto x metodo x capa x alpha:\n  1. Aplicar hook de proyeccion\n  2. Extraer embeddings\n  3. Coseno pares sinonimos vs antonimos\n  4. AUC = P sim_sin > sim_ant\n\nAnalisis on-target vs off-target\nN_OFF_TARGET = 3 conceptos aleatorios"]
 
-        SYN_OUT["SALIDA: bea_synonym_test_results.json\n\n3040 condiciones evaluadas\nRatio de especificidad: 2.326\nDeltas AUC, brechas semanticas"]
+        SYN_OUT["SALIDA: bea_synonym_test_results.json\n\n2880 condiciones evaluadas\nRatio de especificidad: 1.012"]
 
         SYN_WHAT --> SYN_ABL --> SYN_OUT
     end
 
     %% ===================================================================
-    %% FASE 9: TEST BEA DENOMINACION -- Naming por Confrontacion
+    %% FASE 9: TEST BEA DENOMINACION
     %% ===================================================================
     subgraph F9["FASE 9 -- TEST BEA DENOMINACION -- test/bea_naming_test.py"]
         direction TB
 
-        NAM_WHAT["Denominacion por Confrontacion\nAdaptado de bateria BEA\n\nDada una descripcion funcional,\nseleccionar la palabra correcta\nentre distractores intra-categoria.\n\nEj: The metal tool used to secure doors.\nRespuesta: lock vs wrench, hammer..."]
+        NAM_WHAT["Denominacion por Confrontacion\nAdaptado de bateria BEA\n\nDada una descripcion funcional,\nseleccionar la palabra correcta\nentre distractores intra-categoria.\n\nCategorias: tools, time, place\nPuntuacion: log-prob de continuacion"]
 
-        NAM_ABL["Categorias Semanticas Amplias\n\ntools: lock, toothbrush, violin...\ntime: musician, baker, barber...\nplace: king, knight, soldier...\n\nMatriz: concepto x metodo x capa x alpha\nEstrategia: baseline-correct-only"]
+        NAM_ABL["Matriz de Ablacion\n\nconcepto x metodo x capa x alpha\nEstrategia: baseline-correct-only\nMedicion on-target vs off-target\nRatio de especificidad"]
 
-        NAM_OUT["SALIDA: bea_naming_test_results.json\n\n1920 condiciones evaluadas\nRatio de especificidad: 0.999\nPrecision por item, efectos on/off target"]
+        NAM_OUT["SALIDA: bea_naming_test_results.json\n\n1920 condiciones evaluadas\nRatio de especificidad: 0.971"]
 
         NAM_WHAT --> NAM_ABL --> NAM_OUT
     end
 
     %% ===================================================================
-    %% FASE 10: TEST CAPERUCITA -- Ablacion Narrativa
+    %% FASE 10: TEST CAPERUCITA
     %% ===================================================================
     subgraph F10["FASE 10 -- TEST CAPERUCITA -- test/caperucita_test.py"]
         direction TB
 
-        CAP_WHAT["Ablacion del Concepto Lobo\nen Contexto Narrativo\n\nAblacionar el CAV de wolf\nen multiples capas simultaneamente.\nGenerar continuaciones de narrativas\nde Caperucita Roja.\nEvaluar si el modelo pierde acceso\na la semantica del lobo."]
+        CAP_WHAT["Ablacion del Concepto Lobo\nen Contexto Narrativo\n\nAblacionar el CAV de wolf\nen multiples capas simultaneamente.\nGenerar continuaciones de narrativas\nde Caperucita Roja.\nEvaluar si el modelo pierde acceso\na la semantica del lobo.\n\nCAVs de wolf disponibles en 32 capas."]
 
-        CAP_ABL["Condiciones:\n  Capa individual: L6, L9, L10\n  Multicapa: todas las 12 capas\n  Alphas: 3.0, 6.0, 10.0, 15.0, 20.0\n\nComparacion cualitativa:\ntexto generado con vs sin ablacion.\nDeteccion de menciones del lobo."]
+        CAP_ABL["Condiciones:\n  Capa individual: L16, L24, L27\n  Multicapa: todas las 32 capas\n  Alphas: 3.0, 6.0, 10.0, 15.0, 20.0\n\nComparacion cualitativa:\ntexto generado con vs sin ablacion.\nDeteccion de menciones del lobo."]
 
-        CAP_OUT["SALIDA: caperucita_test_results.json\n\n320 condiciones evaluadas\nTexto generado, perplejidad,\ndeteccion de menciones wolf"]
+        CAP_OUT["SALIDA: caperucita_test_results.json\n\n320 condiciones evaluadas\nTexto generado, perplejidad"]
 
         CAP_WHAT --> CAP_ABL --> CAP_OUT
     end
@@ -191,7 +184,7 @@ flowchart TD
     TITULO -.-> F1
     F1 ==>|"registro de conceptos"| F2
     F2 ==>|"experiment_data.json"| F3
-    F3 ==>|"activaciones N x 768"| F4
+    F3 ==>|"activaciones N x 2560"| F4
     F4 ==>|"CAVs validados .pt"| F5
     F5 ==>|"lineas base"| F6
     F4 ==>|"tensores CAV"| F6
@@ -203,7 +196,7 @@ flowchart TD
     F4 ==>|"tensores CAV"| F7
     F4 ==>|"tensores CAV"| F8
     F4 ==>|"tensores CAV"| F9
-    F4 ==>|"wolf CAVs"| F10
+    F4 ==>|"wolf CAVs 32 capas"| F10
 
     %% ===================================================================
     %% ESTILOS -- blanco y negro academico

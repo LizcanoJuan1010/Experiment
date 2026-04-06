@@ -1,17 +1,57 @@
 {
-  "golden_retriever": {
-    "r1_accuracy": 0.06666666666666667,
-    "r2a_similarity": 0.544467173020045,
-    "r2b_similarity": 0.9999997854232788
+  "camel": {
+    "r1_accuracy": 0.375,
+    "r2a_similarity": 0.46999039500951767,
+    "r2b_similarity": 0.9999997690320015
   },
-  "labrador_retriever": {
-    "r1_accuracy": 1.0,
-    "r2a_similarity": 0.5570101718107859,
+  "bee": {
+    "r1_accuracy": 0.7333333333333333,
+    "r2a_similarity": 0.48735443949699403,
     "r2b_similarity": 0.9999996940294902
+  },
+  "horse": {
+    "r1_accuracy": 0.0,
+    "r2a_similarity": 0.4987942337989807,
+    "r2b_similarity": 0.9999996781349182
+  },
+  "penguin": {
+    "r1_accuracy": 1.0,
+    "r2a_similarity": 0.4889291410262768,
+    "r2b_similarity": 0.9999996882218581
+  },
+  "violin": {
+    "r1_accuracy": 1.0,
+    "r2a_similarity": 0.5036530494689941,
+    "r2b_similarity": 0.9999996953540378
+  },
+  "bird": {
+    "r1_accuracy": 0.0,
+    "r2a_similarity": 0.4855507870515188,
+    "r2b_similarity": 0.9999997655550639
+  },
+  "spider": {
+    "r1_accuracy": 0.0,
+    "r2a_similarity": 0.49094905853271487,
+    "r2b_similarity": 0.9999997178713481
+  },
+  "candle": {
+    "r1_accuracy": 1.0,
+    "r2a_similarity": 0.5357110957304637,
+    "r2b_similarity": 0.999999737739563
   },
   "tabby_cat": {
     "r1_accuracy": 0.0,
-    "r2a_similarity": 0.5623969892660777,
-    "r2b_similarity": 0.99999973376592
+    "r2a_similarity": 0.4646729866663615,
+    "r2b_similarity": 0.999999753634135
+  },
+  "golden_retriever": {
+    "r1_accuracy": 0.3333333333333333,
+    "r2a_similarity": 0.46799005270004274,
+    "r2b_similarity": 0.9999996821085612
+  },
+  "labrador_retriever": {
+    "r1_accuracy": 0.8666666666666667,
+    "r2a_similarity": 0.48061212301254275,
+    "r2b_similarity": 0.9999997576077779
   }
 }

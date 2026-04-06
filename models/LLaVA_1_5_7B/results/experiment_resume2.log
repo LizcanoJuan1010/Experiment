@@ -1,0 +1,234 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+nnsight is not detected. Please install via 'pip install nnsight' for nnsight backend.
+
+============================================================
+  Experiment Runner — LLaVA-1.5 7B Projection Ablation
+  Concepts: ['camel', 'bee', 'horse', 'penguin', 'violin', 'bird', 'spider', 'candle', 'tabby_cat', 'golden_retriever', 'labrador_retriever']
+  Techniques: ['projection']
+  Layers: [16, 24, 27]
+  Intensities: [3.0, 6.0, 10.0, 15.0, 20.0]
+  CAV methods: ['mean_diff', 'svm']
+  Image-only ablation: False
+============================================================
+
+  Loading data from data\experiment_data.json...
+  Loading llava-hf/llava-1.5-7b-hf (4-bit)...
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files: 100%|##########| 3/3 [00:00<00:00, 81180.08it/s]
+Loading weights:   0%|          | 0/686 [00:00<?, ?it/s]Loading weights:  91%|#########1| 627/686 [00:00<00:00, 6264.03it/s]Loading weights: 100%|##########| 686/686 [00:00<00:00, 6411.89it/s]
+The image processor of type `CLIPImageProcessor` is now loaded as a fast processor by default, even if the model checkpoint was saved with a slow processor. This is a breaking change and may produce slightly different outputs. To continue using the slow processor, instantiate this class with `use_fast=False`. 
+
+  Loading cached baselines from results\results_baseline.json...
+
+  Baseline Validity:
+  CAMEL: R1=0.375 [FAIL], R2a=0.4700 [FAIL], R2b=1.0000 [PASS]
+  BEE: R1=0.733 [PASS], R2a=0.4874 [FAIL], R2b=1.0000 [PASS]
+  HORSE: R1=0.000 [FAIL], R2a=0.4988 [FAIL], R2b=1.0000 [PASS]
+  PENGUIN: R1=1.000 [PASS], R2a=0.4889 [FAIL], R2b=1.0000 [PASS]
+  VIOLIN: R1=1.000 [PASS], R2a=0.5037 [FAIL], R2b=1.0000 [PASS]
+  BIRD: R1=0.000 [FAIL], R2a=0.4856 [FAIL], R2b=1.0000 [PASS]
+  SPIDER: R1=0.000 [FAIL], R2a=0.4909 [FAIL], R2b=1.0000 [PASS]
+  CANDLE: R1=1.000 [PASS], R2a=0.5357 [FAIL], R2b=1.0000 [PASS]
+  TABBY_CAT: R1=0.000 [FAIL], R2a=0.4647 [FAIL], R2b=1.0000 [PASS]
+  GOLDEN_RETRIEVER: R1=0.333 [FAIL], R2a=0.4680 [FAIL], R2b=1.0000 [PASS]
+  LABRADOR_RETRIEVER: R1=0.867 [PASS], R2a=0.4806 [FAIL], R2b=1.0000 [PASS]
+
+  Pre-computing R2b baseline embeddings...
+  Done (11 concepts cached)
+
+==================================================
+PHASE 2: FACTORIAL EXPERIMENT
+==================================================
+  Total conditions: 330
+  Resuming from checkpoint: 247/330 done
+  [154/330] bird/mean_diff/L16/projection/a=15.0
+    R1=0.067 (D=-0.067), R2a=nan (D=+nan), R2b=nan (D=+nan)
+  [155/330] bird/mean_diff/L16/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=nan (D=+nan), R2b=nan (D=+nan)
+  [156/330] bird/mean_diff/L24/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.4544 (D=+0.0311), R2b=0.8707 (D=+0.1293)
+  [157/330] bird/mean_diff/L24/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.3121 (D=+0.1734), R2b=0.5581 (D=+0.4419)
+  [158/330] bird/mean_diff/L24/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=-0.0049 (D=+0.4904), R2b=0.1466 (D=+0.8534)
+  [159/330] bird/mean_diff/L24/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=-0.1268 (D=+0.6123), R2b=0.0176 (D=+0.9824)
+  [160/330] bird/mean_diff/L24/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=-0.2220 (D=+0.7076), R2b=-0.0058 (D=+1.0058)
+  [161/330] bird/mean_diff/L27/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.4287 (D=+0.0569), R2b=0.8478 (D=+0.1522)
+  [162/330] bird/mean_diff/L27/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.1475 (D=+0.3380), R2b=0.4350 (D=+0.5650)
+  [163/330] bird/mean_diff/L27/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=-0.0490 (D=+0.5346), R2b=0.1258 (D=+0.8742)
+  [164/330] bird/mean_diff/L27/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=-0.1282 (D=+0.6137), R2b=0.0181 (D=+0.9819)
+  [165/330] bird/mean_diff/L27/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=-0.1924 (D=+0.6780), R2b=-0.0118 (D=+1.0118)
+  [170/330] bird/svm/L16/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.0064 (D=+0.4791), R2b=0.3589 (D=+0.6411)
+  [171/330] bird/svm/L24/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.4984 (D=-0.0128), R2b=0.9838 (D=+0.0162)
+  [172/330] bird/svm/L24/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.4770 (D=+0.0085), R2b=0.9353 (D=+0.0647)
+  [173/330] bird/svm/L24/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.4297 (D=+0.0558), R2b=0.8422 (D=+0.1578)
+  [174/330] bird/svm/L24/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.3941 (D=+0.0914), R2b=0.7124 (D=+0.2876)
+  [175/330] bird/svm/L24/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.3832 (D=+0.1023), R2b=0.5848 (D=+0.4152)
+  [176/330] bird/svm/L27/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.5072 (D=-0.0217), R2b=0.9915 (D=+0.0085)
+  [177/330] bird/svm/L27/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.5135 (D=-0.0279), R2b=0.9669 (D=+0.0331)
+  [178/330] bird/svm/L27/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.5059 (D=-0.0204), R2b=0.9170 (D=+0.0830)
+  [179/330] bird/svm/L27/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.4881 (D=-0.0026), R2b=0.8313 (D=+0.1687)
+  [180/330] bird/svm/L27/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.4596 (D=+0.0259), R2b=0.7385 (D=+0.2615)
+  [181/330] spider/mean_diff/L16/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.5036 (D=-0.0127), R2b=0.9754 (D=+0.0246)
+  [182/330] spider/mean_diff/L16/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.4585 (D=+0.0324), R2b=0.9356 (D=+0.0644)
+  [183/330] spider/mean_diff/L16/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=-0.3911 (D=+0.8820), R2b=0.5492 (D=+0.4508)
+  [184/330] spider/mean_diff/L16/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=-0.4971 (D=+0.9880), R2b=0.2551 (D=+0.7449)
+  [185/330] spider/mean_diff/L16/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=-0.5043 (D=+0.9952), R2b=0.1206 (D=+0.8794)
+  [186/330] spider/mean_diff/L24/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.4643 (D=+0.0266), R2b=0.9576 (D=+0.0424)
+  [187/330] spider/mean_diff/L24/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.4379 (D=+0.0530), R2b=0.8895 (D=+0.1105)
+  [188/330] spider/mean_diff/L24/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.4098 (D=+0.0812), R2b=0.7793 (D=+0.2207)
+  [189/330] spider/mean_diff/L24/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.3097 (D=+0.1813), R2b=0.5814 (D=+0.4186)
+  [190/330] spider/mean_diff/L24/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.1943 (D=+0.2966), R2b=0.4064 (D=+0.5936)
+  [191/330] spider/mean_diff/L27/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.4637 (D=+0.0273), R2b=0.9632 (D=+0.0368)
+  [192/330] spider/mean_diff/L27/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.4168 (D=+0.0742), R2b=0.8871 (D=+0.1129)
+  [193/330] spider/mean_diff/L27/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.3329 (D=+0.1580), R2b=0.7573 (D=+0.2427)
+  [194/330] spider/mean_diff/L27/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.2237 (D=+0.2672), R2b=0.5606 (D=+0.4394)
+  [195/330] spider/mean_diff/L27/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.1390 (D=+0.3519), R2b=0.3931 (D=+0.6069)
+  [196/330] spider/svm/L16/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.4904 (D=+0.0005), R2b=0.9719 (D=+0.0281)
+  [197/330] spider/svm/L16/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.4510 (D=+0.0399), R2b=0.9076 (D=+0.0924)
+  [198/330] spider/svm/L16/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.3912 (D=+0.0998), R2b=0.8106 (D=+0.1894)
+  [199/330] spider/svm/L16/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.3531 (D=+0.1379), R2b=0.7149 (D=+0.2851)
+  [200/330] spider/svm/L16/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.3344 (D=+0.1566), R2b=0.6508 (D=+0.3492)
+  [201/330] spider/svm/L24/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.5184 (D=-0.0275), R2b=0.9803 (D=+0.0197)
+  [202/330] spider/svm/L24/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.5100 (D=-0.0190), R2b=0.9476 (D=+0.0524)
+  [203/330] spider/svm/L24/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.4813 (D=+0.0097), R2b=0.8898 (D=+0.1102)
+  [204/330] spider/svm/L24/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.4274 (D=+0.0636), R2b=0.8186 (D=+0.1814)
+  [205/330] spider/svm/L24/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.3764 (D=+0.1146), R2b=0.7602 (D=+0.2398)
+  [206/330] spider/svm/L27/projection/a=3.0
+    R1=0.000 (D=+0.000), R2a=0.5226 (D=-0.0317), R2b=0.9893 (D=+0.0107)
+  [207/330] spider/svm/L27/projection/a=6.0
+    R1=0.000 (D=+0.000), R2a=0.5288 (D=-0.0379), R2b=0.9707 (D=+0.0293)
+  [208/330] spider/svm/L27/projection/a=10.0
+    R1=0.000 (D=+0.000), R2a=0.5105 (D=-0.0196), R2b=0.9369 (D=+0.0631)
+  [209/330] spider/svm/L27/projection/a=15.0
+    R1=0.000 (D=+0.000), R2a=0.4641 (D=+0.0268), R2b=0.8907 (D=+0.1093)
+  [210/330] spider/svm/L27/projection/a=20.0
+    R1=0.000 (D=+0.000), R2a=0.4141 (D=+0.0768), R2b=0.8466 (D=+0.1534)
+  [211/330] candle/mean_diff/L16/projection/a=3.0
+    R1=1.000 (D=+0.000), R2a=0.5705 (D=-0.0348), R2b=0.9462 (D=+0.0538)
+  [212/330] candle/mean_diff/L16/projection/a=6.0
+    R1=0.000 (D=+1.000), R2a=0.5448 (D=-0.0090), R2b=0.7840 (D=+0.2160)
+  [213/330] candle/mean_diff/L16/projection/a=10.0
+    R1=0.000 (D=+1.000), R2a=-0.4931 (D=+1.0288), R2b=0.2817 (D=+0.7183)
+  [214/330] candle/mean_diff/L16/projection/a=15.0
+    R1=0.000 (D=+1.000), R2a=nan (D=+nan), R2b=nan (D=+nan)
+  [215/330] candle/mean_diff/L16/projection/a=20.0
+    R1=0.067 (D=+0.933), R2a=nan (D=+nan), R2b=nan (D=+nan)
+  [216/330] candle/mean_diff/L24/projection/a=3.0
+    R1=0.000 (D=+1.000), R2a=0.4605 (D=+0.0752), R2b=0.9466 (D=+0.0534)
+  [217/330] candle/mean_diff/L24/projection/a=6.0
+    R1=0.000 (D=+1.000), R2a=0.4515 (D=+0.0842), R2b=0.8457 (D=+0.1543)
+  [218/330] candle/mean_diff/L24/projection/a=10.0
+    R1=0.000 (D=+1.000), R2a=0.3192 (D=+0.2165), R2b=0.6471 (D=+0.3529)
+  [219/330] candle/mean_diff/L24/projection/a=15.0
+    R1=0.000 (D=+1.000), R2a=0.1498 (D=+0.3859), R2b=0.3916 (D=+0.6084)
+  [220/330] candle/mean_diff/L24/projection/a=20.0
+    R1=0.000 (D=+1.000), R2a=0.0597 (D=+0.4760), R2b=0.2391 (D=+0.7609)
+  [221/330] candle/mean_diff/L27/projection/a=3.0
+    R1=0.000 (D=+1.000), R2a=0.4783 (D=+0.0574), R2b=0.9702 (D=+0.0298)
+  [222/330] candle/mean_diff/L27/projection/a=6.0
+    R1=0.000 (D=+1.000), R2a=0.3989 (D=+0.1368), R2b=0.8961 (D=+0.1039)
+  [223/330] candle/mean_diff/L27/projection/a=10.0
+    R1=0.000 (D=+1.000), R2a=0.3031 (D=+0.2326), R2b=0.7663 (D=+0.2337)
+  [224/330] candle/mean_diff/L27/projection/a=15.0
+    R1=0.000 (D=+1.000), R2a=0.2049 (D=+0.3308), R2b=0.6018 (D=+0.3982)
+  [225/330] candle/mean_diff/L27/projection/a=20.0
+    R1=0.000 (D=+1.000), R2a=0.1397 (D=+0.3960), R2b=0.4623 (D=+0.5377)
+  [226/330] candle/svm/L16/projection/a=3.0
+    R1=1.000 (D=+0.000), R2a=0.5667 (D=-0.0309), R2b=0.9866 (D=+0.0134)
+  [227/330] candle/svm/L16/projection/a=6.0
+    R1=0.133 (D=+0.867), R2a=0.5731 (D=-0.0374), R2b=0.9613 (D=+0.0387)
+  [228/330] candle/svm/L16/projection/a=10.0
+    R1=0.000 (D=+1.000), R2a=0.5335 (D=+0.0022), R2b=0.9199 (D=+0.0801)
+  [229/330] candle/svm/L16/projection/a=15.0
+    R1=0.000 (D=+1.000), R2a=0.4992 (D=+0.0365), R2b=0.8652 (D=+0.1348)
+  [230/330] candle/svm/L16/projection/a=20.0
+    R1=0.000 (D=+1.000), R2a=0.4632 (D=+0.0725), R2b=0.8038 (D=+0.1962)
+  [231/330] candle/svm/L24/projection/a=3.0
+    R1=0.867 (D=+0.133), R2a=0.5328 (D=+0.0029), R2b=0.9949 (D=+0.0051)
+  [232/330] candle/svm/L24/projection/a=6.0
+    R1=0.067 (D=+0.933), R2a=0.5163 (D=+0.0195), R2b=0.9852 (D=+0.0148)
+  [233/330] candle/svm/L24/projection/a=10.0
+    R1=0.000 (D=+1.000), R2a=0.4888 (D=+0.0469), R2b=0.9647 (D=+0.0353)
+  [234/330] candle/svm/L24/projection/a=15.0
+    R1=0.000 (D=+1.000), R2a=0.4344 (D=+0.1013), R2b=0.9286 (D=+0.0714)
+  [235/330] candle/svm/L24/projection/a=20.0
+    R1=0.000 (D=+1.000), R2a=0.3825 (D=+0.1532), R2b=0.8868 (D=+0.1132)
+  [236/330] candle/svm/L27/projection/a=3.0
+    R1=0.800 (D=+0.200), R2a=0.5337 (D=+0.0020), R2b=0.9951 (D=+0.0049)
+  [237/330] candle/svm/L27/projection/a=6.0
+    R1=0.067 (D=+0.933), R2a=0.5212 (D=+0.0145), R2b=0.9838 (D=+0.0162)
+  [238/330] candle/svm/L27/projection/a=10.0
+    R1=0.000 (D=+1.000), R2a=0.4825 (D=+0.0532), R2b=0.9583 (D=+0.0417)
+  [239/330] candle/svm/L27/projection/a=15.0
+    R1=0.000 (D=+1.000), R2a=0.4207 (D=+0.1150), R2b=0.9145 (D=+0.0855)
+  [240/330] candle/svm/L27/projection/a=20.0
+    R1=0.000 (D=+1.000), R2a=0.3755 (D=+0.1603), R2b=0.8661 (D=+0.1339)
+
+  Saved: results\results_factorial.csv (330 rows)
+
+==================================================
+PHASE 3: SPECIFICITY TEST
+==================================================
+  Config: layer=16, method=svm, technique=projection, alpha=3.5
+  Resuming from checkpoint: 121 done
+
+  Saved: results\results_specificity.csv
+Traceback (most recent call last):
+  File "E:\Experiment2\Experiment\models\LLaVA_1_5_7B\experiment_runner.py", line 505, in <module>
+    main()
+    ~~~~^^
+  File "E:\Experiment2\Experiment\models\LLaVA_1_5_7B\experiment_runner.py", line 474, in main
+    on = df_spec[df_spec["on_target"]]
+         ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\music\AppData\Roaming\Python\Python313\site-packages\pandas\core\frame.py", line 4119, in __getitem__
+    indexer = self.columns._get_indexer_strict(key, "columns")[1]
+              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\music\AppData\Roaming\Python\Python313\site-packages\pandas\core\indexes\base.py", line 6212, in _get_indexer_strict
+    self._raise_if_missing(keyarr, indexer, axis_name)
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\music\AppData\Roaming\Python\Python313\site-packages\pandas\core\indexes\base.py", line 6261, in _raise_if_missing
+    raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+KeyError: "None of [Index(['True', 'False', 'False', 'False', 'False', 'False', 'False', 'False',\n       'False', 'False',\n       ...\n       'False', 'False', 'False', 'False', 'False', 'False', 'False', 'False',\n       'False', 'True'],\n      dtype='object', length=121)] are in the [columns]"

@@ -1,0 +1,141 @@
+%%{init: {
+  "theme": "base",
+  "themeVariables": {
+    "primaryColor": "#FFFFFF",
+    "primaryTextColor": "#000000",
+    "primaryBorderColor": "#000000",
+    "secondaryColor": "#F5F5F5",
+    "tertiaryColor": "#EEEEEE",
+    "lineColor": "#000000",
+    "fontSize": "13px",
+    "fontFamily": "Times New Roman, serif"
+  }
+}}%%
+
+flowchart TD
+
+    %% ===================================================================
+    %% TITULO
+    %% ===================================================================
+    TITULO["Pipeline Experimental Completo\nModelo: LLaVA 1.5 7B -- Multimodal\nVicuna-7B: 32 capas, d_model = 4096\nCLIP ViT-L/14-336px: 576 tokens imagen\n11 conceptos visuales"]
+
+    %% ===================================================================
+    %% FASE 1: GENERACION DE DATOS MULTIMODAL
+    %% ===================================================================
+    subgraph F1["FASE 1 -- GENERACION DE DATOS MULTIMODAL -- data_gen_multimodal.py"]
+        direction TB
+
+        IMAGES["Conjunto de Imagenes\n\n11 conceptos visuales:\ncamel, bee, horse, penguin, violin,\nbird, spider, candle, tabby_cat,\ngolden_retriever, labrador_retriever\n\nFuentes: ImageNet, Open Images\n50+ imagenes por concepto"]
+
+        PROMPTS["Prompts Multimodales\n\nEntrenamiento CAV:\n  USER: imagen Describe what you see. ASSISTANT:\nR1 VQA:\n  USER: imagen What type of object...? ASSISTANT:\nR2 Similitud:\n  USER: imagen Describe what you see. ASSISTANT:"]
+
+        EXPDATA["SALIDA: data/experiment_data.json\n\nimage_dataset, cav_training pos/neg,\nr1_benchmark -- VQA opcion multiple,\nr2_benchmark -- pares imagen-texto"]
+
+        IMAGES --> PROMPTS --> EXPDATA
+    end
+
+    %% ===================================================================
+    %% FASE 2: EXTRACCION DE ACTIVACIONES MULTIMODAL
+    %% ===================================================================
+    subgraph F2["FASE 2 -- EXTRACCION DE ACTIVACIONES -- cav_extraction.py + pyvene_utils.py"]
+        direction TB
+
+        LOAD_MODEL["Carga del Modelo LLaVA 1.5 7B\n\nModelo de lenguaje: Vicuna-7B\n  32 capas, d = 4096, 32 cabezas atencion\nEncoder visual: CLIP ViT-L/14-336px\n  24 capas, d_vision = 1024, congelado\nCarga: fp16 en CPU -> GPU\nConsumo: ~14.1 GB VRAM"]
+
+        COLLECT["Recoleccion de Activaciones\ncollect_activations_batch\n\nPor cada par imagen+prompt:\n  1. Procesar imagen por CLIP\n  2. Forward a traves de LLaVA\n  3. Hook: language_model.model.layers.L\n  4. Pool activaciones: all_mean -> 4096\n  5. Apilado -> N x 4096"]
+
+        LAYERS_INFO["Capas de extraccion:\nL16 -- 50% profundidad\nL24 -- 75% profundidad\nL27 -- 84% profundidad"]
+
+        LOAD_MODEL --> COLLECT
+        LAYERS_INFO -.-> COLLECT
+    end
+
+    %% ===================================================================
+    %% FASE 3: EXTRACCION DE CAVs
+    %% ===================================================================
+    subgraph F3["FASE 3 -- EXTRACCION DE CAVs -- cav_extraction.py"]
+        direction TB
+
+        subgraph METODOS["Dos Metodos de Extraccion"]
+            direction LR
+            MEAN_DIFF["Diferencia de Medias\n\nCAV = normalizar\nmean_pos - mean_neg\nDimensionalidad: 4096"]
+            SVM_CAV["SVM Lineal -- TCAV\nKim et al. 2018\n\nValidacion cruzada 5-fold\nBusqueda de C optimo\nCAV = normalizar clf.coef_\nUmbral: precision CV >= 0.70"]
+        end
+
+        CAV_FILES["SALIDA: 66 Archivos CAV\n\ncavs/concepto_metodo_layerL.pt\nVector unitario, dim 4096\n11 conceptos x 2 metodos x 3 capas\nstatistical_validation.json"]
+
+        METODOS --> CAV_FILES
+    end
+
+    %% ===================================================================
+    %% FASE 4: EVALUACION BASELINE
+    %% ===================================================================
+    subgraph F4["FASE 4 -- EVALUACION BASELINE -- sin ablacion"]
+        direction TB
+
+        BASE_R1["R1: Precision VQA\nmetrics.evaluate_r1\n\nPregunta de opcion multiple\ncon imagen. Puntuacion por\nlog-probabilidad de continuacion."]
+
+        BASE_R2A["R2a: Similitud Cross-Modal\nmetrics.evaluate_r2a\n\nEmbeddings de texto SIN ablacion\nEmbeddings de imagen CON modelo\nCoseno entre ambos"]
+
+        BASE_R2B["R2b: Similitud de Salida\nmetrics.evaluate_r2b\n\nCoseno de embeddings ultimo token\nmodelo ablado vs modelo baseline\nMide disrupcion interna"]
+
+        BASE_OUT["SALIDA: results_baseline.json\n\nR1, R2a, R2b por concepto\nR1: violin=1.0, penguin=1.0\nR2a: rango 0.46-0.54"]
+
+        BASE_R1 --> BASE_OUT
+        BASE_R2A --> BASE_OUT
+        BASE_R2B --> BASE_OUT
+    end
+
+    %% ===================================================================
+    %% FASE 5: ABLACION FACTORIAL
+    %% ===================================================================
+    subgraph F5["FASE 5 -- ABLACION FACTORIAL -- experiment_runner.py"]
+        direction TB
+
+        HOOK_ABL["Hook de Ablacion -- Proyeccion via pyvene\n\nPor cada condicion:\n  1. Cargar CAV del disco\n  2. Registrar forward hook en capa LM\n  3. dot = einsum bsd,d->bs hidden, cav\n     proj = einsum bs,d->bsd dot, cav\n     hidden -= alpha x proj\n  4. Evaluar R1, R2a, R2b"]
+
+        FACTORIAL_DESIGN["Diseno Factorial Completo\n\n11 conceptos x 2 metodos x 3 capas\nx 5 intensidades alpha: 3, 6, 10, 15, 20\n= 330 condiciones\n+ 121 condiciones de especificidad\n\nCheckpoint/resume tras cada condicion\nResiliente a OOM: captura CUDA OOM"]
+
+        FACTORIAL_OUT["SALIDA:\nresults/factorial_checkpoint.json\nresults/results_baseline.json"]
+
+        HOOK_ABL --> FACTORIAL_DESIGN --> FACTORIAL_OUT
+    end
+
+    %% ===================================================================
+    %% FASE 6: TEST CCT -- Clasificacion Visual de Conceptos
+    %% ===================================================================
+    subgraph F6["FASE 6 -- TEST CCT -- Clasificacion Visual -- test/cct_test.py"]
+        direction TB
+
+        CCT_WHAT["Test de Clasificacion Visual de Conceptos\nAdaptado de Bozeat et al. 2000\npara modalidad multimodal\n\nUtiliza VQA de opcion multiple\ncon imagenes para evaluar\nreconocimiento de conceptos.\nEstrategia: baseline-correct-only."]
+
+        CCT_ABL["Condiciones de Ablacion\n\nCapa individual: L16, L24, L27\nTodas las capas: L16, L24, L27 combinadas\nMetodos: mean_diff, svm\nAlphas: 3.0 a 20.0\n\nOpcion: image_tokens_only\npara simulacion de agnosia visual\n\n560 condiciones totales"]
+
+        CCT_OUT["SALIDA: cct_test_results.json\n\n448/560 condiciones completadas\nRatio de especificidad: 2.017\n\nNota: OOM en golden_retriever\ny labrador_retriever parcial"]
+
+        CCT_WHAT --> CCT_ABL --> CCT_OUT
+    end
+
+    %% ===================================================================
+    %% CONEXIONES PRINCIPALES
+    %% ===================================================================
+    TITULO -.-> F1
+    F1 ==>|"experiment_data.json + imagenes"| F2
+    F2 ==>|"activaciones N x 4096"| F3
+    F3 ==>|"CAVs validados .pt"| F4
+    F4 ==>|"lineas base"| F5
+    F3 ==>|"tensores CAV"| F5
+    F5 -.->|"baselines + factorial"| F6
+    F3 ==>|"tensores CAV"| F6
+
+    %% ===================================================================
+    %% ESTILOS -- blanco y negro academico
+    %% ===================================================================
+    classDef default fill:#FFFFFF,stroke:#000000,stroke-width:1px,color:#000000
+    classDef titulo fill:#F0F0F0,stroke:#000000,stroke-width:2px,color:#000000
+    classDef phase fill:#FFFFFF,stroke:#000000,stroke-width:2px,color:#000000
+    classDef output fill:#F0F0F0,stroke:#000000,stroke-width:2px,color:#000000
+
+    class TITULO titulo
+    class F1,F2,F3,F4,F5,F6 phase
+    class EXPDATA,CAV_FILES,FACTORIAL_OUT,CCT_OUT,BASE_OUT output

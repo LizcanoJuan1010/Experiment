@@ -1,20 +1,20 @@
 """
-Model Loader — LLaVA-1.5 7B with 4-bit Quantization
-=====================================================
-Centralizes model loading with bitsandbytes NF4 quantization.
+Model Loader — LLaVA-1.5 7B
+==============================
+Centralizes model loading for LLaVA-1.5 7B.
+
+Loads in fp16 on CPU first, then moves to GPU to avoid segfault
+with device_map='auto' + accelerate on RTX 5060 Ti (Blackwell).
 
 VRAM budget on RTX 5060 Ti (16GB):
-    Model weights (NF4 4-bit):  ~4.0 GB
-    CLIP ViT-L (fp16):          ~0.6 GB
-    KV cache + activations:     ~8-10 GB
-    Overhead:                   ~1-2 GB
+    Model weights (fp16):       ~14.1 GB
+    KV cache + activations:     ~2-3 GB (tight — use torch.no_grad)
 """
 
 import torch
 from transformers import (
     LlavaForConditionalGeneration,
     AutoProcessor,
-    BitsAndBytesConfig,
 )
 
 import experiment_config as cfg
@@ -22,25 +22,22 @@ import experiment_config as cfg
 
 def load_llava_model():
     """
-    Load LLaVA-1.5 7B with 4-bit NF4 quantization.
+    Load LLaVA-1.5 7B in fp16.
+
+    Loads on CPU first to avoid device_map='auto' segfault on Blackwell GPUs,
+    then moves to CUDA.
 
     Returns:
-        model: LlavaForConditionalGeneration (4-bit quantized)
+        model: LlavaForConditionalGeneration (fp16 on CUDA)
         processor: AutoProcessor (handles text tokenization + image preprocessing)
     """
-    bnb_config = BitsAndBytesConfig(
-        load_in_4bit=True,
-        bnb_4bit_quant_type="nf4",
-        bnb_4bit_compute_dtype=torch.float16,
-        bnb_4bit_use_double_quant=True,
-    )
-
     model = LlavaForConditionalGeneration.from_pretrained(
         cfg.MODEL_NAME,
-        quantization_config=bnb_config,
-        device_map="auto",
         torch_dtype=torch.float16,
+        device_map="cpu",
+        low_cpu_mem_usage=True,
     )
+    model = model.to("cuda")
     model.eval()
 
     processor = AutoProcessor.from_pretrained(cfg.MODEL_NAME)

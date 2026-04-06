@@ -73,10 +73,10 @@ IMAGE_ONLY_ABLATION = False
 # ---------------------------------------------------------------------------
 # 50% = L16, 75% = L24, 84% = L27 (same ratios as Pythia 2.8B)
 EXTRACTION_LAYERS = [16, 24, 27]
-EXPERIMENT_LAYERS = [16, 27]
+EXPERIMENT_LAYERS = [16, 24, 27]
 SPECIFICITY_LAYER = 16
 SPECIFICITY_METHOD = "svm"
-SPECIFICITY_TECHNIQUE = "subtraction"
+SPECIFICITY_TECHNIQUE = "projection"
 SPECIFICITY_ALPHA = 3.5
 
 # Automatic layer selection via diagnostic probing.
@@ -659,7 +659,7 @@ SAVE_ACTIVATIONS = True
 # Experiment
 # ---------------------------------------------------------------------------
 RESULTS_DIR = "results"
-TECHNIQUES = ["subtraction", "projection"]
+TECHNIQUES = ["projection"]
 INTENSITIES = [3.0, 6.0, 10.0, 15.0, 20.0]
 
 # ---------------------------------------------------------------------------

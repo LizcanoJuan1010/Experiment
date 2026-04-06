@@ -8,12 +8,28 @@ Adapted from the GPT-2-small experiment for Pythia 2.8B (32 layers, 2560 d_model
 Layer indices are proportionally mapped from the original 12-layer model.
 
 References:
+    CAV / Probing methodology:
     - Kim et al. (2018) "Interpretability Beyond Feature Attribution" (TCAV)
-    - Conneau et al. (2018) "What you can cram into a single $&!#* vector"
-    - Hewitt & Liang (2019) "Designing and Interpreting Probes with Control Tasks"
+      https://proceedings.mlr.press/v80/kim18d.html
     - Cohen (1988) "Statistical Power Analysis for the Behavioral Sciences"
     - Efron & Tibshirani (1993) "An Introduction to the Bootstrap"
     - Biderman et al. (2023) "Pythia: A Suite for Analyzing Large Language Models"
+
+    Layer selection — semantic information in middle-to-late layers:
+    - Tenney et al. (2019) "BERT Rediscovers the Classical NLP Pipeline"
+      https://aclanthology.org/P19-1452/
+    - Jawahar et al. (2019) "What Does BERT Learn about the Structure of Language?"
+      https://aclanthology.org/P19-1356/
+    - Rogers et al. (2020) "A Primer in BERTology"
+      https://doi.org/10.1162/tacl_a_00349
+    - Meng et al. (2022) "Locating and Editing Factual Associations in GPT"
+      https://proceedings.neurips.cc/paper_files/paper/2022/hash/6f1d43d5a82a37e89b0665b33bf3a182-Abstract-Conference.html
+    - Geva et al. (2022) "Transformer FFN Layers Build Predictions by Promoting Concepts in the Vocabulary Space"
+      https://aclanthology.org/2022.emnlp-main.3/
+    - Dai et al. (2022) "Knowledge Neurons in Pretrained Transformers"
+      https://aclanthology.org/2022.acl-long.581/
+    - Ethayarajh (2019) "How Contextual are Contextualized Word Representations?"
+      https://aclanthology.org/D19-1006/
 """
 
 import os
@@ -76,12 +92,23 @@ CONCEPTS = [
 # Layer Selection
 # =====================================================================
 # Pythia 2.8B has 32 layers (0-31). Layer indices are proportionally
-# mapped from the GPT-2-small (12-layer) experiment:
-#   GPT-2 L6  (50% depth) -> Pythia L16 (50% of 32)
-#   GPT-2 L9  (75% depth) -> Pythia L24 (75% of 32)
-#   GPT-2 L10 (83% depth) -> Pythia L27 (83% of 32)
-# Middle (16) = semantic knowledge hypothesis
-# Late (24, 27) = syntactic composition / token selection
+# mapped to target the semantic zone identified in the literature:
+#
+#   L16 (50%) — Floor of the semantic zone. Meng et al. (2022): causal
+#               MLP effects begin ~31-42% depth in GPT-2 XL.
+#   L24 (75%) — Peak semantic richness. Jawahar et al. (2019): semantic
+#               probing peaks at 75-100%. Dai et al. (2022): knowledge
+#               neurons at 67-100%.
+#   L27 (83%) — Pre-final refinement. Tenney et al. (2019): SRL/coref
+#               center-of-gravity at 58-92%.
+#
+# Early layers (<25%, L0-L7) excluded: encode surface/syntactic features
+# only (Jawahar 2019; Geva et al. 2022; Ethayarajh 2019).
+#
+# Proportional mapping from GPT-2-small (12 layers):
+#   GPT-2 L6  (50%) -> Pythia L16
+#   GPT-2 L9  (75%) -> Pythia L24
+#   GPT-2 L10 (83%) -> Pythia L27
 EXTRACTION_LAYERS = [16, 24, 27]
 EXPERIMENT_LAYERS = [16, 24, 27]   # Same as EXTRACTION_LAYERS for factorial experiments
 EXPERIMENT_LAYERS_ALL = list(range(32))  # All 32 layers (0-31) for multi-layer condition
