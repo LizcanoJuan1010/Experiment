@@ -24,6 +24,41 @@ from datetime import datetime
 from scipy import stats
 from collections import OrderedDict
 
+# Make deep_viz.ci_utils importable without requiring a package init
+_DEEP_VIZ = os.path.join(os.path.dirname(os.path.abspath(__file__)), "deep_viz")
+if _DEEP_VIZ not in sys.path:
+    sys.path.insert(0, _DEEP_VIZ)
+from ci_utils import (  # noqa: E402
+    delta_accuracy_wilson, agg_with_ci, bootstrap_ci, paired_bootstrap_ci,
+    annotate_heatmap_with_ci, significance_mark,
+)
+
+
+def _delta_ci(sub_df: pd.DataFrame) -> dict:
+    """Robust CI for delta_accuracy.
+
+    Uses pooled Wilson (Newcombe) when baseline counts are coherent
+    (``n_baseline_correct <= n_items`` everywhere), otherwise falls back
+    to percentile bootstrap on the ``delta_accuracy`` column. This matters
+    for off-target rows where the baseline pool is shared across measured
+    concepts and pooled counts over-count.
+    """
+    if len(sub_df) == 0:
+        return {"mean": np.nan, "ci_lo": np.nan, "ci_hi": np.nan, "n": 0}
+    if {"n_correct", "n_baseline_correct", "n_items"}.issubset(sub_df.columns):
+        if (sub_df["n_baseline_correct"] <= sub_df["n_items"]).all():
+            nt = int(sub_df["n_items"].sum())
+            nc = int(sub_df["n_correct"].sum())
+            nb = int(sub_df["n_baseline_correct"].sum())
+            if nt > 0 and nb <= nt and nc <= nt:
+                return delta_accuracy_wilson(sub_df)
+    vals = sub_df["delta_accuracy"].dropna().to_numpy()
+    if vals.size < 2:
+        m = float(vals.mean()) if vals.size else np.nan
+        return {"mean": m, "ci_lo": np.nan, "ci_hi": np.nan, "n": int(vals.size)}
+    lo, hi = bootstrap_ci(vals)
+    return {"mean": float(vals.mean()), "ci_lo": lo, "ci_hi": hi, "n": int(vals.size)}
+
 try:
     from statsmodels.formula.api import ols
     from statsmodels.stats.anova import anova_lm
@@ -568,7 +603,7 @@ def generate_plots(df_agg, df_item):
     plt.close(fig)
     print("  Saved: 01_dose_response.png")
 
-    # --- Plot 2: Specificity (on vs off target) ---
+    # --- Plot 2: Specificity (on vs off target) with Wilson CIs ---
     spec_data = df_agg[
         (df_agg["concept_overlap_tier"] == "all_3") &
         (df_agg["ablation_mode"] == "all_tokens")
@@ -576,15 +611,41 @@ def generate_plots(df_agg, df_item):
     fig, ax = plt.subplots(figsize=(8, 5))
     x = np.arange(len(MODEL_ORDER))
     w = 0.35
-    on_means = [spec_data[(spec_data["model"] == m) & (spec_data["on_target"] == True)]["delta_accuracy"].mean()
-                for m in MODEL_ORDER]
-    off_means = [spec_data[(spec_data["model"] == m) & (spec_data["on_target"] == False)]["delta_accuracy"].mean()
-                 for m in MODEL_ORDER]
-    ax.bar(x - w/2, on_means, w, label="On-target (ablated concept)", color="#d62728", alpha=0.85)
-    ax.bar(x + w/2, off_means, w, label="Off-target (other concepts)", color="#7f7f7f", alpha=0.85)
+    on_stats, off_stats = [], []
+    for m in MODEL_ORDER:
+        sub_on  = spec_data[(spec_data["model"] == m) & (spec_data["on_target"] == True)]
+        sub_off = spec_data[(spec_data["model"] == m) & (spec_data["on_target"] == False)]
+        on_stats.append(_delta_ci(sub_on))
+        off_stats.append(_delta_ci(sub_off))
+
+    def _yerr(stats_list):
+        mean = np.array([s["mean"] for s in stats_list])
+        lo   = np.array([s["ci_lo"] for s in stats_list])
+        hi   = np.array([s["ci_hi"] for s in stats_list])
+        return mean, np.vstack([mean - lo, hi - mean])
+
+    on_m,  on_err  = _yerr(on_stats)
+    off_m, off_err = _yerr(off_stats)
+    ax.bar(x - w/2, on_m,  w, yerr=on_err,  capsize=4, ecolor="#444",
+           label="On-target (ablated concept)", color="#d62728", alpha=0.85)
+    ax.bar(x + w/2, off_m, w, yerr=off_err, capsize=4, ecolor="#444",
+           label="Off-target (other concepts)", color="#7f7f7f", alpha=0.85)
+
+    # Significance mark when paired contrast (on - off) CI excludes 0
+    for i, m in enumerate(MODEL_ORDER):
+        on_vals  = spec_data[(spec_data["model"] == m) & (spec_data["on_target"] == True)]["delta_accuracy"].values
+        off_vals = spec_data[(spec_data["model"] == m) & (spec_data["on_target"] == False)]["delta_accuracy"].values
+        n = min(len(on_vals), len(off_vals))
+        if n >= 2:
+            lo, hi = paired_bootstrap_ci(on_vals[:n], off_vals[:n])
+            mark = significance_mark(lo, hi)
+            if mark:
+                y = max(on_m[i] + on_err[1, i], off_m[i] + off_err[1, i]) + 0.02
+                ax.text(x[i], y, mark, ha="center", fontsize=14, fontweight="bold")
+
     ax.set_xticks(x)
     ax.set_xticklabels([MODEL_LABELS[m] for m in MODEL_ORDER], fontsize=11)
-    ax.set_ylabel("Mean Delta Accuracy", fontsize=13)
+    ax.set_ylabel("Mean Delta Accuracy (95% Wilson CI)", fontsize=12)
     ax.set_title("Ablation Specificity: On-Target vs Off-Target Effect", fontsize=14)
     ax.legend(fontsize=11)
     ax.grid(True, alpha=0.3, axis="y")
@@ -593,17 +654,38 @@ def generate_plots(df_agg, df_item):
     plt.close(fig)
     print("  Saved: 02_specificity.png")
 
-    # --- Plot 3: CAV Method Comparison ---
+    # --- Plot 3: CAV Method Comparison with Wilson CIs ---
     fig, ax = plt.subplots(figsize=(8, 5))
     methods = ["mean_diff", "svm"]
     method_colors = {"mean_diff": "#9467bd", "svm": "#e377c2"}
+    bars_m = {}
     for i, method in enumerate(methods):
         ms = core[core["cav_method"] == method]
-        means = [ms[ms["model"] == m]["delta_accuracy"].mean() for m in MODEL_ORDER]
-        ax.bar(x + (i - 0.5) * w, means, w, label=method.upper(), color=method_colors[method], alpha=0.85)
+        stats_list = [_delta_ci(ms[ms["model"] == m]) for m in MODEL_ORDER]
+        means = np.array([s["mean"] for s in stats_list])
+        lo = np.array([s["ci_lo"] for s in stats_list])
+        hi = np.array([s["ci_hi"] for s in stats_list])
+        yerr = np.vstack([means - lo, hi - means])
+        ax.bar(x + (i - 0.5) * w, means, w, yerr=yerr, capsize=4, ecolor="#444",
+               label=method.upper(), color=method_colors[method], alpha=0.85)
+        bars_m[method] = (means, yerr)
+
+    # Significance mark: paired bootstrap of svm - mean_diff per model
+    for i, m in enumerate(MODEL_ORDER):
+        v_svm = core[(core["cav_method"] == "svm") & (core["model"] == m)]["delta_accuracy"].values
+        v_md  = core[(core["cav_method"] == "mean_diff") & (core["model"] == m)]["delta_accuracy"].values
+        n = min(len(v_svm), len(v_md))
+        if n >= 2:
+            lo, hi = paired_bootstrap_ci(v_svm[:n], v_md[:n])
+            mark = significance_mark(lo, hi)
+            if mark:
+                ypos = max(bars_m["mean_diff"][0][i] + bars_m["mean_diff"][1][1, i],
+                           bars_m["svm"][0][i] + bars_m["svm"][1][1, i]) + 0.015
+                ax.text(x[i], ypos, mark, ha="center", fontsize=14, fontweight="bold")
+
     ax.set_xticks(x)
     ax.set_xticklabels([MODEL_LABELS[m] for m in MODEL_ORDER], fontsize=11)
-    ax.set_ylabel("Mean On-Target Delta", fontsize=13)
+    ax.set_ylabel("Mean On-Target Delta (95% Wilson CI)", fontsize=12)
     ax.set_title("CAV Method: Mean-Diff vs SVM by Model", fontsize=14)
     ax.legend(fontsize=11)
     ax.grid(True, alpha=0.3, axis="y")
@@ -612,7 +694,7 @@ def generate_plots(df_agg, df_item):
     plt.close(fig)
     print("  Saved: 03_cav_method.png")
 
-    # --- Plot 4: Layer Depth Heatmap ---
+    # --- Plot 4: Layer Depth Heatmap with Wilson CI annotations ---
     core_single = core[core["layer_type"] != "all_layers"]
     pivot = core_single.groupby(["model", "layer_type"])["delta_accuracy"].mean().unstack("layer_type")
     layer_order = ["single_mid", "single_late", "single_deep"]
@@ -620,18 +702,38 @@ def generate_plots(df_agg, df_item):
     pivot = pivot.reindex([m for m in MODEL_ORDER if m in pivot.index])
 
     if not pivot.empty:
-        fig, ax = plt.subplots(figsize=(8, 4))
-        im = ax.imshow(pivot.values, cmap="YlOrRd", aspect="auto", vmin=0)
+        mean_mat = np.full(pivot.shape, np.nan)
+        ci_lo_mat = np.full(pivot.shape, np.nan)
+        ci_hi_mat = np.full(pivot.shape, np.nan)
+        for i, m in enumerate(pivot.index):
+            for j, lt in enumerate(pivot.columns):
+                sub = core_single[(core_single["model"] == m) &
+                                   (core_single["layer_type"] == lt)]
+                if len(sub) == 0:
+                    continue
+                s = _delta_ci(sub)
+                mean_mat[i, j] = s["mean"]
+                ci_lo_mat[i, j] = s["ci_lo"]
+                ci_hi_mat[i, j] = s["ci_hi"]
+
+        fig, ax = plt.subplots(figsize=(9, 4.4))
+        vmax = float(np.nanmax(np.abs(mean_mat))) if np.any(~np.isnan(mean_mat)) else 1.0
+        im = ax.imshow(mean_mat, cmap="YlOrRd", aspect="auto", vmin=0, vmax=max(vmax, 0.05))
         ax.set_xticks(range(len(pivot.columns)))
         ax.set_xticklabels(["Mid (~50%)", "Late (~75%)", "Deep (~83%)"], fontsize=11)
         ax.set_yticks(range(len(pivot.index)))
         ax.set_yticklabels([MODEL_LABELS[m] for m in pivot.index], fontsize=11)
-        for i in range(len(pivot.index)):
-            for j in range(len(pivot.columns)):
-                val = pivot.values[i, j]
-                if not np.isnan(val):
-                    ax.text(j, i, f"{val:.3f}", ha="center", va="center", fontsize=12, fontweight="bold")
-        ax.set_title("On-Target Delta by Model x Layer Depth", fontsize=14)
+        annotate_heatmap_with_ci(ax, mean_mat, ci_lo_mat, ci_hi_mat,
+                                 fmt="{:.3f}", fontsize=8.5,
+                                 color_thresh=max(vmax, 0.05) * 0.6)
+        # Star cells where CI excludes zero
+        for i in range(mean_mat.shape[0]):
+            for j in range(mean_mat.shape[1]):
+                if not np.isnan(ci_lo_mat[i, j]) and (ci_lo_mat[i, j] > 0 or ci_hi_mat[i, j] < 0):
+                    ax.text(j + 0.38, i - 0.38, "*", ha="center", va="center",
+                            color="black", fontsize=14, fontweight="bold")
+        ax.set_title("On-Target Delta by Model x Layer Depth\n(mean [lo, hi] Wilson CI; * CI excludes 0)",
+                     fontsize=13)
         fig.colorbar(im, ax=ax, label="Delta Accuracy", shrink=0.8)
         fig.tight_layout()
         fig.savefig(os.path.join(FIG_DIR, "04_layer_heatmap.png"), dpi=200)
@@ -668,24 +770,114 @@ def generate_plots(df_agg, df_item):
         plt.close(fig)
         print("  Saved: 05_llava_ablation_mode.png")
 
-    # --- Plot 6: Per-concept delta across models ---
+    # --- Plot 5b: Dose-response per model (LLaVA-style, one panel per model) ---
+    # Same visual language as 05_llava_ablation_mode.png but split per model.
+    # GPT-2 / Pythia only have `all_tokens`; LLaVA overlays both modes.
+    per_model_src = df_agg[
+        (df_agg["concept_overlap_tier"] == "all_3") &
+        (df_agg["on_target"] == True)
+    ]
+    if not per_model_src.empty:
+        models_present = [m for m in MODEL_ORDER if m in per_model_src["model"].unique()]
+        fig, axes = plt.subplots(1, len(models_present), figsize=(5.2 * len(models_present), 5), sharey=True)
+        if len(models_present) == 1:
+            axes = [axes]
+        for ax, m in zip(axes, models_present):
+            ms = per_model_src[per_model_src["model"] == m]
+            modes = ["all_tokens", "image_tokens_only"] if m == "llava_15_7b" else ["all_tokens"]
+            mode_styles = {
+                "all_tokens":        {"color": MODEL_COLORS[m], "label": "All tokens",        "marker": MODEL_MARKERS[m]},
+                "image_tokens_only": {"color": "#17becf",        "label": "Image tokens only", "marker": "v"},
+            }
+            for mode in modes:
+                msm = ms[ms["ablation_mode"] == mode]
+                if msm.empty:
+                    continue
+                means = msm.groupby("alpha")["delta_accuracy"].mean()
+                sems = msm.groupby("alpha")["delta_accuracy"].sem().fillna(0)
+                ax.errorbar(
+                    means.index, means.values, yerr=sems.values,
+                    marker=mode_styles[mode]["marker"], color=mode_styles[mode]["color"],
+                    label=mode_styles[mode]["label"], capsize=4, linewidth=2.5, markersize=8,
+                )
+            ax.set_xlabel("Alpha", fontsize=13)
+            ax.set_title(MODEL_LABELS[m], fontsize=14, color=MODEL_COLORS[m])
+            ax.grid(True, alpha=0.3)
+            if len(modes) > 1:
+                ax.legend(fontsize=10)
+        axes[0].set_ylabel("On-Target Delta Accuracy", fontsize=13)
+        fig.suptitle("Dose-response por modelo (α vs Δ precisión, on-target)", fontsize=14, y=1.02)
+        fig.tight_layout()
+        fig.savefig(os.path.join(FIG_DIR, "05b_dose_response_per_model.png"), dpi=200, bbox_inches="tight")
+        plt.close(fig)
+        print("  Saved: 05b_dose_response_per_model.png")
+
+        # Also save one PNG per model (same layout as the LLaVA figure).
+        for m in models_present:
+            ms = per_model_src[per_model_src["model"] == m]
+            modes = ["all_tokens", "image_tokens_only"] if m == "llava_15_7b" else ["all_tokens"]
+            fig, ax = plt.subplots(figsize=(8, 5))
+            for mode in modes:
+                msm = ms[ms["ablation_mode"] == mode]
+                if msm.empty:
+                    continue
+                means = msm.groupby("alpha")["delta_accuracy"].mean()
+                sems = msm.groupby("alpha")["delta_accuracy"].sem().fillna(0)
+                color = MODEL_COLORS[m] if mode == "all_tokens" else "#17becf"
+                label = "All tokens" if mode == "all_tokens" else "Image tokens only"
+                marker = MODEL_MARKERS[m] if mode == "all_tokens" else "v"
+                ax.errorbar(
+                    means.index, means.values, yerr=sems.values,
+                    marker=marker, color=color, label=label,
+                    capsize=4, linewidth=2.5, markersize=8,
+                )
+            ax.set_xlabel("Alpha", fontsize=13)
+            ax.set_ylabel("On-Target Delta Accuracy", fontsize=13)
+            ax.set_title(f"{MODEL_LABELS[m]}: Dose-Response", fontsize=14)
+            if len(modes) > 1:
+                ax.legend(fontsize=11)
+            ax.grid(True, alpha=0.3)
+            fig.tight_layout()
+            out = os.path.join(FIG_DIR, f"05c_dose_response_{m}.png")
+            fig.savefig(out, dpi=200)
+            plt.close(fig)
+            print(f"  Saved: {os.path.basename(out)}")
+
+    # --- Plot 6: Per-concept delta across models with Wilson CIs ---
     concepts_all3 = sorted(ALL_3_CONCEPTS)
     core_concept = core[core["ablated_concept"].isin(concepts_all3)]
-    pivot_c = core_concept.groupby(["model", "ablated_concept"])["delta_accuracy"].mean().unstack("ablated_concept")
-    pivot_c = pivot_c.reindex([m for m in MODEL_ORDER if m in pivot_c.index])
+    models_present = [m for m in MODEL_ORDER if m in core_concept["model"].unique()]
+    concepts_present = [c for c in concepts_all3
+                        if c in core_concept["ablated_concept"].unique()]
 
-    if not pivot_c.empty:
+    if models_present and concepts_present:
         fig, ax = plt.subplots(figsize=(10, 5))
-        n_concepts = len(pivot_c.columns)
-        n_models = len(pivot_c.index)
+        n_concepts = len(concepts_present)
+        n_models = len(models_present)
         bar_w = 0.8 / n_models
-        for i, m in enumerate(pivot_c.index):
+        for i, m in enumerate(models_present):
+            means = np.full(n_concepts, np.nan)
+            yerr_lo = np.full(n_concepts, np.nan)
+            yerr_hi = np.full(n_concepts, np.nan)
+            for j, c in enumerate(concepts_present):
+                sub = core_concept[(core_concept["model"] == m) &
+                                    (core_concept["ablated_concept"] == c)]
+                if len(sub) == 0:
+                    continue
+                s = _delta_ci(sub)
+                means[j] = s["mean"]
+                yerr_lo[j] = s["mean"] - s["ci_lo"] if not np.isnan(s["ci_lo"]) else 0.0
+                yerr_hi[j] = s["ci_hi"] - s["mean"] if not np.isnan(s["ci_hi"]) else 0.0
+            mask = ~np.isnan(means)
             positions = np.arange(n_concepts) + (i - n_models/2 + 0.5) * bar_w
-            vals = pivot_c.loc[m].values
-            ax.bar(positions, vals, bar_w, label=MODEL_LABELS[m], color=MODEL_COLORS[m], alpha=0.85)
+            ax.bar(positions[mask], means[mask], bar_w,
+                   yerr=np.vstack([yerr_lo[mask], yerr_hi[mask]]),
+                   capsize=3, ecolor="#444",
+                   label=MODEL_LABELS[m], color=MODEL_COLORS[m], alpha=0.85)
+        ax.axhline(0, color="#444", lw=0.8, alpha=0.6)
         ax.set_xticks(np.arange(n_concepts))
-        ax.set_xticklabels([c.title() for c in pivot_c.columns], fontsize=11)
-        ax.set_ylabel("Mean On-Target Delta", fontsize=13)
+        ax.set_xticklabels([c.title() for c in concepts_present], fontsize=11)
+        ax.set_ylabel("Mean On-Target Delta (95% Wilson CI)", fontsize=12)
         ax.set_title("Per-Concept Ablation Effect by Model", fontsize=14)
         ax.legend(fontsize=10)
         ax.grid(True, alpha=0.3, axis="y")
